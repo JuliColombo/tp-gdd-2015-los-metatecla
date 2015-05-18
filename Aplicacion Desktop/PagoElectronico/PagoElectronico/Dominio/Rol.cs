@@ -5,9 +5,7 @@ using System.Text;
 
 namespace PagoElectronico.Dominio
 {
-    class Banco
+    class Rol
     {
-        public String nombre {set; get;}
-        public String direccion { set; get; } //Aca no es un domicilio tambien ?
     }
 }

@@ -84,6 +84,14 @@
     <Compile Include="Depositos\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dominio\Banco.cs" />
+    <Compile Include="Dominio\Conexion.cs" />
+    <Compile Include="Dominio\Config.cs" />
+    <Compile Include="Dominio\Rol.cs" />
+    <Compile Include="Dominio\Cliente.cs" />
+    <Compile Include="Dominio\Cuenta.cs" />
+    <Compile Include="Dominio\Domicilio.cs" />
+    <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="Facturacion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
