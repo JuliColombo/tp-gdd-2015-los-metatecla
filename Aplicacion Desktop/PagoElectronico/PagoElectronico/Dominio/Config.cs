@@ -12,7 +12,7 @@ namespace PagoElectronico.Dominio
         /*AAAA-DD-MM*/
         static public string fechaSystem()
         {
-            StreamReader config = new StreamReader("../../../../Archivo de configuracion.txt");
+            StreamReader config = new StreamReader("../../Archivo de configuracion.txt");
             string linea = "";
             string buffer = config.ReadLine();
             while (buffer != null)
@@ -35,7 +35,7 @@ namespace PagoElectronico.Dominio
             string pass = "";
             string dtSrc = "";
             string iniCtlg = "";
-            StreamReader config = new StreamReader("../../../../Archivo de configuracion.txt");
+            StreamReader config = new StreamReader("../../Archivo de configuracion.txt");
             string buffer = "";
             buffer = config.ReadLine();
             while (buffer != null)
