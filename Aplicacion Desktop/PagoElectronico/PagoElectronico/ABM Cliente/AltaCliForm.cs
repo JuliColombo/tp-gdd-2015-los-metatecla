@@ -28,19 +28,38 @@ namespace PagoElectronico.ABM_Cliente
             base.OnClosed(e);
         }
 
-  /*    ESTO ESTA SIN TERMINAR (IGUAL NI SE ESTA USANDO)
+  /*    ESTO ESTA SIN TERMINAR (IGUAL NI SE ESTA USANDO) 
         private void cargarCliente()
         {
+            this.cargarDomicilio();
+
+            DB.PaisDB.insertar(boxPais.Text);
+            int idPais = DB.PaisDB.getID(boxPais.Text);
+
+            DB.DocumentoDB.insertar(comboBoxTipoDoc.Text);
+            int idTipoDoc = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
+
             cliente = new PagoElectronico.Dominio.Cliente();
             cliente.nombre = this.boxNombre.Text;
             cliente.apellido = this.boxApellido.Text;
-            cliente.tipo_doc = this.comboBoxTipoDoc.Text;
+            cliente.tipo_doc = idTipoDoc;
             cliente.documento = Convert.ToInt32(this.boxDocumento.Text);
             cliente.domicilio.calle = this.boxCalle.Text;
             cliente.domicilio.numero = Convert.ToInt32(this.boxAltura.Text);
             cliente.domicilio.piso = Convert.ToInt32(this.boxPiso.Text);
         }
-  */
+ */
+
+        private int cargarDomicilio()
+        {
+            PagoElectronico.Dominio.Domicilio domicilio = new PagoElectronico.Dominio.Domicilio();
+            domicilio.calle = boxCalle.Text;
+            domicilio.numero = Convert.ToInt32(boxAltura.Text);
+            domicilio.piso = Convert.ToInt32(boxPiso.Text);
+            domicilio.depto = boxDepto.Text;
+            DB.DomicilioDB.insertar(domicilio);
+            return DB.DomicilioDB.getID(domicilio);
+        }
 
         private bool validarCampos()
         {

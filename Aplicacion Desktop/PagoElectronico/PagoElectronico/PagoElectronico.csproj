@@ -84,6 +84,10 @@
     <Compile Include="Consulta Saldos\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB\ClienteDB.cs" />
+    <Compile Include="DB\DocumentoDB.cs" />
+    <Compile Include="DB\DomicilioDB.cs" />
+    <Compile Include="DB\PaisDB.cs" />
     <Compile Include="Depositos\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
