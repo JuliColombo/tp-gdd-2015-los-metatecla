@@ -16,7 +16,6 @@ namespace PagoElectronico.Dominio
         public SqlCommand command;
         public static SqlConnection cnx;
         public SqlDataReader lector;
-        static string stringConexion;
 
         public Conexion()
         {
@@ -67,7 +66,7 @@ namespace PagoElectronico.Dominio
         {
         try
               { SqlCommand comando = new SqlCommand();
-              //comando.Connection = abrirConexion(); //FIXME Realmente no se como solucionarlo, estoy buscando como se hace
+                comando.Connection = nuevaConexion();
                 comando.CommandText = commandtext;
                 comando.CommandType = CommandType.StoredProcedure;
 
@@ -89,7 +88,7 @@ namespace PagoElectronico.Dominio
         public static void ejecutarStoredProcedureSinRet(string commandtext, List<SqlParameter> ListaParametro)
         {
             SqlCommand comando = new SqlCommand();
-            //comando.Connection = abrirConexion(); //FIXME los mismo que antes
+            comando.Connection = nuevaConexion();
             comando.CommandText = commandtext;
             comando.CommandType = CommandType.StoredProcedure;
 
@@ -100,6 +99,11 @@ namespace PagoElectronico.Dominio
 
             comando.ExecuteNonQuery();
 
+        }
+        //Para ejecutar los store procedures
+        public static SqlConnection nuevaConexion(){
+         cnx.Open();
+         return cnx;
         }
 
     }

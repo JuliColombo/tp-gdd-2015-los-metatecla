@@ -35,5 +35,11 @@ namespace PagoElectronico.DB
             Conexion.ejecutarStoredProcedureSinRet("MERCADONEGRO.AgregarFuncionalidadARol", ListParam);
         
         }
+
+        public void AgregarFuncionalidad(string nombre) {
+            List<SqlParameter> ListParam = new List<SqlParameter>();
+            ListParam.Add(new SqlParameter("@nombre", nombre));
+            Conexion.ejecutarStoredProcedureSinRet("MERCADONEGRO.AgregarFuncionalidadNueva", ListParam);
+        }
     }
 }

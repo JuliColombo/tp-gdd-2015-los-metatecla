@@ -12,6 +12,7 @@ namespace PagoElectronico.ABM_Rol
 {
     public partial class CrearRol : Form
     {
+        
         public CrearRol()
         {
             InitializeComponent();
@@ -20,8 +21,8 @@ namespace PagoElectronico.ABM_Rol
         private void cargarCheckList()
         {
            Funcionalidades.DisplayMember = "Nombre";
-           Funcionalidades.ValueMember = "ID_Funcionalidad";
-           List <Funcionalidad> funcionalidadesExistentes = FuncionalidadDB.obtenerFuncionalidades();
+           Funcionalidades.ValueMember = "Id_Funcionalidad";
+           List<Funcionalidad> funcionalidadesExistentes = FuncionalidadDB.obtenerFuncionalidades();
            for (int i = 0; i < funcionalidadesExistentes.Count(); i++)
             {
                 Funcionalidades.Items.Add(new Funcionalidad(funcionalidadesExistentes[i].id, funcionalidadesExistentes[i].nombre));
@@ -48,8 +49,8 @@ namespace PagoElectronico.ABM_Rol
                       MessageBox.Show("Ocurrio un error al intentar agregar el nuevo Rol", "Error", MessageBoxButtons.OK);
                      }else{
                          MessageBox.Show("Nuevo rol creado en el Sistema", "Exito", MessageBoxButtons.OK);
+                         this.Close();
                      }
-                         //Faltaria el tema de cerrarse la ventana  una vez creado el rol   
                         }
                     }
                 }
@@ -67,6 +68,19 @@ namespace PagoElectronico.ABM_Rol
                 }
                 return funcionalidadesNuevoRol;
             }
+
+        private void botonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BotonNewFunc_Click(object sender, EventArgs e)
+        {
+            NuevaFuncionalidad NewFunc = new NuevaFuncionalidad();
+            NewFunc.Owner = this;
+            NewFunc.ShowDialog();
+            cargarCheckList();
+        }
         }
             
            

@@ -22,3 +22,16 @@ C:\Users\Tincho\Desktop\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectro
 C:\Users\Tincho\Desktop\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb
 C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.ABMRolForm.resources
 C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.CrearRol.resources
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.exe
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.ABMClienteForm.resources
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.AltaCliForm.resources
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.ABMRolForm.resources
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.CrearRol.resources
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.NuevaFuncionalidad.resources
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.InicioForm.resources
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.exe
+C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.pdb

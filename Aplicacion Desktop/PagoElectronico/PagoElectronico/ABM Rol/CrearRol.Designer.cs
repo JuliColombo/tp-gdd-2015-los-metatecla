@@ -37,7 +37,7 @@
             this.botonCrearGuardar = new System.Windows.Forms.Button();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BotonNewFunc = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -110,6 +110,7 @@
             this.botonCancelar.TabIndex = 7;
             this.botonCancelar.Text = "Cancelar";
             this.botonCancelar.UseVisualStyleBackColor = true;
+            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
             // 
             // label4
             // 
@@ -120,21 +121,22 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "* Campos Obligatorios";
             // 
-            // button1
+            // BotonNewFunc
             // 
-            this.button1.Location = new System.Drawing.Point(258, 199);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Nueva Funcionalidad";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BotonNewFunc.Location = new System.Drawing.Point(258, 199);
+            this.BotonNewFunc.Name = "BotonNewFunc";
+            this.BotonNewFunc.Size = new System.Drawing.Size(123, 23);
+            this.BotonNewFunc.TabIndex = 9;
+            this.BotonNewFunc.Text = "Nueva Funcionalidad";
+            this.BotonNewFunc.UseVisualStyleBackColor = true;
+            this.BotonNewFunc.Click += new System.EventHandler(this.BotonNewFunc_Click);
             // 
             // CrearRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(411, 260);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BotonNewFunc);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonCrearGuardar);
@@ -162,6 +164,6 @@
         private System.Windows.Forms.Button botonCrearGuardar;
         private System.Windows.Forms.Button botonCancelar;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BotonNewFunc;
     }
 }
