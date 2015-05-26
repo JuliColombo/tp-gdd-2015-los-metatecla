@@ -62,6 +62,14 @@ namespace PagoElectronico.ABM_Cliente
                 valido = false;
                 labelErrorPiso.Visible = true;
             };
+            if (DB.ClienteDB.mailRepetido(boxMail.Text)){
+                valido = false;
+                labelErrorMail.Visible = true;
+            }
+            if (DB.ClienteDB.documentoRepetido(boxDocumento.Text) && DB.DocumentoDB.validar(comboBoxTipoDoc.Text)){
+                valido = false;
+                labelErrorTyNDoc.Visible = true;
+            }
             return valido;
         }
 
@@ -75,6 +83,7 @@ namespace PagoElectronico.ABM_Cliente
                     double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
                     double id_pais = DB.PaisDB.getID(boxPais.Text);
                     insertarCliente(id_domi, id_docu, id_pais);
+                    this.limpiar();
                 }
             }
 
@@ -109,6 +118,11 @@ namespace PagoElectronico.ABM_Cliente
 
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
+            this.limpiar();
+        }
+
+        private void limpiar()
+        {
             boxPiso.Text = "";
             boxPais.Text = "";
             boxNombre.Text = "";
@@ -120,6 +134,18 @@ namespace PagoElectronico.ABM_Cliente
             boxApellido.Text = "";
             boxAltura.Text = "";
             comboBoxTipoDoc.Text = "";
+            labelErrorMail.Visible = false;
+            labelErrorAlt.Visible = false;
+            labelErrorApe.Visible = false;
+            labelErrorCal.Visible = false;
+            labelErrorDep.Visible = false;
+            labelErrorFec.Visible = false;
+            labelErrorNDoc.Visible = false;
+            labelErrorNom.Visible = false;
+            labelErrorPais.Visible = false;
+            labelErrorPiso.Visible = false;
+            labelErrorTDoc.Visible = false;
+            labelErrorTyNDoc.Visible = false;
         }
 
         private void boxNombre_TextChanged(object sender, EventArgs e)

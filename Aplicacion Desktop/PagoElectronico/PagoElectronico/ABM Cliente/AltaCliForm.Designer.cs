@@ -64,6 +64,7 @@
             this.labelErrorPais = new System.Windows.Forms.Label();
             this.labelErrorFec = new System.Windows.Forms.Label();
             this.boxFecha = new System.Windows.Forms.MaskedTextBox();
+            this.labelErrorTyNDoc = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // boxNombre
@@ -347,9 +348,9 @@
             this.labelErrorMail.ForeColor = System.Drawing.Color.Red;
             this.labelErrorMail.Location = new System.Drawing.Point(283, 117);
             this.labelErrorMail.Name = "labelErrorMail";
-            this.labelErrorMail.Size = new System.Drawing.Size(84, 13);
+            this.labelErrorMail.Size = new System.Drawing.Size(135, 13);
             this.labelErrorMail.TabIndex = 29;
-            this.labelErrorMail.Text = "Falta especificar";
+            this.labelErrorMail.Text = "E-mail repetido. Escoja otro";
             this.labelErrorMail.UseWaitCursor = true;
             this.labelErrorMail.Visible = false;
             // 
@@ -435,11 +436,24 @@
             this.boxFecha.UseWaitCursor = true;
             this.boxFecha.ValidatingType = typeof(System.DateTime);
             // 
+            // labelErrorTyNDoc
+            // 
+            this.labelErrorTyNDoc.AutoSize = true;
+            this.labelErrorTyNDoc.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorTyNDoc.Location = new System.Drawing.Point(283, 78);
+            this.labelErrorTyNDoc.Name = "labelErrorTyNDoc";
+            this.labelErrorTyNDoc.Size = new System.Drawing.Size(171, 13);
+            this.labelErrorTyNDoc.TabIndex = 37;
+            this.labelErrorTyNDoc.Text = "Tipo y nro de documento repetidos";
+            this.labelErrorTyNDoc.UseWaitCursor = true;
+            this.labelErrorTyNDoc.Visible = false;
+            // 
             // AltaCliForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 400);
+            this.Controls.Add(this.labelErrorTyNDoc);
             this.Controls.Add(this.boxFecha);
             this.Controls.Add(this.labelErrorFec);
             this.Controls.Add(this.labelErrorPais);
@@ -523,5 +537,6 @@
         private System.Windows.Forms.Label labelErrorPais;
         private System.Windows.Forms.Label labelErrorFec;
         private System.Windows.Forms.MaskedTextBox boxFecha;
+        private System.Windows.Forms.Label labelErrorTyNDoc;
     }
 }

@@ -13,8 +13,9 @@ namespace PagoElectronico.DB
             conexion.query = string.Format(
                 "SELECT * FROM LOS_METATECLA.PAIS WHERE Pais_Desc LIKE '%{0}'", pais);
             conexion.ejecutarQuery();
-            //conexion.leerReader();
-            return (conexion.leerReader());
+            bool valida = (conexion.leerReader());
+            conexion.cerrarConexion();
+            return valida;
         }
 
         public static double getID(string pais)

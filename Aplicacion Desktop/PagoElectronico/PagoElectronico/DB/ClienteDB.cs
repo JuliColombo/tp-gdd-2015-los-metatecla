@@ -17,5 +17,27 @@ namespace PagoElectronico.DB
                 cliente.fecha_nac, cliente.mail);
             conexion.ejecutarNoQuery();
         }
+
+        public static bool mailRepetido(String mail)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT TOP 1 * FROM LOS_METATECLA.Cliente WHERE Cli_mail = '{0}'", mail);
+            conexion.ejecutarQuery();
+            bool repetido = (conexion.leerReader());
+            conexion.cerrarConexion();
+            return repetido;
+        }
+
+        public static bool documentoRepetido(String documento)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT TOP 1 * FROM LOS_METATECLA.Cliente WHERE Cli_Nro_Doc = '{0}'", documento);
+            conexion.ejecutarQuery();
+            bool repetido = (conexion.leerReader());
+            conexion.cerrarConexion();
+            return repetido;
+        }
     }
 }

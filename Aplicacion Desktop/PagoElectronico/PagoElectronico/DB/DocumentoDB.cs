@@ -13,8 +13,9 @@ namespace PagoElectronico.DB
             conexion.query = string.Format(
                 "SELECT * FROM LOS_METATECLA.Documento WHERE Doc_Tipo_Desc = '{0}'", tipoDoc);
             conexion.ejecutarQuery();
-            //conexion.leerReader();
-            return conexion.leerReader();
+            bool valida = (conexion.leerReader());
+            conexion.cerrarConexion();
+            return valida;
         }
 
         public static double getID(string tipoDoc)
