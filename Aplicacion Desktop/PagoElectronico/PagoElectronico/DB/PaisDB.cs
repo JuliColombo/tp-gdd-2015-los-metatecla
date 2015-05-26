@@ -29,5 +29,16 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             return id;
         }
+
+        public static void cargarPaises(System.Windows.Forms.ComboBox.ObjectCollection paises)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format("SELECT Pais_Desc FROM LOS_METATECLA.PAIS");
+            conexion.ejecutarQuery();
+            while (conexion.leerReader())
+            {
+                paises.Add(conexion.lector.GetString(0));
+            }
+        }
     }
 }

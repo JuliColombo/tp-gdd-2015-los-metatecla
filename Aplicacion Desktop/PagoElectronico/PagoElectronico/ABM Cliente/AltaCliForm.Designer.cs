@@ -38,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxTipoDoc = new System.Windows.Forms.ComboBox();
             this.boxDepto = new System.Windows.Forms.TextBox();
-            this.boxPais = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -65,6 +64,7 @@
             this.labelErrorFec = new System.Windows.Forms.Label();
             this.boxFecha = new System.Windows.Forms.MaskedTextBox();
             this.labelErrorTyNDoc = new System.Windows.Forms.Label();
+            this.comboBoxPais = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // boxNombre
@@ -154,14 +154,6 @@
             this.boxDepto.Size = new System.Drawing.Size(100, 20);
             this.boxDepto.TabIndex = 9;
             this.boxDepto.UseWaitCursor = true;
-            // 
-            // boxPais
-            // 
-            this.boxPais.Location = new System.Drawing.Point(155, 251);
-            this.boxPais.Name = "boxPais";
-            this.boxPais.Size = new System.Drawing.Size(100, 20);
-            this.boxPais.TabIndex = 10;
-            this.boxPais.UseWaitCursor = true;
             // 
             // label2
             // 
@@ -449,11 +441,20 @@
             this.labelErrorTyNDoc.UseWaitCursor = true;
             this.labelErrorTyNDoc.Visible = false;
             // 
+            // comboBoxPais
+            // 
+            this.comboBoxPais.FormattingEnabled = true;
+            this.comboBoxPais.Location = new System.Drawing.Point(155, 251);
+            this.comboBoxPais.Name = "comboBoxPais";
+            this.comboBoxPais.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPais.TabIndex = 38;
+            // 
             // AltaCliForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 400);
+            this.Controls.Add(this.comboBoxPais);
             this.Controls.Add(this.labelErrorTyNDoc);
             this.Controls.Add(this.boxFecha);
             this.Controls.Add(this.labelErrorFec);
@@ -480,7 +481,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.boxPais);
             this.Controls.Add(this.boxDepto);
             this.Controls.Add(this.comboBoxTipoDoc);
             this.Controls.Add(this.label1);
@@ -512,7 +512,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxTipoDoc;
         private System.Windows.Forms.TextBox boxDepto;
-        private System.Windows.Forms.TextBox boxPais;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -539,5 +538,6 @@
         private System.Windows.Forms.Label labelErrorFec;
         private System.Windows.Forms.MaskedTextBox boxFecha;
         private System.Windows.Forms.Label labelErrorTyNDoc;
+        private System.Windows.Forms.ComboBox comboBoxPais;
     }
 }

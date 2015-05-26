@@ -16,6 +16,7 @@ namespace PagoElectronico.ABM_Cliente
         public AltaCliForm()
         {
             InitializeComponent();
+            DB.PaisDB.cargarPaises(comboBoxPais.Items);
         }
 
         protected override void OnClosed(EventArgs e)
@@ -35,7 +36,7 @@ namespace PagoElectronico.ABM_Cliente
                 valido = false;
                 labelErrorApe.Visible = true;
             };
-            if (boxPais.Text == "") {
+            if (comboBoxPais.Text == ""){
                 valido = false;
                 labelErrorPais.Visible = true;
             };
@@ -81,10 +82,10 @@ namespace PagoElectronico.ABM_Cliente
             if (this.validarCampos())
             {
                 int id_domi = insertarDomicilio();
-                if (DB.DocumentoDB.validar(comboBoxTipoDoc.Text) && DB.PaisDB.validar(boxPais.Text))
+                if (DB.DocumentoDB.validar(comboBoxTipoDoc.Text) && DB.PaisDB.validar(comboBoxPais.Text))
                 {
                     double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
-                    double id_pais = DB.PaisDB.getID(boxPais.Text);
+                    double id_pais = DB.PaisDB.getID(comboBoxPais.Text);
                     insertarCliente(id_domi, id_docu, id_pais);
                     this.limpiar();
                 }
@@ -126,7 +127,7 @@ namespace PagoElectronico.ABM_Cliente
         private void limpiar()
         {
             boxPiso.Text = "";
-            boxPais.Text = "";
+            comboBoxPais.Text = "";
             boxNombre.Text = "";
             boxMail.Text = "";
             boxFecha.Text = "";
