@@ -7,20 +7,23 @@ namespace PagoElectronico.DB
 {
     class PaisDB
     {
-        public static void insertar(string pais)
+        public static bool validar(string pais)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "INSERT INTO LOS_METATECLA.PAIS (Pais_Desc) values ('{0}')", pais);
-            conexion.ejecutarNoQuery();
+                "SELECT * FROM LOS_METATECLA.PAIS WHERE Pais_Desc = ' {0}'", pais);
+            conexion.ejecutarQuery();
+            //conexion.leerReader();
+            return (conexion.leerReader());
         }
 
         public static int getID(string pais)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT Pais_Codigo FROM LOS_METATECLA.PAIS WHERE Pais_Desc = '{0}')", pais);
+                "SELECT TOP 1 Pais_Codigo FROM LOS_METATECLA.PAIS WHERE Pais_Desc = ' {0}')", pais);
             conexion.ejecutarQuery();
+            conexion.leerReader();
             int id = conexion.lector.GetInt32(0);
             conexion.cerrarConexion();
             return id;

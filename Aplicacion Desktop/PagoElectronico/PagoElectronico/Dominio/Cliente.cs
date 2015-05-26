@@ -9,10 +9,10 @@ namespace PagoElectronico.Dominio
     {
         public String nombre { get; set; }
         public String apellido { get; set; }
-        public String tipo_doc { get; set; }
+        public double tipo_doc { get; set; }
         public int documento { get; set; }
-        public Domicilio domicilio { get; set; }
-        public String pais { get; set; } //Fijarse si conviene que sea una clase aparte
+        public int domicilio { get; set; }
+        public int pais { get; set; } //Fijarse si conviene que sea una clase aparte
         public String mail { get; set; }
         public DateTime fecha_nac { get; set; }
     }

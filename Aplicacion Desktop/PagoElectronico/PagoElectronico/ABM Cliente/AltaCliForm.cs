@@ -50,17 +50,6 @@ namespace PagoElectronico.ABM_Cliente
         }
  */
 
-        private int cargarDomicilio()
-        {
-            PagoElectronico.Dominio.Domicilio domicilio = new PagoElectronico.Dominio.Domicilio();
-            domicilio.calle = boxCalle.Text;
-            domicilio.numero = Convert.ToInt32(boxAltura.Text);
-            domicilio.piso = Convert.ToInt32(boxPiso.Text);
-            domicilio.depto = boxDepto.Text;
-            DB.DomicilioDB.insertar(domicilio);
-            return DB.DomicilioDB.getID(domicilio);
-        }
-
         private bool validarCampos()
         {
             if (boxNombre.Text == "") {return false;};
@@ -75,63 +64,73 @@ namespace PagoElectronico.ABM_Cliente
             return true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_confirmar_Click(object sender, EventArgs e)
         {
             this.validarCampos();
-            int id_domicilio = this.insertarDomicilio();
-            int id_pais = this.insertarPais();
-            int tipo_doc = this.insertarDocumento();
-            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
-            /*FALTA LA FECHA DE NACIMIENTO*/
-            conexion.query = "INSERT INTO LOS_METATECLA.Cliente (Cli_Nombre, Cli_Apellido, Cli_Tipo_Doc_Cod, Cli_Nro_Doc, " + 
-                "Cli_Pais_Codigo, Id_Domicilio, Cli_Mail) values ('" + boxNombre.Text + "', '" + boxApellido.Text +
-                "', '" + tipo_doc + "', '" + boxDocumento.Text + "', '" + id_pais + "', '" + id_domicilio + "', '" +
-                boxMail.Text + "')";
-            conexion.ejecutarNoQuery();
+            
+            int id_domi = insertarDomicilio();
+            
+                if (DB.DocumentoDB.validar(comboBoxTipoDoc.Text))
+                {
+                    double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
+                    if (DB.PaisDB.validar(boxPais.Text))
+                    {
+                    
+                        int id_pais = DB.PaisDB.getID(boxPais.Text);
+                        insertarCliente(id_domi, id_docu, id_pais);
+                    }
+                    else
+                    {
+                        label12.Text = "_" + boxPais.Text;
+                        boxFecha.Text = "Rompió pais";
+                    }
+                }
+                else
+                {
+                    boxFecha.Text = "Se rompió";
+                }
+
+        }
+
+        private void insertarCliente(int id_domi, double id_docu, int id_pais)
+        {
+            PagoElectronico.Dominio.Cliente cliente = new PagoElectronico.Dominio.Cliente();
+            cliente.nombre = this.boxNombre.Text;
+            cliente.apellido = this.boxApellido.Text;
+            cliente.mail = this.boxMail.Text;
+            cliente.domicilio = id_domi;
+            cliente.tipo_doc = id_docu;
+            cliente.pais = id_pais;
+            cliente.documento = Convert.ToInt32(boxDocumento.Text);
+        
+            DB.ClienteDB.insertar(cliente);
         }
 
         private int insertarDomicilio()
         {
-            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
-            conexion.query = "INSERT INTO LOS_METATECLA.Domicilio (Dom_Calle, Dom_Nro, Dom_Piso, Dom_Depto) values ('" + 
-                boxCalle.Text + "', '" + boxAltura.Text + "', '" + boxPiso.Text + "', '" + boxDepto.Text + "')";
-            conexion.ejecutarNoQuery();
-            conexion.query = "SELECT Id_Domicilio FROM LOS_METATECLA.Domicilio WHERE Dom_Calle = '" + boxCalle.Text +
-                "' AND Dom_Nro = '" + boxAltura.Text + "' AND Dom_Piso = '" + boxPiso.Text + "' AND Dom_Depto = '" 
-                + boxDepto.Text + "'";
-            conexion.ejecutarQuery();
-            int id = conexion.lector.GetInt32(0);
-            conexion.cerrarConexion();
+            PagoElectronico.Dominio.Domicilio domicilio = new PagoElectronico.Dominio.Domicilio();
+            domicilio.calle = boxCalle.Text;
+            domicilio.numero = Convert.ToInt32(boxAltura.Text);
+            domicilio.piso = Convert.ToInt32(boxPiso.Text);
+            domicilio.depto = boxDepto.Text;
+            DB.DomicilioDB.insertar(domicilio);
+            int id = DB.DomicilioDB.getID(domicilio);
             return id;
         }
 
-        private int insertarPais()
+        private int validarPais()
         {
-            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
-            conexion.query = "INSERT INTO LOS_METATECLA.PAIS (Pais_Desc) values ('" + boxPais.Text + "')";
-            conexion.ejecutarNoQuery();
-            conexion = new PagoElectronico.Dominio.Conexion();
-            conexion.query = "SELECT Pais_Codigo FROM LOS_METATECLA.Pais WHERE Pais_desc = '" + boxPais.Text + "'";
-            conexion.ejecutarQuery();
-            int id = conexion.lector.GetInt32(0);
-            conexion.cerrarConexion();
-            return id;
+            DB.PaisDB.validar(boxPais.Text);
+            return DB.PaisDB.getID(boxPais.Text);
         }
 
-        private int insertarDocumento()
+        private double validarDocumento()
         {
-            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
-            conexion.query = "INSERT INTO LOS_METATECLA.Documento (Doc_Tipo_Desc) values ('" + comboBoxTipoDoc.Text + "')";
-            conexion.ejecutarNoQuery();
-            conexion = new PagoElectronico.Dominio.Conexion();
-            conexion.query = "SELECT Doc_Tipo_Cod FROM LOS_METATECLA.Documento WHERE Doc_Tipo_Desc = '" + comboBoxTipoDoc.Text + "'";
-            conexion.ejecutarQuery();
-            int id = conexion.lector.GetInt32(0);
-            conexion.cerrarConexion();
-            return id;
+            DB.DocumentoDB.validar(comboBoxTipoDoc.Text);
+            return DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_limpiar_Click(object sender, EventArgs e)
         {
             boxPiso.Text = "";
             boxPais.Text = "";
@@ -144,6 +143,16 @@ namespace PagoElectronico.ABM_Cliente
             boxApellido.Text = "";
             boxAltura.Text = "";
             comboBoxTipoDoc.Text = "";
+        }
+
+        private void boxNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void boxFecha_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -12,7 +12,7 @@ namespace PagoElectronico.DB
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
                 "INSERT INTO LOS_METATECLA.Domicilio (Dom_Calle, Dom_Nro, Dom_Piso, Dom_Depto) " +
-                "values ('{0}', '{1}', '{2}', '{3}')",
+                "values ('{0}', {1}, {2}, '{3}')",
                 domicilio.calle, domicilio.numero, domicilio.piso, domicilio.depto);
             conexion.ejecutarNoQuery();
         }
@@ -21,10 +21,10 @@ namespace PagoElectronico.DB
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT Id_Domicilio FROM LOS_METATECLA.Domicilio" + 
-                "WHERE Dom_Calle = '{0}') AND Dom_Nro = '{1}' AND Dom_Piso = '{2}' AND Dom_Depto = '{3}'", 
+                "SELECT TOP 1 Id_Domicilio FROM LOS_METATECLA.Domicilio WHERE Dom_Calle = '{0}' AND Dom_Nro = '{1}' AND Dom_Piso = '{2}' AND Dom_Depto = '{3}'", 
                 domicilio.calle, domicilio.numero, domicilio.piso, domicilio.depto);
             conexion.ejecutarQuery();
+            conexion.leerReader();
             int id = conexion.lector.GetInt32(0);
             conexion.cerrarConexion();
             return id;

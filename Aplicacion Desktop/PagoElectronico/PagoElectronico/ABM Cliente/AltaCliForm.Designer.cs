@@ -50,9 +50,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_confirmar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_limpiar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // boxNombre
@@ -61,6 +61,7 @@
             this.boxNombre.Name = "boxNombre";
             this.boxNombre.Size = new System.Drawing.Size(100, 20);
             this.boxNombre.TabIndex = 0;
+            this.boxNombre.TextChanged += new System.EventHandler(this.boxNombre_TextChanged);
             // 
             // boxApellido
             // 
@@ -143,6 +144,7 @@
             this.boxFecha.Name = "boxFecha";
             this.boxFecha.Size = new System.Drawing.Size(100, 20);
             this.boxFecha.TabIndex = 11;
+            this.boxFecha.TextChanged += new System.EventHandler(this.boxFecha_TextChanged);
             // 
             // label2
             // 
@@ -234,15 +236,15 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "Fecha de nacimiento";
             // 
-            // button1
+            // btn_confirmar
             // 
-            this.button1.Location = new System.Drawing.Point(180, 308);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Confirmar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_confirmar.Location = new System.Drawing.Point(180, 308);
+            this.btn_confirmar.Name = "btn_confirmar";
+            this.btn_confirmar.Size = new System.Drawing.Size(75, 23);
+            this.btn_confirmar.TabIndex = 22;
+            this.btn_confirmar.Text = "Confirmar";
+            this.btn_confirmar.UseVisualStyleBackColor = true;
+            this.btn_confirmar.Click += new System.EventHandler(this.btn_confirmar_Click);
             // 
             // label12
             // 
@@ -253,24 +255,24 @@
             this.label12.TabIndex = 23;
             this.label12.Text = "* Campos obligatorios";
             // 
-            // button2
+            // btn_limpiar
             // 
-            this.button2.Location = new System.Drawing.Point(39, 308);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_limpiar.Location = new System.Drawing.Point(39, 308);
+            this.btn_limpiar.Name = "btn_limpiar";
+            this.btn_limpiar.Size = new System.Drawing.Size(75, 23);
+            this.btn_limpiar.TabIndex = 24;
+            this.btn_limpiar.Text = "Limpiar";
+            this.btn_limpiar.UseVisualStyleBackColor = true;
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // AltaCliForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 363);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_limpiar);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_confirmar);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -325,8 +327,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_confirmar;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_limpiar;
     }
 }

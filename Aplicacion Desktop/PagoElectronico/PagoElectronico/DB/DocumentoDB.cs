@@ -7,21 +7,24 @@ namespace PagoElectronico.DB
 {
     class DocumentoDB
     {
-        public static void insertar(string tipoDoc)
+        public static bool validar(string tipoDoc)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "INSERT INTO LOS_METATECLA.Documento (Doc_Tipo_Desc) values ('{0}')", tipoDoc);
-            conexion.ejecutarNoQuery();
+                "SELECT * FROM LOS_METATECLA.Documento WHERE Doc_Tipo_Desc = '{0}'", tipoDoc);
+            conexion.ejecutarQuery();
+            //conexion.leerReader();
+            return conexion.leerReader();
         }
 
-        public static int getID(string tipoDoc)
+        public static double getID(string tipoDoc)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT Doc_Tipo_Cod FROM LOS_METATECLA.Documento WHERE Doc_Tipo_Desc = '{0}')", tipoDoc);
+                "SELECT TOP 1 Doc_Tipo_Cod FROM LOS_METATECLA.Documento WHERE Doc_Tipo_Desc = '{0}'", tipoDoc);
             conexion.ejecutarQuery();
-            int id = conexion.lector.GetInt32(0);
+            conexion.leerReader();
+            double id = Convert.ToDouble(conexion.lector[0]);
             conexion.cerrarConexion();
             return id;
         }
