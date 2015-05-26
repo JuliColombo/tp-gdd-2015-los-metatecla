@@ -20,12 +20,12 @@ namespace PagoElectronico.ABM_Rol
         }
         private void cargarCheckList()
         {
-           Funcionalidades.DisplayMember = "Nombre";
-           Funcionalidades.ValueMember = "Id_Funcionalidad";
+           Funcionalidades.DisplayMember = "nombre";
+           Funcionalidades.ValueMember = "id";
            List<Funcionalidad> funcionalidadesExistentes = FuncionalidadDB.obtenerFuncionalidades();
            for (int i = 0; i < funcionalidadesExistentes.Count(); i++)
-            {
-                Funcionalidades.Items.Add(new Funcionalidad(funcionalidadesExistentes[i].id, funcionalidadesExistentes[i].nombre));
+            { 
+               Funcionalidades.Items.Add(new Funcionalidad(funcionalidadesExistentes[i].id, funcionalidadesExistentes[i].nombre));
             }
         }
 

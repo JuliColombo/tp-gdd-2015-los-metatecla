@@ -32,6 +32,7 @@ namespace PagoElectronico.ABM_Rol
                 }
                 else{//3. Inserto la funcionalidad en su tabla
                     DBFuncionalidad.AgregarFuncionalidad(textNombreFunc.Text);
+                    this.Close();
                 }
         }
     }
