@@ -30,17 +30,19 @@ namespace PagoElectronico.DB
         public int AgregarRol(string nombre,bool estado,List<Funcionalidad> funcionalidadesRol){ //No se si esta bien hecho el tema de ejecutarStoredProcedure
             List<SqlParameter> ListParam = new List<SqlParameter>();
             int respuesta = -1;
+            int retorno = -1;
             //1. Primero agrego a la tabla de roles
             ListParam.Add(new SqlParameter("@nombre", nombre));
             ListParam.Add(new SqlParameter("@estado", estado));
+            ListParam.Add(new SqlParameter("@retorno", retorno));
             respuesta = (int)Conexion.ejecutarStoredProcedure("LOS_METATECLA.AgregarNuevoRol", ListParam);
             //2. Verifico que se haya agregado
-            if(respuesta != -1) {
+            if(retorno != -1) {
             //3. Agrego a Funcionalidades_Rol todas las funcionalidades de este rol
                 FuncionalidadDB DBFuncionalidad = new FuncionalidadDB();
                 foreach (Funcionalidad funcionalidad in funcionalidadesRol)
                     {
-                        DBFuncionalidad.AgregarFuncionalidadDelRol(respuesta, funcionalidad);
+                        DBFuncionalidad.AgregarFuncionalidadDelRol(retorno, funcionalidad);
                     } return 1;
             }
             return 0;
