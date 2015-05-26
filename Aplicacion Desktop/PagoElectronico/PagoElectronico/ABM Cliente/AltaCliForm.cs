@@ -52,30 +52,59 @@ namespace PagoElectronico.ABM_Cliente
 
         private bool validarCampos()
         {
-            if (boxNombre.Text == "") {return false;};
-            if (boxApellido.Text == "") {return false;};
-            if (boxPais.Text == "") {return false;};
-            if (comboBoxTipoDoc.Text == "") {return false;};
-            if (boxDocumento.Text == "") {return false;};
-            if (boxCalle.Text == "") {return false;};
-            if (boxAltura.Text == "") { return false; };
-            if (boxDepto.Text == "") { return false; };
-            if (boxPiso.Text == "") { return false; };
-            return true;
+            bool valido = true;
+            if (boxNombre.Text == "") {
+                valido = false;
+                labelErrorNom.Visible = true;
+            };
+            if (boxApellido.Text == "") {
+                valido = false;
+                labelErrorApe.Visible = true;
+            };
+            if (boxPais.Text == "") {
+                valido = false;
+                labelErrorPais.Visible = true;
+            };
+            if (comboBoxTipoDoc.Text == "") {
+                valido = false;
+                labelErrorTDoc.Visible = true;
+            };
+            if (boxDocumento.Text == "") {
+                valido = false;
+                labelErrorNDoc.Visible = true;
+            };
+            if (boxCalle.Text == "") {
+                valido = false;
+                labelErrorCal.Visible = true;
+            };
+            if (boxAltura.Text == "") {
+                valido = false;
+                labelErrorAlt.Visible = true;
+            };
+            if (boxDepto.Text == "") {
+                valido = false;
+                labelErrorDep.Visible = true;
+            };
+            if (boxPiso.Text == "") {
+                valido = false;
+                labelErrorPiso.Visible = true;
+            };
+            return valido;
         }
 
         private void btn_confirmar_Click(object sender, EventArgs e)
         {
-            this.validarCampos();
-            
-            int id_domi = insertarDomicilio();
-            
+            if (this.validarCampos())
+            {
+
+                int id_domi = insertarDomicilio();
+
                 if (DB.DocumentoDB.validar(comboBoxTipoDoc.Text))
                 {
                     double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
                     if (DB.PaisDB.validar(boxPais.Text))
                     {
-                    
+
                         int id_pais = DB.PaisDB.getID(boxPais.Text);
                         insertarCliente(id_domi, id_docu, id_pais);
                     }
@@ -89,6 +118,7 @@ namespace PagoElectronico.ABM_Cliente
                 {
                     boxFecha.Text = "Se rompió";
                 }
+            }
 
         }
 

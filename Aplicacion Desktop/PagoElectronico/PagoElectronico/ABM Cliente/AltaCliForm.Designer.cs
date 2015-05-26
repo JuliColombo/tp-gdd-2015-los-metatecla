@@ -53,6 +53,17 @@
             this.btn_confirmar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.btn_limpiar = new System.Windows.Forms.Button();
+            this.labelErrorNom = new System.Windows.Forms.Label();
+            this.labelErrorApe = new System.Windows.Forms.Label();
+            this.labelErrorTDoc = new System.Windows.Forms.Label();
+            this.labelErrorNDoc = new System.Windows.Forms.Label();
+            this.labelErrorMail = new System.Windows.Forms.Label();
+            this.labelErrorCal = new System.Windows.Forms.Label();
+            this.labelErrorAlt = new System.Windows.Forms.Label();
+            this.labelErrorPiso = new System.Windows.Forms.Label();
+            this.labelErrorDep = new System.Windows.Forms.Label();
+            this.labelErrorPais = new System.Windows.Forms.Label();
+            this.labelErrorFec = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // boxNombre
@@ -61,6 +72,7 @@
             this.boxNombre.Name = "boxNombre";
             this.boxNombre.Size = new System.Drawing.Size(100, 20);
             this.boxNombre.TabIndex = 0;
+            this.boxNombre.UseWaitCursor = true;
             this.boxNombre.TextChanged += new System.EventHandler(this.boxNombre_TextChanged);
             // 
             // boxApellido
@@ -69,6 +81,7 @@
             this.boxApellido.Name = "boxApellido";
             this.boxApellido.Size = new System.Drawing.Size(100, 20);
             this.boxApellido.TabIndex = 1;
+            this.boxApellido.UseWaitCursor = true;
             // 
             // boxDocumento
             // 
@@ -76,6 +89,7 @@
             this.boxDocumento.Name = "boxDocumento";
             this.boxDocumento.Size = new System.Drawing.Size(100, 20);
             this.boxDocumento.TabIndex = 2;
+            this.boxDocumento.UseWaitCursor = true;
             // 
             // boxMail
             // 
@@ -83,6 +97,7 @@
             this.boxMail.Name = "boxMail";
             this.boxMail.Size = new System.Drawing.Size(100, 20);
             this.boxMail.TabIndex = 3;
+            this.boxMail.UseWaitCursor = true;
             // 
             // boxCalle
             // 
@@ -90,6 +105,7 @@
             this.boxCalle.Name = "boxCalle";
             this.boxCalle.Size = new System.Drawing.Size(100, 20);
             this.boxCalle.TabIndex = 4;
+            this.boxCalle.UseWaitCursor = true;
             // 
             // boxAltura
             // 
@@ -97,6 +113,7 @@
             this.boxAltura.Name = "boxAltura";
             this.boxAltura.Size = new System.Drawing.Size(100, 20);
             this.boxAltura.TabIndex = 5;
+            this.boxAltura.UseWaitCursor = true;
             // 
             // boxPiso
             // 
@@ -104,6 +121,7 @@
             this.boxPiso.Name = "boxPiso";
             this.boxPiso.Size = new System.Drawing.Size(100, 20);
             this.boxPiso.TabIndex = 6;
+            this.boxPiso.UseWaitCursor = true;
             // 
             // label1
             // 
@@ -113,6 +131,7 @@
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Nombre*";
+            this.label1.UseWaitCursor = true;
             // 
             // comboBoxTipoDoc
             // 
@@ -123,6 +142,7 @@
             this.comboBoxTipoDoc.Name = "comboBoxTipoDoc";
             this.comboBoxTipoDoc.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTipoDoc.TabIndex = 8;
+            this.comboBoxTipoDoc.UseWaitCursor = true;
             // 
             // boxDepto
             // 
@@ -130,6 +150,7 @@
             this.boxDepto.Name = "boxDepto";
             this.boxDepto.Size = new System.Drawing.Size(100, 20);
             this.boxDepto.TabIndex = 9;
+            this.boxDepto.UseWaitCursor = true;
             // 
             // boxPais
             // 
@@ -137,6 +158,7 @@
             this.boxPais.Name = "boxPais";
             this.boxPais.Size = new System.Drawing.Size(100, 20);
             this.boxPais.TabIndex = 10;
+            this.boxPais.UseWaitCursor = true;
             // 
             // boxFecha
             // 
@@ -144,6 +166,7 @@
             this.boxFecha.Name = "boxFecha";
             this.boxFecha.Size = new System.Drawing.Size(100, 20);
             this.boxFecha.TabIndex = 11;
+            this.boxFecha.UseWaitCursor = true;
             this.boxFecha.TextChanged += new System.EventHandler(this.boxFecha_TextChanged);
             // 
             // label2
@@ -154,6 +177,7 @@
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 12;
             this.label2.Text = "Apellido*";
+            this.label2.UseWaitCursor = true;
             // 
             // label3
             // 
@@ -163,6 +187,7 @@
             this.label3.Size = new System.Drawing.Size(103, 13);
             this.label3.TabIndex = 13;
             this.label3.Text = "Tipo de documento*";
+            this.label3.UseWaitCursor = true;
             // 
             // label4
             // 
@@ -172,6 +197,7 @@
             this.label4.Size = new System.Drawing.Size(99, 13);
             this.label4.TabIndex = 14;
             this.label4.Text = "Nro de documento*";
+            this.label4.UseWaitCursor = true;
             // 
             // label5
             // 
@@ -181,6 +207,7 @@
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "E-mail";
+            this.label5.UseWaitCursor = true;
             // 
             // label6
             // 
@@ -190,6 +217,7 @@
             this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 16;
             this.label6.Text = "Altura*";
+            this.label6.UseWaitCursor = true;
             // 
             // label7
             // 
@@ -199,6 +227,7 @@
             this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 17;
             this.label7.Text = "Calle*";
+            this.label7.UseWaitCursor = true;
             // 
             // label8
             // 
@@ -208,6 +237,7 @@
             this.label8.Size = new System.Drawing.Size(31, 13);
             this.label8.TabIndex = 18;
             this.label8.Text = "Piso*";
+            this.label8.UseWaitCursor = true;
             // 
             // label9
             // 
@@ -217,6 +247,7 @@
             this.label9.Size = new System.Drawing.Size(40, 13);
             this.label9.TabIndex = 19;
             this.label9.Text = "Depto*";
+            this.label9.UseWaitCursor = true;
             // 
             // label10
             // 
@@ -226,6 +257,7 @@
             this.label10.Size = new System.Drawing.Size(31, 13);
             this.label10.TabIndex = 20;
             this.label10.Text = "Pais*";
+            this.label10.UseWaitCursor = true;
             // 
             // label11
             // 
@@ -235,6 +267,7 @@
             this.label11.Size = new System.Drawing.Size(106, 13);
             this.label11.TabIndex = 21;
             this.label11.Text = "Fecha de nacimiento";
+            this.label11.UseWaitCursor = true;
             // 
             // btn_confirmar
             // 
@@ -244,6 +277,7 @@
             this.btn_confirmar.TabIndex = 22;
             this.btn_confirmar.Text = "Confirmar";
             this.btn_confirmar.UseVisualStyleBackColor = true;
+            this.btn_confirmar.UseWaitCursor = true;
             this.btn_confirmar.Click += new System.EventHandler(this.btn_confirmar_Click);
             // 
             // label12
@@ -254,6 +288,7 @@
             this.label12.Size = new System.Drawing.Size(108, 13);
             this.label12.TabIndex = 23;
             this.label12.Text = "* Campos obligatorios";
+            this.label12.UseWaitCursor = true;
             // 
             // btn_limpiar
             // 
@@ -263,13 +298,157 @@
             this.btn_limpiar.TabIndex = 24;
             this.btn_limpiar.Text = "Limpiar";
             this.btn_limpiar.UseVisualStyleBackColor = true;
+            this.btn_limpiar.UseWaitCursor = true;
             this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
+            // 
+            // labelErrorNom
+            // 
+            this.labelErrorNom.AutoSize = true;
+            this.labelErrorNom.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorNom.Location = new System.Drawing.Point(283, 12);
+            this.labelErrorNom.Name = "labelErrorNom";
+            this.labelErrorNom.Size = new System.Drawing.Size(124, 13);
+            this.labelErrorNom.TabIndex = 25;
+            this.labelErrorNom.Text = "Falta especificar Nombre";
+            this.labelErrorNom.UseWaitCursor = true;
+            this.labelErrorNom.Visible = false;
+            // 
+            // labelErrorApe
+            // 
+            this.labelErrorApe.AutoSize = true;
+            this.labelErrorApe.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorApe.Location = new System.Drawing.Point(283, 38);
+            this.labelErrorApe.Name = "labelErrorApe";
+            this.labelErrorApe.Size = new System.Drawing.Size(124, 13);
+            this.labelErrorApe.TabIndex = 26;
+            this.labelErrorApe.Text = "Falta especificar Apellido";
+            this.labelErrorApe.UseWaitCursor = true;
+            this.labelErrorApe.Visible = false;
+            // 
+            // labelErrorTDoc
+            // 
+            this.labelErrorTDoc.AutoSize = true;
+            this.labelErrorTDoc.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorTDoc.Location = new System.Drawing.Point(283, 64);
+            this.labelErrorTDoc.Name = "labelErrorTDoc";
+            this.labelErrorTDoc.Size = new System.Drawing.Size(179, 13);
+            this.labelErrorTDoc.TabIndex = 27;
+            this.labelErrorTDoc.Text = "Falta especificar Tipo de documento";
+            this.labelErrorTDoc.UseWaitCursor = true;
+            this.labelErrorTDoc.Visible = false;
+            // 
+            // labelErrorNDoc
+            // 
+            this.labelErrorNDoc.AutoSize = true;
+            this.labelErrorNDoc.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorNDoc.Location = new System.Drawing.Point(283, 91);
+            this.labelErrorNDoc.Name = "labelErrorNDoc";
+            this.labelErrorNDoc.Size = new System.Drawing.Size(175, 13);
+            this.labelErrorNDoc.TabIndex = 28;
+            this.labelErrorNDoc.Text = "Falta especificar Nro de documento";
+            this.labelErrorNDoc.UseWaitCursor = true;
+            this.labelErrorNDoc.Visible = false;
+            // 
+            // labelErrorMail
+            // 
+            this.labelErrorMail.AutoSize = true;
+            this.labelErrorMail.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorMail.Location = new System.Drawing.Point(283, 117);
+            this.labelErrorMail.Name = "labelErrorMail";
+            this.labelErrorMail.Size = new System.Drawing.Size(84, 13);
+            this.labelErrorMail.TabIndex = 29;
+            this.labelErrorMail.Text = "Falta especificar";
+            this.labelErrorMail.UseWaitCursor = true;
+            this.labelErrorMail.Visible = false;
+            // 
+            // labelErrorCal
+            // 
+            this.labelErrorCal.AutoSize = true;
+            this.labelErrorCal.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorCal.Location = new System.Drawing.Point(283, 143);
+            this.labelErrorCal.Name = "labelErrorCal";
+            this.labelErrorCal.Size = new System.Drawing.Size(110, 13);
+            this.labelErrorCal.TabIndex = 30;
+            this.labelErrorCal.Text = "Falta especificar Calle";
+            this.labelErrorCal.UseWaitCursor = true;
+            this.labelErrorCal.Visible = false;
+            // 
+            // labelErrorAlt
+            // 
+            this.labelErrorAlt.AutoSize = true;
+            this.labelErrorAlt.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorAlt.Location = new System.Drawing.Point(283, 170);
+            this.labelErrorAlt.Name = "labelErrorAlt";
+            this.labelErrorAlt.Size = new System.Drawing.Size(114, 13);
+            this.labelErrorAlt.TabIndex = 31;
+            this.labelErrorAlt.Text = "Falta especificar Altura";
+            this.labelErrorAlt.UseWaitCursor = true;
+            this.labelErrorAlt.Visible = false;
+            // 
+            // labelErrorPiso
+            // 
+            this.labelErrorPiso.AutoSize = true;
+            this.labelErrorPiso.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorPiso.Location = new System.Drawing.Point(283, 197);
+            this.labelErrorPiso.Name = "labelErrorPiso";
+            this.labelErrorPiso.Size = new System.Drawing.Size(107, 13);
+            this.labelErrorPiso.TabIndex = 32;
+            this.labelErrorPiso.Text = "Falta especificar Piso";
+            this.labelErrorPiso.UseWaitCursor = true;
+            this.labelErrorPiso.Visible = false;
+            // 
+            // labelErrorDep
+            // 
+            this.labelErrorDep.AutoSize = true;
+            this.labelErrorDep.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorDep.Location = new System.Drawing.Point(283, 224);
+            this.labelErrorDep.Name = "labelErrorDep";
+            this.labelErrorDep.Size = new System.Drawing.Size(116, 13);
+            this.labelErrorDep.TabIndex = 33;
+            this.labelErrorDep.Text = "Falta especificar Depto";
+            this.labelErrorDep.UseWaitCursor = true;
+            this.labelErrorDep.Visible = false;
+            // 
+            // labelErrorPais
+            // 
+            this.labelErrorPais.AutoSize = true;
+            this.labelErrorPais.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorPais.Location = new System.Drawing.Point(283, 251);
+            this.labelErrorPais.Name = "labelErrorPais";
+            this.labelErrorPais.Size = new System.Drawing.Size(107, 13);
+            this.labelErrorPais.TabIndex = 34;
+            this.labelErrorPais.Text = "Falta especificar Pais";
+            this.labelErrorPais.UseWaitCursor = true;
+            this.labelErrorPais.Visible = false;
+            // 
+            // labelErrorFec
+            // 
+            this.labelErrorFec.AutoSize = true;
+            this.labelErrorFec.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorFec.Location = new System.Drawing.Point(283, 278);
+            this.labelErrorFec.Name = "labelErrorFec";
+            this.labelErrorFec.Size = new System.Drawing.Size(84, 13);
+            this.labelErrorFec.TabIndex = 35;
+            this.labelErrorFec.Text = "Falta especificar";
+            this.labelErrorFec.UseWaitCursor = true;
+            this.labelErrorFec.Visible = false;
             // 
             // AltaCliForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 363);
+            this.ClientSize = new System.Drawing.Size(473, 363);
+            this.Controls.Add(this.labelErrorFec);
+            this.Controls.Add(this.labelErrorPais);
+            this.Controls.Add(this.labelErrorDep);
+            this.Controls.Add(this.labelErrorPiso);
+            this.Controls.Add(this.labelErrorAlt);
+            this.Controls.Add(this.labelErrorCal);
+            this.Controls.Add(this.labelErrorMail);
+            this.Controls.Add(this.labelErrorNDoc);
+            this.Controls.Add(this.labelErrorTDoc);
+            this.Controls.Add(this.labelErrorApe);
+            this.Controls.Add(this.labelErrorNom);
             this.Controls.Add(this.btn_limpiar);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btn_confirmar);
@@ -297,6 +476,7 @@
             this.Controls.Add(this.boxNombre);
             this.Name = "AltaCliForm";
             this.Text = "AltaCliForm";
+            this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.AltaCliForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -330,5 +510,16 @@
         private System.Windows.Forms.Button btn_confirmar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btn_limpiar;
+        private System.Windows.Forms.Label labelErrorNom;
+        private System.Windows.Forms.Label labelErrorApe;
+        private System.Windows.Forms.Label labelErrorTDoc;
+        private System.Windows.Forms.Label labelErrorNDoc;
+        private System.Windows.Forms.Label labelErrorMail;
+        private System.Windows.Forms.Label labelErrorCal;
+        private System.Windows.Forms.Label labelErrorAlt;
+        private System.Windows.Forms.Label labelErrorPiso;
+        private System.Windows.Forms.Label labelErrorDep;
+        private System.Windows.Forms.Label labelErrorPais;
+        private System.Windows.Forms.Label labelErrorFec;
     }
 }
