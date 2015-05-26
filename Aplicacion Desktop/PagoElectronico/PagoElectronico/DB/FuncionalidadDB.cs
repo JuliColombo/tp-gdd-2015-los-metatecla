@@ -17,7 +17,7 @@ namespace PagoElectronico.DB
             conexion.ejecutarQuery();
             if (conexion.lector.HasRows)
             {
-                while (conexion.leerReader())
+                while (conexion.lector.Read())
                 {
                     Funcionalidad func = new Funcionalidad((int)(decimal)conexion.lector["Id_Funcionalidad"], (string)conexion.lector["Nombre"]);
                     funcionalidades.Add(func);
