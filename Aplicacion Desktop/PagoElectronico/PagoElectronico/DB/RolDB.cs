@@ -17,7 +17,7 @@ namespace PagoElectronico.DB
             conexion.ejecutarQuery();
             if (conexion.lector.HasRows)
             {
-                while (conexion.leerReader())
+                while (conexion.lector.Read())
                 {
                     Rol rol = new Rol((int)(decimal)conexion.lector["Id_Rol"], (string)conexion.lector["Nombre"], (bool)conexion.lector["Habilitado"]);
                     roles.Add(rol);
@@ -33,7 +33,7 @@ namespace PagoElectronico.DB
             //1. Primero agrego a la tabla de roles
             ListParam.Add(new SqlParameter("@nombre", nombre));
             ListParam.Add(new SqlParameter("@estado", estado));
-            respuesta = (int)Conexion.ejecutarStoredProcedure("MERCADONEGRO.agregarRolNuevo", ListParam);
+            respuesta = (int)Conexion.ejecutarStoredProcedure("LOS_METATECLA.AgregarNuevoRol", ListParam);
             //2. Verifico que se haya agregado
             if(respuesta != -1) {
             //3. Agrego a Funcionalidades_Rol todas las funcionalidades de este rol
