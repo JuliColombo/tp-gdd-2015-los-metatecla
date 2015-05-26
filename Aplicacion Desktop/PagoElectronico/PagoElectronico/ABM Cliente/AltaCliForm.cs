@@ -18,37 +18,10 @@ namespace PagoElectronico.ABM_Cliente
             InitializeComponent();
         }
 
-        private void AltaCliForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
         }
-
-  /*    ESTO ESTA SIN TERMINAR (IGUAL NI SE ESTA USANDO) 
-        private void cargarCliente()
-        {
-            this.cargarDomicilio();
-
-            DB.PaisDB.insertar(boxPais.Text);
-            int idPais = DB.PaisDB.getID(boxPais.Text);
-
-            DB.DocumentoDB.insertar(comboBoxTipoDoc.Text);
-            int idTipoDoc = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
-
-            cliente = new PagoElectronico.Dominio.Cliente();
-            cliente.nombre = this.boxNombre.Text;
-            cliente.apellido = this.boxApellido.Text;
-            cliente.tipo_doc = idTipoDoc;
-            cliente.documento = Convert.ToInt32(this.boxDocumento.Text);
-            cliente.domicilio.calle = this.boxCalle.Text;
-            cliente.domicilio.numero = Convert.ToInt32(this.boxAltura.Text);
-            cliente.domicilio.piso = Convert.ToInt32(this.boxPiso.Text);
-        }
- */
 
         private bool validarCampos()
         {
@@ -117,6 +90,7 @@ namespace PagoElectronico.ABM_Cliente
             cliente.tipo_doc = id_docu;
             cliente.pais = id_pais;
             cliente.documento = Convert.ToInt32(boxDocumento.Text);
+            cliente.fecha_nac = boxFecha.Text;
         
             DB.ClienteDB.insertar(cliente);
         }
@@ -131,18 +105,6 @@ namespace PagoElectronico.ABM_Cliente
             DB.DomicilioDB.insertar(domicilio);
             int id = DB.DomicilioDB.getID(domicilio);
             return id;
-        }
-
-        private double validarPais()
-        {
-            DB.PaisDB.validar(boxPais.Text);
-            return DB.PaisDB.getID(boxPais.Text);
-        }
-
-        private double validarDocumento()
-        {
-            DB.DocumentoDB.validar(comboBoxTipoDoc.Text);
-            return DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
         }
 
         private void btn_limpiar_Click(object sender, EventArgs e)
@@ -171,6 +133,11 @@ namespace PagoElectronico.ABM_Cliente
         }
 
         private void comboBoxTipoDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AltaCliForm_Load(object sender, EventArgs e)
         {
 
         }
