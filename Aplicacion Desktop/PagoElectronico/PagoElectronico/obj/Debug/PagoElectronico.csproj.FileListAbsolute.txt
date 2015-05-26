@@ -18,3 +18,5 @@ C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronic
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.exe
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.pdb
+C:\Users\Tincho\Desktop\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.exe
+C:\Users\Tincho\Desktop\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb

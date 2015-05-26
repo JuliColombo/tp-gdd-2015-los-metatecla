@@ -41,7 +41,7 @@ namespace PagoElectronico.ABM_Rol
                    MessageBox.Show("No se slecciono ninguna Funcionalidad", "Error, Completar Campos Obligatorios", MessageBoxButtons.OK);
                    }else{
                     //2. Una vez que verifique los campos, lo INSERTO en la tabla de roles en la DB si es posible
-                     List<Funcionalidad> funcionalidadesNuevoRol = filtrarSeleccionadas(); //TODO Filtrar Seleccionadas
+                     List<Funcionalidad> funcionalidadesNuevoRol = filtrarSeleccionadas();
                      RolDB DBRol = new RolDB();
                      int resultado = DBRol.AgregarRol(nombreText.Text, checkBox1.Checked, funcionalidadesNuevoRol);
                      if(resultado == (-1)){
@@ -53,7 +53,22 @@ namespace PagoElectronico.ABM_Rol
                         }
                     }
                 }
+
+
+        public List<Funcionalidad> filtrarSeleccionadas() {
+         List<Funcionalidad> funcionalidadesNuevoRol = new List<Funcionalidad>();
+               for (int i = 0; i < Funcionalidades.Items.Count; i++)
+                {
+                    if (Funcionalidades.GetItemChecked(i))
+                    {
+                        Funcionalidad funcionalidad = Funcionalidades.Items[i] as Funcionalidad;
+                        funcionalidadesNuevoRol.Add(funcionalidad);
+                    }
+                }
+                return funcionalidadesNuevoRol;
+            }
+        }
             
            
         }
-        }
+        

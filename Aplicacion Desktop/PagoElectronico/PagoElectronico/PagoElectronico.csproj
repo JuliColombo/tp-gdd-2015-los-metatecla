@@ -72,11 +72,17 @@
     <Compile Include="ABM de Usuario\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rol\Form1.cs">
+    <Compile Include="ABM Rol\ABMRolForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ABM Rol\ABMRolForm.Designer.cs">
+      <DependentUpon>ABMRolForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Rol\CrearRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\CrearRol.Designer.cs">
+      <DependentUpon>CrearRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Consulta Saldos\Form1.cs">
       <SubType>Form</SubType>
@@ -87,7 +93,9 @@
     <Compile Include="DB\ClienteDB.cs" />
     <Compile Include="DB\DocumentoDB.cs" />
     <Compile Include="DB\DomicilioDB.cs" />
+    <Compile Include="DB\FuncionalidadDB.cs" />
     <Compile Include="DB\PaisDB.cs" />
+    <Compile Include="DB\RolDB.cs" />
     <Compile Include="Depositos\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +105,7 @@
     <Compile Include="Dominio\Banco.cs" />
     <Compile Include="Dominio\Conexion.cs" />
     <Compile Include="Dominio\Config.cs" />
+    <Compile Include="Dominio\Funcionalidad.cs" />
     <Compile Include="Dominio\Rol.cs" />
     <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Dominio\Cuenta.cs" />
@@ -133,6 +142,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Cliente\AltaCliForm.resx">
       <DependentUpon>AltaCliForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\ABMRolForm.resx">
+      <DependentUpon>ABMRolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\CrearRol.resx">
+      <DependentUpon>CrearRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioForm.resx">
       <DependentUpon>InicioForm.cs</DependentUpon>
