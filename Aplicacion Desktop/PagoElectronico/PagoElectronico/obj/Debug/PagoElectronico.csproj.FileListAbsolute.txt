@@ -20,3 +20,5 @@ C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronic
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.pdb
 C:\Users\Tincho\Desktop\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.exe
 C:\Users\Tincho\Desktop\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb
+C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.ABMRolForm.resources
+C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.CrearRol.resources

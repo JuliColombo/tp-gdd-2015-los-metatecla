@@ -67,7 +67,7 @@ namespace PagoElectronico.Dominio
         {
         try
               { SqlCommand comando = new SqlCommand();
-              comando.Connection = abrirConexion(); //FIXME Realmente no se como solucionarlo, estoy buscando como se hace
+              //comando.Connection = abrirConexion(); //FIXME Realmente no se como solucionarlo, estoy buscando como se hace
                 comando.CommandText = commandtext;
                 comando.CommandType = CommandType.StoredProcedure;
 
@@ -89,7 +89,7 @@ namespace PagoElectronico.Dominio
         public static void ejecutarStoredProcedureSinRet(string commandtext, List<SqlParameter> ListaParametro)
         {
             SqlCommand comando = new SqlCommand();
-            comando.Connection = abrirConexion(); //FIXME los mismo que antes
+            //comando.Connection = abrirConexion(); //FIXME los mismo que antes
             comando.CommandText = commandtext;
             comando.CommandType = CommandType.StoredProcedure;
 

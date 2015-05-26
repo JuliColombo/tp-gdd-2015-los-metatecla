@@ -39,7 +39,6 @@
             this.comboBoxTipoDoc = new System.Windows.Forms.ComboBox();
             this.boxDepto = new System.Windows.Forms.TextBox();
             this.boxPais = new System.Windows.Forms.TextBox();
-            this.boxFecha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,6 +63,7 @@
             this.labelErrorDep = new System.Windows.Forms.Label();
             this.labelErrorPais = new System.Windows.Forms.Label();
             this.labelErrorFec = new System.Windows.Forms.Label();
+            this.boxFecha = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // boxNombre
@@ -160,15 +160,6 @@
             this.boxPais.Size = new System.Drawing.Size(100, 20);
             this.boxPais.TabIndex = 10;
             this.boxPais.UseWaitCursor = true;
-            // 
-            // boxFecha
-            // 
-            this.boxFecha.Location = new System.Drawing.Point(155, 278);
-            this.boxFecha.Name = "boxFecha";
-            this.boxFecha.Size = new System.Drawing.Size(100, 20);
-            this.boxFecha.TabIndex = 11;
-            this.boxFecha.UseWaitCursor = true;
-            this.boxFecha.TextChanged += new System.EventHandler(this.boxFecha_TextChanged);
             // 
             // label2
             // 
@@ -434,11 +425,22 @@
             this.labelErrorFec.UseWaitCursor = true;
             this.labelErrorFec.Visible = false;
             // 
+            // boxFecha
+            // 
+            this.boxFecha.Location = new System.Drawing.Point(155, 278);
+            this.boxFecha.Mask = "00/00/0000";
+            this.boxFecha.Name = "boxFecha";
+            this.boxFecha.Size = new System.Drawing.Size(100, 20);
+            this.boxFecha.TabIndex = 36;
+            this.boxFecha.UseWaitCursor = true;
+            this.boxFecha.ValidatingType = typeof(System.DateTime);
+            // 
             // AltaCliForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 363);
+            this.ClientSize = new System.Drawing.Size(473, 400);
+            this.Controls.Add(this.boxFecha);
             this.Controls.Add(this.labelErrorFec);
             this.Controls.Add(this.labelErrorPais);
             this.Controls.Add(this.labelErrorDep);
@@ -463,7 +465,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.boxFecha);
             this.Controls.Add(this.boxPais);
             this.Controls.Add(this.boxDepto);
             this.Controls.Add(this.comboBoxTipoDoc);
@@ -497,7 +498,6 @@
         private System.Windows.Forms.ComboBox comboBoxTipoDoc;
         private System.Windows.Forms.TextBox boxDepto;
         private System.Windows.Forms.TextBox boxPais;
-        private System.Windows.Forms.TextBox boxFecha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -522,5 +522,6 @@
         private System.Windows.Forms.Label labelErrorDep;
         private System.Windows.Forms.Label labelErrorPais;
         private System.Windows.Forms.Label labelErrorFec;
+        private System.Windows.Forms.MaskedTextBox boxFecha;
     }
 }

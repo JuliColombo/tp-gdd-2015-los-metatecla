@@ -14,6 +14,6 @@ namespace PagoElectronico.Dominio
         public int domicilio { get; set; }
         public double pais { get; set; } //Fijarse si conviene que sea una clase aparte
         public String mail { get; set; }
-        public DateTime fecha_nac { get; set; }
+        public String fecha_nac { get; set; }
     }
 }

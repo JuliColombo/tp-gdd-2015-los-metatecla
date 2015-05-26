@@ -55,7 +55,7 @@ namespace PagoElectronico.ABM_Rol
                 }
 
 
-        public List<Funcionalidad> filtrarSeleccionadas() {
+        private List<Funcionalidad> filtrarSeleccionadas() {
          List<Funcionalidad> funcionalidadesNuevoRol = new List<Funcionalidad>();
                for (int i = 0; i < Funcionalidades.Items.Count; i++)
                 {
