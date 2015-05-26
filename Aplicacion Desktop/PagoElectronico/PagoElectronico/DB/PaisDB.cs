@@ -11,20 +11,20 @@ namespace PagoElectronico.DB
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT * FROM LOS_METATECLA.PAIS WHERE Pais_Desc = ' {0}'", pais);
+                "SELECT * FROM LOS_METATECLA.PAIS WHERE Pais_Desc LIKE '%{0}'", pais);
             conexion.ejecutarQuery();
             //conexion.leerReader();
             return (conexion.leerReader());
         }
 
-        public static int getID(string pais)
+        public static double getID(string pais)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT TOP 1 Pais_Codigo FROM LOS_METATECLA.PAIS WHERE Pais_Desc = ' {0}')", pais);
+                "SELECT TOP 1 Pais_Codigo FROM LOS_METATECLA.PAIS WHERE Pais_Desc LIKE '%{0}'", pais);
             conexion.ejecutarQuery();
             conexion.leerReader();
-            int id = conexion.lector.GetInt32(0);
+            double id = Convert.ToDouble(conexion.lector[0]);
             conexion.cerrarConexion();
             return id;
         }

@@ -96,33 +96,18 @@ namespace PagoElectronico.ABM_Cliente
         {
             if (this.validarCampos())
             {
-
                 int id_domi = insertarDomicilio();
-
-                if (DB.DocumentoDB.validar(comboBoxTipoDoc.Text))
+                if (DB.DocumentoDB.validar(comboBoxTipoDoc.Text) && DB.PaisDB.validar(boxPais.Text))
                 {
                     double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
-                    if (DB.PaisDB.validar(boxPais.Text))
-                    {
-
-                        int id_pais = DB.PaisDB.getID(boxPais.Text);
-                        insertarCliente(id_domi, id_docu, id_pais);
-                    }
-                    else
-                    {
-                        label12.Text = "_" + boxPais.Text;
-                        boxFecha.Text = "Rompió pais";
-                    }
-                }
-                else
-                {
-                    boxFecha.Text = "Se rompió";
+                    double id_pais = DB.PaisDB.getID(boxPais.Text);
+                    insertarCliente(id_domi, id_docu, id_pais);
                 }
             }
 
         }
 
-        private void insertarCliente(int id_domi, double id_docu, int id_pais)
+        private void insertarCliente(int id_domi, double id_docu, double id_pais)
         {
             PagoElectronico.Dominio.Cliente cliente = new PagoElectronico.Dominio.Cliente();
             cliente.nombre = this.boxNombre.Text;
@@ -148,7 +133,7 @@ namespace PagoElectronico.ABM_Cliente
             return id;
         }
 
-        private int validarPais()
+        private double validarPais()
         {
             DB.PaisDB.validar(boxPais.Text);
             return DB.PaisDB.getID(boxPais.Text);
@@ -181,6 +166,11 @@ namespace PagoElectronico.ABM_Cliente
         }
 
         private void boxFecha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxTipoDoc_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

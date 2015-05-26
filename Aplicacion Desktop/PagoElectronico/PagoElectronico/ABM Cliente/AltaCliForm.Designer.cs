@@ -143,6 +143,7 @@
             this.comboBoxTipoDoc.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTipoDoc.TabIndex = 8;
             this.comboBoxTipoDoc.UseWaitCursor = true;
+            this.comboBoxTipoDoc.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoDoc_SelectedIndexChanged);
             // 
             // boxDepto
             // 
