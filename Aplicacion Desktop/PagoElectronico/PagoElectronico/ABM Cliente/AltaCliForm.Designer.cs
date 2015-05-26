@@ -91,6 +91,7 @@
             this.boxDocumento.Size = new System.Drawing.Size(100, 20);
             this.boxDocumento.TabIndex = 2;
             this.boxDocumento.UseWaitCursor = true;
+            this.boxDocumento.TextChanged += new System.EventHandler(this.boxDocumento_TextChanged);
             // 
             // boxMail
             // 

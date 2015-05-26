@@ -35,3 +35,4 @@ C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\Pag
 C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
 C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.exe
 C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.pdb
+C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.NuevaFuncionalidad.resources

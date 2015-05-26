@@ -26,6 +26,7 @@ namespace PagoElectronico.ABM_Cliente
         private bool validarCampos()
         {
             bool valido = true;
+            int doc = 0;
             if (boxNombre.Text == "") {
                 valido = false;
                 labelErrorNom.Visible = true;
@@ -42,10 +43,12 @@ namespace PagoElectronico.ABM_Cliente
                 valido = false;
                 labelErrorTDoc.Visible = true;
             };
-            if (boxDocumento.Text == "") {
+            if (boxDocumento.Text == ""){
                 valido = false;
                 labelErrorNDoc.Visible = true;
-            };
+            }else{
+                doc = Convert.ToInt32(boxDocumento.Text);
+            }
             if (boxCalle.Text == "") {
                 valido = false;
                 labelErrorCal.Visible = true;
@@ -66,7 +69,7 @@ namespace PagoElectronico.ABM_Cliente
                 valido = false;
                 labelErrorMail.Visible = true;
             }
-            if (DB.ClienteDB.documentoRepetido(boxDocumento.Text) && DB.DocumentoDB.validar(comboBoxTipoDoc.Text)){
+            if (DB.ClienteDB.documentoRepetido(doc) && DB.DocumentoDB.validar(comboBoxTipoDoc.Text)){
                 valido = false;
                 labelErrorTyNDoc.Visible = true;
             }
@@ -86,7 +89,6 @@ namespace PagoElectronico.ABM_Cliente
                     this.limpiar();
                 }
             }
-
         }
 
         private void insertarCliente(int id_domi, double id_docu, double id_pais)
@@ -164,6 +166,11 @@ namespace PagoElectronico.ABM_Cliente
         }
 
         private void AltaCliForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void boxDocumento_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -29,8 +29,9 @@ namespace PagoElectronico.DB
             return repetido;
         }
 
-        public static bool documentoRepetido(String documento)
+        public static bool documentoRepetido(int documento)
         {
+            //int doc = Convert.ToInt32(documento);
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
                 "SELECT TOP 1 * FROM LOS_METATECLA.Cliente WHERE Cli_Nro_Doc = '{0}'", documento);
