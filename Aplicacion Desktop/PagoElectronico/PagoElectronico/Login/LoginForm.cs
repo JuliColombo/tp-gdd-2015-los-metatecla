@@ -17,11 +17,6 @@ namespace PagoElectronico.Login
         }
 
 
-        private void btn_hash_Click(object sender, EventArgs e)
-        {
-            label_estado.Text = PagoElectronico.DB.UsuarioDB.SHA256(textBox_password.Text);
-        }
-
         private void btn_entrar_Click_1(object sender, EventArgs e)
         {
             if (PagoElectronico.DB.UsuarioDB.autentificar(textBox_username.Text, textBox_password.Text))
@@ -31,15 +26,22 @@ namespace PagoElectronico.Login
             else
             {
                 label_estado.Text = "No se puede ingresar";
-                if(existeUsuario(textBox_username.Text))
+                if (existeUsuario(textBox_username.Text))
                 {
+                    label_estado.Text = "No se puede ingresar pero SI existe el usuario " + textBox_username.Text;
                     agregarIntentoFallido(textBox_username.Text);
-                }
 
-                if (numerosDeIntentos(textBox_username.Text) > 3)
-                {
-                    label_estado.Text = "Ya van 3 intentos fallidos";
+
+                    if (numerosDeIntentos(textBox_username.Text) > 3)
+                    {
+                        label_estado.Text = "Ya van 3 intentos fallidos";
+                    }
                 }
+                else
+                {
+                    label_estado.Text = "No existe ese usuario";
+                }
+      
 
             }
         }

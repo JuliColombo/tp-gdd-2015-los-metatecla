@@ -42,7 +42,7 @@ namespace PagoElectronico.DB
 
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "INSERT INTO LOS_METATECLA.Usuario (User_Intentos_Fallidos) values({0})", numeroDeIntento);
+                "UPDATE LOS_METATECLA.Usuario SET User_Intentos_Fallidos = {0} WHERE User_Username = '{1}'", numeroDeIntento+1, usuario);
             conexion.ejecutarNoQuery();
         }
 
@@ -66,6 +66,7 @@ namespace PagoElectronico.DB
             conexion.query = string.Format(
                 "SELECT TOP 1 User_Intentos_Fallidos FROM LOS_METATECLA.Usuario WHERE User_Username = '{0}'", usuario);
             conexion.ejecutarQuery();
+            conexion.leerReader();
             numeroDeIntento = Convert.ToInt32(conexion.lector[0]);
             conexion.cerrarConexion();
 
