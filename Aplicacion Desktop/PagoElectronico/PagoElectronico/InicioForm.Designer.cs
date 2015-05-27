@@ -30,6 +30,7 @@
         {
             this.btn_abm_cliente = new System.Windows.Forms.Button();
             this.btn_login = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_abm_cliente
@@ -52,11 +53,22 @@
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(93, 182);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 44);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Crear Cuenta";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // InicioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 273);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.btn_abm_cliente);
             this.Name = "InicioForm";
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.Button btn_abm_cliente;
         private System.Windows.Forms.Button btn_login;
+        private System.Windows.Forms.Button button1;
 
     }
 }

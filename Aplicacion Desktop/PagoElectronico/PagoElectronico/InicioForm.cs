@@ -32,5 +32,11 @@ namespace PagoElectronico
             f.ShowDialog();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form f = new PagoElectronico.ABM_Cuenta.CrearCuentaForm();
+            f.ShowDialog();
+        }
+
     }
 }
