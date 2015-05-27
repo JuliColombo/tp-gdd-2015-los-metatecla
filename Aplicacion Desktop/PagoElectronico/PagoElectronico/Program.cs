@@ -15,7 +15,7 @@ namespace PagoElectronico
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PagoElectronico.ABM_Cliente.AltaCliForm());
+            Application.Run(new PagoElectronico.InicioForm());
         }
     }
 }
