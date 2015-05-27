@@ -19,31 +19,71 @@ namespace PagoElectronico.Login
 
         private void btn_entrar_Click_1(object sender, EventArgs e)
         {
-            if (PagoElectronico.DB.UsuarioDB.autentificar(textBox_username.Text, textBox_password.Text))
+            string usuario = textBox_username.Text;
+            string password = textBox_password.Text;
+
+            if (PagoElectronico.DB.UsuarioDB.autentificar(usuario,password))
             {
-                label_estado.Text = "Todo piola";
+                int intento = numerosDeIntentos(usuario);
+                if (intento < 4)
+                {
+                  
+                    ponerIntentosEnCero(intento, usuario);
+
+                    //Habria que abrir otra pantalla con los roles y funcionalidades
+                }
+                else
+                {
+                    ventanaDeError("Esta inhabilitado.");
+                    
+                }
+                
             }
             else
             {
-                label_estado.Text = "No se puede ingresar";
-                if (existeUsuario(textBox_username.Text))
+    
+                if (existeUsuario(usuario))
                 {
-                    label_estado.Text = "No se puede ingresar pero SI existe el usuario " + textBox_username.Text;
-                    agregarIntentoFallido(textBox_username.Text);
+                    ventanaDeError("Contraseña incorrecta.");
 
 
-                    if (numerosDeIntentos(textBox_username.Text) > 3)
+                    if (numerosDeIntentos(usuario) > 3)
                     {
-                        label_estado.Text = "Ya van 3 intentos fallidos";
+                        inhabilitarUsuario(usuario);
+
+                        ventanaDeError("Esta inhabilitado.");
+                        
                     }
                 }
                 else
                 {
-                    label_estado.Text = "No existe ese usuario";
+                    ventanaDeError("No existe ese nombre de usuario.");
+                    
                 }
       
 
             }
+        }
+
+        /*********************** AUXILIARES ****************************/
+
+        private void ventanaDeError(String error)
+        {
+            Form f = new PagoElectronico.Login.ErrorForm(error);
+            f.ShowDialog();
+        }
+
+        private void ponerIntentosEnCero(int intento, string usuario)
+        {
+            if (intento > 0)
+            {
+                PagoElectronico.DB.UsuarioDB.modificarNumeroDeIntentos(usuario, 0);
+            }
+        }
+
+        private void inhabilitarUsuario(string usuario)
+        {
+            PagoElectronico.DB.UsuarioDB.inhabilitarUsuario(usuario);
         }
 
         private int numerosDeIntentos(string usuario)

@@ -40,3 +40,4 @@ C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronic
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.CrearRol.resources
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.NuevaFuncionalidad.resources
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Login.LoginForm.resources
+C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Login.ErrorForm.resources

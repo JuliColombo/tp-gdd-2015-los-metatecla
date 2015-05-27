@@ -40,9 +40,15 @@ namespace PagoElectronico.DB
         {
             int numeroDeIntento = numeroDeIntentos(usuario);
 
+            modificarNumeroDeIntentos(usuario, numeroDeIntento + 1);
+        }
+
+
+        public static void modificarNumeroDeIntentos(string usuario, int numeroDeIntento)
+        {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "UPDATE LOS_METATECLA.Usuario SET User_Intentos_Fallidos = {0} WHERE User_Username = '{1}'", numeroDeIntento+1, usuario);
+                "UPDATE LOS_METATECLA.Usuario SET User_Intentos_Fallidos = {0} WHERE User_Username = '{1}'", numeroDeIntento, usuario);
             conexion.ejecutarNoQuery();
         }
 
@@ -71,6 +77,14 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
 
             return numeroDeIntento;
+        }
+
+        internal static void inhabilitarUsuario(string usuario)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "UPDATE LOS_METATECLA.Usuario SET User_Habilitado = {0} WHERE User_Username = '{1}'", 0, usuario);
+            conexion.ejecutarNoQuery();
         }
     }
 }
