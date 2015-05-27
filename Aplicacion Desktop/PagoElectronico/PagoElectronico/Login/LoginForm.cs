@@ -31,7 +31,32 @@ namespace PagoElectronico.Login
             else
             {
                 label_estado.Text = "No se puede ingresar";
+                if(existeUsuario(textBox_username.Text))
+                {
+                    agregarIntentoFallido(textBox_username.Text);
+                }
+
+                if (numerosDeIntentos(textBox_username.Text) > 3)
+                {
+                    label_estado.Text = "Ya van 3 intentos fallidos";
+                }
+
             }
+        }
+
+        private int numerosDeIntentos(string usuario)
+        {
+            return PagoElectronico.DB.UsuarioDB.numeroDeIntentos(usuario);
+        }
+
+        private bool existeUsuario(string usuario)
+        {
+            return PagoElectronico.DB.UsuarioDB.existe(usuario);
+        }
+
+        private void agregarIntentoFallido(string usuario)
+        {
+            PagoElectronico.DB.UsuarioDB.agregarIntentoFallido(usuario);
         }
 
         

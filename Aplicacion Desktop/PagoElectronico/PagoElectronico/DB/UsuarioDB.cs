@@ -35,6 +35,42 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             return valida;
         }
+
+        internal static void agregarIntentoFallido(string usuario)
+        {
+            int numeroDeIntento = numeroDeIntentos(usuario);
+
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "INSERT INTO LOS_METATECLA.Usuario (User_Intentos_Fallidos) values({0})", numeroDeIntento);
+            conexion.ejecutarNoQuery();
+        }
+
+        internal static bool existe(string usuario)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT * FROM LOS_METATECLA.Usuario WHERE User_Username = '{0}'", usuario);
+            conexion.ejecutarQuery();
+            bool valida = (conexion.leerReader());
+            conexion.cerrarConexion();
+            return valida;
+        }
+
+        internal static int numeroDeIntentos(string usuario)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+
+            int numeroDeIntento;
+
+            conexion.query = string.Format(
+                "SELECT TOP 1 User_Intentos_Fallidos FROM LOS_METATECLA.Usuario WHERE User_Username = '{0}'", usuario);
+            conexion.ejecutarQuery();
+            numeroDeIntento = Convert.ToInt32(conexion.lector[0]);
+            conexion.cerrarConexion();
+
+            return numeroDeIntento;
+        }
     }
 }
 
