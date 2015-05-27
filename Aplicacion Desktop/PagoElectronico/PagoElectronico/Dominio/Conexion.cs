@@ -62,7 +62,7 @@ namespace PagoElectronico.Dominio
         }
 
         //Ejecuta stored procedure con parametros y devuelve ret 
-        public static decimal ejecutarStoredProcedure(string commandtext, List<SqlParameter> ListaParametro)
+        public int ejecutarStoredProcedure(string commandtext, List<SqlParameter> ListaParametro)
         {
         try
               { SqlCommand comando = new SqlCommand();
@@ -76,7 +76,7 @@ namespace PagoElectronico.Dominio
                 }
 
                 comando.ExecuteNonQuery();
-                return (decimal)comando.Parameters["@ret"].Value;
+                return (int)comando.Parameters["@ret"].Value;
             }
             catch (SqlException e)
             {
@@ -85,7 +85,7 @@ namespace PagoElectronico.Dominio
             }
         }
         //Ejecuta Stored Procedure sin Retorno
-        public static void ejecutarStoredProcedureSinRet(string commandtext, List<SqlParameter> ListaParametro)
+        public void ejecutarStoredProcedureSinRet(string commandtext, List<SqlParameter> ListaParametro)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = nuevaConexion();

@@ -28,18 +28,22 @@ namespace PagoElectronico.DB
         }
 
 
-        public void AgregarFuncionalidadDelRol(int idRol,Funcionalidad funcionalidad){
+        public void AgregarFuncionalidadDelRol(string nombre, Funcionalidad funcionalidad)
+        {
             List<SqlParameter> ListParam = new List<SqlParameter>();
-            ListParam.Add(new SqlParameter("@id_rol",idRol));
+            ListParam.Add(new SqlParameter("@nombrerol", nombre));
             ListParam.Add(new SqlParameter("@funcionalidad", funcionalidad.nombre));
-            Conexion.ejecutarStoredProcedureSinRet("LOS_METATECLA.AgregarFuncionalidadARol", ListParam);
-        
+            Conexion cnx = new Conexion();
+            cnx.ejecutarStoredProcedureSinRet("LOS_METATECLA.AgregarFuncionalidadARol", ListParam);
+
         }
 
-        public void AgregarFuncionalidad(string nombre) {
+        public void AgregarFuncionalidad(string nombre)
+        {
             List<SqlParameter> ListParam = new List<SqlParameter>();
             ListParam.Add(new SqlParameter("@nombre", nombre));
-            Conexion.ejecutarStoredProcedureSinRet("LOS_METATECLA.AgregarFuncionalidadNueva", ListParam);
+            Conexion cnx = new Conexion();
+            cnx.ejecutarStoredProcedureSinRet("LOS_METATECLA.AgregarFuncionalidadNueva", ListParam);
         }
     }
 }
