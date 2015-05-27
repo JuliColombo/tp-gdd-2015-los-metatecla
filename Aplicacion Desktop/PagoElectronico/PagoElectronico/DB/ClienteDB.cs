@@ -40,5 +40,32 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             return repetido;
         }
+
+        public static List<Dominio.Cliente> buscarClientes(string nom, string ape, double tipoDoc, string doc, string mail)
+        {
+            string busqPorTD = "";
+            if (tipoDoc != 0){
+                busqPorTD = string.Format("AND Cli_Tipo_Doc_Cod = '{0}' ", tipoDoc);
+            }
+            List<Dominio.Cliente> clientes = new List<PagoElectronico.Dominio.Cliente>();
+            Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT Cli_Nombre, Cli_Apellido, Cli_Tipo_Doc_Cod, Cli_Nro_Doc, Cli_Mail " +
+                "FROM LOS_METATECLA.Cliente WHERE Cli_Nombre LIKE '%{0}%' AND Cli_Apellido LIKE '%{1}%' {2}" +
+                "AND Cli_Nro_Doc LIKE '%{3}%' AND Cli_Mail LIKE '%{4}%'", nom, ape, busqPorTD, doc, mail);
+            conexion.ejecutarQuery();
+            while (conexion.leerReader())
+            {
+                Dominio.Cliente cliente = new PagoElectronico.Dominio.Cliente();
+                cliente.nombre = conexion.lector.GetString(0);
+                cliente.apellido = conexion.lector.GetString(1);
+                cliente.tipo_doc = Convert.ToDouble(conexion.lector[2]);
+                cliente.documento = Convert.ToInt32(conexion.lector[3]);
+                cliente.mail = conexion.lector.GetString(4);
+                clientes.Add(cliente);
+            }
+            conexion.cerrarConexion();
+            return clientes;
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace PagoElectronico.ABM_Cliente
 
         protected override void OnClosed(EventArgs e)
         {
-            Owner.Show();
+            //Owner.Show();
             base.OnClosed(e);
         }
 
@@ -34,6 +34,13 @@ namespace PagoElectronico.ABM_Cliente
             AltaCliForm alta = new AltaCliForm();
             alta.Owner = this;
             alta.Show();
+        }
+
+        private void buttonMB_Click(object sender, EventArgs e)
+        {
+            BuscadorCliForm mb = new BuscadorCliForm();
+            mb.Owner = this;
+            mb.Show();
         }
 
     }

@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_alta_cliente = new System.Windows.Forms.Button();
+            this.btn_abm_cliente = new System.Windows.Forms.Button();
             this.btn_login = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btn_alta_cliente
+            // btn_abm_cliente
             // 
-            this.btn_alta_cliente.Location = new System.Drawing.Point(93, 44);
-            this.btn_alta_cliente.Name = "btn_alta_cliente";
-            this.btn_alta_cliente.Size = new System.Drawing.Size(106, 44);
-            this.btn_alta_cliente.TabIndex = 0;
-            this.btn_alta_cliente.Text = "Alta Cliente";
-            this.btn_alta_cliente.UseVisualStyleBackColor = true;
-            this.btn_alta_cliente.Click += new System.EventHandler(this.btn_alta_cliente_Click);
+            this.btn_abm_cliente.Location = new System.Drawing.Point(93, 44);
+            this.btn_abm_cliente.Name = "btn_abm_cliente";
+            this.btn_abm_cliente.Size = new System.Drawing.Size(106, 44);
+            this.btn_abm_cliente.TabIndex = 0;
+            this.btn_abm_cliente.Text = "ABM Cliente";
+            this.btn_abm_cliente.UseVisualStyleBackColor = true;
+            this.btn_abm_cliente.Click += new System.EventHandler(this.btn_alta_cliente_Click);
             // 
             // btn_login
             // 
@@ -58,7 +58,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 273);
             this.Controls.Add(this.btn_login);
-            this.Controls.Add(this.btn_alta_cliente);
+            this.Controls.Add(this.btn_abm_cliente);
             this.Name = "InicioForm";
             this.Text = "Pago Electronico";
             this.ResumeLayout(false);
@@ -67,7 +67,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_alta_cliente;
+        private System.Windows.Forms.Button btn_abm_cliente;
         private System.Windows.Forms.Button btn_login;
 
     }

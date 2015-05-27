@@ -61,6 +61,12 @@
     <Compile Include="ABM Cliente\AltaCliForm.Designer.cs">
       <DependentUpon>AltaCliForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Cliente\BuscadorCliForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Cliente\BuscadorCliForm.Designer.cs">
+      <DependentUpon>BuscadorCliForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Cuenta\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Cliente\AltaCliForm.resx">
       <DependentUpon>AltaCliForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Cliente\BuscadorCliForm.resx">
+      <DependentUpon>BuscadorCliForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\ABMRolForm.resx">
       <DependentUpon>ABMRolForm.cs</DependentUpon>

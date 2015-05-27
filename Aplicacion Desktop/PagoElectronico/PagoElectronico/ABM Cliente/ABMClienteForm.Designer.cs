@@ -28,45 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonA = new System.Windows.Forms.Button();
+            this.buttonMB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // buttonA
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 211);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.buttonA.Location = new System.Drawing.Point(80, 46);
+            this.buttonA.Name = "buttonA";
+            this.buttonA.Size = new System.Drawing.Size(112, 50);
+            this.buttonA.TabIndex = 1;
+            this.buttonA.Text = "Alta";
+            this.buttonA.UseVisualStyleBackColor = true;
+            this.buttonA.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
+            // buttonMB
             // 
-            this.button1.Location = new System.Drawing.Point(36, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Alta";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonMB.Location = new System.Drawing.Point(80, 134);
+            this.buttonMB.Name = "buttonMB";
+            this.buttonMB.Size = new System.Drawing.Size(112, 50);
+            this.buttonMB.TabIndex = 2;
+            this.buttonMB.Text = "Modificar / Eliminar";
+            this.buttonMB.UseVisualStyleBackColor = true;
+            this.buttonMB.Click += new System.EventHandler(this.buttonMB_Click);
             // 
             // ABMClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 273);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.buttonMB);
+            this.Controls.Add(this.buttonA);
             this.Name = "ABMClienteForm";
             this.Text = "ABM Cliente";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonA;
+        private System.Windows.Forms.Button buttonMB;
     }
 }
