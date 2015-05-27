@@ -46,7 +46,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 9);
+            this.label1.Location = new System.Drawing.Point(191, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
@@ -55,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 40);
+            this.label2.Location = new System.Drawing.Point(191, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
@@ -64,7 +64,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 71);
+            this.label3.Location = new System.Drawing.Point(191, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 13);
             this.label3.TabIndex = 2;
@@ -73,7 +73,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 104);
+            this.label4.Location = new System.Drawing.Point(191, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 13);
             this.label4.TabIndex = 3;
@@ -82,7 +82,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 138);
+            this.label5.Location = new System.Drawing.Point(191, 138);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 4;
@@ -90,14 +90,14 @@
             // 
             // boxNombre
             // 
-            this.boxNombre.Location = new System.Drawing.Point(162, 9);
+            this.boxNombre.Location = new System.Drawing.Point(326, 9);
             this.boxNombre.Name = "boxNombre";
             this.boxNombre.Size = new System.Drawing.Size(100, 20);
             this.boxNombre.TabIndex = 5;
             // 
             // boxApellido
             // 
-            this.boxApellido.Location = new System.Drawing.Point(162, 40);
+            this.boxApellido.Location = new System.Drawing.Point(326, 40);
             this.boxApellido.Name = "boxApellido";
             this.boxApellido.Size = new System.Drawing.Size(100, 20);
             this.boxApellido.TabIndex = 6;
@@ -107,21 +107,21 @@
             this.comboBoxTipoDoc.FormattingEnabled = true;
             this.comboBoxTipoDoc.Items.AddRange(new object[] {
             "Pasaporte"});
-            this.comboBoxTipoDoc.Location = new System.Drawing.Point(162, 71);
+            this.comboBoxTipoDoc.Location = new System.Drawing.Point(326, 71);
             this.comboBoxTipoDoc.Name = "comboBoxTipoDoc";
             this.comboBoxTipoDoc.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTipoDoc.TabIndex = 7;
             // 
             // boxDocumento
             // 
-            this.boxDocumento.Location = new System.Drawing.Point(162, 104);
+            this.boxDocumento.Location = new System.Drawing.Point(326, 104);
             this.boxDocumento.Name = "boxDocumento";
             this.boxDocumento.Size = new System.Drawing.Size(100, 20);
             this.boxDocumento.TabIndex = 8;
             // 
             // boxMail
             // 
-            this.boxMail.Location = new System.Drawing.Point(162, 138);
+            this.boxMail.Location = new System.Drawing.Point(326, 138);
             this.boxMail.Name = "boxMail";
             this.boxMail.Size = new System.Drawing.Size(100, 20);
             this.boxMail.TabIndex = 9;
@@ -131,12 +131,12 @@
             this.listado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listado.Location = new System.Drawing.Point(29, 211);
             this.listado.Name = "listado";
-            this.listado.Size = new System.Drawing.Size(240, 150);
+            this.listado.Size = new System.Drawing.Size(559, 150);
             this.listado.TabIndex = 10;
             // 
             // botonBuscar
             // 
-            this.botonBuscar.Location = new System.Drawing.Point(106, 173);
+            this.botonBuscar.Location = new System.Drawing.Point(268, 173);
             this.botonBuscar.Name = "botonBuscar";
             this.botonBuscar.Size = new System.Drawing.Size(75, 23);
             this.botonBuscar.TabIndex = 11;
@@ -148,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(320, 373);
+            this.ClientSize = new System.Drawing.Size(620, 373);
             this.Controls.Add(this.botonBuscar);
             this.Controls.Add(this.listado);
             this.Controls.Add(this.boxMail);
