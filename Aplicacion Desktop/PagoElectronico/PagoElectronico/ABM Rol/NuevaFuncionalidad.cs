@@ -16,9 +16,10 @@ namespace PagoElectronico.ABM_Rol
         public NuevaFuncionalidad()
         {
             InitializeComponent();
+            this.CenterToParent();
         }
 
-        private void botonCrearFunc_Click(object sender, EventArgs e)
+      private void botonCrearFunc_Click(object sender, EventArgs e)
         {   //1. Me fijo si el nombre esta ingresado
             FuncionalidadDB DBFuncionalidad = new FuncionalidadDB();
             if (textNombreFunc.Text == "") { 
@@ -35,6 +36,5 @@ namespace PagoElectronico.ABM_Rol
                     this.Close();
                 }
         }
-    }
     }
 }
