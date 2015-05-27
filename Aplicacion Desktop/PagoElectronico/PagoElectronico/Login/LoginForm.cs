@@ -30,6 +30,8 @@ namespace PagoElectronico.Login
                   
                     ponerIntentosEnCero(intento, usuario);
 
+                    loggear(usuario, "efectivo",0, "");
+
                     //Habria que abrir otra pantalla con los roles y funcionalidades
                 }
                 else
@@ -44,10 +46,15 @@ namespace PagoElectronico.Login
     
                 if (existeUsuario(usuario))
                 {
+                    int intento = numerosDeIntentos(usuario);
+
+                    agregarIntentoFallido(usuario);
+
                     ventanaDeError("Contraseña incorrecta.");
+                    loggear(usuario, "fallido",intento+1, "");
 
 
-                    if (numerosDeIntentos(usuario) > 3)
+                    if (intento == 3)
                     {
                         inhabilitarUsuario(usuario);
 
@@ -63,9 +70,36 @@ namespace PagoElectronico.Login
       
 
             }
+
+
         }
 
         /*********************** AUXILIARES ****************************/
+
+        private void loggear(string usuario, string tipo_intento, int numero_intento, string info_extra) //TODO: falta la fecha!!!! 
+        {
+            string log;
+
+            if (info_extra == "")
+            {
+                if (tipo_intento == "fallido")
+                {
+                    log = "El usuario " + usuario + " tuvo un intento " + tipo_intento + " numero: " + numero_intento.ToString();
+                }
+                else
+                {
+                    log = "El usuario " + usuario + " tuvo un intento " + tipo_intento;
+                }
+            }
+            else
+            {
+                log = "El usuario " + usuario + " " + info_extra;
+            }
+
+
+            PagoElectronico.DB.UsuarioDB.insertarLog(log);
+        }
+
 
         private void ventanaDeError(String error)
         {
@@ -84,6 +118,8 @@ namespace PagoElectronico.Login
         private void inhabilitarUsuario(string usuario)
         {
             PagoElectronico.DB.UsuarioDB.inhabilitarUsuario(usuario);
+
+            loggear(usuario, "",0, "esta inhabilitado");
         }
 
         private int numerosDeIntentos(string usuario)

@@ -86,6 +86,14 @@ namespace PagoElectronico.DB
                 "UPDATE LOS_METATECLA.Usuario SET User_Habilitado = {0} WHERE User_Username = '{1}'", 0, usuario);
             conexion.ejecutarNoQuery();
         }
+
+        internal static void insertarLog(string log)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "INSERT INTO LOS_METATECLA.Log_Intentos (Desc_Log) VALUES('{0}')", log);
+            conexion.ejecutarNoQuery();
+        }
     }
 }
 
