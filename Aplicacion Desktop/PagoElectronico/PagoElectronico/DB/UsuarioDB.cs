@@ -94,6 +94,18 @@ namespace PagoElectronico.DB
                 "INSERT INTO LOS_METATECLA.Log_Intentos (Desc_Log) VALUES('{0}')", log);
             conexion.ejecutarNoQuery();
         }
+
+        internal static double getId(string usuario)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT TOP 1 Id_User FROM LOS_METATECLA.Usuario WHERE User_Username = '{0}'", usuario);
+            conexion.ejecutarQuery();
+            conexion.leerReader();
+            double id = Convert.ToDouble(conexion.lector[0]);
+            conexion.cerrarConexion();
+            return id;
+        }
     }
 }
 

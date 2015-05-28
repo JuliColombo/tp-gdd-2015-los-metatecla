@@ -19,7 +19,7 @@ namespace PagoElectronico.ABM_Cliente
         private void botonBuscar_Click(object sender, EventArgs e)
         {
             if (this.validarCampos()){
-                listado.DataSource = DB.ClienteDB.buscarClientes(boxNombre.Text, boxApellido.Text, 0, boxDocumento.Text, boxMail.Text);
+                listado.DataSource = DB.ClienteDB.buscarClientes(boxNombre.Text, boxApellido.Text, comboBoxTipoDoc.Text, boxDocumento.Text, boxMail.Text);
             }
         }
 

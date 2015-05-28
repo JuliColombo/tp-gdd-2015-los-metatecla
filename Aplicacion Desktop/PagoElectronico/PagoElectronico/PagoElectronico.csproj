@@ -67,6 +67,7 @@
     <Compile Include="ABM Cliente\BuscadorCliForm.Designer.cs">
       <DependentUpon>BuscadorCliForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Cliente\ClienteEdit.cs" />
     <Compile Include="ABM Cuenta\CrearCuentaForm.cs">
       <SubType>Form</SubType>
     </Compile>

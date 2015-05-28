@@ -132,6 +132,7 @@
             this.btn_confirmar.TabIndex = 10;
             this.btn_confirmar.Text = "Crear";
             this.btn_confirmar.UseVisualStyleBackColor = true;
+            this.btn_confirmar.Click += new System.EventHandler(this.btn_confirmar_Click);
             // 
             // btn_limpiar
             // 
@@ -161,7 +162,7 @@
             this.Controls.Add(this.label_usuario);
             this.Name = "CrearCuentaForm";
             this.Text = "Crear Cuenta";
-            this.Load += new System.EventHandler(this.CrearCuentaForm_Load);
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
