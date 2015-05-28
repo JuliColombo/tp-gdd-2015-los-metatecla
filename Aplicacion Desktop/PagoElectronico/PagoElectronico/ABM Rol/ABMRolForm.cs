@@ -21,8 +21,16 @@ namespace PagoElectronico.ABM_Rol
 
         private void actualizarDataGrid()
         {
+
             dataGridRoles.DataSource = RolDB.obtenerRoles();
+            dataGridRoles.Columns[0].Visible = false;
+            dataGridRoles.Columns[1].HeaderText = "Nombre del Rol";
+            dataGridRoles.Columns[1].Width = 250;
+            dataGridRoles.Columns[2].Visible = false;
+            dataGridRoles.Columns[3].HeaderText = "Estado";
+            
         }
+
         private void ABMRolForm_Load(object sender, EventArgs e)
         {
 

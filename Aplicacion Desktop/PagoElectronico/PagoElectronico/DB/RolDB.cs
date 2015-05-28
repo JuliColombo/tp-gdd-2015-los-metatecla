@@ -13,6 +13,7 @@ namespace PagoElectronico.DB
         {
             List<Rol> roles = new List<Rol>();
             Conexion conexion = new Conexion();
+            FuncionalidadDB DBFunc = new FuncionalidadDB();
             conexion.query = string.Format("SELECT * FROM LOS_METATECLA.Rol");
             conexion.ejecutarQuery();
             if (conexion.lector.HasRows)
@@ -23,9 +24,14 @@ namespace PagoElectronico.DB
                     roles.Add(rol);
                 }
             }
+            foreach (Rol rol in roles) {
+               List<Funcionalidad> listFunRol = DBFunc.obtenerFuncRol(rol);
+               rol.funcionalidades = listFunRol;
+            }
             conexion.cerrarConexion();
             return roles;
         }
+
 
          public void AgregarRol(string nombre, bool estado, List<Funcionalidad> funcionalidadesRol)
          { //No se si esta bien hecho el tema de ejecutarStoredProcedure

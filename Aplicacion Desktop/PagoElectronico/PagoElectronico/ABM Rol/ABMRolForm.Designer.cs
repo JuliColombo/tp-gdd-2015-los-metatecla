@@ -33,6 +33,8 @@
             this.botonEliminar = new System.Windows.Forms.Button();
             this.botonModificar = new System.Windows.Forms.Button();
             this.botonCrear = new System.Windows.Forms.Button();
+            this.botonTerminar = new System.Windows.Forms.Button();
+            this.botonInfo = new System.Windows.Forms.Button();
             this.gestionRoles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRoles)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +57,7 @@
             this.dataGridRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridRoles.Location = new System.Drawing.Point(3, 16);
             this.dataGridRoles.Name = "dataGridRoles";
-            this.dataGridRoles.Size = new System.Drawing.Size(465, 191);
+            this.dataGridRoles.Size = new System.Drawing.Size(440, 191);
             this.dataGridRoles.TabIndex = 3;
             // 
             // botonEliminar
@@ -86,11 +88,31 @@
             this.botonCrear.UseVisualStyleBackColor = true;
             this.botonCrear.Click += new System.EventHandler(this.botonCrear_Click);
             // 
+            // botonTerminar
+            // 
+            this.botonTerminar.Location = new System.Drawing.Point(355, 252);
+            this.botonTerminar.Name = "botonTerminar";
+            this.botonTerminar.Size = new System.Drawing.Size(75, 23);
+            this.botonTerminar.TabIndex = 2;
+            this.botonTerminar.Text = "Terminar";
+            this.botonTerminar.UseVisualStyleBackColor = true;
+            // 
+            // botonInfo
+            // 
+            this.botonInfo.Location = new System.Drawing.Point(12, 252);
+            this.botonInfo.Name = "botonInfo";
+            this.botonInfo.Size = new System.Drawing.Size(140, 23);
+            this.botonInfo.TabIndex = 3;
+            this.botonInfo.Text = "Informacion Del Rol";
+            this.botonInfo.UseVisualStyleBackColor = true;
+            // 
             // ABMRolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 248);
+            this.ClientSize = new System.Drawing.Size(453, 287);
+            this.Controls.Add(this.botonInfo);
+            this.Controls.Add(this.botonTerminar);
             this.Controls.Add(this.gestionRoles);
             this.Name = "ABMRolForm";
             this.Text = "Roles";
@@ -108,6 +130,8 @@
         private System.Windows.Forms.Button botonModificar;
         private System.Windows.Forms.Button botonCrear;
         private System.Windows.Forms.DataGridView dataGridRoles;
+        private System.Windows.Forms.Button botonTerminar;
+        private System.Windows.Forms.Button botonInfo;
 
 
 

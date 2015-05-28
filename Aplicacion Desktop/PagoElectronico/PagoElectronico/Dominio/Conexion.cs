@@ -105,6 +105,18 @@ namespace PagoElectronico.Dominio
          cnx.Open();
          return cnx;
         }
+        //Ejecutar una query con parametros de la app (Acordarse de cerrar la conexcion despues de leer el reader)
+        public SqlDataReader ejecutarQueryConParam(string query, SqlConnection conexion, List<SqlParameter> listParam)
+        {
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexion;
+            comando.CommandText = query;
+            foreach (SqlParameter parametro in listParam)
+            {
+                comando.Parameters.Add(parametro);
+            }
+            return comando.ExecuteReader();
+        }
 
     }
 }
