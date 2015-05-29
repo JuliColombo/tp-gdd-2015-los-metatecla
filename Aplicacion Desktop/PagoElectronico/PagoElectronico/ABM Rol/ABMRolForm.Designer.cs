@@ -68,6 +68,7 @@
             this.botonEliminar.TabIndex = 2;
             this.botonEliminar.Text = "Eliminar";
             this.botonEliminar.UseVisualStyleBackColor = true;
+            this.botonEliminar.Click += new System.EventHandler(this.botonEliminar_Click);
             // 
             // botonModificar
             // 
@@ -107,6 +108,7 @@
             this.botonInfo.TabIndex = 3;
             this.botonInfo.Text = "Informacion Del Rol";
             this.botonInfo.UseVisualStyleBackColor = true;
+            this.botonInfo.Click += new System.EventHandler(this.botonInfo_Click);
             // 
             // ABMRolForm
             // 

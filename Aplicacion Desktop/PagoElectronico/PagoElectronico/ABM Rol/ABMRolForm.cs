@@ -61,6 +61,26 @@ namespace PagoElectronico.ABM_Rol
             this.Close();
         }
 
+        private void botonEliminar_Click(object sender, EventArgs e)
+        {
+            Rol rol = dataGridRoles.CurrentRow.DataBoundItem as Rol;
+            rol.habilitado = false;
+            RolDB roldb = new RolDB();
+            roldb.deshabilitarRol(rol);
+            actualizarDataGrid();
+
+
+        }
+
+        private void botonInfo_Click(object sender, EventArgs e)
+        {
+
+            Rol rol = dataGridRoles.CurrentRow.DataBoundItem as Rol;
+            InfoForm info = new InfoForm(rol);
+            info.ShowDialog();
+
+        }
+
      
     }
 }

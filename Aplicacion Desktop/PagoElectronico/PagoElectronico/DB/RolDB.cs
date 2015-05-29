@@ -59,8 +59,15 @@ namespace PagoElectronico.DB
              FuncionalidadDB DBFunc = new FuncionalidadDB();
              DBFunc.actualizarFuncionalidadesRol(rol);
          }
-         
 
+         public void deshabilitarRol(Rol rol) {
+             Conexion conexion = new Conexion();
+             List<SqlParameter> ListParam = new List<SqlParameter>();
+             ListParam.Add(new SqlParameter("@id_rol", rol.id));
+             conexion.ejecutarQueryConParam("UPDATE LOS_METATECLA.Rol SET Habilitado = 0 WHERE Id_Rol = @id_rol", ListParam);
+
+             
+         }
 
     
     
