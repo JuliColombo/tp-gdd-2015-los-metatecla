@@ -45,6 +45,9 @@
             this.labelError_fecha = new System.Windows.Forms.Label();
             this.labelError_pais = new System.Windows.Forms.Label();
             this.labelError_tipo = new System.Windows.Forms.Label();
+            this.labelError_moneda = new System.Windows.Forms.Label();
+            this.comboBox_moneda = new System.Windows.Forms.ComboBox();
+            this.label_moneda = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label_usuario
@@ -124,7 +127,7 @@
             // 
             // btn_confirmar
             // 
-            this.btn_confirmar.Location = new System.Drawing.Point(162, 222);
+            this.btn_confirmar.Location = new System.Drawing.Point(162, 271);
             this.btn_confirmar.Name = "btn_confirmar";
             this.btn_confirmar.Size = new System.Drawing.Size(109, 29);
             this.btn_confirmar.TabIndex = 10;
@@ -134,7 +137,7 @@
             // 
             // btn_limpiar
             // 
-            this.btn_limpiar.Location = new System.Drawing.Point(15, 222);
+            this.btn_limpiar.Location = new System.Drawing.Point(15, 271);
             this.btn_limpiar.Name = "btn_limpiar";
             this.btn_limpiar.Size = new System.Drawing.Size(109, 29);
             this.btn_limpiar.TabIndex = 11;
@@ -206,11 +209,42 @@
             this.labelError_tipo.Text = "Falta especificar un tipo de cuenta";
             this.labelError_tipo.Visible = false;
             // 
+            // labelError_moneda
+            // 
+            this.labelError_moneda.AutoSize = true;
+            this.labelError_moneda.ForeColor = System.Drawing.Color.Red;
+            this.labelError_moneda.Location = new System.Drawing.Point(278, 226);
+            this.labelError_moneda.Name = "labelError_moneda";
+            this.labelError_moneda.Size = new System.Drawing.Size(170, 13);
+            this.labelError_moneda.TabIndex = 20;
+            this.labelError_moneda.Text = "Falta especificar un tipo de cuenta";
+            this.labelError_moneda.Visible = false;
+            // 
+            // comboBox_moneda
+            // 
+            this.comboBox_moneda.FormattingEnabled = true;
+            this.comboBox_moneda.Location = new System.Drawing.Point(137, 218);
+            this.comboBox_moneda.Name = "comboBox_moneda";
+            this.comboBox_moneda.Size = new System.Drawing.Size(135, 21);
+            this.comboBox_moneda.TabIndex = 19;
+            // 
+            // label_moneda
+            // 
+            this.label_moneda.AutoSize = true;
+            this.label_moneda.Location = new System.Drawing.Point(12, 221);
+            this.label_moneda.Name = "label_moneda";
+            this.label_moneda.Size = new System.Drawing.Size(49, 13);
+            this.label_moneda.TabIndex = 18;
+            this.label_moneda.Text = "Moneda:";
+            // 
             // CrearCuentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 262);
+            this.ClientSize = new System.Drawing.Size(470, 312);
+            this.Controls.Add(this.labelError_moneda);
+            this.Controls.Add(this.comboBox_moneda);
+            this.Controls.Add(this.label_moneda);
             this.Controls.Add(this.labelError_tipo);
             this.Controls.Add(this.labelError_pais);
             this.Controls.Add(this.labelError_fecha);
@@ -254,5 +288,8 @@
         private System.Windows.Forms.Label labelError_fecha;
         private System.Windows.Forms.Label labelError_pais;
         private System.Windows.Forms.Label labelError_tipo;
+        private System.Windows.Forms.Label labelError_moneda;
+        private System.Windows.Forms.ComboBox comboBox_moneda;
+        private System.Windows.Forms.Label label_moneda;
     }
 }

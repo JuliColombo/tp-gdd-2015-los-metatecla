@@ -14,6 +14,7 @@ namespace PagoElectronico.ABM_Cuenta
         public CuentaCreadaExitoForm()
         {
             InitializeComponent();
+            label1.Text = "Cuenta creada con éxito" + '\n' + "Se envió solicitud de activación al administrador";
         }
 
         private void CuentaCreadaExitoForm_Load(object sender, EventArgs e)

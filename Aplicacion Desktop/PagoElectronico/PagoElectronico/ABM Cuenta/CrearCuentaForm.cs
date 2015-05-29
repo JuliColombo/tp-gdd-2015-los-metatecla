@@ -16,6 +16,7 @@ namespace PagoElectronico.ABM_Cuenta
             InitializeComponent();
             DB.PaisDB.cargarPaises(comboBoxPais.Items);
             DB.TipoCuentaDB.cargarTipos(comboBox_tipo.Items);
+            DB.MonedaDB.cargarMonedas(comboBox_moneda.Items);
         }
 
 
@@ -23,7 +24,7 @@ namespace PagoElectronico.ABM_Cuenta
         {
             if (validaciones())
             {
-                crearCuenta(textBox_nro_cuenta.Text, textBox_usuario.Text, comboBoxPais.Text, comboBox_tipo.Text, maskedTextBox_fecha.Text);
+                crearCuenta(textBox_nro_cuenta.Text, textBox_usuario.Text, comboBoxPais.Text, comboBox_tipo.Text, maskedTextBox_fecha.Text, comboBox_moneda.Text);
                 limpiar();
 
                 Form exito = new CuentaCreadaExitoForm();
@@ -33,19 +34,19 @@ namespace PagoElectronico.ABM_Cuenta
             {
                 if (validarCamposVacios())
                 {
-                     ventanaDeError("No se pudo crear cuenta. Hay un error en los datos ingresados."); 
+                    ventanaDeError("No se pudo crear cuenta. Hay un error en los datos ingresados.");
                 }
             }
         }
 
-       
+
         private bool validarCamposVacios()
         {
             bool valido = true;
             if (textBox_usuario.Text == "")
             {
                 valido = false;
-               labelError_usuario.Visible = true;
+                labelError_usuario.Visible = true;
             };
 
             if (textBox_nro_cuenta.Text == "")
@@ -66,6 +67,12 @@ namespace PagoElectronico.ABM_Cuenta
                 labelError_tipo.Visible = true;
             };
 
+            if (comboBox_moneda.Text == "")
+            {
+                valido = false;
+                labelError_moneda.Visible = true;
+            };
+
             if (maskedTextBox_fecha.Text == "")
             {
                 valido = false;
@@ -75,9 +82,9 @@ namespace PagoElectronico.ABM_Cuenta
             return valido;
         }
 
-        private void crearCuenta(string nro_cuenta, string usuario, string pais, string tipo, string fecha)
+        private void crearCuenta(string nro_cuenta, string usuario, string pais, string tipo, string fecha, string moneda)
         {
-            PagoElectronico.DB.CuentaDB.crearCuenta(nro_cuenta, usuario, pais, tipo, fecha); //falta estado, fecha y moneda TODO 
+            PagoElectronico.DB.CuentaDB.crearCuenta(nro_cuenta, usuario, pais, tipo, fecha, moneda);
         }
 
 
@@ -99,22 +106,25 @@ namespace PagoElectronico.ABM_Cuenta
 
             int comparacion = DateTime.Compare(date, fecha_sistema);
 
-            if(comparacion <= 0){ //BELLO MI CODIGO ;)
+            if (comparacion <= 0)
+            { //BELLO MI CODIGO ;)
                 return true;
-            }else{
+            }
+            else
+            {
                 return false;
-                }
+            }
 
         }
 
         private bool validadNroCuenta(string nro_cuenta)
         {
-            return PagoElectronico.DB.CuentaDB.noExisteCuenta(nro_cuenta); 
+            return PagoElectronico.DB.CuentaDB.noExisteCuenta(nro_cuenta);
         }
 
         private bool validarUsuario(string usuario)
         {
-            return PagoElectronico.DB.UsuarioDB.existe(usuario); 
+            return PagoElectronico.DB.UsuarioDB.existe(usuario);
         }
 
         private void btn_limpiar_Click(object sender, EventArgs e)
@@ -127,6 +137,7 @@ namespace PagoElectronico.ABM_Cuenta
             textBox_nro_cuenta.Text = "";
             textBox_usuario.Text = "";
             comboBox_tipo.Text = "";
+            comboBox_moneda.Text = "";
             comboBoxPais.Text = "";
             maskedTextBox_fecha.Text = "";
             labelError_fecha.Visible = false;
@@ -136,7 +147,8 @@ namespace PagoElectronico.ABM_Cuenta
             labelError_pais.Visible = false;
         }
 
-       
+
 
     }
 }
+

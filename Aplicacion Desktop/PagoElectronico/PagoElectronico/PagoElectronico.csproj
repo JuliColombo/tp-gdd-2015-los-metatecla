@@ -126,7 +126,9 @@
     <Compile Include="DB\CuentaDB.cs" />
     <Compile Include="DB\DocumentoDB.cs" />
     <Compile Include="DB\DomicilioDB.cs" />
+    <Compile Include="DB\EstadoCuentaDB.cs" />
     <Compile Include="DB\FuncionalidadDB.cs" />
+    <Compile Include="DB\MonedaDB.cs" />
     <Compile Include="DB\PaisDB.cs" />
     <Compile Include="DB\RolDB.cs" />
     <Compile Include="DB\TipoCuentaDB.cs" />

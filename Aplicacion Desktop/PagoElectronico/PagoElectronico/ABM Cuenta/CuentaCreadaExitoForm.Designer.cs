@@ -48,11 +48,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 56);
+            this.label1.Location = new System.Drawing.Point(89, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 13);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Cuenta creada con éxito.";
             // 
             // CuentaCreadaExitoForm
             // 

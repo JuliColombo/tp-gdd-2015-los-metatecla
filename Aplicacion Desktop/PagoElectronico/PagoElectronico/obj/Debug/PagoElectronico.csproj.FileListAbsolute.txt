@@ -56,3 +56,4 @@ C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\Pag
 C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Login.ErrorForm.resources
 C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Login.LoginForm.resources
 C:\Users\Tincho\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.ModificarForm.resources
+C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.ModificarForm.resources
