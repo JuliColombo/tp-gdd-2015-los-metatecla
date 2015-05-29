@@ -55,6 +55,12 @@
     <Compile Include="ABM Cliente\ABMClienteForm.Designer.cs">
       <DependentUpon>ABMClienteForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Cliente\AltaClienteExitoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Cliente\AltaClienteExitoForm.Designer.cs">
+      <DependentUpon>AltaClienteExitoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Cliente\AltaCliForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,11 +80,17 @@
     <Compile Include="ABM Cuenta\CrearCuentaForm.Designer.cs">
       <DependentUpon>CrearCuentaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM de Usuario\Form1.cs">
+    <Compile Include="ABM Cuenta\CuentaCreadaExitoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM de Usuario\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ABM Cuenta\CuentaCreadaExitoForm.Designer.cs">
+      <DependentUpon>CuentaCreadaExitoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM de Usuario\Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM de Usuario\Form.Designer.cs">
+      <DependentUpon>Form.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Rol\ABMRolForm.cs">
       <SubType>Form</SubType>
@@ -163,6 +175,9 @@
     <EmbeddedResource Include="ABM Cliente\ABMClienteForm.resx">
       <DependentUpon>ABMClienteForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Cliente\AltaClienteExitoForm.resx">
+      <DependentUpon>AltaClienteExitoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM Cliente\AltaCliForm.resx">
       <DependentUpon>AltaCliForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Cuenta\CrearCuentaForm.resx">
       <DependentUpon>CrearCuentaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Cuenta\CuentaCreadaExitoForm.resx">
+      <DependentUpon>CuentaCreadaExitoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\ABMRolForm.resx">
       <DependentUpon>ABMRolForm.cs</DependentUpon>

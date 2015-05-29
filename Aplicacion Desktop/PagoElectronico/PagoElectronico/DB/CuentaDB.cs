@@ -20,7 +20,7 @@ namespace PagoElectronico.DB
             return valida;
         }
 
-        internal static void crearCuenta(string nro_cuenta, string usuario, string pais, string tipo)
+        internal static void crearCuenta(string nro_cuenta, string usuario, string pais, string tipo, string fecha)
         {
             double cuenta = Convert.ToDouble(nro_cuenta);
             double pais_id = PagoElectronico.DB.PaisDB.getID(pais);
@@ -30,7 +30,7 @@ namespace PagoElectronico.DB
             //TODO: FALTA MONEDA Y FECHA
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "INSERT INTO LOS_METATECLA.Cuenta (Cuenta_Numero, Cuenta_Fecha_Creacion, Cuenta_Estado, Cuenta_Pais_Codigo, Cuenta_Fecha_Cierre, Cuenta_Cliente, Cuenta_Tipo) VALUES({0}, NULL, NULL, {1}, NULL, {2}, {3})", cuenta, pais_id, user_id, tipo_id);
+                "INSERT INTO LOS_METATECLA.Cuenta (Cuenta_Numero, Cuenta_Fecha_Creacion, Cuenta_Estado, Cuenta_Pais_Codigo, Cuenta_Fecha_Cierre, Cuenta_Cliente, Cuenta_Tipo) VALUES({0}, '{1}', NULL, {2}, NULL, {3}, {4})", cuenta, fecha,pais_id, user_id, tipo_id);
             conexion.ejecutarNoQuery();
 
         }

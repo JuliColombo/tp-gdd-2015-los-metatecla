@@ -88,6 +88,9 @@ namespace PagoElectronico.ABM_Cliente
                     double id_pais = DB.PaisDB.getID(comboBoxPais.Text);
                     insertarCliente(id_domi, id_docu, id_pais);
                     this.limpiar();
+
+                    Form exito = new AltaClienteExitoForm();
+                    exito.ShowDialog();
                 }
             }
         }

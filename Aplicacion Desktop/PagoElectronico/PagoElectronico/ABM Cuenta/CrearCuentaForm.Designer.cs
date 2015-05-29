@@ -32,7 +32,6 @@
             this.textBox_usuario = new System.Windows.Forms.TextBox();
             this.textBox_nro_cuenta = new System.Windows.Forms.TextBox();
             this.label_nro_cuenta = new System.Windows.Forms.Label();
-            this.textBox_fecha = new System.Windows.Forms.TextBox();
             this.label_fecha = new System.Windows.Forms.Label();
             this.label_pais = new System.Windows.Forms.Label();
             this.comboBoxPais = new System.Windows.Forms.ComboBox();
@@ -40,6 +39,12 @@
             this.label_tipo = new System.Windows.Forms.Label();
             this.btn_confirmar = new System.Windows.Forms.Button();
             this.btn_limpiar = new System.Windows.Forms.Button();
+            this.maskedTextBox_fecha = new System.Windows.Forms.MaskedTextBox();
+            this.labelError_usuario = new System.Windows.Forms.Label();
+            this.labelError_nro_cuenta = new System.Windows.Forms.Label();
+            this.labelError_fecha = new System.Windows.Forms.Label();
+            this.labelError_pais = new System.Windows.Forms.Label();
+            this.labelError_tipo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label_usuario
@@ -60,7 +65,7 @@
             // 
             // textBox_nro_cuenta
             // 
-            this.textBox_nro_cuenta.Location = new System.Drawing.Point(137, 64);
+            this.textBox_nro_cuenta.Location = new System.Drawing.Point(136, 64);
             this.textBox_nro_cuenta.Name = "textBox_nro_cuenta";
             this.textBox_nro_cuenta.Size = new System.Drawing.Size(135, 20);
             this.textBox_nro_cuenta.TabIndex = 3;
@@ -73,13 +78,6 @@
             this.label_nro_cuenta.Size = new System.Drawing.Size(101, 13);
             this.label_nro_cuenta.TabIndex = 2;
             this.label_nro_cuenta.Text = "Número de cuenta: ";
-            // 
-            // textBox_fecha
-            // 
-            this.textBox_fecha.Location = new System.Drawing.Point(137, 100);
-            this.textBox_fecha.Name = "textBox_fecha";
-            this.textBox_fecha.Size = new System.Drawing.Size(135, 20);
-            this.textBox_fecha.TabIndex = 5;
             // 
             // label_fecha
             // 
@@ -142,19 +140,89 @@
             this.btn_limpiar.TabIndex = 11;
             this.btn_limpiar.Text = "Limpiar";
             this.btn_limpiar.UseVisualStyleBackColor = true;
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
+            // 
+            // maskedTextBox_fecha
+            // 
+            this.maskedTextBox_fecha.Location = new System.Drawing.Point(202, 100);
+            this.maskedTextBox_fecha.Mask = "00/00/0000";
+            this.maskedTextBox_fecha.Name = "maskedTextBox_fecha";
+            this.maskedTextBox_fecha.Size = new System.Drawing.Size(70, 20);
+            this.maskedTextBox_fecha.TabIndex = 12;
+            this.maskedTextBox_fecha.ValidatingType = typeof(System.DateTime);
+            // 
+            // labelError_usuario
+            // 
+            this.labelError_usuario.AutoSize = true;
+            this.labelError_usuario.ForeColor = System.Drawing.Color.Red;
+            this.labelError_usuario.Location = new System.Drawing.Point(278, 30);
+            this.labelError_usuario.Name = "labelError_usuario";
+            this.labelError_usuario.Size = new System.Drawing.Size(136, 13);
+            this.labelError_usuario.TabIndex = 13;
+            this.labelError_usuario.Text = "Falta especificar un usuario";
+            this.labelError_usuario.Visible = false;
+            // 
+            // labelError_nro_cuenta
+            // 
+            this.labelError_nro_cuenta.AutoSize = true;
+            this.labelError_nro_cuenta.ForeColor = System.Drawing.Color.Red;
+            this.labelError_nro_cuenta.Location = new System.Drawing.Point(278, 71);
+            this.labelError_nro_cuenta.Name = "labelError_nro_cuenta";
+            this.labelError_nro_cuenta.Size = new System.Drawing.Size(188, 13);
+            this.labelError_nro_cuenta.TabIndex = 14;
+            this.labelError_nro_cuenta.Text = "Falta especificar un número de cuenta";
+            this.labelError_nro_cuenta.Visible = false;
+            // 
+            // labelError_fecha
+            // 
+            this.labelError_fecha.AutoSize = true;
+            this.labelError_fecha.ForeColor = System.Drawing.Color.Red;
+            this.labelError_fecha.Location = new System.Drawing.Point(278, 103);
+            this.labelError_fecha.Name = "labelError_fecha";
+            this.labelError_fecha.Size = new System.Drawing.Size(135, 13);
+            this.labelError_fecha.TabIndex = 15;
+            this.labelError_fecha.Text = "Falta especificar una fecha";
+            this.labelError_fecha.Visible = false;
+            // 
+            // labelError_pais
+            // 
+            this.labelError_pais.AutoSize = true;
+            this.labelError_pais.ForeColor = System.Drawing.Color.Red;
+            this.labelError_pais.Location = new System.Drawing.Point(278, 149);
+            this.labelError_pais.Name = "labelError_pais";
+            this.labelError_pais.Size = new System.Drawing.Size(123, 13);
+            this.labelError_pais.TabIndex = 16;
+            this.labelError_pais.Text = "Falta especificar un país";
+            this.labelError_pais.Visible = false;
+            // 
+            // labelError_tipo
+            // 
+            this.labelError_tipo.AutoSize = true;
+            this.labelError_tipo.ForeColor = System.Drawing.Color.Red;
+            this.labelError_tipo.Location = new System.Drawing.Point(278, 187);
+            this.labelError_tipo.Name = "labelError_tipo";
+            this.labelError_tipo.Size = new System.Drawing.Size(170, 13);
+            this.labelError_tipo.TabIndex = 17;
+            this.labelError_tipo.Text = "Falta especificar un tipo de cuenta";
+            this.labelError_tipo.Visible = false;
             // 
             // CrearCuentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(470, 262);
+            this.Controls.Add(this.labelError_tipo);
+            this.Controls.Add(this.labelError_pais);
+            this.Controls.Add(this.labelError_fecha);
+            this.Controls.Add(this.labelError_nro_cuenta);
+            this.Controls.Add(this.labelError_usuario);
+            this.Controls.Add(this.maskedTextBox_fecha);
             this.Controls.Add(this.btn_limpiar);
             this.Controls.Add(this.btn_confirmar);
             this.Controls.Add(this.comboBox_tipo);
             this.Controls.Add(this.label_tipo);
             this.Controls.Add(this.comboBoxPais);
             this.Controls.Add(this.label_pais);
-            this.Controls.Add(this.textBox_fecha);
             this.Controls.Add(this.label_fecha);
             this.Controls.Add(this.textBox_nro_cuenta);
             this.Controls.Add(this.label_nro_cuenta);
@@ -162,7 +230,6 @@
             this.Controls.Add(this.label_usuario);
             this.Name = "CrearCuentaForm";
             this.Text = "Crear Cuenta";
-            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,7 +241,6 @@
         private System.Windows.Forms.TextBox textBox_usuario;
         private System.Windows.Forms.TextBox textBox_nro_cuenta;
         private System.Windows.Forms.Label label_nro_cuenta;
-        private System.Windows.Forms.TextBox textBox_fecha;
         private System.Windows.Forms.Label label_fecha;
         private System.Windows.Forms.Label label_pais;
         private System.Windows.Forms.ComboBox comboBoxPais;
@@ -182,5 +248,11 @@
         private System.Windows.Forms.Label label_tipo;
         private System.Windows.Forms.Button btn_confirmar;
         private System.Windows.Forms.Button btn_limpiar;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox_fecha;
+        private System.Windows.Forms.Label labelError_usuario;
+        private System.Windows.Forms.Label labelError_nro_cuenta;
+        private System.Windows.Forms.Label labelError_fecha;
+        private System.Windows.Forms.Label labelError_pais;
+        private System.Windows.Forms.Label labelError_tipo;
     }
 }

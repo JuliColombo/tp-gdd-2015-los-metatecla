@@ -97,7 +97,10 @@ namespace PagoElectronico.Login
             }
 
 
-            PagoElectronico.DB.UsuarioDB.insertarLog(log);
+            DateTime date = DateTime.Now;
+            string fecha_y_hora = date.ToString();
+
+            PagoElectronico.DB.UsuarioDB.insertarLog("[ "+fecha_y_hora+" ] "+log);
         }
 
 
