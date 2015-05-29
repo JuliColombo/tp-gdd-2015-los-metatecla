@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using PagoElectronico.ABM_Rol;
 
 namespace PagoElectronico
 {
@@ -36,6 +37,13 @@ namespace PagoElectronico
         {
             Form f = new PagoElectronico.ABM_Cuenta.CrearCuentaForm();
             f.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ABMRolForm rol = new ABMRolForm();
+            rol.ShowDialog();
+
         }
 
     }

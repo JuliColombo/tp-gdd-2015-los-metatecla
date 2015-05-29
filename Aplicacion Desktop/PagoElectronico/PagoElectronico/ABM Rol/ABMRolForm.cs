@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using PagoElectronico.DB;
-
+using PagoElectronico.Dominio;
 namespace PagoElectronico.ABM_Rol
 {
     public partial class ABMRolForm : Form
@@ -15,6 +15,7 @@ namespace PagoElectronico.ABM_Rol
         public ABMRolForm()
         {
             InitializeComponent();
+            this.CenterToScreen();
             actualizarDataGrid();
 
         }
@@ -42,6 +43,14 @@ namespace PagoElectronico.ABM_Rol
             CrearRol creacion = new CrearRol();
             creacion.ShowDialog();
             actualizarDataGrid();
+        }
+
+        private void botonModificar_Click(object sender, EventArgs e)
+        {
+            Rol rol = dataGridRoles.CurrentRow.DataBoundItem as Rol;
+            ModificarForm modForm = new ModificarForm(rol);
+            modForm.ShowDialog();
+
         }
 
      

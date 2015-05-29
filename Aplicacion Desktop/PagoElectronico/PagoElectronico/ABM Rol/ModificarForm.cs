@@ -8,18 +8,26 @@ using System.Text;
 using System.Windows.Forms;
 using PagoElectronico.Dominio;
 
-
 namespace PagoElectronico.ABM_Rol
 {
     public partial class ModificarForm : Form
     {
-        //Rol rolAModificar;
-        public ModificarForm(/*Rol rol*/)
+        public ModificarForm(Rol rol)
         {
             InitializeComponent();
-            /*label5.Text = rol.nombre;
-            label4.Text = rol.estado;
-            funcionalidadesActuales.DataSource = rol.funcionalidades;*/
+            this.CenterToScreen();
+            label1.Text = rol.nombre;
+            label2.Text = rol.estado;
+            cargarListBox(rol);
+
+        }
+
+        public void cargarListBox(Rol rol){
+            List<string> nombreFuncionalidades = new List<string>();
+            foreach ( Funcionalidad func in (rol.funcionalidades)){
+                nombreFuncionalidades.Add(func.nombre);
+            }
+            funcionalidadesActuales.DataSource = nombreFuncionalidades;
 
         }
     }
