@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Configuration;
 
+
 namespace PagoElectronico.Dominio
 {
     class Conexion
@@ -106,10 +107,10 @@ namespace PagoElectronico.Dominio
          return cnx;
         }
         //Ejecutar una query con parametros de la app (Acordarse de cerrar la conexcion despues de leer el reader)
-        public SqlDataReader ejecutarQueryConParam(string query, SqlConnection conexion, List<SqlParameter> listParam)
+        public SqlDataReader ejecutarQueryConParam(string query, List<SqlParameter> listParam)
         {
             SqlCommand comando = new SqlCommand();
-            comando.Connection = conexion;
+            comando.Connection = nuevaConexion();
             comando.CommandText = query;
             foreach (SqlParameter parametro in listParam)
             {

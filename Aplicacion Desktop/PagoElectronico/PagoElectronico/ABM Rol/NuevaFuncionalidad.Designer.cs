@@ -68,6 +68,7 @@
             this.Volver.TabIndex = 3;
             this.Volver.Text = "Volver";
             this.Volver.UseVisualStyleBackColor = true;
+            this.Volver.Click += new System.EventHandler(this.Volver_Click);
             // 
             // NuevaFuncionalidad
             // 

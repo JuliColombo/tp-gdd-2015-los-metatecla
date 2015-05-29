@@ -188,6 +188,7 @@
             this.botonGuardar.TabIndex = 2;
             this.botonGuardar.Text = "Guardar";
             this.botonGuardar.UseVisualStyleBackColor = true;
+            this.botonGuardar.Click += new System.EventHandler(this.botonGuardar_Click);
             // 
             // botonCancelar
             // 
@@ -197,6 +198,7 @@
             this.botonCancelar.TabIndex = 3;
             this.botonCancelar.Text = "Cancelar";
             this.botonCancelar.UseVisualStyleBackColor = true;
+            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
             // 
             // textNewNombre
             // 
@@ -223,6 +225,7 @@
             this.botonNuevaFunc.TabIndex = 4;
             this.botonNuevaFunc.Text = "Nueva Funcionalidad";
             this.botonNuevaFunc.UseVisualStyleBackColor = true;
+            this.botonNuevaFunc.Click += new System.EventHandler(this.botonNuevaFunc_Click);
             // 
             // ModificarForm
             // 

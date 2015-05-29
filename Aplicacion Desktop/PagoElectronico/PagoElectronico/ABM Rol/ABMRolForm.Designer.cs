@@ -97,6 +97,7 @@
             this.botonTerminar.TabIndex = 2;
             this.botonTerminar.Text = "Terminar";
             this.botonTerminar.UseVisualStyleBackColor = true;
+            this.botonTerminar.Click += new System.EventHandler(this.botonTerminar_Click);
             // 
             // botonInfo
             // 

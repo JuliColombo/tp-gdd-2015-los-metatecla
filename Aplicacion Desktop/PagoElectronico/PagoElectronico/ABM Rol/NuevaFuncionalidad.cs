@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using PagoElectronico.Dominio;
 using PagoElectronico.DB;
 
+
 namespace PagoElectronico.ABM_Rol
 {
     public partial class NuevaFuncionalidad : Form
@@ -41,6 +42,11 @@ namespace PagoElectronico.ABM_Rol
                     this.Close();
                 }
             }
+        }
+
+        private void Volver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using PagoElectronico.Dominio;
 using System.Data.SqlClient;
 
+
 namespace PagoElectronico.DB
 {
     class FuncionalidadDB
@@ -51,18 +52,29 @@ namespace PagoElectronico.DB
             Conexion cnx = new Conexion();
             List<SqlParameter> ListParam = new List<SqlParameter>();
             ListParam.Add(new SqlParameter("@id_rol", rol.id));
-            SqlConnection conex = new SqlConnection();
-            conex.ConnectionString = cnx.cadenaconexion;
-            conex.Open();  // Lo tuve que hacer asi por que no me reconocia cnx.abrirConexion ni cnx.cnx
-            SqlDataReader lector = cnx.ejecutarQueryConParam("SELECT F.Nombre,F.Id_Funcionalidad FROM LOS_METATECLA.Funcionalidad F, LOS_METATECLA.Funcionalidad_Rol FR WHERE FR.Id_Rol = @id_rol  AND F.Id_Funcionalidad = FR.Id_Funcionalidad",conex, ListParam);
+            //SqlConnection conex = new SqlConnection();
+            //conex.ConnectionString = cnx.cadenaconexion;
+            //conex.Open();  // Lo tuve que hacer asi por que no me reconocia cnx.abrirConexion ni cnx.cnx
+            SqlDataReader lector = cnx.ejecutarQueryConParam("SELECT F.Nombre,F.Id_Funcionalidad FROM LOS_METATECLA.Funcionalidad F, LOS_METATECLA.Funcionalidad_Rol FR WHERE FR.Id_Rol = @id_rol  AND F.Id_Funcionalidad = FR.Id_Funcionalidad", ListParam);
             if (lector.HasRows)
-            { while (lector.Read()) {
-           Funcionalidad func = new Funcionalidad((int)(decimal)lector["Id_Funcionalidad"], (string)lector["Nombre"]);
-           funcionalidadesDelRol.Add(func);
+            {
+                while (lector.Read())
+                {
+                    Funcionalidad func = new Funcionalidad((int)(decimal)lector["Id_Funcionalidad"], (string)lector["Nombre"]);
+                    funcionalidadesDelRol.Add(func);
                 }
             }
-            conex.Close();
             return funcionalidadesDelRol;
+        }
+
+        public void actualizarFuncionalidadesRol(Rol rol) {
+            Conexion conexion = new Conexion();
+            List<SqlParameter> ListParam = new List<SqlParameter>();
+            ListParam.Add(new SqlParameter("@id_rol", rol.id));
+            conexion.ejecutarQueryConParam("DELETE FROM LOS_METATECLA.Funcionalidad_Rol WHERE Id_Rol = @id_rol", ListParam);
+            foreach (Funcionalidad func in rol.funcionalidades) {
+                AgregarFuncionalidadDelRol(rol.nombre, func);
+            }
         }
 
     

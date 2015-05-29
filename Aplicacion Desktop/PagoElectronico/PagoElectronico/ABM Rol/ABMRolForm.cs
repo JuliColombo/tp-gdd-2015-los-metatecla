@@ -10,6 +10,7 @@ using PagoElectronico.DB;
 using PagoElectronico.Dominio;
 namespace PagoElectronico.ABM_Rol
 {
+
     public partial class ABMRolForm : Form
     {
         public ABMRolForm()
@@ -50,7 +51,14 @@ namespace PagoElectronico.ABM_Rol
             Rol rol = dataGridRoles.CurrentRow.DataBoundItem as Rol;
             ModificarForm modForm = new ModificarForm(rol);
             modForm.ShowDialog();
+            actualizarDataGrid();
 
+
+        }
+
+        private void botonTerminar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
      

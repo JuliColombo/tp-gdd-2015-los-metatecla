@@ -23,7 +23,7 @@ namespace PagoElectronico.Dominio
                 estado = "Habilitado";
             }
             else {
-                estado = "Inhabilidato";
+                estado = "Inhabilitado";
             }
         }
     }

@@ -49,6 +49,19 @@ namespace PagoElectronico.DB
              }
          }
 
+         public void actualizarRol(Rol rol) {
+             List<SqlParameter> ListParam = new List<SqlParameter>();
+             ListParam.Add(new SqlParameter("@nombre", rol.nombre));
+             ListParam.Add(new SqlParameter("@estado", rol.habilitado));
+             ListParam.Add(new SqlParameter("@id_rol", rol.id));
+             Conexion conexion = new Conexion();
+             conexion.ejecutarQueryConParam("UPDATE LOS_METATECLA.Rol SET Habilitado = @estado, Nombre = @nombre WHERE Id_Rol = @id_rol", ListParam);
+             FuncionalidadDB DBFunc = new FuncionalidadDB();
+             DBFunc.actualizarFuncionalidadesRol(rol);
+         }
+         
+
+
     
     
     }
