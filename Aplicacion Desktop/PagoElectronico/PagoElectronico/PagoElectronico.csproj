@@ -139,11 +139,11 @@
     <Compile Include="DB\RolDB.cs" />
     <Compile Include="DB\TipoCuentaDB.cs" />
     <Compile Include="DB\UsuarioDB.cs" />
-    <Compile Include="Depositos\Form1.cs">
+    <Compile Include="Depositos\SeleccionarClienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Depositos\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Depositos\SeleccionarClienteForm.Designer.cs">
+      <DependentUpon>SeleccionarClienteForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dominio\Banco.cs" />
     <Compile Include="Dominio\Conexion.cs" />
@@ -218,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\NuevaFuncionalidad.resx">
       <DependentUpon>NuevaFuncionalidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depositos\SeleccionarClienteForm.resx">
+      <DependentUpon>SeleccionarClienteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioForm.resx">
       <DependentUpon>InicioForm.cs</DependentUpon>

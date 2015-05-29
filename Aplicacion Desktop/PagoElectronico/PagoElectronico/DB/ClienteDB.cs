@@ -65,5 +65,62 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             return clientes;
         }
+
+        public static bool existeCliente(string nombre, string apellido, string documento)
+        {
+            double docu = Convert.ToDouble(documento);
+
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT * FROM LOS_METATECLA.Cliente WHERE Cli_Nombre = '{0}' AND Cli_Apellido = '{1}' AND Cli_Nro_Doc = {2}", nombre, apellido, docu);
+            conexion.ejecutarQuery();
+            bool valida = (conexion.leerReader());
+            conexion.cerrarConexion();
+            return valida;
+        }
+
+        public static PagoElectronico.Dominio.Cliente crearCliente(string nombre, string apellido, string documento)
+        {
+            double docu = Convert.ToDouble(documento);
+
+            PagoElectronico.Dominio.Cliente cliente = new PagoElectronico.Dominio.Cliente();
+            cliente.numeros_cuentas = new List<double>();
+            cliente.numeros_tarjetas = new List<double>();
+
+            Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT Cli_Nombre, Cli_Apellido, Cli_Nro_Doc, Cuenta_Numero, Tarjeta_Numero " +
+                "FROM LOS_METATECLA.Cliente, LOS_METATECLA.Documento, LOS_METATECLA.Tarjeta, LOS_METATECLA.Cuenta " +
+                "WHERE Cli_Tipo_Doc_Cod = Doc_Tipo_Cod AND Cli_Nombre LIKE '%{0}%' AND Cli_Apellido LIKE '%{1}%' " +
+                "AND Cli_Nro_Doc = '{2}' AND Cuenta_Cliente = Cli_Nro_Doc AND Id_Cliente_Propietario = Cli_Nro_Doc",
+                nombre, apellido, docu);
+            conexion.ejecutarQuery();
+
+            while (conexion.leerReader())
+            {
+
+                cliente.nombre = conexion.lector.GetString(0);
+                cliente.apellido = conexion.lector.GetString(1);
+                cliente.documento = Convert.ToInt32(conexion.lector[2]);
+
+                double numero_cuenta = Convert.ToDouble(conexion.lector[3]);
+                double numero_tarjeta = Convert.ToDouble(conexion.lector[4]);
+
+                if (cliente.numeros_cuentas.Contains(numero_cuenta))
+                {
+                    cliente.numeros_cuentas.Add(numero_cuenta);
+                }
+
+                if (cliente.numeros_tarjetas.Contains(numero_tarjeta))
+                {
+                    cliente.numeros_cuentas.Add(numero_tarjeta);
+                }
+
+            }
+            conexion.cerrarConexion();
+
+            return cliente;
+        }
     }
 }
+

@@ -12,8 +12,12 @@ namespace PagoElectronico.Dominio
         public double tipo_doc { get; set; }
         public int documento { get; set; }
         public int domicilio { get; set; }
-        public double pais { get; set; } //Fijarse si conviene que sea una clase aparte
+        public double pais { get; set; }
         public String mail { get; set; }
         public String fecha_nac { get; set; }
+        public List<double> numeros_cuentas { get; set; }
+        public List<double> numeros_tarjetas { get; set; }
+
     }
 }
+
