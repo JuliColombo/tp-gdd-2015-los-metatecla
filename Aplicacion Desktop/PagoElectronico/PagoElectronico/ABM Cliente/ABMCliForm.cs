@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace PagoElectronico.ABM_Cliente
 {
-    public partial class AltaCliForm : Form
+    public partial class ABMCliForm : Form
     {
 
-        public AltaCliForm()
+        public ABMCliForm()
         {
             InitializeComponent();
             DB.PaisDB.cargarPaises(comboBoxPais.Items);

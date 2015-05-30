@@ -5,9 +5,7 @@ C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desk
 C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
 C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.exe
 C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb
-C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.ABMClienteForm.resources
 C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.InicioForm.resources
-C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.AltaCliForm.resources
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.exe
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
@@ -85,3 +83,4 @@ C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desk
 C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.InfoForm.resources
 C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.ModificarForm.resources
 C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Depositos.SeleccionarClienteForm.resources
+C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.ABMCliForm.resources

@@ -1,6 +1,6 @@
 ﻿namespace PagoElectronico.ABM_Cliente
 {
-    partial class AltaCliForm
+    partial class ABMCliForm
     {
         /// <summary>
         /// Required designer variable.
