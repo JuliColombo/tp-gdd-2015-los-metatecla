@@ -30,6 +30,18 @@ namespace PagoElectronico.DB
             return id;
         }
 
+        public static string getPais(double idPais)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT * FROM LOS_METATECLA.PAIS WHERE Pais_Codigo = '{0}'", idPais);
+            conexion.ejecutarQuery();
+            conexion.leerReader();
+            string pais = conexion.lector.GetString(1);
+            conexion.cerrarConexion();
+            return pais;
+        }
+
         public static void cargarPaises(System.Windows.Forms.ComboBox.ObjectCollection paises)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();

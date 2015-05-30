@@ -11,6 +11,8 @@ namespace PagoElectronico.ABM_Cliente
 {
     public partial class BuscadorCliForm : Form
     {
+        public int idCliente { get; set; }
+
         public BuscadorCliForm()
         {
             InitializeComponent();
@@ -26,6 +28,25 @@ namespace PagoElectronico.ABM_Cliente
         private bool validarCampos()
         {
             return true;
+        }
+
+        private void btn_volver_Click(object sender, EventArgs e)
+        {
+            this.idCliente = 0;
+            this.Close();
+        }
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+            if (listado.SelectedRows.Count == 1)
+            {
+                this.idCliente = Convert.ToInt32(listado.CurrentRow.Cells[3].Value);
+                this.Close();
+            }
+            else
+            {
+                labelErrorSeleccion.Visible = true;
+            }
         }
     }
 }

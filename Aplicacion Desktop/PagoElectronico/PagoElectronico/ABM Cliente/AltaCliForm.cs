@@ -11,7 +11,6 @@ namespace PagoElectronico.ABM_Cliente
 {
     public partial class AltaCliForm : Form
     {
-        PagoElectronico.Dominio.Cliente cliente;
 
         public AltaCliForm()
         {
@@ -117,7 +116,9 @@ namespace PagoElectronico.ABM_Cliente
             domicilio.numero = Convert.ToInt32(boxAltura.Text);
             domicilio.piso = Convert.ToInt32(boxPiso.Text);
             domicilio.depto = boxDepto.Text;
-            DB.DomicilioDB.insertar(domicilio);
+            if (!DB.DomicilioDB.yaExiste(domicilio)) {
+                DB.DomicilioDB.insertar(domicilio);
+            }
             int id = DB.DomicilioDB.getID(domicilio);
             return id;
         }
@@ -177,6 +178,34 @@ namespace PagoElectronico.ABM_Cliente
         private void boxDocumento_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            BuscadorCliForm mb = new BuscadorCliForm();
+            mb.Owner = this;
+            mb.ShowDialog();
+
+            if (mb.idCliente != 0)
+            {
+                Dominio.Cliente cliente = DB.ClienteDB.getCliente(mb.idCliente);
+                Dominio.Domicilio domicilio = DB.DomicilioDB.getDomicilio(cliente.domicilio);
+                string pais = DB.PaisDB.getPais(cliente.pais);
+                string tipo_doc = DB.DocumentoDB.getTipoDoc(cliente.tipo_doc);
+
+                boxApellido.Text = cliente.apellido;
+                boxNombre.Text = cliente.nombre;
+                boxMail.Text = cliente.mail;
+                boxFecha.Text = cliente.fecha_nac;
+                boxDocumento.Text = Convert.ToString(cliente.documento);
+                boxCalle.Text = domicilio.calle;
+                boxAltura.Text = Convert.ToString(domicilio.numero);
+                boxPiso.Text = Convert.ToString(domicilio.piso);
+                boxDepto.Text = domicilio.depto;
+                comboBoxPais.Text = pais;
+                comboBoxTipoDoc.Text = tipo_doc;
+                ////////////CARGAR LOS TEXTBOXES
+            }
         }
 
     }

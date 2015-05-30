@@ -80,3 +80,8 @@ C:\Users\Alumno\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\Pag
 C:\Users\Alumno\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.InfoForm.resources
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.InfoForm.resources
 C:\Users\USUARIO\GDD\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Depositos.SeleccionarClienteForm.resources
+C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.AltaClienteExitoForm.resources
+C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.CuentaCreadaExitoForm.resources
+C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.InfoForm.resources
+C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.ModificarForm.resources
+C:\Documents and Settings\UsuarioAdmin\tp-gdd-2015-los-metatecla\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Depositos.SeleccionarClienteForm.resources

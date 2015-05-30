@@ -66,6 +66,28 @@ namespace PagoElectronico.DB
             return clientes;
         }
 
+        public static Dominio.Cliente getCliente(int documento)
+        {
+            Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT * " +
+                "FROM LOS_METATECLA.Cliente " +
+                "WHERE Cli_Nro_Doc = '{0}'", documento);
+            conexion.ejecutarQuery();
+            conexion.leerReader();
+            Dominio.Cliente cliente = new PagoElectronico.Dominio.Cliente();
+            cliente.nombre = conexion.lector.GetString(0);
+            cliente.apellido = conexion.lector.GetString(1);
+            cliente.tipo_doc = Convert.ToDouble(conexion.lector[2]);
+            cliente.documento = documento;
+            cliente.pais = Convert.ToDouble(conexion.lector[4]);
+            cliente.domicilio = Convert.ToInt32(conexion.lector[5]);
+            cliente.fecha_nac = Convert.ToString(conexion.lector[6]);
+            cliente.mail = conexion.lector.GetString(7);
+            conexion.cerrarConexion();
+            return cliente;
+        }
+
         public static bool existeCliente(string nombre, string apellido, string documento)
         {
             double docu = Convert.ToDouble(documento);

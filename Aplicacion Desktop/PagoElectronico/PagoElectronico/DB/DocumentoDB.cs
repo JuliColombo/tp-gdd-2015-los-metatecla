@@ -29,5 +29,17 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             return id;
         }
+
+        public static string getTipoDoc(double idTipoDoc)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT * FROM LOS_METATECLA.Documento WHERE Doc_Tipo_Cod = '{0}'", idTipoDoc);
+            conexion.ejecutarQuery();
+            conexion.leerReader();
+            string tipoCod = conexion.lector.GetString(1);
+            conexion.cerrarConexion();
+            return tipoCod;
+        }
     }
 }
