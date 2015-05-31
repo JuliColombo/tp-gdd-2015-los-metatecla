@@ -65,7 +65,6 @@
             this.boxFecha = new System.Windows.Forms.MaskedTextBox();
             this.labelErrorTyNDoc = new System.Windows.Forms.Label();
             this.comboBoxPais = new System.Windows.Forms.ComboBox();
-            this.btn_buscar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // boxNombre
@@ -258,7 +257,7 @@
             // 
             // btn_confirmar
             // 
-            this.btn_confirmar.Location = new System.Drawing.Point(189, 355);
+            this.btn_confirmar.Location = new System.Drawing.Point(332, 355);
             this.btn_confirmar.Name = "btn_confirmar";
             this.btn_confirmar.Size = new System.Drawing.Size(75, 23);
             this.btn_confirmar.TabIndex = 22;
@@ -451,23 +450,11 @@
             this.comboBoxPais.TabIndex = 38;
             this.comboBoxPais.UseWaitCursor = true;
             // 
-            // btn_buscar
-            // 
-            this.btn_buscar.Location = new System.Drawing.Point(332, 355);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
-            this.btn_buscar.TabIndex = 39;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
-            this.btn_buscar.UseWaitCursor = true;
-            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
-            // 
-            // AltaCliForm
+            // ABMCliForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 400);
-            this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.comboBoxPais);
             this.Controls.Add(this.labelErrorTyNDoc);
             this.Controls.Add(this.boxFecha);
@@ -505,7 +492,7 @@
             this.Controls.Add(this.boxDocumento);
             this.Controls.Add(this.boxApellido);
             this.Controls.Add(this.boxNombre);
-            this.Name = "AltaCliForm";
+            this.Name = "ABMCliForm";
             this.Text = "ABM Cliente";
             this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.AltaCliForm_Load);
@@ -553,6 +540,5 @@
         private System.Windows.Forms.MaskedTextBox boxFecha;
         private System.Windows.Forms.Label labelErrorTyNDoc;
         private System.Windows.Forms.ComboBox comboBoxPais;
-        private System.Windows.Forms.Button btn_buscar;
     }
 }

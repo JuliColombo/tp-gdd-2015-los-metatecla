@@ -23,7 +23,7 @@ namespace PagoElectronico
 
         private void btn_alta_cliente_Click(object sender, EventArgs e)
         {
-            Form f = new PagoElectronico.ABM_Cliente.ABMCliForm();
+            Form f = new PagoElectronico.ABM_Cliente.BuscadorCliForm();
             f.ShowDialog();
         }
 

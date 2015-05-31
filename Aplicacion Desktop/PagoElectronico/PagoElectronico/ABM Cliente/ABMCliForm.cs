@@ -11,11 +11,24 @@ namespace PagoElectronico.ABM_Cliente
 {
     public partial class ABMCliForm : Form
     {
+        public int idCliente { get; set; }
 
         public ABMCliForm()
         {
             InitializeComponent();
             DB.PaisDB.cargarPaises(comboBoxPais.Items);
+        }
+
+        public ABMCliForm(int id)
+        {
+            idCliente = id;
+            InitializeComponent();
+            DB.PaisDB.cargarPaises(comboBoxPais.Items);
+
+            if (idCliente != 0)
+            {
+                this.cargarCamposAModificar();
+            }
         }
 
         protected override void OnClosed(EventArgs e)
@@ -180,15 +193,9 @@ namespace PagoElectronico.ABM_Cliente
 
         }
 
-        private void btn_buscar_Click(object sender, EventArgs e)
+        private void cargarCamposAModificar()
         {
-            BuscadorCliForm mb = new BuscadorCliForm();
-            mb.Owner = this;
-            mb.ShowDialog();
-
-            if (mb.idCliente != 0)
-            {
-                Dominio.Cliente cliente = DB.ClienteDB.getCliente(mb.idCliente);
+                Dominio.Cliente cliente = DB.ClienteDB.getCliente(this.idCliente);
                 Dominio.Domicilio domicilio = DB.DomicilioDB.getDomicilio(cliente.domicilio);
                 string pais = DB.PaisDB.getPais(cliente.pais);
                 string tipo_doc = DB.DocumentoDB.getTipoDoc(cliente.tipo_doc);
@@ -204,8 +211,6 @@ namespace PagoElectronico.ABM_Cliente
                 boxDepto.Text = domicilio.depto;
                 comboBoxPais.Text = pais;
                 comboBoxTipoDoc.Text = tipo_doc;
-                ////////////CARGAR LOS TEXTBOXES
-            }
         }
 
     }

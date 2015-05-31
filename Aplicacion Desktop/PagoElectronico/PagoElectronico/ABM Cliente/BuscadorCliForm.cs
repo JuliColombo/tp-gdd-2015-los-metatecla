@@ -40,13 +40,22 @@ namespace PagoElectronico.ABM_Cliente
         {
             if (listado.SelectedRows.Count == 1)
             {
-                this.idCliente = Convert.ToInt32(listado.CurrentRow.Cells[3].Value);
-                this.Close();
+                int idCliente = Convert.ToInt32(listado.CurrentRow.Cells[3].Value);
+                ABMCliForm mb = new ABMCliForm(idCliente);
+                mb.Owner = this;
+                mb.ShowDialog();
             }
             else
             {
                 labelErrorSeleccion.Visible = true;
             }
+        }
+
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            ABMCliForm mb = new ABMCliForm(0);
+            mb.Owner = this;
+            mb.ShowDialog();
         }
     }
 }
