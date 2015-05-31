@@ -11,7 +11,6 @@ namespace PagoElectronico.ABM_Cliente
 {
     public partial class BuscadorCliForm : Form
     {
-        public int idCliente { get; set; }
 
         public BuscadorCliForm()
         {
@@ -32,7 +31,6 @@ namespace PagoElectronico.ABM_Cliente
 
         private void btn_volver_Click(object sender, EventArgs e)
         {
-            this.idCliente = 0;
             this.Close();
         }
 
@@ -56,6 +54,15 @@ namespace PagoElectronico.ABM_Cliente
             ABMCliForm mb = new ABMCliForm(0);
             mb.Owner = this;
             mb.ShowDialog();
+        }
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            boxApellido.Text = "";
+            boxDocumento.Text = "";
+            boxMail.Text = "";
+            boxNombre.Text = "";
+            comboBoxTipoDoc.Text = "";
         }
     }
 }

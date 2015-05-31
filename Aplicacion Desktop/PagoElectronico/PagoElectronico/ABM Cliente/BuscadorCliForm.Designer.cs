@@ -40,11 +40,12 @@
             this.boxMail = new System.Windows.Forms.TextBox();
             this.listado = new System.Windows.Forms.DataGridView();
             this.botonBuscar = new System.Windows.Forms.Button();
-            this.btn_borrar = new System.Windows.Forms.Button();
+            this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_volver = new System.Windows.Forms.Button();
             this.labelErrorSeleccion = new System.Windows.Forms.Label();
             this.btn_nuevo = new System.Windows.Forms.Button();
+            this.btn_limpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,7 +142,7 @@
             // 
             // botonBuscar
             // 
-            this.botonBuscar.Location = new System.Drawing.Point(270, 173);
+            this.botonBuscar.Location = new System.Drawing.Point(326, 173);
             this.botonBuscar.Name = "botonBuscar";
             this.botonBuscar.Size = new System.Drawing.Size(75, 23);
             this.botonBuscar.TabIndex = 11;
@@ -149,14 +150,14 @@
             this.botonBuscar.UseVisualStyleBackColor = true;
             this.botonBuscar.Click += new System.EventHandler(this.botonBuscar_Click);
             // 
-            // btn_borrar
+            // btn_eliminar
             // 
-            this.btn_borrar.Location = new System.Drawing.Point(351, 367);
-            this.btn_borrar.Name = "btn_borrar";
-            this.btn_borrar.Size = new System.Drawing.Size(75, 23);
-            this.btn_borrar.TabIndex = 12;
-            this.btn_borrar.Text = "Borrar";
-            this.btn_borrar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Location = new System.Drawing.Point(351, 367);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(75, 23);
+            this.btn_eliminar.TabIndex = 12;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.UseVisualStyleBackColor = true;
             // 
             // btn_modificar
             // 
@@ -199,16 +200,27 @@
             this.btn_nuevo.UseVisualStyleBackColor = true;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
+            // btn_limpiar
+            // 
+            this.btn_limpiar.Location = new System.Drawing.Point(217, 173);
+            this.btn_limpiar.Name = "btn_limpiar";
+            this.btn_limpiar.Size = new System.Drawing.Size(75, 23);
+            this.btn_limpiar.TabIndex = 17;
+            this.btn_limpiar.Text = "Limpiar";
+            this.btn_limpiar.UseVisualStyleBackColor = true;
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
+            // 
             // BuscadorCliForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 433);
+            this.Controls.Add(this.btn_limpiar);
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.labelErrorSeleccion);
             this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.btn_modificar);
-            this.Controls.Add(this.btn_borrar);
+            this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.botonBuscar);
             this.Controls.Add(this.listado);
             this.Controls.Add(this.boxMail);
@@ -243,10 +255,11 @@
         private System.Windows.Forms.TextBox boxMail;
         private System.Windows.Forms.DataGridView listado;
         private System.Windows.Forms.Button botonBuscar;
-        private System.Windows.Forms.Button btn_borrar;
+        private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_volver;
         private System.Windows.Forms.Label labelErrorSeleccion;
         private System.Windows.Forms.Button btn_nuevo;
+        private System.Windows.Forms.Button btn_limpiar;
     }
 }
