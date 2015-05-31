@@ -28,6 +28,7 @@ namespace PagoElectronico.ABM_Cliente
             if (idCliente != 0)
             {
                 this.cargarCamposAModificar();
+                this.cambiarComponentes();
             }
         }
 
@@ -36,48 +37,67 @@ namespace PagoElectronico.ABM_Cliente
             base.OnClosed(e);
         }
 
+        private bool validarCamposVacios()
+        {
+            bool valido = true;
+            if (boxNombre.Text == "")
+            {
+                valido = false;
+                labelErrorNom.Visible = true;
+            };
+            if (boxApellido.Text == "")
+            {
+                valido = false;
+                labelErrorApe.Visible = true;
+            };
+            if (comboBoxPais.Text == "")
+            {
+                valido = false;
+                labelErrorPais.Visible = true;
+            };
+            if (comboBoxTipoDoc.Text == "")
+            {
+                valido = false;
+                labelErrorTDoc.Visible = true;
+            };
+            if (boxDocumento.Text == "")
+            {
+                valido = false;
+                labelErrorNDoc.Visible = true;
+            };
+            if (boxCalle.Text == "")
+            {
+                valido = false;
+                labelErrorCal.Visible = true;
+            };
+            if (boxAltura.Text == "")
+            {
+                valido = false;
+                labelErrorAlt.Visible = true;
+            };
+            if (boxDepto.Text == "")
+            {
+                valido = false;
+                labelErrorDep.Visible = true;
+            };
+            if (boxPiso.Text == "")
+            {
+                valido = false;
+                labelErrorPiso.Visible = true;
+            };
+            return valido;
+        }
+
         private bool validarCampos()
         {
             bool valido = true;
             int doc = 0;
-            if (boxNombre.Text == "") {
-                valido = false;
-                labelErrorNom.Visible = true;
-            };
-            if (boxApellido.Text == "") {
-                valido = false;
-                labelErrorApe.Visible = true;
-            };
-            if (comboBoxPais.Text == ""){
-                valido = false;
-                labelErrorPais.Visible = true;
-            };
-            if (comboBoxTipoDoc.Text == "") {
-                valido = false;
-                labelErrorTDoc.Visible = true;
-            };
-            if (boxDocumento.Text == ""){
-                valido = false;
-                labelErrorNDoc.Visible = true;
-            }else{
+            valido = this.validarCamposVacios();
+     
+            if (boxDocumento.Text != ""){
                 doc = Convert.ToInt32(boxDocumento.Text);
             }
-            if (boxCalle.Text == "") {
-                valido = false;
-                labelErrorCal.Visible = true;
-            };
-            if (boxAltura.Text == "") {
-                valido = false;
-                labelErrorAlt.Visible = true;
-            };
-            if (boxDepto.Text == "") {
-                valido = false;
-                labelErrorDep.Visible = true;
-            };
-            if (boxPiso.Text == "") {
-                valido = false;
-                labelErrorPiso.Visible = true;
-            };
+
             if (DB.ClienteDB.mailRepetido(boxMail.Text)){
                 valido = false;
                 labelErrorMail.Visible = true;
@@ -91,14 +111,28 @@ namespace PagoElectronico.ABM_Cliente
 
         private void btn_confirmar_Click(object sender, EventArgs e)
         {
+                    int id_domi = insertarDomicilio();
+                    if (idCliente == 0)
+                    {
+                        realizarAlta(id_domi);
+                    }
+                    else
+                    {
+                        realizarModificacion(id_domi);
+                    }
+                
+        }
+
+        private void realizarAlta(int id_domi)
+        {
             if (this.validarCampos())
             {
-                int id_domi = insertarDomicilio();
                 if (DB.DocumentoDB.validar(comboBoxTipoDoc.Text) && DB.PaisDB.validar(comboBoxPais.Text))
                 {
                     double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
                     double id_pais = DB.PaisDB.getID(comboBoxPais.Text);
-                    insertarCliente(id_domi, id_docu, id_pais);
+                    Dominio.Cliente cliente = this.cargarCliente(id_domi, id_docu, id_pais);
+                    DB.ClienteDB.insertar(cliente);
                     this.limpiar();
 
                     Form exito = new AltaClienteExitoForm();
@@ -107,7 +141,23 @@ namespace PagoElectronico.ABM_Cliente
             }
         }
 
-        private void insertarCliente(int id_domi, double id_docu, double id_pais)
+        private void realizarModificacion(int id_domi)
+        {
+            if (this.validarCamposVacios())
+            {
+                if (DB.PaisDB.validar(comboBoxPais.Text))
+                {
+                    double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
+                    double id_pais = DB.PaisDB.getID(comboBoxPais.Text);
+                    Dominio.Cliente cliente = this.cargarCliente(id_domi, id_docu, id_pais);
+                    DB.ClienteDB.modificar(cliente);
+
+                    this.Close();
+                }
+            }
+        }
+
+        private PagoElectronico.Dominio.Cliente cargarCliente(int id_domi, double id_docu, double id_pais)
         {
             PagoElectronico.Dominio.Cliente cliente = new PagoElectronico.Dominio.Cliente();
             cliente.nombre = this.boxNombre.Text;
@@ -118,8 +168,7 @@ namespace PagoElectronico.ABM_Cliente
             cliente.pais = id_pais;
             cliente.documento = Convert.ToInt32(boxDocumento.Text);
             cliente.fecha_nac = boxFecha.Text;
-        
-            DB.ClienteDB.insertar(cliente);
+            return cliente;
         }
 
         private int insertarDomicilio()
@@ -148,12 +197,17 @@ namespace PagoElectronico.ABM_Cliente
             boxNombre.Text = "";
             boxMail.Text = "";
             boxFecha.Text = "";
-            boxDocumento.Text = "";
             boxDepto.Text = "";
             boxCalle.Text = "";
             boxApellido.Text = "";
             boxAltura.Text = "";
-            comboBoxTipoDoc.Text = "";
+
+            if (idCliente == 0)
+            {
+                boxDocumento.Text = "";
+                comboBoxTipoDoc.Text = "";
+            }
+
             labelErrorMail.Visible = false;
             labelErrorAlt.Visible = false;
             labelErrorApe.Visible = false;
@@ -211,6 +265,12 @@ namespace PagoElectronico.ABM_Cliente
                 boxDepto.Text = domicilio.depto;
                 comboBoxPais.Text = pais;
                 comboBoxTipoDoc.Text = tipo_doc;
+        }
+
+        private void cambiarComponentes()
+        {
+            boxDocumento.ReadOnly = true;
+            comboBoxTipoDoc.Enabled = false;
         }
 
     }

@@ -34,7 +34,7 @@ namespace PagoElectronico.DB
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT * FROM LOS_METATECLA.Pomicilio WHERE Dom_Calle = '{0}' AND Dom_Nro = '{1}' AND Dom_Piso = '{2}' " +
+                "SELECT * FROM LOS_METATECLA.Domicilio WHERE Dom_Calle = '{0}' AND Dom_Nro = '{1}' AND Dom_Piso = '{2}' " +
                 "AND Dom_Depto = '{3}'", domicilio.calle, domicilio.numero, domicilio.piso, domicilio.depto);
             conexion.ejecutarQuery();
             bool existe = (conexion.leerReader());

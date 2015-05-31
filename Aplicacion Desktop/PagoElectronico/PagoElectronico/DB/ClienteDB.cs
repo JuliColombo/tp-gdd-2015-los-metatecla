@@ -18,6 +18,18 @@ namespace PagoElectronico.DB
             conexion.ejecutarNoQuery();
         }
 
+        public static void modificar(Dominio.Cliente cliente)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "UPDATE LOS_METATECLA.Cliente SET Cli_Nombre = '{0}', Cli_Apellido = '{1}', " +
+                "Cli_Pais_Codigo = '{2}', Id_Domicilio = '{3}', Cli_Fecha_Nac = '{4}', Cli_Mail = '{5}' " +
+                "WHERE Cli_Tipo_Doc_Cod = '{6}' AND Cli_Nro_Doc = '{7}'",
+                cliente.nombre, cliente.apellido, cliente.pais, cliente.domicilio, cliente.fecha_nac, cliente.mail, 
+                cliente.tipo_doc, cliente.documento);
+            conexion.ejecutarNoQuery();
+        }
+
         public static bool mailRepetido(String mail)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
