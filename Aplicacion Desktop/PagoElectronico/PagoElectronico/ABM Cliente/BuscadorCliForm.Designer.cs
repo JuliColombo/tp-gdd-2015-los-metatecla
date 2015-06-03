@@ -124,6 +124,7 @@
             this.boxDocumento.Name = "boxDocumento";
             this.boxDocumento.Size = new System.Drawing.Size(100, 20);
             this.boxDocumento.TabIndex = 8;
+            this.boxDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.boxDocumento_KeyPress);
             // 
             // boxMail
             // 

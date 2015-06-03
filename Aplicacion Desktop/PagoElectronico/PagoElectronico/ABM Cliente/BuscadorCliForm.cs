@@ -64,5 +64,10 @@ namespace PagoElectronico.ABM_Cliente
             boxNombre.Text = "";
             comboBoxTipoDoc.Text = "";
         }
+
+        private void boxDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EventosUI.soloNumeros(e);
+        }
     }
 }

@@ -92,7 +92,7 @@ namespace PagoElectronico.ABM_Cliente
         {
             bool valido = true;
             int doc = 0;
-            valido = this.validarCamposVacios();
+            //valido = this.validarCamposVacios();
      
             if (boxDocumento.Text != ""){
                 doc = Convert.ToInt32(boxDocumento.Text);
@@ -111,16 +111,18 @@ namespace PagoElectronico.ABM_Cliente
 
         private void btn_confirmar_Click(object sender, EventArgs e)
         {
-                    int id_domi = insertarDomicilio();
-                    if (idCliente == 0)
-                    {
-                        realizarAlta(id_domi);
-                    }
-                    else
-                    {
-                        realizarModificacion(id_domi);
-                    }
-                
+            if (this.validarCamposVacios())
+            {
+                int id_domi = insertarDomicilio();
+                if (idCliente == 0)
+                {
+                    realizarAlta(id_domi);
+                }
+                else
+                {
+                    realizarModificacion(id_domi);
+                }
+            }            
         }
 
         private void realizarAlta(int id_domi)
@@ -143,8 +145,6 @@ namespace PagoElectronico.ABM_Cliente
 
         private void realizarModificacion(int id_domi)
         {
-            if (this.validarCamposVacios())
-            {
                 if (DB.PaisDB.validar(comboBoxPais.Text))
                 {
                     double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
@@ -154,7 +154,6 @@ namespace PagoElectronico.ABM_Cliente
 
                     this.Close();
                 }
-            }
         }
 
         private PagoElectronico.Dominio.Cliente cargarCliente(int id_domi, double id_docu, double id_pais)
@@ -237,11 +236,6 @@ namespace PagoElectronico.ABM_Cliente
 
         }
 
-        private void AltaCliForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void boxDocumento_TextChanged(object sender, EventArgs e)
         {
 
@@ -271,6 +265,21 @@ namespace PagoElectronico.ABM_Cliente
         {
             boxDocumento.ReadOnly = true;
             comboBoxTipoDoc.Enabled = false;
+        }
+
+        private void boxDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EventosUI.soloNumeros(e);
+        }
+
+        private void boxAltura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EventosUI.soloNumeros(e);
+        }
+
+        private void boxPiso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EventosUI.soloNumeros(e);
         }
 
     }

@@ -148,6 +148,7 @@
     <Compile Include="Dominio\Cuenta.cs" />
     <Compile Include="Dominio\Domicilio.cs" />
     <Compile Include="Dominio\Usuario.cs" />
+    <Compile Include="EventosUI.cs" />
     <Compile Include="Facturacion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
