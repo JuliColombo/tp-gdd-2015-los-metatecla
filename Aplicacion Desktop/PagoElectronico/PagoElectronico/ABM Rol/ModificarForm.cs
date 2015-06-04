@@ -80,9 +80,10 @@ namespace PagoElectronico.ABM_Rol
                     rolAModificar.funcionalidades = filtrarSeleccionadas();
                     RolDB DBRol = new RolDB();
                     DBRol.actualizarRol(rolAModificar);
+                    this.Close();  
                 }
 
-                this.Close();  
+                
         }
 
         private List<Funcionalidad> filtrarSeleccionadas()

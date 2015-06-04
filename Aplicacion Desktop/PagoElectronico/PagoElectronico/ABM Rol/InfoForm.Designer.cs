@@ -40,7 +40,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 14);
+            this.label1.Location = new System.Drawing.Point(9, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
@@ -49,7 +49,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 43);
+            this.label2.Location = new System.Drawing.Point(9, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 1;
@@ -58,7 +58,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 75);
+            this.label3.Location = new System.Drawing.Point(9, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 2;
@@ -67,15 +67,15 @@
             // listaFuncionalidades
             // 
             this.listaFuncionalidades.FormattingEnabled = true;
-            this.listaFuncionalidades.Location = new System.Drawing.Point(25, 98);
+            this.listaFuncionalidades.Location = new System.Drawing.Point(12, 75);
             this.listaFuncionalidades.Name = "listaFuncionalidades";
-            this.listaFuncionalidades.Size = new System.Drawing.Size(236, 121);
+            this.listaFuncionalidades.Size = new System.Drawing.Size(187, 121);
             this.listaFuncionalidades.TabIndex = 3;
             // 
             // estadoLabel
             // 
             this.estadoLabel.AutoSize = true;
-            this.estadoLabel.Location = new System.Drawing.Point(74, 43);
+            this.estadoLabel.Location = new System.Drawing.Point(62, 37);
             this.estadoLabel.Name = "estadoLabel";
             this.estadoLabel.Size = new System.Drawing.Size(35, 13);
             this.estadoLabel.TabIndex = 4;
@@ -84,7 +84,7 @@
             // nombreLabel
             // 
             this.nombreLabel.AutoSize = true;
-            this.nombreLabel.Location = new System.Drawing.Point(74, 14);
+            this.nombreLabel.Location = new System.Drawing.Point(62, 14);
             this.nombreLabel.Name = "nombreLabel";
             this.nombreLabel.Size = new System.Drawing.Size(35, 13);
             this.nombreLabel.TabIndex = 5;
@@ -92,7 +92,7 @@
             // 
             // botonAceptar
             // 
-            this.botonAceptar.Location = new System.Drawing.Point(25, 233);
+            this.botonAceptar.Location = new System.Drawing.Point(117, 202);
             this.botonAceptar.Name = "botonAceptar";
             this.botonAceptar.Size = new System.Drawing.Size(83, 23);
             this.botonAceptar.TabIndex = 6;
@@ -104,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(212, 232);
             this.Controls.Add(this.botonAceptar);
             this.Controls.Add(this.nombreLabel);
             this.Controls.Add(this.estadoLabel);

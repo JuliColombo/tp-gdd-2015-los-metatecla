@@ -44,7 +44,8 @@ namespace PagoElectronico.DB
             List<SqlParameter> ListParam = new List<SqlParameter>();
             ListParam.Add(new SqlParameter("@nombre", nombre));
             Conexion cnx = new Conexion();
-            cnx.ejecutarStoredProcedureSinRet("LOS_METATECLA.AgregarFuncionalidadNueva", ListParam);
+            cnx.ejecutarQueryConParam("INSERT INTO LOS_METATECLA.Funcionalidad (Nombre) VALUES (@nombre)", ListParam);
+            cnx.cerrarConexion();
         }
 
         public List<Funcionalidad> obtenerFuncRol(Rol rol) {

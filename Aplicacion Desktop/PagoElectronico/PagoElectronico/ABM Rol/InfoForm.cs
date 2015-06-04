@@ -13,9 +13,11 @@ namespace PagoElectronico.ABM_Rol
 {
     public partial class InfoForm : Form
     {
+        Rol infoRol;
         public InfoForm(Rol rol)
         {
             InitializeComponent();
+            infoRol = rol;
             nombreLabel.Text = rol.nombre;
             estadoLabel.Text = rol.estado;
             cargarCheckList();
@@ -32,7 +34,8 @@ namespace PagoElectronico.ABM_Rol
         {
             listaFuncionalidades.DisplayMember = "nombre";
             listaFuncionalidades.ValueMember = "id";
-            List<Funcionalidad> funcionalidadesExistentes = FuncionalidadDB.obtenerFuncionalidades();
+            FuncionalidadDB funcDB = new FuncionalidadDB();
+            List<Funcionalidad> funcionalidadesExistentes = funcDB.obtenerFuncRol(infoRol);
             foreach (Funcionalidad func in funcionalidadesExistentes)
             {
                 if (!listaFuncionalidades.Items.Contains(func))
@@ -41,5 +44,7 @@ namespace PagoElectronico.ABM_Rol
                 }
             }
         }
+
+       
     }
 }

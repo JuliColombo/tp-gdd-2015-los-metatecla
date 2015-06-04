@@ -40,7 +40,8 @@ namespace PagoElectronico.DB
              ListParam.Add(new SqlParameter("@nombre", nombre));
              ListParam.Add(new SqlParameter("@estado", estado));
              Conexion cnx = new Conexion();
-             cnx.ejecutarStoredProcedureSinRet("LOS_METATECLA.AgregarNuevoRol", ListParam);
+             cnx.ejecutarQueryConParam("INSERT INTO LOS_METATECLA.Rol (Nombre,Habilitado) VALUES (@nombre,@estado)", ListParam);
+             cnx.cerrarConexion();
              //2. Agrego a Funcionalidades_Rol todas las funcionalidades de este rol
              FuncionalidadDB DBFuncionalidad = new FuncionalidadDB();
              foreach (Funcionalidad funcionalidad in funcionalidadesRol)

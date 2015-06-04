@@ -99,6 +99,7 @@ namespace PagoElectronico.Dominio
             }
 
             comando.ExecuteNonQuery();
+            this.cerrarConexion();
 
         }
         //Para ejecutar los store procedures
