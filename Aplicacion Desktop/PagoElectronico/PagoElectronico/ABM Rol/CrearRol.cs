@@ -48,7 +48,7 @@ namespace PagoElectronico.ABM_Rol
             //1. Me fijo que los campos esten completos ya que son OBLIGATORIOS
             if (nombreText.Text == "")
             {
-                MessageBox.Show("No se ingreso Nombre del ROL", "Error, Completar Campos Obligatorios", MessageBoxButtons.OK);
+                MessageBox.Show("No se ingreso Nombre del ROL", "Error, Completar Campos Obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 nombreText.Focus();
             }
             else
@@ -56,16 +56,22 @@ namespace PagoElectronico.ABM_Rol
                 int cantidad = Funcionalidades.CheckedItems.Count;
                 if (cantidad < 1)
                 {
-                    MessageBox.Show("No se slecciono ninguna Funcionalidad", "Error, Completar Campos Obligatorios", MessageBoxButtons.OK);
+                    MessageBox.Show("No se slecciono ninguna Funcionalidad", "Error, Completar Campos Obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     //2. Una vez que verifique los campos, lo INSERTO en la tabla de roles en la DB si es posible
                     List<Funcionalidad> funcionalidadesNuevoRol = filtrarSeleccionadas();
                     RolDB DBRol = new RolDB();
-                    DBRol.AgregarRol(nombreText.Text, checkBox1.Checked, funcionalidadesNuevoRol);
-                    MessageBox.Show("Nuevo rol creado en el Sistema", "Exito", MessageBoxButtons.OK);
+                    List<Rol> rolesActuales = RolDB.obtenerRoles();
+                    Rol nuevoRol = new Rol(-1,nombreText.Text,checkBox1.Checked);
+                    nuevoRol.funcionalidades = funcionalidadesNuevoRol;
+                    if(!rolesActuales.Exists(rol => rol.nombre == nuevoRol.nombre)){
+                    DBRol.AgregarRol(nuevoRol);
+                    MessageBox.Show("Nuevo rol creado en el Sistema", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
+                    }
+                    else { MessageBox.Show("El Rol ya existe en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
         }

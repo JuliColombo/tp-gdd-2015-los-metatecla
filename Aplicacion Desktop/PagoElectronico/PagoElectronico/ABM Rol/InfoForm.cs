@@ -17,6 +17,7 @@ namespace PagoElectronico.ABM_Rol
         public InfoForm(Rol rol)
         {
             InitializeComponent();
+            this.CenterToScreen();
             infoRol = rol;
             nombreLabel.Text = rol.nombre;
             estadoLabel.Text = rol.estado;
@@ -43,6 +44,11 @@ namespace PagoElectronico.ABM_Rol
                     listaFuncionalidades.Items.Add(func);
                 }
             }
+        }
+
+        private void InfoForm_Load(object sender, EventArgs e)
+        {
+
         }
 
        

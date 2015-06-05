@@ -69,7 +69,7 @@ namespace PagoElectronico.ABM_Rol
                 int cantidad = funcionalidadesDelSistema.CheckedItems.Count;
                 if (cantidad < 1)
                 {
-                    MessageBox.Show("No se slecciono ninguna Funcionalidad", "Error, Completar Campos Obligatorios", MessageBoxButtons.OK);
+                    MessageBox.Show("No se slecciono ninguna Funcionalidad", "Error, Completar Campos Obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -80,6 +80,7 @@ namespace PagoElectronico.ABM_Rol
                     rolAModificar.funcionalidades = filtrarSeleccionadas();
                     RolDB DBRol = new RolDB();
                     DBRol.actualizarRol(rolAModificar);
+                    MessageBox.Show("Se han guardado los nuevos datos", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();  
                 }
 

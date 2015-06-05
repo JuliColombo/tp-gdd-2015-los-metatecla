@@ -69,7 +69,7 @@
             this.listaFuncionalidades.FormattingEnabled = true;
             this.listaFuncionalidades.Location = new System.Drawing.Point(12, 75);
             this.listaFuncionalidades.Name = "listaFuncionalidades";
-            this.listaFuncionalidades.Size = new System.Drawing.Size(187, 121);
+            this.listaFuncionalidades.Size = new System.Drawing.Size(221, 121);
             this.listaFuncionalidades.TabIndex = 3;
             // 
             // estadoLabel
@@ -92,7 +92,7 @@
             // 
             // botonAceptar
             // 
-            this.botonAceptar.Location = new System.Drawing.Point(117, 202);
+            this.botonAceptar.Location = new System.Drawing.Point(150, 202);
             this.botonAceptar.Name = "botonAceptar";
             this.botonAceptar.Size = new System.Drawing.Size(83, 23);
             this.botonAceptar.TabIndex = 6;
@@ -104,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(212, 232);
+            this.ClientSize = new System.Drawing.Size(245, 232);
             this.Controls.Add(this.botonAceptar);
             this.Controls.Add(this.nombreLabel);
             this.Controls.Add(this.estadoLabel);
@@ -113,7 +113,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "InfoForm";
-            this.Text = "InfoForm";
+            this.Text = "Informacion del ROL";
+            this.Load += new System.EventHandler(this.InfoForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

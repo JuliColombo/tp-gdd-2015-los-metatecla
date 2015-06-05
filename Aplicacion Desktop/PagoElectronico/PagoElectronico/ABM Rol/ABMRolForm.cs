@@ -48,10 +48,14 @@ namespace PagoElectronico.ABM_Rol
 
         private void botonModificar_Click(object sender, EventArgs e)
         {
-            Rol rol = dataGridRoles.CurrentRow.DataBoundItem as Rol;
-            ModificarForm modForm = new ModificarForm(rol);
-            modForm.ShowDialog();
-            actualizarDataGrid();
+            if (dataGridRoles.RowCount > 0)
+            {
+                Rol rol = dataGridRoles.CurrentRow.DataBoundItem as Rol;
+                ModificarForm modForm = new ModificarForm(rol);
+                modForm.ShowDialog();
+                actualizarDataGrid();
+            }
+            else { MessageBox.Show("No se selecciono ningun rol o bien no existe ninguno", "Error, vuelva a intentar", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
 
         }
@@ -63,11 +67,20 @@ namespace PagoElectronico.ABM_Rol
 
         private void botonEliminar_Click(object sender, EventArgs e)
         {
-            Rol rol = dataGridRoles.CurrentRow.DataBoundItem as Rol;
-            rol.habilitado = false;
-            RolDB roldb = new RolDB();
-            roldb.deshabilitarRol(rol);
-            actualizarDataGrid();
+            if (dataGridRoles.RowCount > 0)
+            {
+                Rol rol = dataGridRoles.CurrentRow.DataBoundItem as Rol;
+                if (rol.habilitado)
+                {
+                    rol.habilitado = false;
+                    RolDB roldb = new RolDB();
+                    roldb.deshabilitarRol(rol);
+                    actualizarDataGrid();
+                    MessageBox.Show("Se inhabilito el ROL", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else { MessageBox.Show("El ROL ya se encuentra inhabilitado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+            else { MessageBox.Show("No se selecciono ningun rol o bien no existe ninguno", "Error, vuelva a intentar", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
 
         }
@@ -75,9 +88,13 @@ namespace PagoElectronico.ABM_Rol
         private void botonInfo_Click(object sender, EventArgs e)
         {
 
-            Rol rol = dataGridRoles.CurrentRow.DataBoundItem as Rol;
-            InfoForm info = new InfoForm(rol);
-            info.ShowDialog();
+            if (dataGridRoles.RowCount > 0)
+            {
+                Rol rol = dataGridRoles.CurrentRow.DataBoundItem as Rol;
+                InfoForm info = new InfoForm(rol);
+                info.ShowDialog();
+            }
+            else { MessageBox.Show("No se selecciono ningun rol o bien no existe ninguno","Error, vuelva a intentar", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
         }
 

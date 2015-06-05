@@ -25,7 +25,7 @@ namespace PagoElectronico.ABM_Rol
             FuncionalidadDB DBFuncionalidad = new FuncionalidadDB();
             if (textNombreFunc.Text == "")
             {
-                MessageBox.Show("No se ingreso ningun nombre. Vuelva a intentarlo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("No se ingreso ningun nombre. Vuelva a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textNombreFunc.Focus();
             }
             else
@@ -34,7 +34,7 @@ namespace PagoElectronico.ABM_Rol
                 List<Funcionalidad> funcionalidadesExistentes = FuncionalidadDB.obtenerFuncionalidades();
                 if (funcionalidadesExistentes.Exists(func => func.nombre == textNombreFunc.Text))
                 {
-                    MessageBox.Show("La Funcionalidad ingresada ya existe en el sistema", "Error", MessageBoxButtons.OK);
+                    MessageBox.Show("La Funcionalidad ingresada ya existe en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {//3. Inserto la funcionalidad en su tabla

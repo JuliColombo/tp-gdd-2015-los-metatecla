@@ -9,7 +9,8 @@ namespace PagoElectronico.DB
 {
     class RolDB
     {
-         public static List<Rol> obtenerRoles()
+        
+        public static List<Rol> obtenerRoles()
         {
             List<Rol> roles = new List<Rol>();
             Conexion conexion = new Conexion();
@@ -33,20 +34,20 @@ namespace PagoElectronico.DB
         }
 
 
-         public void AgregarRol(string nombre, bool estado, List<Funcionalidad> funcionalidadesRol)
+         public void AgregarRol(Rol nuevoRol)
          { //No se si esta bien hecho el tema de ejecutarStoredProcedure
              List<SqlParameter> ListParam = new List<SqlParameter>();
              //1. Primero agrego a la tabla de roles
-             ListParam.Add(new SqlParameter("@nombre", nombre));
-             ListParam.Add(new SqlParameter("@estado", estado));
+             ListParam.Add(new SqlParameter("@nombre", nuevoRol.nombre));
+             ListParam.Add(new SqlParameter("@estado", nuevoRol.habilitado));
              Conexion cnx = new Conexion();
              cnx.ejecutarQueryConParam("INSERT INTO LOS_METATECLA.Rol (Nombre,Habilitado) VALUES (@nombre,@estado)", ListParam);
              cnx.cerrarConexion();
              //2. Agrego a Funcionalidades_Rol todas las funcionalidades de este rol
              FuncionalidadDB DBFuncionalidad = new FuncionalidadDB();
-             foreach (Funcionalidad funcionalidad in funcionalidadesRol)
+             foreach (Funcionalidad funcionalidad in nuevoRol.funcionalidades)
              {
-                 DBFuncionalidad.AgregarFuncionalidadDelRol(nombre, funcionalidad);
+                 DBFuncionalidad.AgregarFuncionalidadDelRol(nuevoRol.nombre, funcionalidad);
              }
          }
 
