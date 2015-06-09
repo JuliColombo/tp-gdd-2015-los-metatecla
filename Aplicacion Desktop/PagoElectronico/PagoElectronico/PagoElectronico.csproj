@@ -238,6 +238,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Retiros\GenerarRetiroForm.resx">
+      <DependentUpon>GenerarRetiroForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Retiros\SeleccionDeCuentaForm.resx">
       <DependentUpon>SeleccionDeCuentaForm.cs</DependentUpon>
     </EmbeddedResource>
