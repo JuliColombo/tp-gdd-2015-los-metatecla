@@ -159,14 +159,14 @@ namespace PagoElectronico.DB
                 double numero_cuenta = Convert.ToDouble(conexion.lector[3]);
                 double numero_tarjeta = Convert.ToDouble(conexion.lector[4]);
 
-                if (cliente.numeros_cuentas.Contains(numero_cuenta))
+                if (!cliente.numeros_cuentas.Contains(numero_cuenta))
                 {
                     cliente.numeros_cuentas.Add(numero_cuenta);
                 }
 
-                if (cliente.numeros_tarjetas.Contains(numero_tarjeta))
+                if (!cliente.numeros_tarjetas.Contains(numero_tarjeta))
                 {
-                    cliente.numeros_cuentas.Add(numero_tarjeta);
+                    cliente.numeros_tarjetas.Add(numero_tarjeta);
                 }
 
             }
