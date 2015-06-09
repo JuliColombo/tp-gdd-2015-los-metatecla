@@ -95,14 +95,14 @@ namespace PagoElectronico.DB
             conexion.ejecutarNoQuery();
         }
 
-        internal static double getId(string usuario)
+        internal static int getId(string usuario)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
                 "SELECT TOP 1 Id_User FROM LOS_METATECLA.Usuario WHERE User_Username = '{0}'", usuario);
             conexion.ejecutarQuery();
             conexion.leerReader();
-            double id = Convert.ToDouble(conexion.lector[0]);
+            int id = Convert.ToInt32(conexion.lector[0]);
             conexion.cerrarConexion();
             return id;
         }
