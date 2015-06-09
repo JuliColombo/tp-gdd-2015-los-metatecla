@@ -12,5 +12,6 @@ namespace PagoElectronico.ABM_Cliente
         public String tipo_doc { get; set; }
         public int documento { get; set; }
         public String mail { get; set; }
+        public int id { get; set; }
     }
 }

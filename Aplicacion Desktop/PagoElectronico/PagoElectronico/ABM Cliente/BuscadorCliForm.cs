@@ -38,7 +38,7 @@ namespace PagoElectronico.ABM_Cliente
         {
             if (listado.SelectedRows.Count == 1)
             {
-                int idCliente = Convert.ToInt32(listado.CurrentRow.Cells[3].Value);
+                int idCliente = Convert.ToInt32(listado.CurrentRow.Cells[5].Value);
                 ABMCliForm mb = new ABMCliForm(idCliente);
                 mb.Owner = this;
                 mb.ShowDialog();

@@ -23,10 +23,11 @@ namespace PagoElectronico.DB
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
                 "UPDATE LOS_METATECLA.Cliente SET Cli_Nombre = '{0}', Cli_Apellido = '{1}', " +
-                "Cli_Pais_Codigo = '{2}', Id_Domicilio = '{3}', Cli_Fecha_Nac = '{4}', Cli_Mail = '{5}' " +
-                "WHERE Cli_Tipo_Doc_Cod = '{6}' AND Cli_Nro_Doc = '{7}'",
+                "Cli_Pais_Codigo = '{2}', Id_Domicilio = '{3}', Cli_Fecha_Nac = '{4}', Cli_Mail = '{5}', " +
+                "Cli_Tipo_Doc_Cod = '{6}', Cli_Nro_Doc = '{7}' " +
+                "WHERE Cli_Id = '{8}'",
                 cliente.nombre, cliente.apellido, cliente.pais, cliente.domicilio, cliente.fecha_nac, cliente.mail, 
-                cliente.tipo_doc, cliente.documento);
+                cliente.tipo_doc, cliente.documento, cliente.id);
             conexion.ejecutarNoQuery();
         }
 
@@ -58,7 +59,7 @@ namespace PagoElectronico.DB
             List<ABM_Cliente.ClienteEdit> clientes = new List<ABM_Cliente.ClienteEdit>();
             Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT Cli_Nombre, Cli_Apellido, Doc_Tipo_Desc, Cli_Nro_Doc, Cli_Mail " +
+                "SELECT Cli_Nombre, Cli_Apellido, Doc_Tipo_Desc, Cli_Nro_Doc, Cli_Mail, Cli_Id " +
                 "FROM LOS_METATECLA.Cliente, LOS_METATECLA.Documento " +
                 "WHERE Cli_Tipo_Doc_Cod = Doc_Tipo_Cod AND Cli_Nombre LIKE '%{0}%' AND Cli_Apellido LIKE '%{1}%' " +
                 "AND Doc_Tipo_Desc LIKE '%{2}%' AND Cli_Nro_Doc LIKE '%{3}%' AND Cli_Mail LIKE '%{4}%'",
@@ -72,26 +73,42 @@ namespace PagoElectronico.DB
                 cliente.tipo_doc = conexion.lector.GetString(2);
                 cliente.documento = Convert.ToInt32(conexion.lector[3]);
                 cliente.mail = conexion.lector.GetString(4);
+                cliente.id = Convert.ToInt32(conexion.lector[5]);
                 clientes.Add(cliente);
             }
             conexion.cerrarConexion();
             return clientes;
         }
 
-        public static Dominio.Cliente getCliente(int documento)
+  /*      public static int getID(Dominio.Cliente cliente){
+            Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT Cli_Id " +
+                "FROM LOS_METATECLA.Cliente " +
+                "WHERE Cli_Tipo_Doc_Cod = '{0}' AND Cli_Nro_Doc = '{1}'", cliente.tipo_doc, cliente.documento);
+            conexion.ejecutarQuery();
+            conexion.leerReader();
+            int id = Convert.ToInt32(conexion.lector[0]);
+            conexion.cerrarConexion();
+            return id;
+        }*/
+
+        public static Dominio.Cliente getCliente(int id)
         {
             Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT * " +
+                "SELECT Cli_Nombre, Cli_Apellido, Cli_Tipo_Doc_Cod, Cli_Nro_Doc, " +
+                "Cli_Pais_Codigo, Id_Domicilio, Cli_Fecha_Nac, Cli_Mail " +
                 "FROM LOS_METATECLA.Cliente " +
-                "WHERE Cli_Nro_Doc = '{0}'", documento);
+                "WHERE Cli_Id = '{0}'", id);
             conexion.ejecutarQuery();
             conexion.leerReader();
             Dominio.Cliente cliente = new PagoElectronico.Dominio.Cliente();
+            cliente.id = id;
             cliente.nombre = conexion.lector.GetString(0);
             cliente.apellido = conexion.lector.GetString(1);
             cliente.tipo_doc = Convert.ToDouble(conexion.lector[2]);
-            cliente.documento = documento;
+            cliente.documento = Convert.ToInt32(conexion.lector[3]);
             cliente.pais = Convert.ToDouble(conexion.lector[4]);
             cliente.domicilio = Convert.ToInt32(conexion.lector[5]);
             cliente.fecha_nac = Convert.ToString(conexion.lector[6]);

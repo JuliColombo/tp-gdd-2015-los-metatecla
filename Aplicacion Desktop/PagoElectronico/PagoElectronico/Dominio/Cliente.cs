@@ -7,6 +7,7 @@ namespace PagoElectronico.Dominio
 {
     class Cliente
     {
+        public int id { get; set; }
         public String nombre { get; set; }
         public String apellido { get; set; }
         public double tipo_doc { get; set; }

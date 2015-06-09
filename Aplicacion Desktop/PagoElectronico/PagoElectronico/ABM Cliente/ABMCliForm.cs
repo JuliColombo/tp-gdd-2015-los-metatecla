@@ -28,7 +28,7 @@ namespace PagoElectronico.ABM_Cliente
             if (idCliente != 0)
             {
                 this.cargarCamposAModificar();
-                this.cambiarComponentes();
+                //this.cambiarComponentes();
             }
         }
 
@@ -150,6 +150,7 @@ namespace PagoElectronico.ABM_Cliente
                     double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
                     double id_pais = DB.PaisDB.getID(comboBoxPais.Text);
                     Dominio.Cliente cliente = this.cargarCliente(id_domi, id_docu, id_pais);
+                    cliente.id = this.idCliente;
                     DB.ClienteDB.modificar(cliente);
 
                     this.Close();
