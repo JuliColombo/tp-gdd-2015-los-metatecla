@@ -17,10 +17,15 @@ namespace PagoElectronico.ABM_Cliente
             InitializeComponent();
         }
 
+        private void buscar()
+        {
+            listado.DataSource = DB.ClienteDB.buscarClientes(boxNombre.Text, boxApellido.Text, comboBoxTipoDoc.Text, boxDocumento.Text, boxMail.Text);
+        }
+
         private void botonBuscar_Click(object sender, EventArgs e)
         {
             if (this.validarCampos()){
-                listado.DataSource = DB.ClienteDB.buscarClientes(boxNombre.Text, boxApellido.Text, comboBoxTipoDoc.Text, boxDocumento.Text, boxMail.Text);
+                this.buscar();
             }
         }
 
@@ -76,6 +81,8 @@ namespace PagoElectronico.ABM_Cliente
             {
                 int idCliente = Convert.ToInt32(listado.CurrentRow.Cells[5].Value);
                 DB.ClienteDB.darDeBaja(idCliente);
+                this.buscar();
+                MessageBox.Show("Cliente eliminado correctamente");
             }
             else
             {

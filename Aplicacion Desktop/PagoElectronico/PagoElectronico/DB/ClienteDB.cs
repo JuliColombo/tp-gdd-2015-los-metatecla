@@ -71,7 +71,8 @@ namespace PagoElectronico.DB
                 "SELECT Cli_Nombre, Cli_Apellido, Doc_Tipo_Desc, Cli_Nro_Doc, Cli_Mail, Cli_Id " +
                 "FROM LOS_METATECLA.Cliente, LOS_METATECLA.Documento " +
                 "WHERE Cli_Tipo_Doc_Cod = Doc_Tipo_Cod AND Cli_Nombre LIKE '%{0}%' AND Cli_Apellido LIKE '%{1}%' " +
-                "AND Doc_Tipo_Desc LIKE '%{2}%' AND Cli_Nro_Doc LIKE '%{3}%' AND Cli_Mail LIKE '%{4}%'",
+                "AND Doc_Tipo_Desc LIKE '%{2}%' AND Cli_Nro_Doc LIKE '%{3}%' AND Cli_Mail LIKE '%{4}%' " +
+                "AND Cli_Estado != 'baja'",
                 nom, ape, tipoDoc, doc, mail);
             conexion.ejecutarQuery();
             while (conexion.leerReader())
