@@ -51,5 +51,10 @@ namespace PagoElectronico.Retiros
                 case 4: MessageBox.Show("La cuenta se encuentra Cerrada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
             }
         }
+
+        private void botonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
