@@ -43,11 +43,10 @@ namespace PagoElectronico.DB
         public static List<Cuenta> obtenerCuentasCliente(Cliente cliente)
         {
             List<SqlParameter> ListParam = new List<SqlParameter>();
-            ListParam.Add(new SqlParameter("@documento", cliente.documento));
-            ListParam.Add(new SqlParameter("@tipodoc", cliente.tipo_doc));
+            ListParam.Add(new SqlParameter("@id", cliente.id));
             Conexion conexion = new Conexion();
             List<Cuenta> cuentasCliente = new List<Cuenta>();
-            SqlDataReader lector = conexion.ejecutarQueryConParam("SELECT * FROM LOS_METATECLA.Cuenta WHERE Cuenta_Cliente_Doc = @documento AND Cuenta_Cliente_TipoDoc = @tipodoc", ListParam);
+            SqlDataReader lector = conexion.ejecutarQueryConParam("SELECT * FROM LOS_METATECLA.Cuenta WHERE Cuenta_Cliente_id = @id", ListParam);
             if (lector.HasRows)
             {
                 while (lector.Read())
@@ -56,6 +55,7 @@ namespace PagoElectronico.DB
                     nuevaCuenta.numero = (double)(decimal)lector["Cuenta_Numero"];
                     nuevaCuenta.fecha_creacion = (DateTime)lector["Cuenta_Fecha_Creacion"];
                     //nuevaCuenta.fecha_cierre = (DateTime)lector["Cuenta_Fecha_Cierre"];
+                    //FIXME En la tabla estan todas en null Quien tiene que completar la fechas de cierre ???
                     nuevaCuenta.pais = (int)(decimal)lector["Cuenta_Pais_Codigo"];
                     nuevaCuenta.estado = (int)lector["Cuenta_Estado"];
                     nuevaCuenta.tipo = (int)lector["Cuenta_Tipo"];

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PagoElectronico.Dominio
 {
-    class Cuenta
+    public class Cuenta
     {
         public double numero { get; set; }
         public DateTime fecha_creacion { get; set; }
@@ -14,6 +14,6 @@ namespace PagoElectronico.Dominio
         public DateTime fecha_cierre {get; set;} //esto tiene que ver con el tema de los tipos de la cuenta (seria una forma de poder calcularlo), posiblemente este demas
         public int tipo { set; get; } //Fijarse implementacion de los tipos
         public Cliente dueño {get; set;} //Es unico el dueño de la cuenta, si no seria una lista
-   
+        public float saldo { get; set; }
     }
 }

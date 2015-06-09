@@ -31,5 +31,25 @@ namespace PagoElectronico.Retiros
                 comboCuentas.Items.Add(cuenta.numero);
             }
         }
+
+        private void botonSeleccionar_Click(object sender, EventArgs e)
+        {
+            double numero = Convert.ToDouble(comboCuentas.Text);
+            Cuenta cuentaSeleccionada = cuentas.Find(cuenta => cuenta.numero == numero);
+            switch (cuentaSeleccionada.estado)
+            {
+                case 1: MessageBox.Show("La cuenta esta Pendiente de Activacion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+                case 2:
+                    if (cuentaSeleccionada.saldo > 0)
+                    {
+                        GenerarRetiroForm retiro = new GenerarRetiroForm(cuentaSeleccionada);
+                        retiro.ShowDialog();
+                    }
+                    else { MessageBox.Show("La cuenta no tiene saldo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                        break;
+                case 3: MessageBox.Show("La cuenta esta Inhabilitada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+                case 4: MessageBox.Show("La cuenta se encuentra Cerrada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+            }
+        }
     }
 }

@@ -57,7 +57,8 @@ namespace PagoElectronico
         private void button4_Click(object sender, EventArgs e)
         { //Creamos un cliente para probar
             Cliente cli = new Cliente();
-            cli.documento = 2723120;
+            cli.id = 1;
+            cli.documento = 13372098;
             cli.tipo_doc = 10002;
             SeleccionDeCuentaForm selec = new SeleccionDeCuentaForm(cli);
             selec.ShowDialog();
