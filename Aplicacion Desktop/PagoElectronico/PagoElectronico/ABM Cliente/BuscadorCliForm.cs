@@ -69,5 +69,18 @@ namespace PagoElectronico.ABM_Cliente
         {
             EventosUI.soloNumeros(e);
         }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            if (listado.SelectedRows.Count == 1)
+            {
+                int idCliente = Convert.ToInt32(listado.CurrentRow.Cells[5].Value);
+                DB.ClienteDB.darDeBaja(idCliente);
+            }
+            else
+            {
+                labelErrorSeleccion.Visible = true;
+            }
+        }
     }
 }

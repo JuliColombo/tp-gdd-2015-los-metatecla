@@ -31,6 +31,15 @@ namespace PagoElectronico.DB
             conexion.ejecutarNoQuery();
         }
 
+        public static void darDeBaja(int idCliente)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "UPDATE LOS_METATECLA.Cliente SET Cli_Estado = 'baja' " +
+                "WHERE Cli_Id = '{0}'", idCliente);
+            conexion.ejecutarNoQuery();
+        }
+
         public static bool mailRepetido(String mail)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
