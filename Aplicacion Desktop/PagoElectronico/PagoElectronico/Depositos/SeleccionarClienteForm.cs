@@ -14,24 +14,27 @@ namespace PagoElectronico.Depositos
         public SeleccionarClienteForm()
         {
             InitializeComponent();
+            DB.DocumentoDB.cargarTiposDocumento(comboBox_tipoDoc.Items);
         }
 
 
         private void btn_seleccionar_Click(object sender, EventArgs e)
         {
-            if (validaciones())
+            if (validarCamposVacios())
             {
+                if(validaciones())
+                {
+
                 PagoElectronico.Dominio.Cliente cliente = PagoElectronico.DB.ClienteDB.crearCliente(textBox_nombre.Text, textBox_apellido.Text, textBox_documento.Text);
 
-                // DatosDepositoForm datos_form;
-            }
-            else
-            {
-                if (validarCamposVacios())
-                {
+                DatosDepositoForm datos_form = new PagoElectronico.Depositos.DatosDepositoForm(cliente);
+                datos_form.ShowDialog();
+
+                } else {
                     ventanaDeError("Hay un error en los datos ingresados.");
                 }
             }
+                          
         }
 
 
@@ -56,6 +59,12 @@ namespace PagoElectronico.Depositos
                 labelError_documento.Visible = true;
             };
 
+            if (comboBox_tipoDoc.Text == "")
+            {
+                valido = false;
+                labelError_documento.Visible = true;
+            };
+
             return valido;
         }
 
@@ -67,7 +76,7 @@ namespace PagoElectronico.Depositos
 
         private bool validaciones()
         {
-            return PagoElectronico.DB.ClienteDB.existeCliente(textBox_nombre.Text, textBox_apellido.Text, textBox_documento.Text);
+            return PagoElectronico.DB.ClienteDB.existeCliente(textBox_nombre.Text, textBox_apellido.Text, textBox_documento.Text, comboBox_tipoDoc.Text);
         }
 
     }

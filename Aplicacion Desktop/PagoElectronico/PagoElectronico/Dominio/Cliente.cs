@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PagoElectronico.Dominio
 {
-    class Cliente
+    public class Cliente
     {
         public int id { get; set; }
         public String nombre { get; set; }

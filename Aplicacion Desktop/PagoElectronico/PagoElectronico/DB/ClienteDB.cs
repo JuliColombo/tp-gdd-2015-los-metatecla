@@ -117,13 +117,15 @@ namespace PagoElectronico.DB
             return cliente;
         }
 
-        public static bool existeCliente(string nombre, string apellido, string documento)
+        public static bool existeCliente(string nombre, string apellido, string documento, string tipo_doc)
         {
             double docu = Convert.ToDouble(documento);
 
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT * FROM LOS_METATECLA.Cliente WHERE Cli_Nombre = '{0}' AND Cli_Apellido = '{1}' AND Cli_Nro_Doc = {2}", nombre, apellido, docu);
+                "SELECT * FROM LOS_METATECLA.Cliente, LOS_METATECLA.Documento " + 
+                "WHERE Cli_Nombre = '{0}' AND Cli_Apellido = '{1}' AND Cli_Nro_Doc = {2} " +
+                "AND Doc_Tipo_Desc like '%{3}%' AND Cli_Tipo_Doc_Cod = Doc_Tipo_Cod", nombre, apellido, docu, tipo_doc);
             conexion.ejecutarQuery();
             bool valida = (conexion.leerReader());
             conexion.cerrarConexion();
@@ -140,19 +142,19 @@ namespace PagoElectronico.DB
 
             Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT Cli_Nombre, Cli_Apellido, Cli_Nro_Doc, Cuenta_Numero, Tarjeta_Numero " +
+                "SELECT Cli_Nombre, Cli_Apellido, Cli_Nro_Doc, Cuenta_Numero, Tarjeta_Numero, Cli_Id " +
                 "FROM LOS_METATECLA.Cliente, LOS_METATECLA.Documento, LOS_METATECLA.Tarjeta, LOS_METATECLA.Cuenta " +
                 "WHERE Cli_Tipo_Doc_Cod = Doc_Tipo_Cod AND Cli_Nombre LIKE '%{0}%' AND Cli_Apellido LIKE '%{1}%' " +
-                "AND Cli_Nro_Doc = '{2}' AND Cuenta_Cliente = Cli_Nro_Doc AND Id_Cliente_Propietario = Cli_Nro_Doc",
+                "AND Cli_Nro_Doc = {2} AND Cuenta_Cliente_id = Cli_Id AND Id_Cliente_Propietario = Cli_Id",
                 nombre, apellido, docu);
             conexion.ejecutarQuery();
 
             while (conexion.leerReader())
             {
-
                 cliente.nombre = conexion.lector.GetString(0);
                 cliente.apellido = conexion.lector.GetString(1);
                 cliente.documento = Convert.ToInt32(conexion.lector[2]);
+                cliente.id = Convert.ToInt32(conexion.lector[5]);
 
                 double numero_cuenta = Convert.ToDouble(conexion.lector[3]);
                 double numero_tarjeta = Convert.ToDouble(conexion.lector[4]);

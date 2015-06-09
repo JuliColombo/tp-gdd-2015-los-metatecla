@@ -133,6 +133,12 @@
     <Compile Include="DB\RolDB.cs" />
     <Compile Include="DB\TipoCuentaDB.cs" />
     <Compile Include="DB\UsuarioDB.cs" />
+    <Compile Include="Depositos\DatosDepositoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depositos\DatosDepositoForm.Designer.cs">
+      <DependentUpon>DatosDepositoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Depositos\SeleccionarClienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,7 +146,7 @@
       <DependentUpon>SeleccionarClienteForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dominio\Banco.cs" />
-    <Compile Include="Dominio\Conexion.cs" />
+    <Compile Include="Depositos\Conexion.cs" />
     <Compile Include="Dominio\Config.cs" />
     <Compile Include="Dominio\Funcionalidad.cs" />
     <Compile Include="Dominio\Rol.cs" />
@@ -210,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\NuevaFuncionalidad.resx">
       <DependentUpon>NuevaFuncionalidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depositos\DatosDepositoForm.resx">
+      <DependentUpon>DatosDepositoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Depositos\SeleccionarClienteForm.resx">
       <DependentUpon>SeleccionarClienteForm.cs</DependentUpon>

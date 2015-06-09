@@ -41,5 +41,16 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             return tipoCod;
         }
+
+        public static void cargarTiposDocumento(System.Windows.Forms.ComboBox.ObjectCollection tipos)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format("SELECT Doc_Tipo_Desc FROM LOS_METATECLA.Documento");
+            conexion.ejecutarQuery();
+            while (conexion.leerReader())
+            {
+                tipos.Add(conexion.lector.GetString(0));
+            }
+        }
     }
 }

@@ -39,6 +39,9 @@
             this.textBox_documento = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_seleccionar = new System.Windows.Forms.Button();
+            this.label_tipoDoc = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox_tipoDoc = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -58,11 +61,10 @@
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre:";
-            
             // 
             // textBox_nombre
             // 
-            this.textBox_nombre.Location = new System.Drawing.Point(81, 48);
+            this.textBox_nombre.Location = new System.Drawing.Point(101, 48);
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(143, 20);
             this.textBox_nombre.TabIndex = 2;
@@ -91,7 +93,7 @@
             // 
             // textBox_apellido
             // 
-            this.textBox_apellido.Location = new System.Drawing.Point(81, 85);
+            this.textBox_apellido.Location = new System.Drawing.Point(101, 85);
             this.textBox_apellido.Name = "textBox_apellido";
             this.textBox_apellido.Size = new System.Drawing.Size(143, 20);
             this.textBox_apellido.TabIndex = 5;
@@ -118,7 +120,7 @@
             // 
             // textBox_documento
             // 
-            this.textBox_documento.Location = new System.Drawing.Point(79, 121);
+            this.textBox_documento.Location = new System.Drawing.Point(99, 121);
             this.textBox_documento.Name = "textBox_documento";
             this.textBox_documento.Size = new System.Drawing.Size(143, 20);
             this.textBox_documento.TabIndex = 8;
@@ -134,7 +136,7 @@
             // 
             // btn_seleccionar
             // 
-            this.btn_seleccionar.Location = new System.Drawing.Point(253, 180);
+            this.btn_seleccionar.Location = new System.Drawing.Point(270, 223);
             this.btn_seleccionar.Name = "btn_seleccionar";
             this.btn_seleccionar.Size = new System.Drawing.Size(129, 29);
             this.btn_seleccionar.TabIndex = 10;
@@ -142,11 +144,42 @@
             this.btn_seleccionar.UseVisualStyleBackColor = true;
             this.btn_seleccionar.Click += new System.EventHandler(this.btn_seleccionar_Click);
             // 
+            // label_tipoDoc
+            // 
+            this.label_tipoDoc.AutoSize = true;
+            this.label_tipoDoc.ForeColor = System.Drawing.Color.Red;
+            this.label_tipoDoc.Location = new System.Drawing.Point(250, 161);
+            this.label_tipoDoc.Name = "label_tipoDoc";
+            this.label_tipoDoc.Size = new System.Drawing.Size(186, 13);
+            this.label_tipoDoc.TabIndex = 13;
+            this.label_tipoDoc.Text = "Falta especificar el tipo de documento";
+            this.label_tipoDoc.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 161);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Tipo de Documento:";
+            // 
+            // comboBox_tipoDoc
+            // 
+            this.comboBox_tipoDoc.FormattingEnabled = true;
+            this.comboBox_tipoDoc.Location = new System.Drawing.Point(128, 159);
+            this.comboBox_tipoDoc.Name = "comboBox_tipoDoc";
+            this.comboBox_tipoDoc.Size = new System.Drawing.Size(115, 21);
+            this.comboBox_tipoDoc.TabIndex = 14;
+            // 
             // SeleccionarClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 223);
+            this.ClientSize = new System.Drawing.Size(436, 264);
+            this.Controls.Add(this.comboBox_tipoDoc);
+            this.Controls.Add(this.label_tipoDoc);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btn_seleccionar);
             this.Controls.Add(this.labelError_documento);
             this.Controls.Add(this.textBox_documento);
@@ -178,5 +211,8 @@
         private System.Windows.Forms.TextBox textBox_documento;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_seleccionar;
+        private System.Windows.Forms.Label label_tipoDoc;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBox_tipoDoc;
     }
 }
