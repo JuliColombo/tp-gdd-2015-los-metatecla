@@ -131,6 +131,7 @@
     <Compile Include="DB\MonedaDB.cs" />
     <Compile Include="DB\PaisDB.cs" />
     <Compile Include="DB\RolDB.cs" />
+    <Compile Include="DB\TarjetaDB.cs" />
     <Compile Include="DB\TipoCuentaDB.cs" />
     <Compile Include="DB\UsuarioDB.cs" />
     <Compile Include="Depositos\DatosDepositoForm.cs">

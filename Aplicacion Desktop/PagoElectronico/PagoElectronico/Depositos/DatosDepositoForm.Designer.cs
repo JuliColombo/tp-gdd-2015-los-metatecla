@@ -219,9 +219,9 @@
             this.labelError_importe.ForeColor = System.Drawing.Color.Red;
             this.labelError_importe.Location = new System.Drawing.Point(31, 322);
             this.labelError_importe.Name = "labelError_importe";
-            this.labelError_importe.Size = new System.Drawing.Size(146, 13);
+            this.labelError_importe.Size = new System.Drawing.Size(132, 13);
             this.labelError_importe.TabIndex = 18;
-            this.labelError_importe.Text = "Falta especificar una moneda";
+            this.labelError_importe.Text = "Falta especificar el importe";
             this.labelError_importe.Visible = false;
             // 
             // DatosDepositoForm
