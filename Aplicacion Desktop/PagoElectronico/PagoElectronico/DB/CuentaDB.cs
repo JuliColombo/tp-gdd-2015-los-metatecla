@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
+using PagoElectronico.Dominio;
 
 namespace PagoElectronico.DB
 {
@@ -35,6 +37,34 @@ namespace PagoElectronico.DB
                 "INSERT INTO LOS_METATECLA.Cuenta (Cuenta_Numero, Cuenta_Fecha_Creacion, Cuenta_Estado, Cuenta_Pais_Codigo, Cuenta_Fecha_Cierre, Cuenta_Cliente_id, Cuenta_Tipo, Cuenta_Moneda) VALUES({0}, '{1}', {2}, {3}, NULL, {4}, {5}, {6})", cuenta, fecha, estado_id, pais_id, user_id, tipo_id, moneda_id);
             conexion.ejecutarNoQuery();
 
+        }
+
+
+        public static List<Cuenta> obtenerCuentasCliente(Cliente cliente)
+        {
+            List<SqlParameter> ListParam = new List<SqlParameter>();
+            ListParam.Add(new SqlParameter("@documento", cliente.documento));
+            ListParam.Add(new SqlParameter("@tipodoc", cliente.tipo_doc));
+            Conexion conexion = new Conexion();
+            List<Cuenta> cuentasCliente = new List<Cuenta>();
+            SqlDataReader lector = conexion.ejecutarQueryConParam("SELECT * FROM LOS_METATECLA.Cuenta WHERE Cuenta_Cliente_Doc = @documento AND Cuenta_Cliente_TipoDoc = @tipodoc", ListParam);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Cuenta nuevaCuenta = new Cuenta(/*(int)lector["Cuenta_Numero"], (DateTime)lector["Cuenta_Fecha_Creacion"], (int)lector["Cuenta_Estado"], (int)lector["Cuenta_Pais_Codigo"], (DateTime)lector["Cuenta_Fecha_Cierre"], (int)lector["Cuenta_Tipo"]*/);
+                    nuevaCuenta.numero = (double)(decimal)lector["Cuenta_Numero"];
+                    nuevaCuenta.fecha_creacion = (DateTime)lector["Cuenta_Fecha_Creacion"];
+                    //nuevaCuenta.fecha_cierre = (DateTime)lector["Cuenta_Fecha_Cierre"];
+                    nuevaCuenta.pais = (int)(decimal)lector["Cuenta_Pais_Codigo"];
+                    nuevaCuenta.estado = (int)lector["Cuenta_Estado"];
+                    nuevaCuenta.tipo = (int)lector["Cuenta_Tipo"];
+                    nuevaCuenta.dueño = cliente;
+                    cuentasCliente.Add(nuevaCuenta);
+                }
+            }
+            conexion.cerrarConexion();
+            return cuentasCliente;
         }
     }
 }
