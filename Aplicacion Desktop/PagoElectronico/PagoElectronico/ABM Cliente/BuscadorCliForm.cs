@@ -89,5 +89,21 @@ namespace PagoElectronico.ABM_Cliente
                 labelErrorSeleccion.Visible = true;
             }
         }
+
+        private void btn_ABTarjetas_Click(object sender, EventArgs e)
+        {
+            if (listado.SelectedRows.Count == 1)
+            {
+                int idCli = Convert.ToInt32(listado.CurrentRow.Cells[5].Value);
+                string nombre = Convert.ToString(listado.CurrentRow.Cells[0].Value) + " " + Convert.ToString(listado.CurrentRow.Cells[1].Value);
+                ABTarjetas tarj = new ABTarjetas(idCli, nombre);
+                tarj.Owner = this;
+                tarj.ShowDialog();
+            }
+            else
+            {
+                labelErrorSeleccion.Visible = true;
+            }
+        }
     }
 }

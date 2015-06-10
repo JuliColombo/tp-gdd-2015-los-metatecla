@@ -46,6 +46,7 @@
             this.labelErrorSeleccion = new System.Windows.Forms.Label();
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.btn_limpiar = new System.Windows.Forms.Button();
+            this.btn_ABTarjetas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,7 +186,7 @@
             // 
             this.labelErrorSeleccion.AutoSize = true;
             this.labelErrorSeleccion.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorSeleccion.Location = new System.Drawing.Point(256, 408);
+            this.labelErrorSeleccion.Location = new System.Drawing.Point(479, 413);
             this.labelErrorSeleccion.Name = "labelErrorSeleccion";
             this.labelErrorSeleccion.Size = new System.Drawing.Size(109, 13);
             this.labelErrorSeleccion.TabIndex = 15;
@@ -212,11 +213,22 @@
             this.btn_limpiar.UseVisualStyleBackColor = true;
             this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
+            // btn_ABTarjetas
+            // 
+            this.btn_ABTarjetas.Location = new System.Drawing.Point(217, 403);
+            this.btn_ABTarjetas.Name = "btn_ABTarjetas";
+            this.btn_ABTarjetas.Size = new System.Drawing.Size(184, 23);
+            this.btn_ABTarjetas.TabIndex = 18;
+            this.btn_ABTarjetas.Text = "Asociar / Desasociar Tarjetas";
+            this.btn_ABTarjetas.UseVisualStyleBackColor = true;
+            this.btn_ABTarjetas.Click += new System.EventHandler(this.btn_ABTarjetas_Click);
+            // 
             // BuscadorCliForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 433);
+            this.Controls.Add(this.btn_ABTarjetas);
             this.Controls.Add(this.btn_limpiar);
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.labelErrorSeleccion);
@@ -263,5 +275,6 @@
         private System.Windows.Forms.Label labelErrorSeleccion;
         private System.Windows.Forms.Button btn_nuevo;
         private System.Windows.Forms.Button btn_limpiar;
+        private System.Windows.Forms.Button btn_ABTarjetas;
     }
 }
