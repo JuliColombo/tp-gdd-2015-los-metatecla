@@ -127,7 +127,7 @@
             this.label1.Location = new System.Drawing.Point(36, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
-           // this.label1.TabIndex = 7;
+            this.label1.TabIndex = 38;
             this.label1.Text = "Nombre*";
             // 
             // comboBoxTipoDoc
@@ -383,9 +383,9 @@
             this.labelErrorFec.ForeColor = System.Drawing.Color.Red;
             this.labelErrorFec.Location = new System.Drawing.Point(283, 278);
             this.labelErrorFec.Name = "labelErrorFec";
-            this.labelErrorFec.Size = new System.Drawing.Size(84, 13);
+            this.labelErrorFec.Size = new System.Drawing.Size(186, 13);
             this.labelErrorFec.TabIndex = 35;
-            this.labelErrorFec.Text = "Falta especificar";
+            this.labelErrorFec.Text = "Falta especificar Fecha de nacimiento";
             this.labelErrorFec.Visible = false;
             // 
             // boxFecha

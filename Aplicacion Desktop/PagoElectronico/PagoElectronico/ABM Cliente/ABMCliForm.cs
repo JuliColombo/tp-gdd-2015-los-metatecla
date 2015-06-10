@@ -85,6 +85,11 @@ namespace PagoElectronico.ABM_Cliente
                 valido = false;
                 labelErrorPiso.Visible = true;
             };
+            if (boxFecha.Text == "  /  /")
+            {
+                valido = false;
+                labelErrorFec.Visible = true;
+            }
             return valido;
         }
 

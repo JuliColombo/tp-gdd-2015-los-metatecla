@@ -11,16 +11,27 @@ namespace PagoElectronico.ABM_Cliente
 {
     public partial class ABTarjetas : Form
     {
+        public int idCliente { get; set; }
+
         public ABTarjetas()
         {
             InitializeComponent();
         }
 
-        public ABTarjetas(int idCliente, string cliente)
+        public ABTarjetas(int idCli, string cliente)
         {
             InitializeComponent();
+            this.idCliente = idCli;
             listaTarjetas.DataSource = DB.TarjetaDB.buscarTarjetas(idCliente);
-            labelCliente.Text = cliente;
+            labelCliente.Text = cliente;        
+        }
+
+        private void btnAsociar_Click(object sender, EventArgs e)
+        {
+            AltaTarjeta at = new AltaTarjeta(idCliente);
+            at.Owner = this;
+            at.ShowDialog();
+            listaTarjetas.DataSource = DB.TarjetaDB.buscarTarjetas(idCliente);
         }
     }
 }

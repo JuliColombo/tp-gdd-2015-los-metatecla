@@ -67,6 +67,12 @@
     <Compile Include="ABM Cliente\ABMCliForm.Designer.cs">
       <DependentUpon>ABMCliForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Cliente\AltaTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Cliente\AltaTarjeta.Designer.cs">
+      <DependentUpon>AltaTarjeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Cliente\BuscadorCliForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,7 @@
     <Compile Include="DB\CuentaDB.cs" />
     <Compile Include="DB\DocumentoDB.cs" />
     <Compile Include="DB\DomicilioDB.cs" />
+    <Compile Include="DB\EmisorDB.cs" />
     <Compile Include="DB\EstadoCuentaDB.cs" />
     <Compile Include="DB\FuncionalidadDB.cs" />
     <Compile Include="DB\MonedaDB.cs" />
@@ -161,6 +168,7 @@
     <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Dominio\Cuenta.cs" />
     <Compile Include="Dominio\Domicilio.cs" />
+    <Compile Include="Dominio\Tarjeta.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="EventosUI.cs" />
     <Compile Include="Facturacion\Form1.cs">
@@ -203,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Cliente\ABMCliForm.resx">
       <DependentUpon>ABMCliForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Cliente\AltaTarjeta.resx">
+      <DependentUpon>AltaTarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Cliente\BuscadorCliForm.resx">
       <DependentUpon>BuscadorCliForm.cs</DependentUpon>

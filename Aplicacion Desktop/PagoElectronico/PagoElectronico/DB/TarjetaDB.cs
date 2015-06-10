@@ -43,5 +43,17 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             return tarjetas;
         }
+
+        public static void insertar(Dominio.Tarjeta tarjeta)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "INSERT INTO LOS_METATECLA.Tarjeta (Tarjeta_Numero, Tarjeta_Ultimos_4, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento, " +
+                "Tarjeta_Codigo_Seg, Tarjeta_Emisor_Id, Id_Cliente_Propietario) " +
+                "values ('{0}', RIGHT('{0}', 4), '{1}', '{2}', '{3}', {4}, {5})",
+                tarjeta.numero, tarjeta.fecha_emision, tarjeta.fecha_vencimiento, tarjeta.codigo_seguridad,
+                tarjeta.emisor, tarjeta.cliente);
+            conexion.ejecutarNoQuery();
+        }
     }
 }
