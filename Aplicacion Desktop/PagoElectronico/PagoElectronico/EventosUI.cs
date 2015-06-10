@@ -19,6 +19,7 @@ namespace PagoElectronico
             }
             else
             {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
             }
         }

@@ -46,7 +46,6 @@
             this.botonGuardar = new System.Windows.Forms.Button();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.botonNuevaFunc = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.grpNuevosDatos.SuspendLayout();
             this.SuspendLayout();
@@ -121,7 +120,6 @@
             // 
             // grpNuevosDatos
             // 
-            this.grpNuevosDatos.Controls.Add(this.label7);
             this.grpNuevosDatos.Controls.Add(this.chkEstado);
             this.grpNuevosDatos.Controls.Add(this.textNewNombre);
             this.grpNuevosDatos.Controls.Add(this.label6);
@@ -157,7 +155,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(25, 205);
+            this.label6.Location = new System.Drawing.Point(25, 196);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(253, 39);
             this.label6.TabIndex = 4;
@@ -229,16 +227,6 @@
             this.botonNuevaFunc.UseVisualStyleBackColor = true;
             this.botonNuevaFunc.Click += new System.EventHandler(this.botonNuevaFunc_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(155, 48);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 39);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Si no se ingresa ningun\r\nnombre, se mantendra \r\nel actual";
-            // 
             // ModificarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +267,5 @@
         private System.Windows.Forms.CheckBox chkEstado;
         private System.Windows.Forms.TextBox textNewNombre;
         private System.Windows.Forms.Button botonNuevaFunc;
-        private System.Windows.Forms.Label label7;
     }
 }
