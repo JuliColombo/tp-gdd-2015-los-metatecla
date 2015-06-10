@@ -27,9 +27,9 @@ namespace PagoElectronico.Depositos
                 comboBox_cuenta.Items.Add(numero);
             }
 
-           foreach (double tarjeta in cliente.numeros_tarjetas)
+           foreach (double numero in cliente.numeros_tarjetas())
            {
-               comboBox_tarjeta.Items.Add(tarjeta);
+               comboBox_tarjeta.Items.Add(numero);
            }
         }
 

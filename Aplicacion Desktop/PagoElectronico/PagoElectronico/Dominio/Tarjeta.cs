@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PagoElectronico.Dominio
 {
-    class Tarjeta
+    public class Tarjeta
     {
         public string numero { get; set; }
         public int emisor { get; set; }

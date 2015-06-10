@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="DB\ClienteDB.cs" />
     <Compile Include="DB\CuentaDB.cs" />
+    <Compile Include="DB\DepositoDB.cs" />
     <Compile Include="DB\DocumentoDB.cs" />
     <Compile Include="DB\DomicilioDB.cs" />
     <Compile Include="DB\EmisorDB.cs" />
