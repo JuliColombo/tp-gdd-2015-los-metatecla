@@ -19,6 +19,8 @@ namespace PagoElectronico.ABM_Rol
             this.CenterToScreen();
             label1.Text = rol.nombre;
             label2.Text = rol.estado;
+            textNewNombre.Text = rol.nombre;
+            chkEstado.Checked = rol.habilitado;
             rolAModificar = rol;
             cargarListBox(rol);
             cargarCheckList();
@@ -67,22 +69,27 @@ namespace PagoElectronico.ABM_Rol
         private void botonGuardar_Click(object sender, EventArgs e)
         {
                 int cantidad = funcionalidadesDelSistema.CheckedItems.Count;
-                if (cantidad < 1)
+                if (!(textNewNombre.Text == ""))
                 {
-                    MessageBox.Show("No se slecciono ninguna Funcionalidad", "Error, Completar Campos Obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    if (!(textNewNombre.Text == "")) {
-                        rolAModificar.nombre = textNewNombre.Text;
+                    if (cantidad < 1)
+                    {
+                        MessageBox.Show("No se slecciono ninguna Funcionalidad", "Error, Completar Campos Obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    rolAModificar.habilitado = chkEstado.Checked;
-                    rolAModificar.funcionalidades = filtrarSeleccionadas();
-                    RolDB DBRol = new RolDB();
-                    DBRol.actualizarRol(rolAModificar);
-                    MessageBox.Show("Se han guardado los nuevos datos", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();  
+                    else
+                    {
+                        if (!(textNewNombre.Text == rolAModificar.nombre))
+                        {
+                            rolAModificar.nombre = textNewNombre.Text;
+                        }
+                        rolAModificar.habilitado = chkEstado.Checked;
+                        rolAModificar.funcionalidades = filtrarSeleccionadas();
+                        RolDB DBRol = new RolDB();
+                        DBRol.actualizarRol(rolAModificar);
+                        MessageBox.Show("Se han guardado los nuevos datos", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                 }
+                else { MessageBox.Show("El ROL debe contener un nombre", "Error, Completar Campos Obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
                 
         }

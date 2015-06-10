@@ -62,29 +62,6 @@ namespace PagoElectronico.Dominio
             return lector.Read();
         }
 
-        //Ejecuta stored procedure con parametros y devuelve ret 
-        public int ejecutarStoredProcedure(string commandtext, List<SqlParameter> ListaParametro)
-        {
-        try
-              { SqlCommand comando = new SqlCommand();
-                comando.Connection = nuevaConexion();
-                comando.CommandText = commandtext;
-                comando.CommandType = CommandType.StoredProcedure;
-
-                foreach (SqlParameter elemento in ListaParametro)
-                {
-                    comando.Parameters.Add(elemento);
-                }
-
-                comando.ExecuteNonQuery();
-                return (int)comando.Parameters["@ret"].Value;
-            }
-            catch (SqlException e)
-            {
-                MessageBox.Show("" + e.Message, "Error");
-                return 0;
-            }
-        }
         //Ejecuta Stored Procedure sin Retorno
         public void ejecutarStoredProcedureSinRet(string commandtext, List<SqlParameter> ListaParametro)
         {

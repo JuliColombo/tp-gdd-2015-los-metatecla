@@ -56,5 +56,19 @@ namespace PagoElectronico.Retiros
         {
             this.Close();
         }
+
+        private void textDocumento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void textDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EventosUI.soloNumeros(e);
+        }
+
+        private void SeleccionDeCuentaForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

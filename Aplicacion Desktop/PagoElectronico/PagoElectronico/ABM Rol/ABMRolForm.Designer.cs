@@ -47,7 +47,7 @@
             this.gestionRoles.Controls.Add(this.botonCrear);
             this.gestionRoles.Location = new System.Drawing.Point(1, 0);
             this.gestionRoles.Name = "gestionRoles";
-            this.gestionRoles.Size = new System.Drawing.Size(474, 245);
+            this.gestionRoles.Size = new System.Drawing.Size(414, 245);
             this.gestionRoles.TabIndex = 0;
             this.gestionRoles.TabStop = false;
             this.gestionRoles.Text = "Gestion de Roles";
@@ -55,9 +55,9 @@
             // dataGridRoles
             // 
             this.dataGridRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridRoles.Location = new System.Drawing.Point(3, 16);
+            this.dataGridRoles.Location = new System.Drawing.Point(11, 16);
             this.dataGridRoles.Name = "dataGridRoles";
-            this.dataGridRoles.Size = new System.Drawing.Size(440, 191);
+            this.dataGridRoles.Size = new System.Drawing.Size(396, 191);
             this.dataGridRoles.TabIndex = 3;
             // 
             // botonEliminar
@@ -92,7 +92,7 @@
             // 
             // botonTerminar
             // 
-            this.botonTerminar.Location = new System.Drawing.Point(355, 252);
+            this.botonTerminar.Location = new System.Drawing.Point(329, 252);
             this.botonTerminar.Name = "botonTerminar";
             this.botonTerminar.Size = new System.Drawing.Size(75, 23);
             this.botonTerminar.TabIndex = 2;
@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 287);
+            this.ClientSize = new System.Drawing.Size(420, 287);
             this.Controls.Add(this.botonInfo);
             this.Controls.Add(this.botonTerminar);
             this.Controls.Add(this.gestionRoles);
