@@ -23,5 +23,18 @@ namespace PagoElectronico.DB
             conexion.ejecutarQueryConParam("INSERT INTO LOS_METATECLA.Retiro (Retiro_Importe,Retiro_Moneda,Retiro_Fecha,Retiro_Codigo,Numero_cuenta) VALUES (@importe,@moneda,@fecha,@codigo,@cuenta)", ListParam);
             conexion.cerrarConexion();
         }
+
+          public static double obtenerUlltimoCodigo()
+        {
+            double maximo = -1;
+            Conexion conexion = new Conexion();
+            conexion.query = string.Format("SELECT MAX(Retiro_Codigo) AS Maximo FROM LOS_METATECLA.Cheque");
+            conexion.ejecutarQuery();
+             if (conexion.lector.HasRows){
+                 conexion.lector.Read();
+                 maximo = (double)(decimal)conexion.lector["Maximo"];
+        }
+            return maximo;
+        }
     }
 }

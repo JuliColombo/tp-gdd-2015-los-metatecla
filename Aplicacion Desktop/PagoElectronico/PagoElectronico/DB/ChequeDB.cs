@@ -9,7 +9,7 @@ namespace PagoElectronico.DB
 {
     class ChequeDB
     {
-        public static void insertarCheque(Banco banco, Cliente cliente, float importe,string moneda, double codigoCheque,double codigoRetiro) 
+        public static void insertarCheque(Banco banco, Cliente cliente, float importe, string moneda, double codigoCheque, double codigoRetiro)
         {
             Conexion conexion = new Conexion();
             List<SqlParameter> ListParam = new List<SqlParameter>();
@@ -24,6 +24,19 @@ namespace PagoElectronico.DB
             ListParam.Add(new SqlParameter("@fecha", Convert.ToDateTime(fecha)));
             conexion.ejecutarQueryConParam("INSERT INTO LOS_METATECLA.Cheque(Cheque_Importe,Cheque_Moneda,Cheque_Fecha,Cheque_Numero,Banco_Codigo,Retiro_Codigo,Cliente_Id) VALUES(@importe,@moneda,@fecha,@codigoCheque,@banco,@codigoRetiro,@cliente)", ListParam);
             conexion.cerrarConexion();
+        }
+
+        public static double obtenerUlltimoCodigo()
+        {
+            double maximo = -1;
+            Conexion conexion = new Conexion();
+            conexion.query = string.Format("SELECT MAX(Retiro_Codigo) AS Maximo FROM LOS_METATECLA.Retiro");
+            conexion.ejecutarQuery();
+             if (conexion.lector.HasRows){
+                 conexion.lector.Read();
+                 maximo = (double)(decimal)conexion.lector["Maximo"];
+        }
+            return maximo;
         }
     }
 }

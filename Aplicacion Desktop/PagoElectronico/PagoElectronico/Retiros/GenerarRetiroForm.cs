@@ -15,8 +15,6 @@ namespace PagoElectronico.Retiros
     {
         List<Banco> bancos;
         Cuenta cuentaARetirar;
-        double codigoCheque = 25252525252;
-        double codigoRetiro = 18181818181;
         public GenerarRetiroForm(Cuenta cuenta)
         {
             InitializeComponent();
@@ -39,7 +37,7 @@ namespace PagoElectronico.Retiros
         {
             if (!(importeText.Text == ""))
             {
-                if (Convert.ToSingle(importeText.Text) <= cuentaARetirar.saldo)
+                if (Convert.ToDouble(importeText.Text) <= cuentaARetirar.saldo)
                 {
                     if (comboMonedas.Text == "Dólar")
                     {
@@ -60,10 +58,20 @@ namespace PagoElectronico.Retiros
             if (!(comboBancos.Text == ""))
             {
                 Banco bancoSelec = bancos.Find(banco => banco.nombre+" "+banco.codigo == comboBancos.Text);
+                double codigoRetiro = RetiroDB.obtenerUlltimoCodigo();
+                if (codigoRetiro != -1)
+                {
+                    codigoRetiro++;
+                }
+                else { codigoRetiro = 18181818181; }
                 RetiroDB.insertarRetiro(codigoRetiro, Convert.ToSingle(importeText.Text), comboMonedas.Text, cuentaARetirar);
+                double codigoCheque = RetiroDB.obtenerUlltimoCodigo();
+                if (codigoCheque != -1)
+                {
+                    codigoCheque++;
+                }
+                else { codigoRetiro = 25252525252; }
                 ChequeDB.insertarCheque(bancoSelec, cuentaARetirar.dueño, Convert.ToSingle(importeText.Text), comboMonedas.Text, codigoCheque, codigoRetiro);
-                codigoRetiro++;
-                codigoCheque++;
             }
             else { MessageBox.Show("Banco Invalido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }

@@ -59,7 +59,7 @@ namespace PagoElectronico.DB
                     nuevaCuenta.pais = (int)(decimal)lector["Cuenta_Pais_Codigo"];
                     nuevaCuenta.estado = (int)lector["Cuenta_Estado"];
                     nuevaCuenta.tipo = (int)lector["Cuenta_Tipo"];
-                    nuevaCuenta.saldo = (float)(decimal)lector["Cuenta_Saldo"];
+                    nuevaCuenta.saldo = (double)(decimal)lector["Cuenta_Saldo"];
                     nuevaCuenta.dueño = cliente;
                     cuentasCliente.Add(nuevaCuenta);
                 }
