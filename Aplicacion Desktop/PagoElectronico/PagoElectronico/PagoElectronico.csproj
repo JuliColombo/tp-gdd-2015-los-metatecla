@@ -135,6 +135,8 @@
     <Compile Include="Consulta Saldos\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB\BancoDB.cs" />
+    <Compile Include="DB\ChequeDB.cs" />
     <Compile Include="DB\ClienteDB.cs" />
     <Compile Include="DB\CuentaDB.cs" />
     <Compile Include="DB\DepositoDB.cs" />
@@ -145,6 +147,7 @@
     <Compile Include="DB\FuncionalidadDB.cs" />
     <Compile Include="DB\MonedaDB.cs" />
     <Compile Include="DB\PaisDB.cs" />
+    <Compile Include="DB\RetiroDB.cs" />
     <Compile Include="DB\RolDB.cs" />
     <Compile Include="DB\TarjetaDB.cs" />
     <Compile Include="DB\TipoCuentaDB.cs" />

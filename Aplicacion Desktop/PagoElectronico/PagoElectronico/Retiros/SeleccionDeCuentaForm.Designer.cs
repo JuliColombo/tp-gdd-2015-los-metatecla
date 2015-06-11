@@ -72,7 +72,7 @@
             // 
             // botonCancelar
             // 
-            this.botonCancelar.Location = new System.Drawing.Point(206, 180);
+            this.botonCancelar.Location = new System.Drawing.Point(206, 169);
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(75, 23);
             this.botonCancelar.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             // botonSeleccionar
             // 
-            this.botonSeleccionar.Location = new System.Drawing.Point(102, 180);
+            this.botonSeleccionar.Location = new System.Drawing.Point(125, 169);
             this.botonSeleccionar.Name = "botonSeleccionar";
             this.botonSeleccionar.Size = new System.Drawing.Size(75, 23);
             this.botonSeleccionar.TabIndex = 2;
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 234);
+            this.ClientSize = new System.Drawing.Size(292, 199);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.botonSeleccionar);
             this.Controls.Add(this.botonCancelar);

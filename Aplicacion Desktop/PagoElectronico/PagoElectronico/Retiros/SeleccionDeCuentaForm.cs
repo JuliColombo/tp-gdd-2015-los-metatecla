@@ -15,15 +15,17 @@ namespace PagoElectronico.Retiros
     {
         Cliente cli = null;
         List<Cuenta> cuentas = new List<Cuenta>();
+        List<string> tiposDoc = new List<string>();
         public SeleccionDeCuentaForm(Cliente cliente)
         {
             InitializeComponent();
             this.CenterToScreen();
             cli = cliente;
-            cargarCombo();
+            cargarComboCuentas();
+            cargarComboTipoDoc();
         }
 
-        public void cargarCombo()
+        public void cargarComboCuentas()
         {
             cuentas = CuentaDB.obtenerCuentasCliente(cli);
             foreach (Cuenta cuenta in cuentas)
@@ -32,24 +34,39 @@ namespace PagoElectronico.Retiros
             }
         }
 
+        public void cargarComboTipoDoc()
+        {
+            DocumentoDB.cargarTiposDocumento(comboTipoDoc.Items);
+        }
+
+
         private void botonSeleccionar_Click(object sender, EventArgs e)
         {
             double numero = Convert.ToDouble(comboCuentas.Text);
             Cuenta cuentaSeleccionada = cuentas.Find(cuenta => cuenta.numero == numero);
-            switch (cuentaSeleccionada.estado)
+            if (validarCuenta(cuentaSeleccionada,textDocumento.Text,comboTipoDoc.Text))
             {
-                case 1: MessageBox.Show("La cuenta esta Pendiente de Activacion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
-                case 2:
-                    if (cuentaSeleccionada.saldo > 0)
-                    {
-                        GenerarRetiroForm retiro = new GenerarRetiroForm(cuentaSeleccionada);
-                        retiro.ShowDialog();
-                    }
-                    else { MessageBox.Show("La cuenta no tiene saldo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                switch (cuentaSeleccionada.estado)
+                {
+                    case 1: MessageBox.Show("La cuenta esta Pendiente de Activacion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+                    case 2:
+                        if (cuentaSeleccionada.saldo > 0)
+                        {
+                            GenerarRetiroForm retiro = new GenerarRetiroForm(cuentaSeleccionada);
+                            retiro.ShowDialog();
+                        }
+                        else { MessageBox.Show("La cuenta no tiene saldo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                         break;
-                case 3: MessageBox.Show("La cuenta esta Inhabilitada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
-                case 4: MessageBox.Show("La cuenta se encuentra Cerrada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+                    case 3: MessageBox.Show("La cuenta esta Inhabilitada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+                    case 4: MessageBox.Show("La cuenta se encuentra Cerrada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+                }
             }
+            else { MessageBox.Show("El Documento o Tipo INVALIDOS", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);}
+        }
+
+        private bool validarCuenta(Cuenta cuenta,string documento,string tipoDoc) 
+        {
+           return ClienteDB.validarDocumento(cuenta.dueño.id, Convert.ToDouble(documento), tipoDoc);
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)

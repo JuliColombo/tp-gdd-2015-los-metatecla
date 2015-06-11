@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 
 namespace PagoElectronico.DB
 {
@@ -189,6 +190,20 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
 
             return cliente;
+        }
+
+        public static bool validarDocumento(int idCliente, double documento, string tipoDoc)
+        {
+            double idTipoDoc = DocumentoDB.getID(tipoDoc);
+            List<SqlParameter> ListParam = new List<SqlParameter>();
+            ListParam.Add(new SqlParameter("@idCliente", idCliente));
+            ListParam.Add(new SqlParameter("@documento", documento));
+            ListParam.Add(new SqlParameter("@tipoDoc", idTipoDoc));
+            Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            SqlDataReader lector = conexion.ejecutarQueryConParam("SELECT * FROM LOS_METATECLA.Cliente WHERE Cli_Id = @idCliente AND Cli_Nro_Doc = @documento AND Cli_Tipo_Doc_Cod = @tipoDoc", ListParam);
+            if (lector.HasRows) { return true; }
+            return false;
+
         }
     }
 }
