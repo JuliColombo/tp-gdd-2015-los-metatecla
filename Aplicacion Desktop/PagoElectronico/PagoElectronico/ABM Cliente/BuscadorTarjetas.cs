@@ -22,7 +22,7 @@ namespace PagoElectronico.ABM_Cliente
         {
             InitializeComponent();
             this.idCliente = idCli;
-            listaTarjetas.DataSource = DB.TarjetaDB.buscarTarjetas(idCliente);
+            buscarTarjetas();
             labelCliente.Text = cliente;        
         }
 
@@ -31,12 +31,28 @@ namespace PagoElectronico.ABM_Cliente
             AMTarjeta at = new AMTarjeta(idCliente);
             at.Owner = this;
             at.ShowDialog();
+            buscarTarjetas();
+        }
+
+        private void buscarTarjetas()
+        {
             listaTarjetas.DataSource = DB.TarjetaDB.buscarTarjetas(idCliente);
         }
 
         private void btnDesasociar_Click(object sender, EventArgs e)
         {
-
+            if (listaTarjetas.SelectedRows.Count == 1)
+            {
+                string ultimos4 = Convert.ToString(listaTarjetas.CurrentRow.Cells[0].Value);
+                DB.TarjetaDB.darDeBaja(ultimos4, idCliente);
+                buscarTarjetas();
+                labelErrorSeleccion.Visible = false;
+                MessageBox.Show("Tarjeta desasociada correctamente");
+            }
+            else
+            {
+                labelErrorSeleccion.Visible = true;
+            }
         }
     }
 }
