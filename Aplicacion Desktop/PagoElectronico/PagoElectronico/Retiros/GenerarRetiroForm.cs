@@ -29,7 +29,7 @@ namespace PagoElectronico.Retiros
             bancos = BancoDB.obtenerBancos();
             foreach (Banco banco in bancos)
             {
-                comboBancos.Items.Add(banco.nombre+" "+banco.codigo);
+                comboBancos.Items.Add(banco.nombre + " " + banco.codigo);
             }
         }
 
@@ -57,7 +57,7 @@ namespace PagoElectronico.Retiros
         {
             if (!(comboBancos.Text == ""))
             {
-                Banco bancoSelec = bancos.Find(banco => banco.nombre+" "+banco.codigo == comboBancos.Text);
+                Banco bancoSelec = bancos.Find(banco => banco.nombre + " " + banco.codigo == comboBancos.Text);
                 double codigoRetiro = RetiroDB.obtenerUlltimoCodigo();
                 if (codigoRetiro != -1)
                 {
@@ -78,9 +78,7 @@ namespace PagoElectronico.Retiros
 
         private void importeText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            EventosUI.soloNumeros(e);
+            EventosUI.soloDecimales(e,importeText);
         }
-    
-    
     }
 }
