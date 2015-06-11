@@ -96,7 +96,7 @@ namespace PagoElectronico.ABM_Cliente
             {
                 int idCli = Convert.ToInt32(listado.CurrentRow.Cells[5].Value);
                 string nombre = Convert.ToString(listado.CurrentRow.Cells[0].Value) + " " + Convert.ToString(listado.CurrentRow.Cells[1].Value);
-                ABTarjetas tarj = new ABTarjetas(idCli, nombre);
+                BuscadorTarjetas tarj = new BuscadorTarjetas(idCli, nombre);
                 tarj.Owner = this;
                 tarj.ShowDialog();
             }

@@ -28,7 +28,7 @@ namespace PagoElectronico.DB
             conexion.query = string.Format(
                 "SELECT Tarjeta_Ultimos_4, Emisor_Descripcion, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento " +
                 "FROM LOS_METATECLA.Tarjeta, LOS_METATECLA.Emisor " +
-                "WHERE Tarjeta_Emisor_Id = Id_Emisor AND Id_Cliente_Propietario = '{0}'",
+                "WHERE Tarjeta_Emisor_Id = Id_Emisor AND Id_Cliente_Propietario = '{0}' AND Tarjeta_Estado = 'Activa'",
                 idCliente);
             conexion.ejecutarQuery();
             while (conexion.leerReader())
