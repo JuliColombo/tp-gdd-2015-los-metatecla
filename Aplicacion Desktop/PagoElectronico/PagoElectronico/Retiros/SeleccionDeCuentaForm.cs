@@ -53,6 +53,7 @@ namespace PagoElectronico.Retiros
                         if (cuentaSeleccionada.saldo > 0)
                         {
                             GenerarRetiroForm retiro = new GenerarRetiroForm(cuentaSeleccionada);
+                            this.Close();
                             retiro.ShowDialog();
                         }
                         else { MessageBox.Show("La cuenta no tiene saldo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }

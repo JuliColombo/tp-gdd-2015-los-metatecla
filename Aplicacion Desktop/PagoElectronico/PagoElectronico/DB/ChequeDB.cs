@@ -9,7 +9,7 @@ namespace PagoElectronico.DB
 {
     class ChequeDB
     {
-        public static void insertarCheque(Banco banco, Cliente cliente, float importe, string moneda, double codigoCheque, double codigoRetiro)
+        public static void insertarCheque(Banco banco, Cliente cliente, double importe, string moneda, double codigoCheque, double codigoRetiro)
         {
             Conexion conexion = new Conexion();
             List<SqlParameter> ListParam = new List<SqlParameter>();

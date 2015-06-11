@@ -9,7 +9,7 @@ namespace PagoElectronico.DB
 {
     class RetiroDB
     {
-        public static void insertarRetiro(double codigo, float importe, string moneda, Cuenta cuenta)
+        public static void insertarRetiro(double codigo, double importe, string moneda, Cuenta cuenta)
         {
             Conexion conexion = new Conexion();
             List<SqlParameter> ListParam = new List<SqlParameter>();

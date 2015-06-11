@@ -8,11 +8,14 @@ using System.Text;
 using System.Windows.Forms;
 using PagoElectronico.Dominio;
 using PagoElectronico.DB;
+using System.Globalization;
 
 namespace PagoElectronico.Retiros
 {
     public partial class GenerarRetiroForm : Form
     {
+        NumberFormatInfo provider = new NumberFormatInfo();
+        
         List<Banco> bancos;
         Cuenta cuentaARetirar;
         public GenerarRetiroForm(Cuenta cuenta)
@@ -22,6 +25,7 @@ namespace PagoElectronico.Retiros
             cargarComboBancos();
             MonedaDB.cargarMonedas(comboMonedas.Items);
             cuentaARetirar = cuenta;
+            provider.NumberDecimalSeparator = ".";
         }
 
         private void cargarComboBancos()
@@ -37,7 +41,7 @@ namespace PagoElectronico.Retiros
         {
             if (!(importeText.Text == ""))
             {
-                if (Convert.ToDouble(importeText.Text) <= cuentaARetirar.saldo)
+                if (Convert.ToDouble(importeText.Text, provider) <= cuentaARetirar.saldo)
                 {
                     if (comboMonedas.Text == "Dólar")
                     {
@@ -57,6 +61,7 @@ namespace PagoElectronico.Retiros
         {
             if (!(comboBancos.Text == ""))
             {
+
                 Banco bancoSelec = bancos.Find(banco => banco.nombre + " " + banco.codigo == comboBancos.Text);
                 double codigoRetiro = RetiroDB.obtenerUlltimoCodigo();
                 if (codigoRetiro != -1)
@@ -64,14 +69,19 @@ namespace PagoElectronico.Retiros
                     codigoRetiro++;
                 }
                 else { codigoRetiro = 18181818181; }
-                RetiroDB.insertarRetiro(codigoRetiro, Convert.ToSingle(importeText.Text), comboMonedas.Text, cuentaARetirar);
+                RetiroDB.insertarRetiro(codigoRetiro, Convert.ToDouble(importeText.Text, provider), comboMonedas.Text, cuentaARetirar);
                 double codigoCheque = RetiroDB.obtenerUlltimoCodigo();
                 if (codigoCheque != -1)
                 {
                     codigoCheque++;
                 }
                 else { codigoRetiro = 25252525252; }
-                ChequeDB.insertarCheque(bancoSelec, cuentaARetirar.dueño, Convert.ToSingle(importeText.Text), comboMonedas.Text, codigoCheque, codigoRetiro);
+                ChequeDB.insertarCheque(bancoSelec, cuentaARetirar.dueño, Convert.ToDouble(importeText.Text, provider), comboMonedas.Text, codigoCheque, codigoRetiro);
+                cuentaARetirar.saldo = cuentaARetirar.saldo - Convert.ToDouble(importeText.Text, provider);
+                string fecha = PagoElectronico.Dominio.Config.fechaSystem();
+                ChequeForm cheque = new ChequeForm(comboBancos.Text,Convert.ToString(codigoCheque),cuentaARetirar,fecha,importeText.Text);
+                this.Close();
+                cheque.ShowDialog();
             }
             else { MessageBox.Show("Banco Invalido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
