@@ -24,6 +24,8 @@ namespace PagoElectronico.Retiros
             label3.BackColor = Color.Transparent;
             label4.Parent = pictureBox1;
             label4.BackColor = Color.Transparent;
+            label5.Parent = pictureBox1;
+            label5.BackColor = Color.Transparent;
             labelBanco.Parent = pictureBox1; 
             labelBanco.BackColor = Color.Transparent;
             labelCodigo.Parent = pictureBox1;
@@ -33,7 +35,7 @@ namespace PagoElectronico.Retiros
             labelFecha.Parent = pictureBox1;
             labelFecha.BackColor = Color.Transparent;
             labelImporte.Parent = pictureBox1;
-            labelImporte.BackColor = Color.Transparent; 
+            labelImporte.BackColor = Color.Transparent;
             NumberFormatInfo provider = new NumberFormatInfo();
             provider.NumberDecimalSeparator = ".";
             labelImporte.Text = string.Format("{0:0.00}",Convert.ToDouble(importe,provider));
@@ -48,6 +50,11 @@ namespace PagoElectronico.Retiros
         private void buttonContinuar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void labelCodigo_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

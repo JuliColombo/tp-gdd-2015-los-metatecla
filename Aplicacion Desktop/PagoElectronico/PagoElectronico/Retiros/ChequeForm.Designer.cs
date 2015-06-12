@@ -40,6 +40,7 @@
             this.labelBanco = new System.Windows.Forms.Label();
             this.labelImporte = new System.Windows.Forms.Label();
             this.buttonContinuar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,11 +97,12 @@
             // 
             this.labelCodigo.AutoSize = true;
             this.labelCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCodigo.Location = new System.Drawing.Point(11, 9);
+            this.labelCodigo.Location = new System.Drawing.Point(114, 11);
             this.labelCodigo.Name = "labelCodigo";
             this.labelCodigo.Size = new System.Drawing.Size(51, 20);
             this.labelCodigo.TabIndex = 5;
             this.labelCodigo.Text = "label5";
+            this.labelCodigo.Click += new System.EventHandler(this.labelCodigo_Click);
             // 
             // labelCliente
             // 
@@ -152,11 +154,21 @@
             this.buttonContinuar.UseVisualStyleBackColor = true;
             this.buttonContinuar.Click += new System.EventHandler(this.buttonContinuar_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Codigo Verificador:";
+            // 
             // ChequeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 249);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonContinuar);
             this.Controls.Add(this.labelImporte);
             this.Controls.Add(this.labelBanco);
@@ -189,5 +201,6 @@
         private System.Windows.Forms.Label labelBanco;
         private System.Windows.Forms.Label labelImporte;
         private System.Windows.Forms.Button buttonContinuar;
+        private System.Windows.Forms.Label label5;
     }
 }
