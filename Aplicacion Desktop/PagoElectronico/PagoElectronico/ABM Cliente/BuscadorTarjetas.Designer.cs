@@ -33,7 +33,7 @@
             this.btnAsociar = new System.Windows.Forms.Button();
             this.btnDesasociar = new System.Windows.Forms.Button();
             this.labelErrorSeleccion = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listaTarjetas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,27 +86,28 @@
             this.labelErrorSeleccion.Text = "Seleccione una Tarjeta";
             this.labelErrorSeleccion.Visible = false;
             // 
-            // button1
+            // btnModificar
             // 
-            this.button1.Location = new System.Drawing.Point(185, 194);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 38);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Modificar Datos";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnModificar.Location = new System.Drawing.Point(185, 194);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(111, 38);
+            this.btnModificar.TabIndex = 5;
+            this.btnModificar.Text = "Modificar Datos";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // ABTarjetas
+            // BuscadorTarjetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 273);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.labelErrorSeleccion);
             this.Controls.Add(this.btnDesasociar);
             this.Controls.Add(this.btnAsociar);
             this.Controls.Add(this.labelCliente);
             this.Controls.Add(this.listaTarjetas);
-            this.Name = "ABTarjetas";
+            this.Name = "BuscadorTarjetas";
             this.Text = "Asociar / Desasociar Tarjetas";
             ((System.ComponentModel.ISupportInitialize)(this.listaTarjetas)).EndInit();
             this.ResumeLayout(false);
@@ -121,6 +122,6 @@
         private System.Windows.Forms.Button btnAsociar;
         private System.Windows.Forms.Button btnDesasociar;
         private System.Windows.Forms.Label labelErrorSeleccion;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

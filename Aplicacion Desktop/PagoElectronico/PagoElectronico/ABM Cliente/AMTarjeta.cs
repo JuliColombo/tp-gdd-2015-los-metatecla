@@ -12,22 +12,24 @@ namespace PagoElectronico.ABM_Cliente
     public partial class AMTarjeta : Form
     {
         public int idCliente {get; set;}
+        public bool alta { get; set; }
 
         public AMTarjeta()
         {
             InitializeComponent();
         }
 
-        public AMTarjeta(int idCli)
+        public AMTarjeta(int idCli, string ultimos4)
         {
             InitializeComponent();
             DB.EmisorDB.cargarEmisores(comboBoxEmisores.Items);
             this.idCliente = idCli;
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
+            this.alta = (ultimos4 == "0");
+            if (!alta)
+            {
+                cambiarComponentes();
+                cargarCampos(ultimos4);
+            }
         }
 
         private void limpiar()
@@ -43,6 +45,24 @@ namespace PagoElectronico.ABM_Cliente
             labelErrorFEmision.Visible = false;
             labelErrorEmisor.Visible = false;
             labelErrorCod.Visible = false;
+        }
+
+        private void cambiarComponentes()
+        {
+            labelNumero.Text = "Últimos 4 números";
+            boxCodSeguridad.ReadOnly = true;
+            boxNumero.ReadOnly = true;
+            comboBoxEmisores.Enabled = false;
+        }
+
+        private void cargarCampos(string ultimos4)
+        {
+            Dominio.Tarjeta tarjeta = DB.TarjetaDB.getTarjeta(ultimos4, idCliente);
+            boxNumero.Text = ultimos4;
+            boxCodSeguridad.Text = tarjeta.codigo_seguridad;
+            comboBoxEmisores.Text = DB.EmisorDB.getEmisor(tarjeta.emisor);
+            boxFechaEmision.Text = tarjeta.fecha_emision;
+            boxFechaVencimiento.Text = tarjeta.fecha_vencimiento;
         }
 
         private void boxNumero_KeyPress(object sender, KeyPressEventArgs e)
@@ -97,12 +117,32 @@ namespace PagoElectronico.ABM_Cliente
             {
                 if (DB.EmisorDB.validar(comboBoxEmisores.Text))
                 {
-                    Dominio.Tarjeta tarjeta = this.cargarTarjeta();
-                    DB.TarjetaDB.insertar(tarjeta);
-                    MessageBox.Show("¡Tarjeta asociada correctamente!");
-                    this.Close();
+                    if (alta)
+                    {
+                        confirmarAlta();
+                    }
+                    else
+                    {
+                        confirmarModificacion();
+                    }
                 }
             }
+        }
+
+        private void confirmarAlta()
+        {
+            Dominio.Tarjeta tarjeta = this.cargarTarjeta();
+            DB.TarjetaDB.insertar(tarjeta);
+            MessageBox.Show("¡Tarjeta asociada correctamente!");
+            this.Close();
+        }
+
+        private void confirmarModificacion()
+        {
+            Dominio.Tarjeta tarjeta = this.cargarTarjeta();
+            DB.TarjetaDB.modificarFechas(tarjeta);
+            MessageBox.Show("Tarjeta modificada con éxito");
+            this.Close();
         }
 
         private Dominio.Tarjeta cargarTarjeta()

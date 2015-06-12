@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelNumero = new System.Windows.Forms.Label();
             this.boxNumero = new System.Windows.Forms.TextBox();
             this.boxCodSeguridad = new System.Windows.Forms.TextBox();
             this.comboBoxEmisores = new System.Windows.Forms.ComboBox();
@@ -47,14 +47,14 @@
             this.labelErrorFVenc = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // labelNumero
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nro Tarjeta";
+            this.labelNumero.AutoSize = true;
+            this.labelNumero.Location = new System.Drawing.Point(21, 23);
+            this.labelNumero.Name = "labelNumero";
+            this.labelNumero.Size = new System.Drawing.Size(60, 13);
+            this.labelNumero.TabIndex = 0;
+            this.labelNumero.Text = "Nro Tarjeta";
             // 
             // boxNumero
             // 
@@ -70,7 +70,6 @@
             this.boxCodSeguridad.Name = "boxCodSeguridad";
             this.boxCodSeguridad.Size = new System.Drawing.Size(100, 20);
             this.boxCodSeguridad.TabIndex = 2;
-            this.boxCodSeguridad.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.boxCodSeguridad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.boxCodSeguridad_KeyPress);
             // 
             // comboBoxEmisores
@@ -210,7 +209,7 @@
             this.labelErrorFVenc.Text = "Falta especificar Fecha de vencimiento";
             this.labelErrorFVenc.Visible = false;
             // 
-            // AltaTarjeta
+            // AMTarjeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -231,8 +230,8 @@
             this.Controls.Add(this.comboBoxEmisores);
             this.Controls.Add(this.boxCodSeguridad);
             this.Controls.Add(this.boxNumero);
-            this.Controls.Add(this.label1);
-            this.Name = "AltaTarjeta";
+            this.Controls.Add(this.labelNumero);
+            this.Name = "AMTarjeta";
             this.Text = "AltaTarjeta";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -241,7 +240,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelNumero;
         private System.Windows.Forms.TextBox boxNumero;
         private System.Windows.Forms.TextBox boxCodSeguridad;
         private System.Windows.Forms.ComboBox comboBoxEmisores;

@@ -44,6 +44,25 @@ namespace PagoElectronico.DB
             return tarjetas;
         }
 
+        public static Dominio.Tarjeta getTarjeta(string ultimos4, int idCliente)
+        {
+            Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT Tarjeta_Codigo_Seg, Tarjeta_Emisor_Id, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento " +
+                "FROM LOS_METATECLA.Tarjeta " +
+                "WHERE Id_Cliente_Propietario = '{0}' AND Tarjeta_Estado = 'Activa' AND Tarjeta_Ultimos_4 = '{1}'",
+                idCliente, ultimos4);
+            conexion.ejecutarQuery();
+            conexion.leerReader();
+            Dominio.Tarjeta tarjeta = new PagoElectronico.Dominio.Tarjeta();
+            tarjeta.cliente = idCliente;
+            tarjeta.codigo_seguridad = conexion.lector.GetString(0);
+            tarjeta.emisor = Convert.ToInt32(conexion.lector[1]);
+            tarjeta.fecha_emision = Convert.ToString(conexion.lector[2]);
+            tarjeta.fecha_vencimiento = Convert.ToString(conexion.lector[3]);
+            return tarjeta;
+        }
+
         public static void insertar(Dominio.Tarjeta tarjeta)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
@@ -62,6 +81,16 @@ namespace PagoElectronico.DB
             conexion.query = string.Format(
                 "UPDATE LOS_METATECLA.Tarjeta SET Tarjeta_Estado = 'Inactiva' " +
                 "WHERE Tarjeta_Ultimos_4 = '{0}' AND Id_Cliente_Propietario = {1}", ultimos4, idCliente);
+            conexion.ejecutarNoQuery();
+        }
+
+        public static void modificarFechas(Dominio.Tarjeta tarjeta)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "UPDATE LOS_METATECLA.Tarjeta SET Tarjeta_Fecha_Emision = '{0}', Tarjeta_Fecha_Vencimiento = '{1}' " +
+                "WHERE Tarjeta_Ultimos_4 = '{2}' AND Id_Cliente_Propietario = {3}",
+                tarjeta.fecha_emision, tarjeta.fecha_vencimiento, tarjeta.numero, tarjeta.cliente);
             conexion.ejecutarNoQuery();
         }
     }

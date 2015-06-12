@@ -28,7 +28,25 @@ namespace PagoElectronico.ABM_Cliente
 
         private void btnAsociar_Click(object sender, EventArgs e)
         {
-            AMTarjeta at = new AMTarjeta(idCliente);
+            abrirVantanaAM("0");
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (listaTarjetas.SelectedRows.Count == 1)
+            {
+                abrirVantanaAM(Convert.ToString(listaTarjetas.CurrentRow.Cells[0].Value));
+                labelErrorSeleccion.Visible = false;
+            }
+            else
+            {
+                labelErrorSeleccion.Visible = true;
+            }
+        }
+
+        private void abrirVantanaAM(string ultimos4)
+        {
+            AMTarjeta at = new AMTarjeta(idCliente, ultimos4);
             at.Owner = this;
             at.ShowDialog();
             buscarTarjetas();

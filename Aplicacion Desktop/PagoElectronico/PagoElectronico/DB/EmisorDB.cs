@@ -30,6 +30,18 @@ namespace PagoElectronico.DB
             return id;
         }
 
+        public static string getEmisor(int id)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT TOP 1 Emisor_Descripcion FROM LOS_METATECLA.Emisor WHERE Id_Emisor = {0}", id);
+            conexion.ejecutarQuery();
+            conexion.leerReader();
+            string emisor = Convert.ToString(conexion.lector[0]);
+            conexion.cerrarConexion();
+            return emisor;
+        }
+
         public static bool validar(string emisor)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
