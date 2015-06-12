@@ -30,7 +30,7 @@ namespace PagoElectronico.Retiros
             cuentas = CuentaDB.obtenerCuentasCliente(cli);
             foreach (Cuenta cuenta in cuentas)
             {
-                comboCuentas.Items.Add(cuenta.numero);
+                comboCuentas.Items.Add(Convert.ToInt64(cuenta.numero));
             }
         }
 

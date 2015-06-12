@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using PagoElectronico.ABM_Rol;
 using PagoElectronico.Dominio;
 using PagoElectronico.Retiros;
+using PagoElectronico.Transferencias;
 
 namespace PagoElectronico
 {
@@ -65,6 +66,18 @@ namespace PagoElectronico
             SeleccionDeCuentaForm selec = new SeleccionDeCuentaForm(cli);
             selec.ShowDialog();
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Cliente cli = new Cliente();
+            cli.id = 1;
+            cli.nombre = "pepe";
+            cli.apellido = "gomez";
+            cli.documento = 13372098;
+            cli.tipo_doc = 10002;
+            SeleccionDeCuentaTransForm selec = new SeleccionDeCuentaTransForm(cli);
+            selec.ShowDialog();
         }
 
     }

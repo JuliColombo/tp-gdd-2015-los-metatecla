@@ -67,6 +67,33 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             return cuentasCliente;
         }
+        //Devuelve solo cuentas habilitadas y inhabilitadas
+        public static List<Cuenta> obtenerCuentasTransferibles()
+        {
+            List<Cuenta> cuentasTransferibles = new List<Cuenta>();
+            Conexion conexion = new Conexion();
+            conexion.query = string.Format("SELECT * FROM LOS_METATECLA.Cuenta WHERE (Cuenta_Estado=2 OR Cuenta_Estado=3)");
+            conexion.ejecutarQuery();
+            if (conexion.lector.HasRows)
+            {
+                while (conexion.lector.Read())
+                {
+                    Cuenta nuevaCuenta = new Cuenta(/*(int)lector["Cuenta_Numero"], (DateTime)lector["Cuenta_Fecha_Creacion"], (int)lector["Cuenta_Estado"], (int)lector["Cuenta_Pais_Codigo"], (DateTime)lector["Cuenta_Fecha_Cierre"], (int)lector["Cuenta_Tipo"]*/);
+                    nuevaCuenta.numero = (double)(decimal)conexion.lector["Cuenta_Numero"];
+                    nuevaCuenta.fecha_creacion = (DateTime)conexion.lector["Cuenta_Fecha_Creacion"];
+                    //nuevaCuenta.fecha_cierre = (DateTime)lector["Cuenta_Fecha_Cierre"];
+                    //FIXME En la tabla estan todas en null Quien tiene que completar la fechas de cierre ???
+                    nuevaCuenta.pais = (int)(decimal)conexion.lector["Cuenta_Pais_Codigo"];
+                    nuevaCuenta.estado = (int)conexion.lector["Cuenta_Estado"];
+                    nuevaCuenta.tipo = (int)conexion.lector["Cuenta_Tipo"];
+                    nuevaCuenta.saldo = (double)(decimal)conexion.lector["Cuenta_Saldo"];
+                    cuentasTransferibles.Add(nuevaCuenta);
+                }
+            }
+            conexion.cerrarConexion();
+            return cuentasTransferibles;
+        }
+
     }
 }
 
