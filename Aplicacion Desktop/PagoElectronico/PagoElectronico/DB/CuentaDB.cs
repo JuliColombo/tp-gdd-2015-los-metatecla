@@ -94,6 +94,19 @@ namespace PagoElectronico.DB
             return cuentasTransferibles;
         }
 
+        public static bool estaHabilitada(double numero_cuenta)
+        {
+            
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT * FROM LOS_METATECLA.Cuenta" +
+                "WHERE Cuenta_Numero = '{0}' AND Cuenta_Estado = 2", numero_cuenta);
+            conexion.ejecutarQuery();
+            bool valida = (conexion.leerReader());
+            conexion.cerrarConexion();
+            return valida;
+        }
+
     }
 }
 

@@ -12,10 +12,13 @@ namespace PagoElectronico.Depositos
     public partial class DatosDepositoForm : Form
     {
         int error;
+        PagoElectronico.Dominio.Cliente cli;
        
         public DatosDepositoForm(PagoElectronico.Dominio.Cliente cliente)
         {
             InitializeComponent();
+
+            cli = cliente;
 
             label_apellido.Text = cliente.apellido;
             label_documento.Text = cliente.documento.ToString();
@@ -56,6 +59,8 @@ namespace PagoElectronico.Depositos
                 case 0: ventanaDeError("El importe debe ser mayor a 1.");
                     break;
                 case 1: ventanaDeError("La tarjeta seleccionada se encuentra vencida");
+                    break;
+                case 2: ventanaDeError("Cuenta inhabilitada");
                     break;
 
             }
@@ -104,18 +109,29 @@ namespace PagoElectronico.Depositos
 
         private bool validaciones()
         {
-            return importeNoNegativo(textBox_importe.Text) && tarjetaNoVencida(comboBox_tarjeta.Text); 
+            return importeNoNegativo(textBox_importe.Text) && tarjetaNoVencida(comboBox_tarjeta.Text) && cuenta_habilitada(comboBox_cuenta.Text); 
         }
 
-        private bool tarjetaNoVencida(string numero_tarjeta)
+        private bool tarjetaNoVencida(string ult_numero_tarjeta)
         {
-            bool resultado = PagoElectronico.DB.TarjetaDB.estaVencida(numero_tarjeta);
+            bool resultado = estaVencida(ult_numero_tarjeta);
             if (resultado)
             {
                 error = 1;
             }
 
             return resultado;
+        }
+
+        private bool estaVencida(string ult_numero_tarjeta)
+        {
+            PagoElectronico.Dominio.Tarjeta tarjeta = cli.buscar_tarjeta(Convert.ToInt32(ult_numero_tarjeta));
+
+            DateTime fecha_tarjeta = Convert.ToDateTime(tarjeta.fecha_vencimiento);
+            DateTime fecha_sistema = Convert.ToDateTime(PagoElectronico.Dominio.Config.fechaSystem());
+            
+            return DateTime.Compare(fecha_tarjeta, fecha_sistema) > 0;
+           
         }
 
         private bool importeNoNegativo(string importe)
@@ -127,6 +143,24 @@ namespace PagoElectronico.Depositos
             }
 
             return import < 1;
+        }
+
+        private bool cuenta_habilitada(string cuenta)
+        {
+            bool resultado = DB.CuentaDB.estaHabilitada(Convert.ToDouble(cuenta));
+
+            if (!resultado)
+            {
+                error = 2;
+            }
+
+            return resultado;
+
+        }
+
+        private void label_tarjeta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

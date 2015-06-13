@@ -71,7 +71,7 @@
             // comboBox_cuenta
             // 
             this.comboBox_cuenta.FormattingEnabled = true;
-            this.comboBox_cuenta.Location = new System.Drawing.Point(133, 95);
+            this.comboBox_cuenta.Location = new System.Drawing.Point(144, 95);
             this.comboBox_cuenta.Name = "comboBox_cuenta";
             this.comboBox_cuenta.Size = new System.Drawing.Size(121, 21);
             this.comboBox_cuenta.TabIndex = 2;
@@ -133,9 +133,9 @@
             // comboBox_tarjeta
             // 
             this.comboBox_tarjeta.FormattingEnabled = true;
-            this.comboBox_tarjeta.Location = new System.Drawing.Point(133, 152);
+            this.comboBox_tarjeta.Location = new System.Drawing.Point(219, 152);
             this.comboBox_tarjeta.Name = "comboBox_tarjeta";
-            this.comboBox_tarjeta.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_tarjeta.Size = new System.Drawing.Size(46, 21);
             this.comboBox_tarjeta.TabIndex = 10;
             // 
             // label_tarjeta
@@ -143,9 +143,10 @@
             this.label_tarjeta.AutoSize = true;
             this.label_tarjeta.Location = new System.Drawing.Point(28, 155);
             this.label_tarjeta.Name = "label_tarjeta";
-            this.label_tarjeta.Size = new System.Drawing.Size(98, 13);
+            this.label_tarjeta.Size = new System.Drawing.Size(191, 13);
             this.label_tarjeta.TabIndex = 9;
-            this.label_tarjeta.Text = "Número de Tarjeta:";
+            this.label_tarjeta.Text = "Número de Tarjeta:   xxxx - xxxx - xxxx -";
+            this.label_tarjeta.Click += new System.EventHandler(this.label_tarjeta_Click);
             // 
             // labelError_cuenta
             // 

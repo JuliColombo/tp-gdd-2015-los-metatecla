@@ -7,7 +7,7 @@ namespace PagoElectronico.DB
 {
     class TarjetaDB
     {
-        public static bool estaVencida(string numero_tarjeta)
+        /*public static bool estaVencida(string numero_tarjeta)
         {
             double numero = Convert.ToDouble(numero_tarjeta);
 
@@ -19,7 +19,7 @@ namespace PagoElectronico.DB
             bool valida = (conexion.leerReader());
             conexion.cerrarConexion();
             return valida;
-        }
+        }*/
 
         public static List<ABM_Cliente.TarjetaEdit> buscarTarjetas(int idCliente)
         {

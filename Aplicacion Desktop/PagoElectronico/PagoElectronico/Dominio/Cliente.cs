@@ -32,6 +32,11 @@ namespace PagoElectronico.Dominio
         return numeros;
         }
 
+        public PagoElectronico.Dominio.Tarjeta buscar_tarjeta(int ult_num)
+        {
+            return tarjetas.Find(tarjeta => tarjeta.ultimos_4_numeros == ult_num);
+        }
+
     }
 
 }
