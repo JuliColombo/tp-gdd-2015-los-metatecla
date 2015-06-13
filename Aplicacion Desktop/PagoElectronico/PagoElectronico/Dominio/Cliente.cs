@@ -19,7 +19,7 @@ namespace PagoElectronico.Dominio
         public List<double> numeros_cuentas { get; set; }
         public List<PagoElectronico.Dominio.Tarjeta> tarjetas { get; set; }
 
-
+        //
         public List<int> ultimos_numeros_tarjetas()
         {
         List<int> numeros = new List<int>();
@@ -32,11 +32,30 @@ namespace PagoElectronico.Dominio
         return numeros;
         }
 
+        //
+        public List<int> numeros_tarjetas()
+        {
+            List<int> numeros = new List<int>();
+
+            foreach (PagoElectronico.Dominio.Tarjeta tarjeta in tarjetas)
+            {
+                numeros.Add(Convert.ToInt32(tarjeta.numero));
+            }
+
+            return numeros;
+        }
+
+        //
         public PagoElectronico.Dominio.Tarjeta buscar_tarjeta(int ult_num)
         {
             return tarjetas.Find(tarjeta => tarjeta.ultimos_4_numeros == ult_num);
         }
 
+        //
+        public int ultimos_4(string numero_tarjeta)
+        {
+            return Convert.ToInt32(numero_tarjeta.Substring(numero_tarjeta.Length - 4));
+        }
     }
 
 }
