@@ -20,13 +20,13 @@ namespace PagoElectronico.Dominio
         public List<PagoElectronico.Dominio.Tarjeta> tarjetas { get; set; }
 
 
-        public List<double> numeros_tarjetas()
+        public List<int> ultimos_numeros_tarjetas()
         {
-        List<double> numeros = new List<double>();
+        List<int> numeros = new List<int>();
 
         foreach (PagoElectronico.Dominio.Tarjeta tarjeta in tarjetas)
            {
-               numeros.Add(Convert.ToDouble(tarjeta.numero));
+            numeros.Add(Convert.ToInt32(tarjeta.ultimos_4_numeros));
            }
 
         return numeros;

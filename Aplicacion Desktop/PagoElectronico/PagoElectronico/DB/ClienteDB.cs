@@ -154,7 +154,7 @@ namespace PagoElectronico.DB
 
             Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT Cli_Nombre, Cli_Apellido, Cli_Nro_Doc, Cuenta_Numero, Cli_Id, Tarjeta_Numero, Tarjeta_Fecha_Vencimiento " +
+                "SELECT Cli_Nombre, Cli_Apellido, Cli_Nro_Doc, Cuenta_Numero, Cli_Id, Tarjeta_Numero, Tarjeta_Fecha_Vencimiento, Tarjeta_Ultimos_4 " +
                 "FROM LOS_METATECLA.Cliente, LOS_METATECLA.Documento, LOS_METATECLA.Tarjeta, LOS_METATECLA.Cuenta " +
                 "WHERE Cli_Tipo_Doc_Cod = Doc_Tipo_Cod AND Cli_Nombre LIKE '%{0}%' AND Cli_Apellido LIKE '%{1}%' " +
                 "AND Cli_Nro_Doc = {2} AND Cuenta_Cliente_id = Cli_Id AND Id_Cliente_Propietario = Cli_Id",
@@ -176,13 +176,14 @@ namespace PagoElectronico.DB
                     cliente.numeros_cuentas.Add(numero_cuenta);
                 }
 
-                double numero_tarjeta = Convert.ToDouble(conexion.lector[5]);
+                int ult_numero_tarjeta = Convert.ToInt32(conexion.lector[7]);
 
-                if (!cliente.numeros_tarjetas().Contains(numero_tarjeta))
+                if (!cliente.ultimos_numeros_tarjetas().Contains(ult_numero_tarjeta))
                 {
                     PagoElectronico.Dominio.Tarjeta tarjeta = new PagoElectronico.Dominio.Tarjeta();
-                    tarjeta.numero = numero_tarjeta.ToString();//Convert.ToString(conexion.lector[5]);
+                    //tarjeta.numero = numero_tarjeta.ToString();//Convert.ToString(conexion.lector[5]);
                     tarjeta.fecha_vencimiento = Convert.ToString(conexion.lector[6]);
+                    tarjeta.ultimos_4_numeros = Convert.ToInt32(conexion.lector[7]);
                     cliente.tarjetas.Add(tarjeta);
                 }
 
