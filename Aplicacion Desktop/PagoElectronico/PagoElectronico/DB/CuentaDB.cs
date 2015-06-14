@@ -11,7 +11,7 @@ namespace PagoElectronico.DB
     {
         internal static bool noExisteCuenta(string nro_cuenta)
         {
-            double cuenta = Convert.ToDouble(nro_cuenta);
+            long cuenta = Convert.ToInt64(nro_cuenta);
 
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
@@ -24,7 +24,7 @@ namespace PagoElectronico.DB
 
         internal static void crearCuenta(string nro_cuenta, string usuario, string pais, string tipo, string fecha, string moneda)
         {
-            double cuenta = Convert.ToDouble(nro_cuenta);
+            long cuenta = Convert.ToInt64(nro_cuenta);
             double pais_id = PagoElectronico.DB.PaisDB.getID(pais);
             int tipo_id = PagoElectronico.DB.TipoCuentaDB.getId(tipo);
             int user_id = PagoElectronico.DB.UsuarioDB.getId(usuario);
@@ -94,13 +94,13 @@ namespace PagoElectronico.DB
             return cuentasTransferibles;
         }
 
-        public static bool estaHabilitada(double numero_cuenta)
+        public static bool estaHabilitada(long numero_cuenta)
         {
             
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT * FROM LOS_METATECLA.Cuenta" +
-                "WHERE Cuenta_Numero = '{0}' AND Cuenta_Estado = 2", numero_cuenta);
+                "SELECT * FROM LOS_METATECLA.Cuenta " +
+                "WHERE Cuenta_Numero = {0} AND Cuenta_Estado = 2", numero_cuenta);
             conexion.ejecutarQuery();
             bool valida = (conexion.leerReader());
             conexion.cerrarConexion();

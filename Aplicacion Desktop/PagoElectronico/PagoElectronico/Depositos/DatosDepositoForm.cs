@@ -45,12 +45,22 @@ namespace PagoElectronico.Depositos
                 if (validaciones())
                 {
                     //realizar deposito
+                    double codigo_deposito = PagoElectronico.DB.DepositoDB.obtener_ultimo_codigo_deposito() + 1;
+                    nuevoDeposito(codigo_deposito, textBox_importe.Text, comboBox_moneda.Text, comboBox_tarjeta.Text, comboBox_cuenta.Text);
                 }
                 else
                 {
                     mostrarError();
                 }
             }
+        }
+
+        private void nuevoDeposito(double codigo_deposito, string importe, string moneda, string ult_num_tarjeta, string cuenta)
+        {
+            PagoElectronico.Dominio.Tarjeta tarjeta = cli.buscar_tarjeta(Convert.ToInt32(ult_num_tarjeta));
+            int id_moneda = DB.MonedaDB.getID(moneda);
+            PagoElectronico.DB.DepositoDB.insertar_deposito(codigo_deposito, Convert.ToDouble(importe), id_moneda, tarjeta.id, Convert.ToInt64(cuenta));
+
         }
 
         private void mostrarError()
@@ -109,7 +119,7 @@ namespace PagoElectronico.Depositos
 
         private bool validaciones()
         {
-            return importeNoNegativo(textBox_importe.Text) && tarjetaNoVencida(comboBox_tarjeta.Text) && cuenta_habilitada(comboBox_cuenta.Text); 
+            return importeNoNegativo(textBox_importe.Text) && tarjetaNoVencida(comboBox_tarjeta.Text);// && cuenta_habilitada(comboBox_cuenta.Text); 
         }
 
         private bool tarjetaNoVencida(string ult_numero_tarjeta)
@@ -125,6 +135,7 @@ namespace PagoElectronico.Depositos
 
         private bool estaVencida(string ult_numero_tarjeta)
         {
+            
             PagoElectronico.Dominio.Tarjeta tarjeta = cli.buscar_tarjeta(Convert.ToInt32(ult_numero_tarjeta));
 
             DateTime fecha_tarjeta = Convert.ToDateTime(tarjeta.fecha_vencimiento);
@@ -142,12 +153,12 @@ namespace PagoElectronico.Depositos
                 error = 0;
             }
 
-            return import < 1;
+            return import > 1;
         }
 
         private bool cuenta_habilitada(string cuenta)
         {
-            bool resultado = DB.CuentaDB.estaHabilitada(Convert.ToDouble(cuenta));
+            bool resultado = DB.CuentaDB.estaHabilitada(Convert.ToInt64(cuenta));
 
             if (!resultado)
             {
