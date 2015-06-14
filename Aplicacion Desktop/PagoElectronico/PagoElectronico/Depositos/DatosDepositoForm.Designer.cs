@@ -47,6 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox_importe = new System.Windows.Forms.TextBox();
             this.labelError_importe = new System.Windows.Forms.Label();
+            this.btn_cancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_depositar
@@ -225,11 +226,22 @@
             this.labelError_importe.Text = "Falta especificar el importe";
             this.labelError_importe.Visible = false;
             // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.Location = new System.Drawing.Point(75, 363);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(88, 30);
+            this.btn_cancelar.TabIndex = 19;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
             // DatosDepositoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 405);
+            this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.labelError_importe);
             this.Controls.Add(this.textBox_importe);
             this.Controls.Add(this.label5);
@@ -277,5 +289,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox_importe;
         private System.Windows.Forms.Label labelError_importe;
+        private System.Windows.Forms.Button btn_cancelar;
     }
 }
