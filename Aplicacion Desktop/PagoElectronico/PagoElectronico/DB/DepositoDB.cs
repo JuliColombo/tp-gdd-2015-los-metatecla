@@ -27,12 +27,15 @@ namespace PagoElectronico.DB
     
     public static void insertar_deposito(double codigo_deposito,double importe,int moneda,int id,long cuenta)
     {
-        DateTime fecha = Convert.ToDateTime(PagoElectronico.Dominio.Config.fechaSystem());
+        String fecha = PagoElectronico.Dominio.Config.fechaSystem();
 
         PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
         conexion.query = string.Format(
             "INSERT INTO LOS_METATECLA.Deposito (Deposito_Codigo, Deposito_Fecha, Deposito_Importe, Deposito_Moneda, Tarjeta_Id, Numero_Cuenta) " + 
-            "VALUES ({0}, NULL, {2}, {3}, {4}, {5})",
+            "VALUES ({0}, '{1}', {2}, {3}, {4}, {5})",
+            codigo_deposito, fecha, importe, moneda, id, cuenta);
+        Console.WriteLine("INSERT INTO LOS_METATECLA.Deposito (Deposito_Codigo, Deposito_Fecha, Deposito_Importe, Deposito_Moneda, Tarjeta_Id, Numero_Cuenta) " +
+            "VALUES ({0}, '{1}', {2}, {3}, {4}, {5})",
             codigo_deposito, fecha, importe, moneda, id, cuenta);
         
         conexion.ejecutarNoQuery();
