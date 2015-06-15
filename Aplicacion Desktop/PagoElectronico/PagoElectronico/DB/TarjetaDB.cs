@@ -80,5 +80,29 @@ namespace PagoElectronico.DB
                 tarjeta.fecha_emision, tarjeta.fecha_vencimiento, tarjeta.numero, tarjeta.cliente);
             conexion.ejecutarNoQuery();
         }
+
+        public static List<Dominio.Tarjeta> getTarjetasCliente(int idCliente)
+        {
+            Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT * " +
+                "FROM LOS_METATECLA.Tarjeta " +
+                "WHERE Id_Cliente_Propietario = '{0}' AND Tarjeta_Estado = 'Activa'",
+                idCliente);
+            conexion.ejecutarQuery();
+            List<Dominio.Tarjeta> tarjetas = new List<PagoElectronico.Dominio.Tarjeta>();
+            while (conexion.leerReader())
+            {
+                Dominio.Tarjeta tarjeta = new PagoElectronico.Dominio.Tarjeta();
+                tarjeta.cliente = idCliente;
+                tarjeta.id = Convert.ToInt32(conexion.lector[0]);
+                tarjeta.ultimos_4_numeros = Convert.ToInt32(conexion.lector[2]);
+                tarjeta.emisor = Convert.ToInt32(conexion.lector[6]);
+                tarjeta.fecha_emision = Convert.ToString(conexion.lector[3]);
+                tarjeta.fecha_vencimiento = Convert.ToString(conexion.lector[4]);
+                tarjetas.Add(tarjeta);
+            }
+            return tarjetas;
+        }
     }
 }

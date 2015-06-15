@@ -24,19 +24,23 @@ namespace PagoElectronico.Depositos
             label_documento.Text = cliente.documento.ToString();
             label_nombre.Text = cliente.nombre;
 
-            DB.MonedaDB.cargarMonedas(comboBox_moneda.Items);
-            
-           foreach(double numero in cliente.numeros_cuentas){
-                comboBox_cuenta.Items.Add(numero);
+            List<Dominio.Cuenta> cuentas = DB.CuentaDB.obtenerCuentasCliente(cliente);
+            cliente.numeros_cuentas = new List<long>();
+            foreach(Dominio.Cuenta cuenta in cuentas) {
+                cliente.numeros_cuentas.Add(cuenta.numero);
+                comboBox_cuenta.Items.Add(cuenta.numero);
             }
 
-           foreach (int numero in cliente.ultimos_numeros_tarjetas())
+            DB.MonedaDB.cargarMonedas(comboBox_moneda.Items);
+
+            List<Dominio.Tarjeta> tarjetas = DB.TarjetaDB.getTarjetasCliente(cliente.id);
+            cliente.tarjetas = new List<PagoElectronico.Dominio.Tarjeta>();
+           foreach (Dominio.Tarjeta tarjeta in tarjetas)
            {
-               comboBox_tarjeta.Items.Add(numero);
+               cliente.tarjetas.Add(tarjeta);
+               comboBox_tarjeta.Items.Add(tarjeta.ultimos_4_numeros);
            }
         }
-
-
 
         private void btn_depositar_Click(object sender, EventArgs e)
         {
@@ -47,6 +51,7 @@ namespace PagoElectronico.Depositos
                     //realizar deposito
                     double codigo_deposito = PagoElectronico.DB.DepositoDB.obtener_ultimo_codigo_deposito() + 1;
                     nuevoDeposito(codigo_deposito, textBox_importe.Text, comboBox_moneda.Text, comboBox_tarjeta.Text, comboBox_cuenta.Text);
+                    MessageBox.Show("Depósito efectuado con éxito");
                 }
                 else
                 {

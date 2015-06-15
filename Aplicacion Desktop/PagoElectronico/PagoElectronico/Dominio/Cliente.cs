@@ -16,7 +16,7 @@ namespace PagoElectronico.Dominio
         public double pais { get; set; }
         public String mail { get; set; }
         public String fecha_nac { get; set; }
-        public List<double> numeros_cuentas { get; set; }
+        public List<long> numeros_cuentas { get; set; }
         public List<PagoElectronico.Dominio.Tarjeta> tarjetas { get; set; }
 
         //

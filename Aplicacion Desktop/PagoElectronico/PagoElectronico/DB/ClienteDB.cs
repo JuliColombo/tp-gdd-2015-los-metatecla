@@ -148,7 +148,7 @@ namespace PagoElectronico.DB
             double docu = Convert.ToDouble(documento);
 
             PagoElectronico.Dominio.Cliente cliente = new PagoElectronico.Dominio.Cliente();
-            cliente.numeros_cuentas = new List<double>();
+            cliente.numeros_cuentas = new List<long>();
             /*cliente.numeros_tarjetas = new List<double>();*/
             cliente.tarjetas = new List<PagoElectronico.Dominio.Tarjeta>();
 
@@ -168,7 +168,7 @@ namespace PagoElectronico.DB
                 cliente.documento = Convert.ToInt32(conexion.lector[2]);
                 cliente.id = Convert.ToInt32(conexion.lector[4]);
 
-                double numero_cuenta = Convert.ToDouble(conexion.lector[3]);
+                long numero_cuenta = Convert.ToInt64(conexion.lector[3]);
                                                
                 
                 if (!cliente.numeros_cuentas.Contains(numero_cuenta))

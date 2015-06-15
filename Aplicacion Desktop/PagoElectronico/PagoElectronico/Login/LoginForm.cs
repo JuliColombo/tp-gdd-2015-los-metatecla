@@ -32,7 +32,11 @@ namespace PagoElectronico.Login
 
                     loggear(usuario, "efectivo",0, "");
 
-                    //Habria que abrir otra pantalla con los roles y funcionalidades
+                    int idUsuario = DB.UsuarioDB.getId(usuario);
+                    Form f = new PantallaPrincipal(idUsuario);
+                    f.Show();
+                    this.Close();
+                    //TODO Habria que abrir otra pantalla con los roles y funcionalidades
                 }
                 else
                 {
