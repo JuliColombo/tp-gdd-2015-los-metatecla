@@ -121,6 +121,7 @@
             this.butonTrans.TabIndex = 8;
             this.butonTrans.Text = "Transferir";
             this.butonTrans.UseVisualStyleBackColor = true;
+            this.butonTrans.Click += new System.EventHandler(this.butonTrans_Click);
             // 
             // label3
             // 

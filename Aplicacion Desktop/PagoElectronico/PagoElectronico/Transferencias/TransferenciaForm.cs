@@ -15,19 +15,24 @@ namespace PagoElectronico.Transferencias
     public partial class TransferenciaForm : Form
     {
         NumberFormatInfo provider = new NumberFormatInfo();
-        Cuenta destino;
-        Cuenta origen;
+        Cuenta destino = new Cuenta();
+        Cuenta origen = new Cuenta();
         public TransferenciaForm(Cuenta destino, Cuenta origen)
         {
             InitializeComponent();
+            CenterToScreen();
             MonedaDB.cargarMonedas(comboMonedas.Items);
             this.destino = destino;
             this.origen = origen;
-            labelDestino.Text = Convert.ToString(destino.numero);
-            labelOrigen.Text = Convert.ToString(origen.numero);
+            labelDestino.Text = Convert.ToString(Convert.ToInt64(destino.numero));
+            labelOrigen.Text = Convert.ToString(Convert.ToInt64(origen.numero));
             provider.NumberDecimalSeparator = ".";
             //labelCosto.Text = Convert.ToString(origen.tipo);
-            labelCosto.Text = Convert.ToString(TipoCuentaDB.obtenerCosto(origen.tipo));
+            if (!(origen.idPropietario == destino.idPropietario))
+            {
+                labelCosto.Text = string.Format("{0:$0.00}", TipoCuentaDB.obtenerCosto(origen.tipo));
+            }
+            else { labelCosto.Text = string.Format("$0.00"); }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -38,6 +43,33 @@ namespace PagoElectronico.Transferencias
         private void textImporte_KeyPress(object sender, KeyPressEventArgs e)
         {
             EventosUI.soloDecimales(e, textImporte);
+        }
+
+        private void butonTrans_Click(object sender, EventArgs e)
+        {
+            if (!(textImporte.Text == ""))
+            {
+                if ((Convert.ToDouble(textImporte.Text, provider) <= origen.saldo))
+                {
+                    if (comboMonedas.Text == "Dólar")
+                    {
+                        realizarTransferencia();
+                    }
+                    else { MessageBox.Show("El importe debe esta en dolares", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                }
+                else { MessageBox.Show("No tiene suficiente saldo en la cuenta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+            else { MessageBox.Show("No se ingreso el importe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+
+        private void realizarTransferencia()
+        {
+            double costo = TipoCuentaDB.obtenerCosto(origen.tipo);
+            double importe = Convert.ToDouble(textImporte.Text,provider);
+            int moneda = MonedaDB.getID(comboMonedas.Text);
+            TransferenciaDB.insertarTransferencia(origen,destino,importe,moneda,costo);
+             MessageBox.Show("Transferencia realizada con EXITO. Costo por transferencia pendiente a facturar", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information); 
         }
     }
 }

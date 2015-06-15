@@ -60,7 +60,7 @@ namespace PagoElectronico.DB
                     nuevaCuenta.estado = (int)lector["Cuenta_Estado"];
                     nuevaCuenta.tipo = (int)lector["Cuenta_Tipo"];
                     nuevaCuenta.saldo = (double)(decimal)lector["Cuenta_Saldo"];
-                    nuevaCuenta.dueño = cliente;
+                    nuevaCuenta.idPropietario= cliente.id;
                     cuentasCliente.Add(nuevaCuenta);
                 }
             }

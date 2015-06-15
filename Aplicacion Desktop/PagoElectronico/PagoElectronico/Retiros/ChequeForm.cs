@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using PagoElectronico.Dominio;
+using PagoElectronico.DB;
 
 namespace PagoElectronico.Retiros
 {
@@ -40,7 +41,8 @@ namespace PagoElectronico.Retiros
             provider.NumberDecimalSeparator = ".";
             labelImporte.Text = string.Format("{0:0.00}",Convert.ToDouble(importe,provider));
             labelFecha.Text = fecha;
-            labelCliente.Text = cuenta.dueño.apellido + ", " + cuenta.dueño.nombre;
+            Cliente cli =  ClienteDB.getCliente(cuenta.idPropietario);
+            labelCliente.Text = cli.apellido + ", " + cli.nombre;
             labelCodigo.Text = codigo;
             labelBanco.Text = banco;
 

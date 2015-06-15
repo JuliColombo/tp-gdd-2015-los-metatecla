@@ -67,7 +67,7 @@ namespace PagoElectronico.Retiros
 
         private bool validarCuenta(Cuenta cuenta,string documento,string tipoDoc) 
         {
-           return ClienteDB.validarDocumento(cuenta.dueño.id, Convert.ToDouble(documento), tipoDoc);
+           return ClienteDB.validarDocumento(cuenta.idPropietario, Convert.ToDouble(documento), tipoDoc);
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)

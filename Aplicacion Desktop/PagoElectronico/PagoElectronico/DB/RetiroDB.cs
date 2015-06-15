@@ -19,7 +19,7 @@ namespace PagoElectronico.DB
             ListParam.Add(new SqlParameter("@moneda", idMoneda));
             ListParam.Add(new SqlParameter("@importe", importe));
             ListParam.Add(new SqlParameter("@cuenta",cuenta.numero));
-            ListParam.Add(new SqlParameter("@fecha", fecha));
+            ListParam.Add(new SqlParameter("@fecha",Convert.ToDateTime(fecha)));
             conexion.ejecutarQueryConParam("INSERT INTO LOS_METATECLA.Retiro (Retiro_Importe,Retiro_Moneda,Retiro_Fecha,Retiro_Codigo,Numero_cuenta) VALUES (@importe,@moneda,@fecha,@codigo,@cuenta)", ListParam);
             conexion.cerrarConexion();
         }

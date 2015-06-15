@@ -9,14 +9,14 @@ namespace PagoElectronico.DB
 {
     class ChequeDB
     {
-        public static void insertarCheque(Banco banco, Cliente cliente, double importe, string moneda, double codigoCheque, double codigoRetiro)
+        public static void insertarCheque(Banco banco, int idCliente, double importe, string moneda, double codigoCheque, double codigoRetiro)
         {
             Conexion conexion = new Conexion();
             List<SqlParameter> ListParam = new List<SqlParameter>();
             string fecha = PagoElectronico.Dominio.Config.fechaSystem();
             int idMoneda = MonedaDB.getID(moneda);
             ListParam.Add(new SqlParameter("@banco", banco.codigo));
-            ListParam.Add(new SqlParameter("@cliente", cliente.id));
+            ListParam.Add(new SqlParameter("@cliente",idCliente));
             ListParam.Add(new SqlParameter("@moneda", idMoneda));
             ListParam.Add(new SqlParameter("@importe", importe));
             ListParam.Add(new SqlParameter("@codigoCheque", codigoCheque));

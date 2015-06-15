@@ -144,6 +144,7 @@
     <Compile Include="DB\DomicilioDB.cs" />
     <Compile Include="DB\EmisorDB.cs" />
     <Compile Include="DB\EstadoCuentaDB.cs" />
+    <Compile Include="DB\FacturaDB.cs" />
     <Compile Include="DB\FuncionalidadDB.cs" />
     <Compile Include="DB\MonedaDB.cs" />
     <Compile Include="DB\PaisDB.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="DB\RolDB.cs" />
     <Compile Include="DB\TarjetaDB.cs" />
     <Compile Include="DB\TipoCuentaDB.cs" />
+    <Compile Include="DB\TransferenciaDB.cs" />
     <Compile Include="DB\UsuarioDB.cs" />
     <Compile Include="Depositos\DatosDepositoForm.cs">
       <SubType>Form</SubType>

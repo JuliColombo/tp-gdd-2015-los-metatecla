@@ -37,9 +37,9 @@ namespace PagoElectronico.DB
             double i = 0;
             Conexion conexion = new Conexion();
             List<SqlParameter> ListParam = new List<SqlParameter>();
-            conexion.query = string.Format("SELECT Tipo_Costo FROM LOS_METATECLA.Tipo_Cuenta WHERE (Id_Tipo = '{0}')",id);
-            //ListParam.Add(new SqlParameter("@id_tipo", id));
-           // SqlDataReader lector = conexion.ejecutarQueryConParam("SELECT Tipo_Costo FROM LOS_METATECLA.Tipo_Cuenta WHERE (Id_Tipo = @id_tipo)", ListParam);
+            conexion.query = string.Format("SELECT TOP 1 Tipo_Costo FROM LOS_METATECLA.Tipo_Cuenta WHERE (Id_Tipo = '{0}')",Convert.ToInt32(id));
+            conexion.ejecutarQuery();
+            conexion.leerReader();
             i = (double)(decimal)conexion.lector["Tipo_costo"];
             conexion.cerrarConexion();
             return i;

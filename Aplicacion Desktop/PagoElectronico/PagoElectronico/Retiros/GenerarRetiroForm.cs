@@ -76,7 +76,7 @@ namespace PagoElectronico.Retiros
                     codigoCheque++;
                 }
                 else { codigoRetiro = 25252525252; }
-                ChequeDB.insertarCheque(bancoSelec, cuentaARetirar.dueño, Convert.ToDouble(importeText.Text, provider), comboMonedas.Text, codigoCheque, codigoRetiro);
+                ChequeDB.insertarCheque(bancoSelec, cuentaARetirar.idPropietario, Convert.ToDouble(importeText.Text, provider), comboMonedas.Text, codigoCheque, codigoRetiro);
                 cuentaARetirar.saldo = cuentaARetirar.saldo - Convert.ToDouble(importeText.Text, provider);
                 string fecha = PagoElectronico.Dominio.Config.fechaSystem();
                 ChequeForm cheque = new ChequeForm(comboBancos.Text,Convert.ToString(codigoCheque),cuentaARetirar,fecha,importeText.Text);
