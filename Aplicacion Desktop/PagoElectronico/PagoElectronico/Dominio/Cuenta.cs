@@ -7,7 +7,7 @@ namespace PagoElectronico.Dominio
 {
     public class Cuenta
     {
-        public double numero { get; set; }
+        public long numero { get; set; }
         public DateTime fecha_creacion { get; set; }
         public int estado { get; set; }
         public int pais { get; set; } //Devuelta lo mismo, fijarse si conviene que sea una clase aparte

@@ -52,7 +52,7 @@ namespace PagoElectronico.DB
                 while (lector.Read())
                 {
                     Cuenta nuevaCuenta = new Cuenta(/*(int)lector["Cuenta_Numero"], (DateTime)lector["Cuenta_Fecha_Creacion"], (int)lector["Cuenta_Estado"], (int)lector["Cuenta_Pais_Codigo"], (DateTime)lector["Cuenta_Fecha_Cierre"], (int)lector["Cuenta_Tipo"]*/);
-                    nuevaCuenta.numero = (double)(decimal)lector["Cuenta_Numero"];
+                    nuevaCuenta.numero = (long)(decimal)lector["Cuenta_Numero"];
                     nuevaCuenta.fecha_creacion = (DateTime)lector["Cuenta_Fecha_Creacion"];
                     nuevaCuenta.fecha_cierre = (DateTime)lector["Cuenta_Fecha_Cierre"];
                     nuevaCuenta.pais = (int)(decimal)lector["Cuenta_Pais_Codigo"];
@@ -78,7 +78,7 @@ namespace PagoElectronico.DB
                 while (conexion.lector.Read())
                 {
                     Cuenta nuevaCuenta = new Cuenta(/*(int)lector["Cuenta_Numero"], (DateTime)lector["Cuenta_Fecha_Creacion"], (int)lector["Cuenta_Estado"], (int)lector["Cuenta_Pais_Codigo"], (DateTime)lector["Cuenta_Fecha_Cierre"], (int)lector["Cuenta_Tipo"]*/);
-                    nuevaCuenta.numero = (double)(decimal)conexion.lector["Cuenta_Numero"];
+                    nuevaCuenta.numero = (long)(decimal)conexion.lector["Cuenta_Numero"];
                     nuevaCuenta.fecha_creacion = (DateTime)conexion.lector["Cuenta_Fecha_Creacion"];
                     nuevaCuenta.fecha_cierre = (DateTime)conexion.lector["Cuenta_Fecha_Cierre"];
                     nuevaCuenta.pais = (int)(decimal)conexion.lector["Cuenta_Pais_Codigo"];

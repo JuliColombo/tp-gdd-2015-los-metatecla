@@ -23,11 +23,12 @@ namespace PagoElectronico.DB
         internal static int getId(string tipo)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
-            List<SqlParameter> ListParam = new List<SqlParameter>();
-            ListParam.Add(new SqlParameter("@tipo", tipo));
-            SqlDataReader lector = conexion.ejecutarQueryConParam("SELECT TOP 1 Id_Tipo FROM LOS_METATECLA.Tipo_Cuenta WHERE Tipo_Desc = @tipo", ListParam);
-            lector.Read();
-            int id = (int)lector["Id_Tipo"];
+            
+            conexion.query = string.Format(
+                "SELECT TOP 1 Id_Tipo FROM LOS_METATECLA.Tipo_Cuenta WHERE Tipo_Desc like '%{0}%'", tipo);
+            conexion.ejecutarQuery();
+            conexion.leerReader();
+            int id = Convert.ToInt32(conexion.lector[0]);
             conexion.cerrarConexion();
             return id;
         }

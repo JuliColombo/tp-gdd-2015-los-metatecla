@@ -11,8 +11,9 @@ namespace PagoElectronico.DB
     class FacturaDB
     {
 
-        public static void insertarItemPendiente(string descripcion,double importe, double numero)
+        public static void insertarItemPendiente(string descripcion,double importe, long numero)
         {
+            
             Conexion conexion = new Conexion();
             List<SqlParameter> ListParam = new List<SqlParameter>();
             ListParam.Add(new SqlParameter("@desc", descripcion));

@@ -51,6 +51,7 @@ namespace PagoElectronico.ABM_Cliente
         {
             labelNumero.Text = "Últimos 4 números";
             boxCodSeguridad.ReadOnly = true;
+            boxCodSeguridad.UseSystemPasswordChar = true;
             boxNumero.ReadOnly = true;
             comboBoxEmisores.Enabled = false;
         }
