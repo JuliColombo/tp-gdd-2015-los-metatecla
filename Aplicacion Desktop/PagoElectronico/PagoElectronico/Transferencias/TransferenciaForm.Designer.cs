@@ -91,7 +91,7 @@
             // 
             this.textImporte.Location = new System.Drawing.Point(104, 52);
             this.textImporte.Name = "textImporte";
-            this.textImporte.Size = new System.Drawing.Size(84, 20);
+            this.textImporte.Size = new System.Drawing.Size(97, 20);
             this.textImporte.TabIndex = 5;
             this.textImporte.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textImporte_KeyPress);
@@ -110,14 +110,15 @@
             this.comboMonedas.FormattingEnabled = true;
             this.comboMonedas.Location = new System.Drawing.Point(104, 78);
             this.comboMonedas.Name = "comboMonedas";
-            this.comboMonedas.Size = new System.Drawing.Size(84, 21);
+            this.comboMonedas.Size = new System.Drawing.Size(97, 21);
             this.comboMonedas.TabIndex = 7;
+            this.comboMonedas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboMonedas_KeyPress);
             // 
             // butonTrans
             // 
-            this.butonTrans.Location = new System.Drawing.Point(67, 144);
+            this.butonTrans.Location = new System.Drawing.Point(57, 144);
             this.butonTrans.Name = "butonTrans";
-            this.butonTrans.Size = new System.Drawing.Size(75, 28);
+            this.butonTrans.Size = new System.Drawing.Size(69, 24);
             this.butonTrans.TabIndex = 8;
             this.butonTrans.Text = "Transferir";
             this.butonTrans.UseVisualStyleBackColor = true;
@@ -143,18 +144,19 @@
             // 
             // butonCacelar
             // 
-            this.butonCacelar.Location = new System.Drawing.Point(148, 144);
+            this.butonCacelar.Location = new System.Drawing.Point(132, 144);
             this.butonCacelar.Name = "butonCacelar";
-            this.butonCacelar.Size = new System.Drawing.Size(75, 28);
+            this.butonCacelar.Size = new System.Drawing.Size(69, 24);
             this.butonCacelar.TabIndex = 11;
             this.butonCacelar.Text = "Cancelar";
             this.butonCacelar.UseVisualStyleBackColor = true;
+            this.butonCacelar.Click += new System.EventHandler(this.butonCacelar_Click);
             // 
             // TransferenciaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(235, 180);
+            this.ClientSize = new System.Drawing.Size(213, 180);
             this.Controls.Add(this.butonCacelar);
             this.Controls.Add(this.labelCosto);
             this.Controls.Add(this.label3);

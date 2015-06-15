@@ -61,8 +61,19 @@ namespace PagoElectronico.Transferencias
             {
                 TransferenciaForm trans = new TransferenciaForm(cuentaDestinoSeleccionada, cuentaOrigenSeleccionada);
                 trans.ShowDialog();
+                this.Close();
             }
             else { MessageBox.Show("La cuenta no tiene saldo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void comboCuentas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void comboMisCuentas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
 
 

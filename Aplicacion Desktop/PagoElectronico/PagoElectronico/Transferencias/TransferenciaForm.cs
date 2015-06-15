@@ -69,7 +69,25 @@ namespace PagoElectronico.Transferencias
             double importe = Convert.ToDouble(textImporte.Text,provider);
             int moneda = MonedaDB.getID(comboMonedas.Text);
             TransferenciaDB.insertarTransferencia(origen,destino,importe,moneda,costo);
-             MessageBox.Show("Transferencia realizada con EXITO. Costo por transferencia pendiente a facturar", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+            if (origen.idPropietario == destino.idPropietario) 
+            {
+                MessageBox.Show("Transferencia realizada con EXITO.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Transferencia realizada con EXITO. Costo por transferencia pendiente a facturar", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            this.Close();
+        }
+
+        private void comboMonedas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void butonCacelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -90,5 +90,15 @@ namespace PagoElectronico.Retiros
         {
             EventosUI.soloDecimales(e,importeText);
         }
+
+        private void comboMonedas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void comboBancos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

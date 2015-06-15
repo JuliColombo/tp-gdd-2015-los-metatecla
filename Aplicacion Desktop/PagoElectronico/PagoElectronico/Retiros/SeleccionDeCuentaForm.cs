@@ -42,28 +42,38 @@ namespace PagoElectronico.Retiros
 
         private void botonSeleccionar_Click(object sender, EventArgs e)
         {
+            if(!(comboCuentas.Text=="")){
             double numero = Convert.ToDouble(comboCuentas.Text);
             Cuenta cuentaSeleccionada = cuentas.Find(cuenta => cuenta.numero == numero);
-            if (validarCuenta(cuentaSeleccionada,textDocumento.Text,comboTipoDoc.Text))
+            if (!(textDocumento.Text == ""))
             {
-                switch (cuentaSeleccionada.estado)
+                if (!(comboTipoDoc.Text == ""))
                 {
-                    case 1: MessageBox.Show("La cuenta esta Pendiente de Activacion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
-                    case 2:
-                        if (cuentaSeleccionada.saldo > 0)
+                    if (validarCuenta(cuentaSeleccionada, textDocumento.Text, comboTipoDoc.Text))
+                    {
+                        switch (cuentaSeleccionada.estado)
                         {
-                            GenerarRetiroForm retiro = new GenerarRetiroForm(cuentaSeleccionada);
-                            this.Close();
-                            retiro.ShowDialog();
+                            case 1: MessageBox.Show("La cuenta esta Pendiente de Activacion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+                            case 2:
+
+                                if (cuentaSeleccionada.saldo > 0)
+                                {
+                                        GenerarRetiroForm retiro = new GenerarRetiroForm(cuentaSeleccionada);
+                                        this.Close();
+                                        retiro.ShowDialog();
+                                
+                                }
+                                else { MessageBox.Show("La cuenta no tiene saldo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                                break;
+                            case 3: MessageBox.Show("La cuenta esta Inhabilitada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+                            case 4: MessageBox.Show("La cuenta se encuentra Cerrada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
                         }
-                        else { MessageBox.Show("La cuenta no tiene saldo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-                        break;
-                    case 3: MessageBox.Show("La cuenta esta Inhabilitada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
-                    case 4: MessageBox.Show("La cuenta se encuentra Cerrada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+                    }
+                    else { MessageBox.Show("El Documento o Tipo INVALIDOS", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
-            }
-            else { MessageBox.Show("El Documento o Tipo INVALIDOS", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);}
-        }
+                else { MessageBox.Show("Seleccion el tipo de documento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            } else { MessageBox.Show("Ingrese su documento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        } else { MessageBox.Show("Seleccione una de sus cuentas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }}
 
         private bool validarCuenta(Cuenta cuenta,string documento,string tipoDoc) 
         {
@@ -87,6 +97,16 @@ namespace PagoElectronico.Retiros
         private void SeleccionDeCuentaForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboCuentas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void comboTipoDoc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

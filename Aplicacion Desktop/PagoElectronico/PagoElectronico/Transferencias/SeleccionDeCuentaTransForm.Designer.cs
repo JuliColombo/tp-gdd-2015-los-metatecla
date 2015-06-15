@@ -45,7 +45,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(273, 80);
+            this.groupBox1.Size = new System.Drawing.Size(233, 46);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Origen";
@@ -53,15 +53,16 @@
             // comboMisCuentas
             // 
             this.comboMisCuentas.FormattingEnabled = true;
-            this.comboMisCuentas.Location = new System.Drawing.Point(95, 32);
+            this.comboMisCuentas.Location = new System.Drawing.Point(95, 13);
             this.comboMisCuentas.Name = "comboMisCuentas";
-            this.comboMisCuentas.Size = new System.Drawing.Size(162, 21);
+            this.comboMisCuentas.Size = new System.Drawing.Size(131, 21);
             this.comboMisCuentas.TabIndex = 1;
+            this.comboMisCuentas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboMisCuentas_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 35);
+            this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 0;
@@ -71,9 +72,9 @@
             // 
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.comboCuentas);
-            this.groupBox2.Location = new System.Drawing.Point(12, 98);
+            this.groupBox2.Location = new System.Drawing.Point(12, 64);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(273, 80);
+            this.groupBox2.Size = new System.Drawing.Size(233, 44);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Destino";
@@ -81,7 +82,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 36);
+            this.label2.Location = new System.Drawing.Point(6, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 1;
@@ -90,15 +91,16 @@
             // comboCuentas
             // 
             this.comboCuentas.FormattingEnabled = true;
-            this.comboCuentas.Location = new System.Drawing.Point(95, 33);
+            this.comboCuentas.Location = new System.Drawing.Point(95, 13);
             this.comboCuentas.Name = "comboCuentas";
-            this.comboCuentas.Size = new System.Drawing.Size(162, 21);
+            this.comboCuentas.Size = new System.Drawing.Size(131, 21);
             this.comboCuentas.TabIndex = 0;
             this.comboCuentas.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboCuentas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboCuentas_KeyPress);
             // 
             // buttonContinuar
             // 
-            this.buttonContinuar.Location = new System.Drawing.Point(210, 184);
+            this.buttonContinuar.Location = new System.Drawing.Point(163, 114);
             this.buttonContinuar.Name = "buttonContinuar";
             this.buttonContinuar.Size = new System.Drawing.Size(75, 23);
             this.buttonContinuar.TabIndex = 2;
@@ -110,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 216);
+            this.ClientSize = new System.Drawing.Size(257, 146);
             this.Controls.Add(this.buttonContinuar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

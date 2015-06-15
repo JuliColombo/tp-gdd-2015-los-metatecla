@@ -54,8 +54,7 @@ namespace PagoElectronico.DB
                     Cuenta nuevaCuenta = new Cuenta(/*(int)lector["Cuenta_Numero"], (DateTime)lector["Cuenta_Fecha_Creacion"], (int)lector["Cuenta_Estado"], (int)lector["Cuenta_Pais_Codigo"], (DateTime)lector["Cuenta_Fecha_Cierre"], (int)lector["Cuenta_Tipo"]*/);
                     nuevaCuenta.numero = (double)(decimal)lector["Cuenta_Numero"];
                     nuevaCuenta.fecha_creacion = (DateTime)lector["Cuenta_Fecha_Creacion"];
-                    //nuevaCuenta.fecha_cierre = (DateTime)lector["Cuenta_Fecha_Cierre"];
-                    //FIXME En la tabla estan todas en null Quien tiene que completar la fechas de cierre ???
+                    nuevaCuenta.fecha_cierre = (DateTime)lector["Cuenta_Fecha_Cierre"];
                     nuevaCuenta.pais = (int)(decimal)lector["Cuenta_Pais_Codigo"];
                     nuevaCuenta.estado = (int)lector["Cuenta_Estado"];
                     nuevaCuenta.tipo = (int)lector["Cuenta_Tipo"];
@@ -81,12 +80,12 @@ namespace PagoElectronico.DB
                     Cuenta nuevaCuenta = new Cuenta(/*(int)lector["Cuenta_Numero"], (DateTime)lector["Cuenta_Fecha_Creacion"], (int)lector["Cuenta_Estado"], (int)lector["Cuenta_Pais_Codigo"], (DateTime)lector["Cuenta_Fecha_Cierre"], (int)lector["Cuenta_Tipo"]*/);
                     nuevaCuenta.numero = (double)(decimal)conexion.lector["Cuenta_Numero"];
                     nuevaCuenta.fecha_creacion = (DateTime)conexion.lector["Cuenta_Fecha_Creacion"];
-                    //nuevaCuenta.fecha_cierre = (DateTime)lector["Cuenta_Fecha_Cierre"];
-                    //FIXME En la tabla estan todas en null Quien tiene que completar la fechas de cierre ???
+                    nuevaCuenta.fecha_cierre = (DateTime)conexion.lector["Cuenta_Fecha_Cierre"];
                     nuevaCuenta.pais = (int)(decimal)conexion.lector["Cuenta_Pais_Codigo"];
                     nuevaCuenta.estado = (int)conexion.lector["Cuenta_Estado"];
                     nuevaCuenta.tipo = (int)conexion.lector["Cuenta_Tipo"];
                     nuevaCuenta.saldo = (double)(decimal)conexion.lector["Cuenta_Saldo"];
+                    nuevaCuenta.idPropietario = (int)conexion.lector["Cuenta_Cliente_Id"];
                     cuentasTransferibles.Add(nuevaCuenta);
                 }
             }

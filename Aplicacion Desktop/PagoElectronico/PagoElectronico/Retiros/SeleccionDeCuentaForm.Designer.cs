@@ -60,6 +60,7 @@
             this.comboCuentas.Name = "comboCuentas";
             this.comboCuentas.Size = new System.Drawing.Size(175, 21);
             this.comboCuentas.TabIndex = 1;
+            this.comboCuentas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboCuentas_KeyPress);
             // 
             // label1
             // 
@@ -119,6 +120,7 @@
             this.comboTipoDoc.Name = "comboTipoDoc";
             this.comboTipoDoc.Size = new System.Drawing.Size(138, 21);
             this.comboTipoDoc.TabIndex = 2;
+            this.comboTipoDoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboTipoDoc_KeyPress);
             // 
             // label3
             // 

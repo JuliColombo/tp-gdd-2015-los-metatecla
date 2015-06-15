@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBancos = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.comboMonedas = new System.Windows.Forms.ComboBox();
             this.importeText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.botonRetirar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBancos = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Retiro";
             // 
+            // comboBancos
+            // 
+            this.comboBancos.FormattingEnabled = true;
+            this.comboBancos.Location = new System.Drawing.Point(57, 80);
+            this.comboBancos.Name = "comboBancos";
+            this.comboBancos.Size = new System.Drawing.Size(121, 21);
+            this.comboBancos.TabIndex = 5;
+            this.comboBancos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBancos_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Banco:";
+            // 
             // comboMonedas
             // 
             this.comboMonedas.FormattingEnabled = true;
@@ -62,6 +80,7 @@
             this.comboMonedas.Name = "comboMonedas";
             this.comboMonedas.Size = new System.Drawing.Size(121, 21);
             this.comboMonedas.TabIndex = 3;
+            this.comboMonedas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboMonedas_KeyPress);
             // 
             // importeText
             // 
@@ -107,23 +126,6 @@
             this.botonRetirar.Text = "Retirar";
             this.botonRetirar.UseVisualStyleBackColor = true;
             this.botonRetirar.Click += new System.EventHandler(this.botonRetirar_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Banco:";
-            // 
-            // comboBancos
-            // 
-            this.comboBancos.FormattingEnabled = true;
-            this.comboBancos.Location = new System.Drawing.Point(57, 80);
-            this.comboBancos.Name = "comboBancos";
-            this.comboBancos.Size = new System.Drawing.Size(121, 21);
-            this.comboBancos.TabIndex = 5;
             // 
             // GenerarRetiroForm
             // 
