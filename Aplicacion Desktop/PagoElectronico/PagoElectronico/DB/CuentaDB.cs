@@ -34,7 +34,7 @@ namespace PagoElectronico.DB
 
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "INSERT INTO LOS_METATECLA.Cuenta (Cuenta_Numero, Cuenta_Fecha_Creacion, Cuenta_Estado, Cuenta_Pais_Codigo, Cuenta_Fecha_Cierre, Cuenta_Cliente_id, Cuenta_Tipo, Cuenta_Moneda) VALUES({0}, '{1}', {2}, {3}, NULL, {4}, {5}, {6})", cuenta, fecha, estado_id, pais_id, user_id, tipo_id, moneda_id);
+                "INSERT INTO LOS_METATECLA.Cuenta (Cuenta_Numero, Cuenta_Fecha_Creacion, Cuenta_Estado, Cuenta_Pais_Codigo, Cuenta_Fecha_Cierre, Cuenta_Cliente_id, Cuenta_Tipo, Cuenta_Moneda,Cuenta_Saldo) VALUES({0}, '{1}', {2}, {3}, NULL, {4}, {5}, {6},0)", cuenta, fecha, estado_id, pais_id, user_id, tipo_id, moneda_id);
             conexion.ejecutarNoQuery();
 
         }

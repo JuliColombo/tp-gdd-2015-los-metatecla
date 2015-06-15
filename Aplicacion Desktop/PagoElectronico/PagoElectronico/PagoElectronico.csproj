@@ -178,11 +178,11 @@
     <Compile Include="Dominio\Tarjeta.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="EventosUI.cs" />
-    <Compile Include="Facturacion\Form1.cs">
+    <Compile Include="Facturacion\FacturacionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Facturacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Facturacion\FacturacionForm.Designer.cs">
+      <DependentUpon>FacturacionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InicioForm.cs">
       <SubType>Form</SubType>
@@ -251,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Depositos\SeleccionarClienteForm.resx">
       <DependentUpon>SeleccionarClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\FacturacionForm.resx">
+      <DependentUpon>FacturacionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioForm.resx">
       <DependentUpon>InicioForm.cs</DependentUpon>

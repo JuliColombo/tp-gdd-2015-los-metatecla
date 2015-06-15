@@ -45,5 +45,17 @@ namespace PagoElectronico.DB
             return costos;
 
         }
+
+        public static string getTipo(int id)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            List<SqlParameter> ListParam = new List<SqlParameter>();
+            ListParam.Add(new SqlParameter("@id", id));
+            SqlDataReader lector = conexion.ejecutarQueryConParam("SELECT TOP 1 Tipo_Desc FROM LOS_METATECLA.Tipo_Cuenta WHERE Id_Tipo = @id", ListParam);
+            lector.Read();
+            string tipo = (string)lector["Tipo_Desc"];
+            conexion.cerrarConexion();
+            return tipo;
+        }
     }
 }
