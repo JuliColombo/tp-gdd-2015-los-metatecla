@@ -169,6 +169,7 @@
     <Compile Include="Dominio\Banco.cs" />
     <Compile Include="Depositos\Conexion.cs" />
     <Compile Include="Dominio\Config.cs" />
+    <Compile Include="Dominio\Costos.cs" />
     <Compile Include="Dominio\Funcionalidad.cs" />
     <Compile Include="Dominio\Rol.cs" />
     <Compile Include="Dominio\Cliente.cs" />

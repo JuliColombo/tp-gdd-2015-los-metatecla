@@ -30,7 +30,7 @@ namespace PagoElectronico.Transferencias
             //labelCosto.Text = Convert.ToString(origen.tipo);
             if (!(origen.idPropietario == destino.idPropietario))
             {
-                labelCosto.Text = string.Format("{0:$0.00}", TipoCuentaDB.obtenerCosto(origen.tipo));
+                labelCosto.Text = string.Format("{0:$0.00}", (TipoCuentaDB.obtenerCosto(origen.tipo)).costoTrans);
             }
             else { labelCosto.Text = string.Format("$0.00"); }
         }
@@ -65,10 +65,10 @@ namespace PagoElectronico.Transferencias
 
         private void realizarTransferencia()
         {
-            double costo = TipoCuentaDB.obtenerCosto(origen.tipo);
+            Costos costo = TipoCuentaDB.obtenerCosto(origen.tipo);
             double importe = Convert.ToDouble(textImporte.Text,provider);
             int moneda = MonedaDB.getID(comboMonedas.Text);
-            TransferenciaDB.insertarTransferencia(origen,destino,importe,moneda,costo);
+            TransferenciaDB.insertarTransferencia(origen,destino,importe,moneda,costo.costoTrans);
             if (origen.idPropietario == destino.idPropietario) 
             {
                 MessageBox.Show("Transferencia realizada con EXITO.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
