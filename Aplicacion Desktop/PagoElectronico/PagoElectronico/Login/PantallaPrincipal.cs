@@ -49,6 +49,12 @@ namespace PagoElectronico.Login
             f.ShowDialog();
         }
 
+        private void btnABMTarjetas_Click(object sender, EventArgs e)
+        {
+            Form f = new ABM_Cliente.BuscadorTarjetas(cliente.id, cliente.nombre + " " + cliente.apellido);
+            f.ShowDialog();
+        }
+
 
     }
 }
