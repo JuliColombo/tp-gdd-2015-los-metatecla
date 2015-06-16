@@ -31,9 +31,9 @@ namespace PagoElectronico.Facturacion
 
         public void cargarDataFactura()
         {
-            foreach (Cuenta cuenta in cuentas) 
+            foreach (Cuenta cuenta in cuentas)
             {
-               FacturaDB.obtenerItemsFactura(cuenta, tablaFactura);
+                FacturaDB.obtenerItemsFactura(cuenta, tablaFactura);
             }
             dataFactura.DataSource = tablaFactura;
             dataFactura.Columns[0].Visible = false;
@@ -68,17 +68,25 @@ namespace PagoElectronico.Facturacion
             Cuenta cuenta = new Cuenta();
             cuenta = cuentas.Find(cta => cta.numero == (Convert.ToDouble(comboCuentas.Text)));
             labelTipo.Text = TipoCuentaDB.getTipo(cuenta.tipo);
-            labelCosto.Text =string.Format("{0:0.00}", TipoCuentaDB.obtenerCosto(cuenta.tipo).costoApertura);
+            labelCosto.Text = string.Format("{0:0.00}", TipoCuentaDB.obtenerCosto(cuenta.tipo).costoApertura);
         }
 
         private void botonAgregar_Click(object sender, EventArgs e)
         {
-            double costo = Convert.ToDouble(labelCosto.Text);
-            int cantsus = Convert.ToInt32(textSuscrip.Text);
-            double importe = costo*cantsus;
-            string str = string.Format("Costo por Suscripcion (Cant. {0})",textSuscrip.Text);
-            FacturaDB.insertarItemPendiente(str, importe, Convert.ToInt64(comboCuentas.Text),cantsus);
-            cargarDataFactura();
+            if (!(comboCuentas.Text == ""))
+            {
+                if (!(textSuscrip.Text == ""))
+                {
+                    double costo = Convert.ToDouble(labelCosto.Text);
+                    int cantsus = Convert.ToInt32(textSuscrip.Text);
+                    double importe = costo * cantsus;
+                    string str = string.Format("Costo por Suscripcion (Cant. {0})", textSuscrip.Text);
+                    FacturaDB.insertarItemPendiente(str, importe, Convert.ToInt64(comboCuentas.Text), cantsus);
+                    cargarDataFactura();
+                }
+                else { MessageBox.Show("Ingrese cantidad de suscripciones", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+            else { MessageBox.Show("Seleccionar una cuenta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void textSuscrip_KeyPress(object sender, KeyPressEventArgs e)
@@ -93,11 +101,19 @@ namespace PagoElectronico.Facturacion
 
         private void botonFactura_Click(object sender, EventArgs e)
         {
-            FacturaDB.insertarFactura(cliente.id, dataFactura.Rows);
+            bool valor = true;
+            if (!(dataFactura.Rows.Count < 0))
+            {
+                if (valor)
+                {
+                    FacturaDB.insertarFactura(cliente.id, dataFactura.Rows);
+                    this.Close();
+                    MessageBox.Show("La factura se genero con exito. Pago realizado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else { MessageBox.Show("No hay nada para facturar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
 
-
+            }
         }
     }
 }
-
