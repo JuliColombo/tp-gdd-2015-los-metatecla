@@ -118,6 +118,19 @@ namespace PagoElectronico.DB
             return tipo;
         }
 
+
+        internal static void modificarTipoCuenta(long nro_cuenta, string tipo)
+        {
+            long cuenta = Convert.ToInt64(nro_cuenta);
+            int tipo_id = PagoElectronico.DB.TipoCuentaDB.getId(tipo);
+            
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "UPDATE LOS_METATECLA.Cuenta " +
+                "SET Cuenta_Tipo = {0} " + 
+                "WHERE Cuenta_Numero = {1}", tipo_id, cuenta);
+            conexion.ejecutarNoQuery();
+        }
     }
 }
 
