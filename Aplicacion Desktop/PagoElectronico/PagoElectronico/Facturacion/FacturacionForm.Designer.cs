@@ -31,19 +31,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboCuentas = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelCosto = new System.Windows.Forms.Label();
+            this.labelTipo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.botonAgregar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataFactura = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.labelTipo = new System.Windows.Forms.Label();
-            this.labelCosto = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataFactura)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -81,7 +81,25 @@
             this.groupBox1.Size = new System.Drawing.Size(237, 159);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos a Facturar";
+            this.groupBox1.Text = "Suscripcion";
+            // 
+            // labelCosto
+            // 
+            this.labelCosto.AutoSize = true;
+            this.labelCosto.Location = new System.Drawing.Point(95, 106);
+            this.labelCosto.Name = "labelCosto";
+            this.labelCosto.Size = new System.Drawing.Size(35, 13);
+            this.labelCosto.TabIndex = 8;
+            this.labelCosto.Text = "label7";
+            // 
+            // labelTipo
+            // 
+            this.labelTipo.AutoSize = true;
+            this.labelTipo.Location = new System.Drawing.Point(95, 83);
+            this.labelTipo.Name = "labelTipo";
+            this.labelTipo.Size = new System.Drawing.Size(35, 13);
+            this.labelTipo.TabIndex = 7;
+            this.labelTipo.Text = "label6";
             // 
             // label5
             // 
@@ -109,6 +127,7 @@
             this.botonAgregar.TabIndex = 4;
             this.botonAgregar.Text = "Agregar";
             this.botonAgregar.UseVisualStyleBackColor = true;
+            this.botonAgregar.Click += new System.EventHandler(this.botonAgregar_Click);
             // 
             // textBox1
             // 
@@ -128,21 +147,21 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dataFactura);
             this.groupBox2.Location = new System.Drawing.Point(255, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(383, 210);
+            this.groupBox2.Size = new System.Drawing.Size(467, 210);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Factura Actual";
             // 
-            // dataGridView1
+            // dataFactura
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(374, 188);
-            this.dataGridView1.TabIndex = 0;
+            this.dataFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataFactura.Location = new System.Drawing.Point(3, 16);
+            this.dataFactura.Name = "dataFactura";
+            this.dataFactura.Size = new System.Drawing.Size(452, 188);
+            this.dataFactura.TabIndex = 0;
             // 
             // label3
             // 
@@ -154,29 +173,11 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "AVISO: La cantidad de dias de la suscripcion \r\ndepende del tipo de cuenta";
             // 
-            // labelTipo
-            // 
-            this.labelTipo.AutoSize = true;
-            this.labelTipo.Location = new System.Drawing.Point(95, 83);
-            this.labelTipo.Name = "labelTipo";
-            this.labelTipo.Size = new System.Drawing.Size(35, 13);
-            this.labelTipo.TabIndex = 7;
-            this.labelTipo.Text = "label6";
-            // 
-            // labelCosto
-            // 
-            this.labelCosto.AutoSize = true;
-            this.labelCosto.Location = new System.Drawing.Point(95, 106);
-            this.labelCosto.Name = "labelCosto";
-            this.labelCosto.Size = new System.Drawing.Size(35, 13);
-            this.labelCosto.TabIndex = 8;
-            this.labelCosto.Text = "label7";
-            // 
             // FacturacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 234);
+            this.ClientSize = new System.Drawing.Size(731, 234);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -186,7 +187,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataFactura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,7 +205,7 @@
         private System.Windows.Forms.Button botonAgregar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataFactura;
         private System.Windows.Forms.Label labelCosto;
         private System.Windows.Forms.Label labelTipo;
     }

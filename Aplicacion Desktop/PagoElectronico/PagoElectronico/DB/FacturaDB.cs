@@ -23,5 +23,14 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
         }
 
+        public static SqlDataReader obtenerItemsFactura(Cuenta cuenta)
+        {
+            Conexion conexion = new Conexion();
+            List<SqlParameter> ListParam = new List<SqlParameter>();
+            ListParam.Add(new SqlParameter("@numero", cuenta.numero));
+            return conexion.ejecutarQueryConParam("SELECT * FROM LOS_METATECLA.Item_Factura WHERE Numero_Cuenta = @numero AND Pendiente_Factura = 1", ListParam);
+            
+        }
+
     }
 }
