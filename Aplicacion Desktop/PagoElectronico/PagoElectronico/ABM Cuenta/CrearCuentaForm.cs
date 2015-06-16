@@ -19,6 +19,24 @@ namespace PagoElectronico.ABM_Cuenta
             DB.MonedaDB.cargarMonedas(comboBox_moneda.Items);
         }
 
+        public CrearCuentaForm(PagoElectronico.Dominio.Cuenta cuenta)
+        {
+            /*InitializeComponent();
+            textBox_usuario = DB.ClienteDB.getCliente(cuenta.idPropietario).nombre;
+            textBox_nro_cuenta.Text = cuenta.numero;
+            maskedTextBox_fecha.Text = cuenta.fecha_cierre;
+            comboBoxPais.Text = DB.PaisDB.getPais(cuenta.pais);
+            comboBox_tipo.Text = DB.TipoCuentaDB.getTipo(cuenta.tipo);
+
+            textBox_usuario.ReadOnly = true;
+            textBox_nro_cuenta.ReadOnly = true;
+            comboBox_moneda.Enabled = false;
+            comboBoxPais.Enabled = false;
+            maskedTextBox_fecha.ReadOnly = true;*/
+        
+        }
+
+
 
         private void btn_confirmar_Click(object sender, EventArgs e)
         {

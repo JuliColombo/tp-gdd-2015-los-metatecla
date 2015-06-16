@@ -29,6 +29,36 @@ namespace PagoElectronico.Login
         {
             labelNomYApe.Text = cliente.apellido + ", " + cliente.nombre;
             labelDoc.Text = cliente.documento.ToString();
+            cargarCuentas();
+        }
+
+        private void cargarCuentas()
+        {
+            List<Dominio.Cuenta> cuentas = new List<Dominio.Cuenta>();
+            cuentas = DB.CuentaDB.obtenerCuentasCliente(cliente);
+
+            foreach(Dominio.Cuenta c in cuentas)
+            {
+
+            DataTable Tabla = new DataTable();
+            Tabla.Columns.Add(new DataColumn("Numero"));
+            Tabla.Columns.Add(new DataColumn("Fecha de Creacion"));
+            Tabla.Columns.Add(new DataColumn("Fecha de Cierre"));
+            Tabla.Columns.Add(new DataColumn("Moneda"));
+            Tabla.Columns.Add(new DataColumn("Tipo"));
+            Tabla.Columns.Add(new DataColumn("Saldo"));
+
+            DataRow Renglon = Tabla.NewRow();
+            Renglon[0] = c.numero.ToString();
+            Renglon[1] = c.fecha_creacion.ToString();
+            Renglon[2] = c.fecha_cierre.ToString();
+            Renglon[3] = DB.MonedaDB.getMoneda(c.moneda);
+            Renglon[4] = DB.TipoCuentaDB.getTipo(c.tipo);
+            Renglon[5] = c.saldo.ToString();
+
+            Tabla.Rows.Add(Renglon);
+            listadoCuentas.DataSource = Tabla;
+            }
         }
 
         private void btnDeposito_Click(object sender, EventArgs e)

@@ -16,5 +16,6 @@ namespace PagoElectronico.Dominio
         //public Cliente dueño {get; set;} //Es unico el dueño de la cuenta, si no seria una lista
         public double saldo { get; set; }
         public int idPropietario { get; set; }
+        public int moneda { get; set; }
     }
 }

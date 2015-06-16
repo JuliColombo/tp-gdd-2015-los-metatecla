@@ -29,6 +29,18 @@ namespace PagoElectronico.DB
                 monedas.Add(conexion.lector.GetString(0));
             }
         }
+
+        public static string getMoneda(int id)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT TOP 1 Moneda_Desc FROM LOS_METATECLA.Moneda WHERE Id_Moneda = {0}", id);
+            conexion.ejecutarQuery();
+            conexion.leerReader();
+            string moneda = conexion.lector[0].ToString();
+            conexion.cerrarConexion();
+            return moneda;
+        }
     }
 }
 

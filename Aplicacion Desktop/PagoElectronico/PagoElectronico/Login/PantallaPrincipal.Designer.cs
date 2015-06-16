@@ -37,9 +37,11 @@
             this.labelNomYApe = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnABMTarjetas = new System.Windows.Forms.Button();
+            this.listadoCuentas = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listadoCuentas)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -47,9 +49,9 @@
             this.groupBox1.Controls.Add(this.btnRetiro);
             this.groupBox1.Controls.Add(this.btnTransferencia);
             this.groupBox1.Controls.Add(this.btnDeposito);
-            this.groupBox1.Location = new System.Drawing.Point(12, 250);
+            this.groupBox1.Location = new System.Drawing.Point(13, 300);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(432, 68);
+            this.groupBox1.Size = new System.Drawing.Size(627, 68);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operaciones";
@@ -90,7 +92,7 @@
             this.groupBox2.Controls.Add(this.labelNomYApe);
             this.groupBox2.Location = new System.Drawing.Point(13, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(431, 76);
+            this.groupBox2.Size = new System.Drawing.Size(627, 76);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Usuario";
@@ -116,9 +118,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnABMTarjetas);
-            this.groupBox3.Location = new System.Drawing.Point(12, 150);
+            this.groupBox3.Location = new System.Drawing.Point(13, 216);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(432, 68);
+            this.groupBox3.Size = new System.Drawing.Size(627, 68);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opciones de cuenta";
@@ -133,11 +135,20 @@
             this.btnABMTarjetas.UseVisualStyleBackColor = true;
             this.btnABMTarjetas.Click += new System.EventHandler(this.btnABMTarjetas_Click);
             // 
+            // listadoCuentas
+            // 
+            this.listadoCuentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listadoCuentas.Location = new System.Drawing.Point(16, 98);
+            this.listadoCuentas.Name = "listadoCuentas";
+            this.listadoCuentas.Size = new System.Drawing.Size(624, 104);
+            this.listadoCuentas.TabIndex = 4;
+            // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 329);
+            this.ClientSize = new System.Drawing.Size(672, 380);
+            this.Controls.Add(this.listadoCuentas);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -147,6 +158,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listadoCuentas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -162,5 +174,6 @@
         private System.Windows.Forms.Label labelNomYApe;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnABMTarjetas;
+        private System.Windows.Forms.DataGridView listadoCuentas;
     }
 }
