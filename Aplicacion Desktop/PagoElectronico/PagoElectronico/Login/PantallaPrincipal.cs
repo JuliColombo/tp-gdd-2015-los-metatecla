@@ -38,17 +38,18 @@ namespace PagoElectronico.Login
             
             cuentas = DB.CuentaDB.obtenerCuentasCliente(cliente);
 
-            foreach(Dominio.Cuenta c in cuentas)
-            {
-
             DataTable Tabla = new DataTable();
-            Tabla.Columns.Add(new DataColumn("Numero"));
-            Tabla.Columns.Add(new DataColumn("Fecha de Creacion"));
+            Tabla.Columns.Add(new DataColumn("Número"));
+            Tabla.Columns.Add(new DataColumn("Fecha de Creación"));
             Tabla.Columns.Add(new DataColumn("Fecha de Cierre"));
             Tabla.Columns.Add(new DataColumn("Moneda"));
             Tabla.Columns.Add(new DataColumn("Tipo"));
             Tabla.Columns.Add(new DataColumn("Saldo"));
 
+            foreach(Dominio.Cuenta c in cuentas)
+            {
+
+     
             DataRow Renglon = Tabla.NewRow();
             Renglon[0] = c.numero.ToString();
             Renglon[1] = c.fecha_creacion.ToString();
@@ -58,8 +59,10 @@ namespace PagoElectronico.Login
             Renglon[5] = c.saldo.ToString();
 
             Tabla.Rows.Add(Renglon);
-            listadoCuentas.DataSource = Tabla;
+            
             }
+
+            listadoCuentas.DataSource = Tabla;
         }
 
         private void btnDeposito_Click(object sender, EventArgs e)
@@ -103,6 +106,23 @@ namespace PagoElectronico.Login
                 labelErrorSeleccion.Visible = true;
             }
             
+        }
+
+        private void btn_listadoSaldo_Click(object sender, EventArgs e)
+        {
+            if (listadoCuentas.SelectedRows.Count == 1)
+            {
+                Dominio.Cuenta cuenta = cuentas.Find(c => c.numero == Convert.ToInt64(listadoCuentas.CurrentRow.Cells[0].Value));
+                labelErrorSeleccion.Visible = false;
+
+                Form f = new Consulta_Saldos.ConsultaSaldoForm(cuenta);
+                f.ShowDialog();
+                
+            }
+            else
+            {
+                labelErrorSeleccion.Visible = true;
+            }
         }
 
 

@@ -131,6 +131,86 @@ namespace PagoElectronico.DB
                 "WHERE Cuenta_Numero = {1}", tipo_id, cuenta);
             conexion.ejecutarNoQuery();
         }
+
+        public static List<Dominio.Operacion> getUltimos5Depositos(long numero_cuenta)
+        {
+            List<Dominio.Operacion> depositos = new List<Dominio.Operacion>();
+
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT TOP 5 * FROM LOS_METATECLA.Deposito " +
+                "WHERE Numero_Cuenta = {0} " + 
+                "ORDER BY Numero_Operacion", numero_cuenta);
+            conexion.ejecutarQuery();
+
+            while (conexion.leerReader())
+            {
+                Dominio.Operacion deposito = new PagoElectronico.Dominio.Operacion();
+                deposito.codigo = Convert.ToDouble(conexion.lector[0]);
+                deposito.fecha = Convert.ToDateTime(conexion.lector[1]);
+                deposito.importe = Convert.ToDouble(conexion.lector[2]);
+                deposito.moneda = Convert.ToInt32(conexion.lector[3]);
+
+                depositos.Add(deposito);
+            }
+
+            conexion.cerrarConexion();
+            return depositos;
+        }
+
+
+        public static List<Dominio.Operacion> getUltimos5Retiros(long numero_cuenta)
+        {
+            List<Dominio.Operacion> retiros = new List<Dominio.Operacion>();
+
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT TOP 5 * FROM LOS_METATECLA.Retiro " +
+                "WHERE Numero_Cuenta = {0} " +
+                "ORDER BY Numero_Operacion", numero_cuenta);
+            conexion.ejecutarQuery();
+
+            while (conexion.leerReader())
+            {
+                Dominio.Operacion retiro = new PagoElectronico.Dominio.Operacion();
+                retiro.codigo = Convert.ToDouble(conexion.lector[3]);
+                retiro.fecha = Convert.ToDateTime(conexion.lector[2]);
+                retiro.importe = Convert.ToDouble(conexion.lector[0]);
+                retiro.moneda = Convert.ToInt32(conexion.lector[1]);
+
+                retiros.Add(retiro);
+            }
+
+            conexion.cerrarConexion();
+            return retiros;
+        }
+
+
+        public static List<Dominio.Transferencia> getUltimas10Transferencias(long numero_cuenta)
+        {
+            List<Dominio.Transferencia> transferencias = new List<Dominio.Transferencia>();
+
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT TOP 10 * FROM LOS_METATECLA.Transferencia " +
+                "WHERE Cuenta_Origen = {0} " +
+                "ORDER BY Id_Transferencia", numero_cuenta);
+            conexion.ejecutarQuery();
+
+            while (conexion.leerReader())
+            {
+                Dominio.Transferencia transferencia = new PagoElectronico.Dominio.Transferencia();
+                transferencia.cuenta_destino = Convert.ToInt64(conexion.lector[6]);
+                transferencia.fecha = Convert.ToDateTime(conexion.lector[1]);
+                transferencia.importe = Convert.ToDouble(conexion.lector[2]);
+                transferencia.moneda = Convert.ToInt32(conexion.lector[4]);
+
+                transferencias.Add(transferencia);
+            }
+
+            conexion.cerrarConexion();
+            return transferencias;
+        }
     }
 }
 

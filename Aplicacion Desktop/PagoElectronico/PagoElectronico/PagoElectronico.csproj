@@ -129,11 +129,11 @@
     <Compile Include="ABM Rol\NuevaFuncionalidad.Designer.cs">
       <DependentUpon>NuevaFuncionalidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consulta Saldos\Form1.cs">
+    <Compile Include="Consulta Saldos\ConsultaSaldoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consulta Saldos\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Consulta Saldos\ConsultaSaldoForm.Designer.cs">
+      <DependentUpon>ConsultaSaldoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\BancoDB.cs" />
     <Compile Include="DB\ChequeDB.cs" />
@@ -169,6 +169,8 @@
     <Compile Include="Dominio\Banco.cs" />
     <Compile Include="Depositos\Conexion.cs" />
     <Compile Include="Dominio\Config.cs" />
+    <Compile Include="Dominio\Transferencia.cs" />
+    <Compile Include="Dominio\Operacion.cs" />
     <Compile Include="Dominio\Costos.cs" />
     <Compile Include="Dominio\Funcionalidad.cs" />
     <Compile Include="Dominio\Rol.cs" />
@@ -251,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\NuevaFuncionalidad.resx">
       <DependentUpon>NuevaFuncionalidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consulta Saldos\ConsultaSaldoForm.resx">
+      <DependentUpon>ConsultaSaldoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Depositos\DatosDepositoForm.resx">
       <DependentUpon>DatosDepositoForm.cs</DependentUpon>
