@@ -36,7 +36,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.botonAgregar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textSuscrip = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataFactura = new System.Windows.Forms.DataGridView();
@@ -72,7 +72,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.botonAgregar);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textSuscrip);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboCuentas);
@@ -129,12 +129,12 @@
             this.botonAgregar.UseVisualStyleBackColor = true;
             this.botonAgregar.Click += new System.EventHandler(this.botonAgregar_Click);
             // 
-            // textBox1
+            // textSuscrip
             // 
-            this.textBox1.Location = new System.Drawing.Point(98, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(127, 20);
-            this.textBox1.TabIndex = 3;
+            this.textSuscrip.Location = new System.Drawing.Point(98, 51);
+            this.textSuscrip.Name = "textSuscrip";
+            this.textSuscrip.Size = new System.Drawing.Size(127, 20);
+            this.textSuscrip.TabIndex = 3;
             // 
             // label2
             // 
@@ -198,7 +198,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboCuentas;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textSuscrip;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;

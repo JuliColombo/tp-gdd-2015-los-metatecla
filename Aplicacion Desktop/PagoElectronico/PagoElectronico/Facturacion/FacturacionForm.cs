@@ -45,6 +45,7 @@ namespace PagoElectronico.Facturacion
             dataFactura.Columns[5].HeaderText = "Numero Cuenta";
             dataFactura.Columns[5].Width = 125;
             dataFactura.Columns[1].Width = 175;
+            tablaFactura = new DataTable();
         }
 
 
@@ -68,12 +69,16 @@ namespace PagoElectronico.Facturacion
             Cuenta cuenta = new Cuenta();
             cuenta = cuentas.Find(cta => cta.numero == (Convert.ToDouble(comboCuentas.Text)));
             labelTipo.Text = TipoCuentaDB.getTipo(cuenta.tipo);
-            labelCosto.Text =string.Format("{0:$0.00}", TipoCuentaDB.obtenerCosto(cuenta.tipo).costoApertura);
+            labelCosto.Text =string.Format("{0:0.00}", TipoCuentaDB.obtenerCosto(cuenta.tipo).costoApertura);
         }
 
         private void botonAgregar_Click(object sender, EventArgs e)
         {
-
+            double costo = Convert.ToDouble(labelCosto.Text);
+            double cantsus = Convert.ToDouble(textSuscrip.Text);
+            double importe = costo*cantsus;
+            FacturaDB.insertarItemPendiente("Costo por Suscripcion", importe, Convert.ToInt64(comboCuentas.Text));
+            cargarDataFactura();
         }
     }
 }
