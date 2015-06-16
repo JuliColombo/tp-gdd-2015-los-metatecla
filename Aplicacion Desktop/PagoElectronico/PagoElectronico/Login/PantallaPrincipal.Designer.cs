@@ -38,6 +38,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnABMTarjetas = new System.Windows.Forms.Button();
             this.listadoCuentas = new System.Windows.Forms.DataGridView();
+            this.btn_modifCuenta = new System.Windows.Forms.Button();
+            this.labelErrorSeleccion = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -117,6 +119,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btn_modifCuenta);
             this.groupBox3.Controls.Add(this.btnABMTarjetas);
             this.groupBox3.Location = new System.Drawing.Point(13, 216);
             this.groupBox3.Name = "groupBox3";
@@ -140,14 +143,36 @@
             this.listadoCuentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoCuentas.Location = new System.Drawing.Point(16, 98);
             this.listadoCuentas.Name = "listadoCuentas";
-            this.listadoCuentas.Size = new System.Drawing.Size(624, 104);
+            this.listadoCuentas.Size = new System.Drawing.Size(624, 80);
             this.listadoCuentas.TabIndex = 4;
+            // 
+            // btn_modifCuenta
+            // 
+            this.btn_modifCuenta.Location = new System.Drawing.Point(205, 28);
+            this.btn_modifCuenta.Name = "btn_modifCuenta";
+            this.btn_modifCuenta.Size = new System.Drawing.Size(162, 23);
+            this.btn_modifCuenta.TabIndex = 1;
+            this.btn_modifCuenta.Text = "Modificar Cuenta";
+            this.btn_modifCuenta.UseVisualStyleBackColor = true;
+            this.btn_modifCuenta.Click += new System.EventHandler(this.btn_modifCuenta_Click);
+            // 
+            // labelErrorSeleccion
+            // 
+            this.labelErrorSeleccion.AutoSize = true;
+            this.labelErrorSeleccion.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorSeleccion.Location = new System.Drawing.Point(523, 190);
+            this.labelErrorSeleccion.Name = "labelErrorSeleccion";
+            this.labelErrorSeleccion.Size = new System.Drawing.Size(117, 13);
+            this.labelErrorSeleccion.TabIndex = 5;
+            this.labelErrorSeleccion.Text = "Seleccione una cuenta";
+            this.labelErrorSeleccion.Visible = false;
             // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 380);
+            this.Controls.Add(this.labelErrorSeleccion);
             this.Controls.Add(this.listadoCuentas);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -160,6 +185,7 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listadoCuentas)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -175,5 +201,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnABMTarjetas;
         private System.Windows.Forms.DataGridView listadoCuentas;
+        private System.Windows.Forms.Button btn_modifCuenta;
+        private System.Windows.Forms.Label labelErrorSeleccion;
     }
 }

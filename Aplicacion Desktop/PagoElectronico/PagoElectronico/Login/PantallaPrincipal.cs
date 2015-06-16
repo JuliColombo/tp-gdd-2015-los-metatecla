@@ -12,6 +12,7 @@ namespace PagoElectronico.Login
     public partial class PantallaPrincipal : Form
     {
         public Dominio.Cliente cliente { get; set; }
+        public List<Dominio.Cuenta> cuentas = new List<Dominio.Cuenta>();
 
         public PantallaPrincipal()
         {
@@ -34,7 +35,7 @@ namespace PagoElectronico.Login
 
         private void cargarCuentas()
         {
-            List<Dominio.Cuenta> cuentas = new List<Dominio.Cuenta>();
+            
             cuentas = DB.CuentaDB.obtenerCuentasCliente(cliente);
 
             foreach(Dominio.Cuenta c in cuentas)
@@ -83,6 +84,25 @@ namespace PagoElectronico.Login
         {
             Form f = new ABM_Cliente.BuscadorTarjetas(cliente.id, cliente.nombre + " " + cliente.apellido);
             f.ShowDialog();
+        }
+
+        private void btn_modifCuenta_Click(object sender, EventArgs e)
+        {
+            if (listadoCuentas.SelectedRows.Count == 1)
+            {
+                Dominio.Cuenta cuenta = cuentas.Find(c => c.numero == Convert.ToInt64(listadoCuentas.CurrentRow.Cells[0].Value));
+                labelErrorSeleccion.Visible = false;
+
+                Form f = new ABM_Cuenta.CrearCuentaForm(cuenta);
+                f.ShowDialog();
+                cargarCuentas();
+                
+            }
+            else
+            {
+                labelErrorSeleccion.Visible = true;
+            }
+            
         }
 
 

@@ -21,18 +21,22 @@ namespace PagoElectronico.ABM_Cuenta
 
         public CrearCuentaForm(PagoElectronico.Dominio.Cuenta cuenta)
         {
-            /*InitializeComponent();
-            textBox_usuario = DB.ClienteDB.getCliente(cuenta.idPropietario).nombre;
-            textBox_nro_cuenta.Text = cuenta.numero;
-            maskedTextBox_fecha.Text = cuenta.fecha_cierre;
+            InitializeComponent();
+
+            DB.TipoCuentaDB.cargarTipos(comboBox_tipo.Items);
+
+            textBox_usuario.Text = DB.ClienteDB.getCliente(cuenta.idPropietario).nombre;
+            textBox_nro_cuenta.Text = cuenta.numero.ToString();
+            maskedTextBox_fecha.Text = cuenta.fecha_cierre.ToString();
             comboBoxPais.Text = DB.PaisDB.getPais(cuenta.pais);
             comboBox_tipo.Text = DB.TipoCuentaDB.getTipo(cuenta.tipo);
+            comboBox_moneda.Text = DB.MonedaDB.getMoneda(cuenta.moneda);
 
             textBox_usuario.ReadOnly = true;
             textBox_nro_cuenta.ReadOnly = true;
             comboBox_moneda.Enabled = false;
             comboBoxPais.Enabled = false;
-            maskedTextBox_fecha.ReadOnly = true;*/
+            maskedTextBox_fecha.ReadOnly = true;
         
         }
 
@@ -42,22 +46,45 @@ namespace PagoElectronico.ABM_Cuenta
         {
             if (validarCamposVacios())
             {
-                crearCuenta(textBox_nro_cuenta.Text, textBox_usuario.Text, comboBoxPais.Text, comboBox_tipo.Text, maskedTextBox_fecha.Text, comboBox_moneda.Text);
-                
-                double costoApertura = (DB.TipoCuentaDB.obtenerCosto(DB.TipoCuentaDB.getId(comboBox_tipo.Text)).costoApertura);
-                long numeroCta = Convert.ToInt64(textBox_nro_cuenta.Text);
-                DB.FacturaDB.insertarItemPendiente("Costo por Apertura de cuenta", costoApertura , numeroCta,1 );
-                limpiar();
-                Form exito = new CuentaCreadaExitoForm();
-                exito.ShowDialog();
+                if (textBox_nro_cuenta.ReadOnly)
+                {
+                    modificarCuenta(textBox_nro_cuenta.Text, comboBox_tipo.Text);
+                }
+                else
+                {
+                    crearCuenta();
+                }
             }
             else
             {
                 if (validaciones())
                 {
                     ventanaDeError("No se pudo crear cuenta. Hay un error en los datos ingresados.");
+
                 }
             }
+        }
+
+        private void modificarCuenta(string nro_cuenta, string tipo)
+        {
+            PagoElectronico.DB.CuentaDB.modificarTipoCuenta(Convert.ToInt64(nro_cuenta), tipo);
+
+            Form exito = new CuentaCreadaExitoForm("Cuenta modificada con éxito");
+            exito.ShowDialog();
+            this.Close();
+        }
+
+        private void crearCuenta()
+        {
+            crearCuenta(textBox_nro_cuenta.Text, textBox_usuario.Text, comboBoxPais.Text, comboBox_tipo.Text, maskedTextBox_fecha.Text, comboBox_moneda.Text);
+
+            double costoApertura = (DB.TipoCuentaDB.obtenerCosto(DB.TipoCuentaDB.getId(comboBox_tipo.Text)).costoApertura);
+            long numeroCta = Convert.ToInt64(textBox_nro_cuenta.Text);
+            DB.FacturaDB.insertarItemPendiente("Costo por Apertura de cuenta", costoApertura, numeroCta,0);
+            limpiar();
+            Form exito = new CuentaCreadaExitoForm("Cuenta creada con éxito" + '\n' + "Se envió solicitud de activación al administrador");
+            exito.ShowDialog();
+            this.Close();
         }
 
 
