@@ -13,7 +13,7 @@ namespace PagoElectronico.DB
     class FacturaDB
     {
 
-        public static void insertarItemPendiente(string descripcion,double importe, long numero)
+        public static void insertarItemPendiente(string descripcion,double importe, long numero, int cantidad)
         {
             
             Conexion conexion = new Conexion();
@@ -21,7 +21,8 @@ namespace PagoElectronico.DB
             ListParam.Add(new SqlParameter("@desc", descripcion));
             ListParam.Add(new SqlParameter("@numero", numero));
             ListParam.Add(new SqlParameter("@importe", importe));
-            conexion.ejecutarQueryConParam("INSERT INTO LOS_METATECLA.Item_Factura(Item_Desc,Item_Importe,Pendiente_Factura, Numero_Cuenta) VALUES (@desc,@importe,1,@numero)", ListParam);
+            ListParam.Add(new SqlParameter("@cantidad", cantidad));
+            conexion.ejecutarQueryConParam("INSERT INTO LOS_METATECLA.Item_Factura(Item_Desc,Item_Importe,Pendiente_Factura, Numero_Cuenta,Cantidad) VALUES (@desc,@importe,1,@numero,@cantidad)", ListParam);
             conexion.cerrarConexion();
         }
 

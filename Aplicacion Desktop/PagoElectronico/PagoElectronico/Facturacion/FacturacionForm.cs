@@ -74,10 +74,10 @@ namespace PagoElectronico.Facturacion
         private void botonAgregar_Click(object sender, EventArgs e)
         {
             double costo = Convert.ToDouble(labelCosto.Text);
-            double cantsus = Convert.ToDouble(textSuscrip.Text);
+            int cantsus = Convert.ToInt32(textSuscrip.Text);
             double importe = costo*cantsus;
             string str = string.Format("Costo por Suscripcion (Cant. {0})",textSuscrip.Text);
-            FacturaDB.insertarItemPendiente(str, importe, Convert.ToInt64(comboCuentas.Text));
+            FacturaDB.insertarItemPendiente(str, importe, Convert.ToInt64(comboCuentas.Text),cantsus);
             cargarDataFactura();
         }
 
@@ -94,6 +94,7 @@ namespace PagoElectronico.Facturacion
         private void botonFactura_Click(object sender, EventArgs e)
         {
             FacturaDB.insertarFactura(cliente.id, dataFactura.Rows);
+
 
 
         }

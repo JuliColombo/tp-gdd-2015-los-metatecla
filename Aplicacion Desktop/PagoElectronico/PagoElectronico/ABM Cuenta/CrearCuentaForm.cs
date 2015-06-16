@@ -46,7 +46,7 @@ namespace PagoElectronico.ABM_Cuenta
                 
                 double costoApertura = (DB.TipoCuentaDB.obtenerCosto(DB.TipoCuentaDB.getId(comboBox_tipo.Text)).costoApertura);
                 long numeroCta = Convert.ToInt64(textBox_nro_cuenta.Text);
-                DB.FacturaDB.insertarItemPendiente("Costo por Apertura de cuenta", costoApertura , numeroCta );
+                DB.FacturaDB.insertarItemPendiente("Costo por Apertura de cuenta", costoApertura , numeroCta,1 );
                 limpiar();
                 Form exito = new CuentaCreadaExitoForm();
                 exito.ShowDialog();
