@@ -35,8 +35,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelDoc = new System.Windows.Forms.Label();
             this.labelNomYApe = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnABMTarjetas = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -110,11 +113,32 @@
             this.labelNomYApe.TabIndex = 0;
             this.labelNomYApe.Text = "label1";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnABMTarjetas);
+            this.groupBox3.Location = new System.Drawing.Point(12, 150);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(432, 68);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Opciones de cuenta";
+            // 
+            // btnABMTarjetas
+            // 
+            this.btnABMTarjetas.Location = new System.Drawing.Point(16, 28);
+            this.btnABMTarjetas.Name = "btnABMTarjetas";
+            this.btnABMTarjetas.Size = new System.Drawing.Size(162, 23);
+            this.btnABMTarjetas.TabIndex = 0;
+            this.btnABMTarjetas.Text = "Asociar / Desasociar Tarjetas";
+            this.btnABMTarjetas.UseVisualStyleBackColor = true;
+            this.btnABMTarjetas.Click += new System.EventHandler(this.btnABMTarjetas_Click);
+            // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 330);
+            this.ClientSize = new System.Drawing.Size(456, 329);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "PantallaPrincipal";
@@ -122,6 +146,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -135,5 +160,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label labelDoc;
         private System.Windows.Forms.Label labelNomYApe;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnABMTarjetas;
     }
 }
