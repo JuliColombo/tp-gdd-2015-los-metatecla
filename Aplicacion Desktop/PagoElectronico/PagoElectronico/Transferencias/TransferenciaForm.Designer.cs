@@ -116,7 +116,7 @@
             // 
             // butonTrans
             // 
-            this.butonTrans.Location = new System.Drawing.Point(57, 144);
+            this.butonTrans.Location = new System.Drawing.Point(132, 144);
             this.butonTrans.Name = "butonTrans";
             this.butonTrans.Size = new System.Drawing.Size(69, 24);
             this.butonTrans.TabIndex = 8;
@@ -144,7 +144,7 @@
             // 
             // butonCacelar
             // 
-            this.butonCacelar.Location = new System.Drawing.Point(132, 144);
+            this.butonCacelar.Location = new System.Drawing.Point(57, 144);
             this.butonCacelar.Name = "butonCacelar";
             this.butonCacelar.Size = new System.Drawing.Size(69, 24);
             this.butonCacelar.TabIndex = 11;

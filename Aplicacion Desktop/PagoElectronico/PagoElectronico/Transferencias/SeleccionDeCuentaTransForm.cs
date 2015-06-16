@@ -57,13 +57,17 @@ namespace PagoElectronico.Transferencias
             double numeroOrigen = Convert.ToDouble(comboMisCuentas.Text);
             cuentaDestinoSeleccionada = cuentas.Find(cuenta => cuenta.numero == numeroDestino);
             cuentaOrigenSeleccionada = misCuentas.Find(cuenta => cuenta.numero == numeroOrigen);
-            if (cuentaOrigenSeleccionada.saldo > 0)
+            if (cuentaOrigenSeleccionada.estado == 2)
             {
-                TransferenciaForm trans = new TransferenciaForm(cuentaDestinoSeleccionada, cuentaOrigenSeleccionada);
-                trans.ShowDialog();
-                this.Close();
+                if (cuentaOrigenSeleccionada.saldo > 0)
+                {
+                    TransferenciaForm trans = new TransferenciaForm(cuentaDestinoSeleccionada, cuentaOrigenSeleccionada);
+                    trans.ShowDialog();
+                    this.Close();
+                }
+                else { MessageBox.Show("La cuenta no tiene saldo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
-            else { MessageBox.Show("La cuenta no tiene saldo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else { MessageBox.Show("La cuenta no esta habilitada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void comboCuentas_KeyPress(object sender, KeyPressEventArgs e)

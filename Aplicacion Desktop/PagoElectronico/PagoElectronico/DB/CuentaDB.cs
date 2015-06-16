@@ -106,6 +106,18 @@ namespace PagoElectronico.DB
             return valida;
         }
 
+        public static int getTipo(long numeroCta)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            List<SqlParameter> ListParam = new List<SqlParameter>();
+            ListParam.Add(new SqlParameter("@numero", numeroCta));
+            SqlDataReader lector = conexion.ejecutarQueryConParam("SELECT Cuenta_Tipo FROM LOS_METATECLA.Cuenta WHERE Cuenta_Numero = @numero", ListParam);
+            lector.Read();
+            int tipo = (int)lector["Cuenta_Tipo"];
+            conexion.cerrarConexion();
+            return tipo;
+        }
+
     }
 }
 

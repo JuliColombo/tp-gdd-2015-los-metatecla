@@ -41,6 +41,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataFactura = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.bontonCancelar = new System.Windows.Forms.Button();
+            this.botonFactura = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataFactura)).BeginInit();
@@ -135,6 +137,7 @@
             this.textSuscrip.Name = "textSuscrip";
             this.textSuscrip.Size = new System.Drawing.Size(127, 20);
             this.textSuscrip.TabIndex = 3;
+            this.textSuscrip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textSuscrip_KeyPress);
             // 
             // label2
             // 
@@ -169,15 +172,38 @@
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(18, 171);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(223, 26);
+            this.label3.Size = new System.Drawing.Size(223, 52);
             this.label3.TabIndex = 4;
-            this.label3.Text = "AVISO: La cantidad de dias de la suscripcion \r\ndepende del tipo de cuenta";
+            this.label3.Text = "AVISO: La cantidad de dias de la suscripcion \r\ndepende del tipo de cuenta.\r\nEl co" +
+                "sto de apertura cuenta como una\r\nsuscripcion.";
+            // 
+            // bontonCancelar
+            // 
+            this.bontonCancelar.Location = new System.Drawing.Point(641, 228);
+            this.bontonCancelar.Name = "bontonCancelar";
+            this.bontonCancelar.Size = new System.Drawing.Size(81, 23);
+            this.bontonCancelar.TabIndex = 5;
+            this.bontonCancelar.Text = "Cancelar";
+            this.bontonCancelar.UseVisualStyleBackColor = true;
+            this.bontonCancelar.Click += new System.EventHandler(this.bontonCancelar_Click);
+            // 
+            // botonFactura
+            // 
+            this.botonFactura.Location = new System.Drawing.Point(526, 228);
+            this.botonFactura.Name = "botonFactura";
+            this.botonFactura.Size = new System.Drawing.Size(109, 23);
+            this.botonFactura.TabIndex = 6;
+            this.botonFactura.Text = "Generar Factura";
+            this.botonFactura.UseVisualStyleBackColor = true;
+            this.botonFactura.Click += new System.EventHandler(this.botonFactura_Click);
             // 
             // FacturacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 234);
+            this.ClientSize = new System.Drawing.Size(731, 261);
+            this.Controls.Add(this.botonFactura);
+            this.Controls.Add(this.bontonCancelar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -208,5 +234,7 @@
         private System.Windows.Forms.DataGridView dataFactura;
         private System.Windows.Forms.Label labelCosto;
         private System.Windows.Forms.Label labelTipo;
+        private System.Windows.Forms.Button bontonCancelar;
+        private System.Windows.Forms.Button botonFactura;
     }
 }

@@ -33,8 +33,7 @@ namespace PagoElectronico.Facturacion
         {
             foreach (Cuenta cuenta in cuentas) 
             {
-               SqlDataReader resultado = FacturaDB.obtenerItemsFactura(cuenta);
-               tablaFactura.Load(resultado);
+               FacturaDB.obtenerItemsFactura(cuenta, tablaFactura);
             }
             dataFactura.DataSource = tablaFactura;
             dataFactura.Columns[0].Visible = false;
@@ -77,8 +76,26 @@ namespace PagoElectronico.Facturacion
             double costo = Convert.ToDouble(labelCosto.Text);
             double cantsus = Convert.ToDouble(textSuscrip.Text);
             double importe = costo*cantsus;
-            FacturaDB.insertarItemPendiente("Costo por Suscripcion", importe, Convert.ToInt64(comboCuentas.Text));
+            string str = string.Format("Costo por Suscripcion (Cant. {0})",textSuscrip.Text);
+            FacturaDB.insertarItemPendiente(str, importe, Convert.ToInt64(comboCuentas.Text));
             cargarDataFactura();
+        }
+
+        private void textSuscrip_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EventosUI.soloNumeros(e);
+        }
+
+        private void bontonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void botonFactura_Click(object sender, EventArgs e)
+        {
+            FacturaDB.insertarFactura(cliente.id, dataFactura.Rows);
+
+
         }
     }
 }
