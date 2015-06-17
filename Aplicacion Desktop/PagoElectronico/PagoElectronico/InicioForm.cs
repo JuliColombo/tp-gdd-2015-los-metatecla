@@ -93,5 +93,11 @@ namespace PagoElectronico
             fact.ShowDialog();
         }
 
+        private void btnListados_Click(object sender, EventArgs e)
+        {
+            Form f = new Login.PantallaPrincipalAdmin();
+            f.ShowDialog();
+        }
+
     }
 }
