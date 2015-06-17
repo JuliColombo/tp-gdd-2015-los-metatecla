@@ -157,14 +157,7 @@ namespace PagoElectronico.ABM_Cuenta
 
             int comparacion = DateTime.Compare(date, fecha_sistema);
 
-            if (comparacion <= 0)
-            { //BELLO MI CODIGO ;)
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return comparacion <= 0;
 
         }
 
