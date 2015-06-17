@@ -91,6 +91,9 @@ namespace PagoElectronico.ABM_Cuenta
         private bool validarCamposVacios()
         {
             bool valido = true;
+
+            ponerErroresInvisibles();
+
             if (textBox_usuario.Text == "")
             {
                 valido = false;
@@ -188,6 +191,11 @@ namespace PagoElectronico.ABM_Cuenta
             comboBox_moneda.Text = "";
             comboBoxPais.Text = "";
             maskedTextBox_fecha.Text = "";
+            ponerErroresInvisibles();
+        }
+
+        private void ponerErroresInvisibles()
+        {
             labelError_fecha.Visible = false;
             labelError_usuario.Visible = false;
             labelError_nro_cuenta.Visible = false;
@@ -195,6 +203,20 @@ namespace PagoElectronico.ABM_Cuenta
             labelError_pais.Visible = false;
         }
 
+        private void textBox_nro_cuenta_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox_nro_cuenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EventosUI.soloNumeros(e);
+        }
+
+        private void textBox_fecha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EventosUI.soloNumeros(e);
+        }
 
 
     }

@@ -130,22 +130,37 @@ namespace PagoElectronico.Login
             if (listadoCuentas.SelectedRows.Count == 1)
             {
                 Form f;
+                long nro_cuenta = Convert.ToInt64(listadoCuentas.CurrentRow.Cells[0].Value);
 
-                //if(costoDeTransaccionesPagados()){
-                DB.CuentaDB.cerrarCuenta(Convert.ToInt64(listadoCuentas.CurrentRow.Cells[0].Value));
+                if(noTieneTransaccionesPendientes(nro_cuenta)){
+                DB.CuentaDB.cerrarCuenta(nro_cuenta);
                
                 f = new UI.ExitoForm("Cuenta cerrada con éxito");
                 f.ShowDialog();
 
                 cargarCuentas();
 
-                //} else {
-                // f = new UI.ErrorForm("No se puede cerrar esta cuenta." + 'n' + "Todos los costos de las transacciones pendientes deben estar pagos")} 
+                } else {
+                    f = new UI.ErrorForm("No se puede cerrar esta cuenta." + 'n' + "Todos los costos de las transacciones pendientes deben estar pagos");
+                } 
             }
             else
             {
                 labelErrorSeleccion.Visible = true;
             }
+        }
+
+        private bool noTieneTransaccionesPendientes(long nro_cuenta)
+        {
+            return !DB.CuentaDB.tienePagosPendientes(nro_cuenta);
+        }
+
+        private void btn_nuevaCuenta_Click(object sender, EventArgs e)
+        {
+            Form f = new ABM_Cuenta.CrearCuentaForm();
+            f.ShowDialog();
+
+            cargarCuentas();
         }
 
 

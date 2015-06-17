@@ -251,6 +251,18 @@ namespace PagoElectronico.DB
                 "WHERE Cuenta_Numero = {1}", fecha, numero_cuenta);
             conexion.ejecutarNoQuery();
         }
+
+        public static bool tienePagosPendientes(long numero_cuenta)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT COUNT(*) FROM LOS_METATECLA.Item_Factura " +
+                "WHERE Numero_Cuenta = {0} AND Pendiente_Factura = 1", numero_cuenta);
+            conexion.ejecutarQuery();
+
+            int cantidad = Convert.ToInt32(conexion.lector[0]);
+            return cantidad > 0;
+        }
     }
 }
 

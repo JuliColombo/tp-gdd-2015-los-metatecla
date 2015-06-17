@@ -42,6 +42,7 @@
             this.labelErrorSeleccion = new System.Windows.Forms.Label();
             this.btn_listadoSaldo = new System.Windows.Forms.Button();
             this.btn_cerrarCuenta = new System.Windows.Forms.Button();
+            this.btn_nuevaCuenta = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -50,19 +51,20 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_nuevaCuenta);
             this.groupBox1.Controls.Add(this.btnRetiro);
             this.groupBox1.Controls.Add(this.btnTransferencia);
             this.groupBox1.Controls.Add(this.btnDeposito);
             this.groupBox1.Location = new System.Drawing.Point(13, 300);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(473, 68);
+            this.groupBox1.Size = new System.Drawing.Size(774, 68);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operaciones";
             // 
             // btnRetiro
             // 
-            this.btnRetiro.Location = new System.Drawing.Point(339, 28);
+            this.btnRetiro.Location = new System.Drawing.Point(251, 28);
             this.btnRetiro.Name = "btnRetiro";
             this.btnRetiro.Size = new System.Drawing.Size(75, 23);
             this.btnRetiro.TabIndex = 2;
@@ -72,7 +74,7 @@
             // 
             // btnTransferencia
             // 
-            this.btnTransferencia.Location = new System.Drawing.Point(167, 28);
+            this.btnTransferencia.Location = new System.Drawing.Point(127, 28);
             this.btnTransferencia.Name = "btnTransferencia";
             this.btnTransferencia.Size = new System.Drawing.Size(87, 23);
             this.btnTransferencia.TabIndex = 1;
@@ -191,6 +193,16 @@
             this.btn_cerrarCuenta.UseVisualStyleBackColor = true;
             this.btn_cerrarCuenta.Click += new System.EventHandler(this.btn_cerrarCuenta_Click);
             // 
+            // btn_nuevaCuenta
+            // 
+            this.btn_nuevaCuenta.Location = new System.Drawing.Point(361, 28);
+            this.btn_nuevaCuenta.Name = "btn_nuevaCuenta";
+            this.btn_nuevaCuenta.Size = new System.Drawing.Size(100, 23);
+            this.btn_nuevaCuenta.TabIndex = 3;
+            this.btn_nuevaCuenta.Text = "Nueva Cuenta";
+            this.btn_nuevaCuenta.UseVisualStyleBackColor = true;
+            this.btn_nuevaCuenta.Click += new System.EventHandler(this.btn_nuevaCuenta_Click);
+            // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,5 +241,6 @@
         private System.Windows.Forms.Label labelErrorSeleccion;
         private System.Windows.Forms.Button btn_listadoSaldo;
         private System.Windows.Forms.Button btn_cerrarCuenta;
+        private System.Windows.Forms.Button btn_nuevaCuenta;
     }
 }

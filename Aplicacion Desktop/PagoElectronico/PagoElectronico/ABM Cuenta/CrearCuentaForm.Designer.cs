@@ -72,6 +72,7 @@
             this.textBox_nro_cuenta.Name = "textBox_nro_cuenta";
             this.textBox_nro_cuenta.Size = new System.Drawing.Size(135, 20);
             this.textBox_nro_cuenta.TabIndex = 3;
+            this.textBox_nro_cuenta.TextChanged += new System.EventHandler(this.textBox_nro_cuenta_TextChanged);
             // 
             // label_nro_cuenta
             // 
