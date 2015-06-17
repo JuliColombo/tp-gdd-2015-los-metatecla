@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.listado = new System.Windows.Forms.DataGridView();
             this.comboBoxAño = new System.Windows.Forms.ComboBox();
             this.comboBoxTrimestre = new System.Windows.Forms.ComboBox();
             this.comboBoxListado = new System.Windows.Forms.ComboBox();
@@ -36,21 +36,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.labelError = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.listado)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // listado
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 143);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(378, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.listado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listado.Location = new System.Drawing.Point(23, 153);
+            this.listado.Name = "listado";
+            this.listado.Size = new System.Drawing.Size(449, 154);
+            this.listado.TabIndex = 0;
             // 
             // comboBoxAño
             // 
             this.comboBoxAño.FormattingEnabled = true;
-            this.comboBoxAño.Location = new System.Drawing.Point(248, 12);
+            this.comboBoxAño.Location = new System.Drawing.Point(295, 12);
             this.comboBoxAño.Name = "comboBoxAño";
             this.comboBoxAño.Size = new System.Drawing.Size(57, 21);
             this.comboBoxAño.TabIndex = 1;
@@ -63,7 +64,7 @@
             "Abril - Mayo - Junio",
             "Julio - Agosto - Septiembre",
             "Octubre - Noviembre - Diciembre"});
-            this.comboBoxTrimestre.Location = new System.Drawing.Point(193, 39);
+            this.comboBoxTrimestre.Location = new System.Drawing.Point(227, 39);
             this.comboBoxTrimestre.Name = "comboBoxTrimestre";
             this.comboBoxTrimestre.Size = new System.Drawing.Size(181, 21);
             this.comboBoxTrimestre.TabIndex = 2;
@@ -73,18 +74,18 @@
             this.comboBoxListado.FormattingEnabled = true;
             this.comboBoxListado.Items.AddRange(new object[] {
             "Clientes con cuentas inhabilitadas",
-            "Clientes con mayores comisiones",
+            "Cliente con mayor comisión",
             "Clientes con mayores transacciones propias",
             "Paises con mayores movimientos",
             "Facturación por tipo de cuenta"});
             this.comboBoxListado.Location = new System.Drawing.Point(193, 66);
             this.comboBoxListado.Name = "comboBoxListado";
-            this.comboBoxListado.Size = new System.Drawing.Size(181, 21);
+            this.comboBoxListado.Size = new System.Drawing.Size(256, 21);
             this.comboBoxListado.TabIndex = 3;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(172, 103);
+            this.btnBuscar.Location = new System.Drawing.Point(209, 124);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 4;
@@ -119,11 +120,23 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Tipo de Listado";
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(184, 99);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(121, 13);
+            this.labelError.TabIndex = 8;
+            this.labelError.Text = "Llenar todos los campos";
+            this.labelError.Visible = false;
+            // 
             // EstadisticasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 305);
+            this.ClientSize = new System.Drawing.Size(497, 319);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -131,10 +144,10 @@
             this.Controls.Add(this.comboBoxListado);
             this.Controls.Add(this.comboBoxTrimestre);
             this.Controls.Add(this.comboBoxAño);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.listado);
             this.Name = "EstadisticasForm";
             this.Text = "Listados Estadísticos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,7 +155,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView listado;
         private System.Windows.Forms.ComboBox comboBoxAño;
         private System.Windows.Forms.ComboBox comboBoxTrimestre;
         private System.Windows.Forms.ComboBox comboBoxListado;
@@ -150,5 +163,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelError;
     }
 }

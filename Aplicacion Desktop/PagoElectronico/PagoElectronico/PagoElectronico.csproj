@@ -140,6 +140,7 @@
     <Compile Include="DB\EstadoCuentaDB.cs" />
     <Compile Include="DB\FacturaDB.cs" />
     <Compile Include="DB\FuncionalidadDB.cs" />
+    <Compile Include="DB\ListadoDB.cs" />
     <Compile Include="DB\MonedaDB.cs" />
     <Compile Include="DB\PaisDB.cs" />
     <Compile Include="DB\RetiroDB.cs" />
@@ -173,6 +174,8 @@
     <Compile Include="Dominio\Domicilio.cs" />
     <Compile Include="Dominio\Tarjeta.cs" />
     <Compile Include="Dominio\Usuario.cs" />
+    <Compile Include="Listados\CliListado.cs" />
+    <Compile Include="Listados\TipoCuentaFacturaciones.cs" />
     <Compile Include="Login\PantallaPrincipalAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
