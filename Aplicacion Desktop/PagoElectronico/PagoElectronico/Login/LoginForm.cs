@@ -80,7 +80,7 @@ namespace PagoElectronico.Login
 
         /*********************** AUXILIARES ****************************/
 
-        private void loggear(string usuario, string tipo_intento, int numero_intento, string info_extra) //TODO: falta la fecha!!!! 
+        private void loggear(string usuario, string tipo_intento, int numero_intento, string info_extra)
         {
             string log;
 
