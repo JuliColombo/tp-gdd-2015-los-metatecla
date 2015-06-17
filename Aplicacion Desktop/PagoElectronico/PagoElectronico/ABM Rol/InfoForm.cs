@@ -35,8 +35,7 @@ namespace PagoElectronico.ABM_Rol
         {
             listaFuncionalidades.DisplayMember = "nombre";
             listaFuncionalidades.ValueMember = "id";
-            FuncionalidadDB funcDB = new FuncionalidadDB();
-            List<Funcionalidad> funcionalidadesExistentes = funcDB.obtenerFuncRol(infoRol);
+            List<Funcionalidad> funcionalidadesExistentes = FuncionalidadDB.obtenerFuncRol(infoRol);
             foreach (Funcionalidad func in funcionalidadesExistentes)
             {
                 if (!listaFuncionalidades.Items.Contains(func))

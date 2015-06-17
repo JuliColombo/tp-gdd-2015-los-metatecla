@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_nuevaCuenta = new System.Windows.Forms.Button();
             this.btnRetiro = new System.Windows.Forms.Button();
             this.btnTransferencia = new System.Windows.Forms.Button();
             this.btnDeposito = new System.Windows.Forms.Button();
@@ -36,21 +37,28 @@
             this.labelDoc = new System.Windows.Forms.Label();
             this.labelNomYApe = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_cerrarCuenta = new System.Windows.Forms.Button();
+            this.btn_listadoSaldo = new System.Windows.Forms.Button();
+            this.btn_modifCuenta = new System.Windows.Forms.Button();
             this.btnABMTarjetas = new System.Windows.Forms.Button();
             this.listadoCuentas = new System.Windows.Forms.DataGridView();
-            this.btn_modifCuenta = new System.Windows.Forms.Button();
             this.labelErrorSeleccion = new System.Windows.Forms.Label();
-            this.btn_listadoSaldo = new System.Windows.Forms.Button();
-            this.btn_cerrarCuenta = new System.Windows.Forms.Button();
-            this.btn_nuevaCuenta = new System.Windows.Forms.Button();
+            this.groupAdm = new System.Windows.Forms.GroupBox();
+            this.buttonABMRol = new System.Windows.Forms.Button();
+            this.buttonEstadisticas = new System.Windows.Forms.Button();
+            this.buttonFacturacion = new System.Windows.Forms.Button();
+            this.buttonUsuarios = new System.Windows.Forms.Button();
+            this.buttonClientes = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listadoCuentas)).BeginInit();
+            this.groupAdm.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonFacturacion);
             this.groupBox1.Controls.Add(this.btn_nuevaCuenta);
             this.groupBox1.Controls.Add(this.btnRetiro);
             this.groupBox1.Controls.Add(this.btnTransferencia);
@@ -61,6 +69,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operaciones";
+            // 
+            // btn_nuevaCuenta
+            // 
+            this.btn_nuevaCuenta.Location = new System.Drawing.Point(361, 28);
+            this.btn_nuevaCuenta.Name = "btn_nuevaCuenta";
+            this.btn_nuevaCuenta.Size = new System.Drawing.Size(100, 23);
+            this.btn_nuevaCuenta.TabIndex = 3;
+            this.btn_nuevaCuenta.Text = "Nueva Cuenta";
+            this.btn_nuevaCuenta.UseVisualStyleBackColor = true;
+            this.btn_nuevaCuenta.Click += new System.EventHandler(this.btn_nuevaCuenta_Click);
             // 
             // btnRetiro
             // 
@@ -134,6 +152,36 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opciones de cuenta";
             // 
+            // btn_cerrarCuenta
+            // 
+            this.btn_cerrarCuenta.Location = new System.Drawing.Point(588, 28);
+            this.btn_cerrarCuenta.Name = "btn_cerrarCuenta";
+            this.btn_cerrarCuenta.Size = new System.Drawing.Size(162, 23);
+            this.btn_cerrarCuenta.TabIndex = 3;
+            this.btn_cerrarCuenta.Text = "Dar de Baja";
+            this.btn_cerrarCuenta.UseVisualStyleBackColor = true;
+            this.btn_cerrarCuenta.Click += new System.EventHandler(this.btn_cerrarCuenta_Click);
+            // 
+            // btn_listadoSaldo
+            // 
+            this.btn_listadoSaldo.Location = new System.Drawing.Point(397, 28);
+            this.btn_listadoSaldo.Name = "btn_listadoSaldo";
+            this.btn_listadoSaldo.Size = new System.Drawing.Size(162, 23);
+            this.btn_listadoSaldo.TabIndex = 2;
+            this.btn_listadoSaldo.Text = "Consulta de Saldo";
+            this.btn_listadoSaldo.UseVisualStyleBackColor = true;
+            this.btn_listadoSaldo.Click += new System.EventHandler(this.btn_listadoSaldo_Click);
+            // 
+            // btn_modifCuenta
+            // 
+            this.btn_modifCuenta.Location = new System.Drawing.Point(205, 28);
+            this.btn_modifCuenta.Name = "btn_modifCuenta";
+            this.btn_modifCuenta.Size = new System.Drawing.Size(162, 23);
+            this.btn_modifCuenta.TabIndex = 1;
+            this.btn_modifCuenta.Text = "Modificar Cuenta";
+            this.btn_modifCuenta.UseVisualStyleBackColor = true;
+            this.btn_modifCuenta.Click += new System.EventHandler(this.btn_modifCuenta_Click);
+            // 
             // btnABMTarjetas
             // 
             this.btnABMTarjetas.Location = new System.Drawing.Point(16, 28);
@@ -152,16 +200,6 @@
             this.listadoCuentas.Size = new System.Drawing.Size(624, 99);
             this.listadoCuentas.TabIndex = 4;
             // 
-            // btn_modifCuenta
-            // 
-            this.btn_modifCuenta.Location = new System.Drawing.Point(205, 28);
-            this.btn_modifCuenta.Name = "btn_modifCuenta";
-            this.btn_modifCuenta.Size = new System.Drawing.Size(162, 23);
-            this.btn_modifCuenta.TabIndex = 1;
-            this.btn_modifCuenta.Text = "Modificar Cuenta";
-            this.btn_modifCuenta.UseVisualStyleBackColor = true;
-            this.btn_modifCuenta.Click += new System.EventHandler(this.btn_modifCuenta_Click);
-            // 
             // labelErrorSeleccion
             // 
             this.labelErrorSeleccion.AutoSize = true;
@@ -173,41 +211,70 @@
             this.labelErrorSeleccion.Text = "Seleccione una cuenta";
             this.labelErrorSeleccion.Visible = false;
             // 
-            // btn_listadoSaldo
+            // groupAdm
             // 
-            this.btn_listadoSaldo.Location = new System.Drawing.Point(397, 28);
-            this.btn_listadoSaldo.Name = "btn_listadoSaldo";
-            this.btn_listadoSaldo.Size = new System.Drawing.Size(162, 23);
-            this.btn_listadoSaldo.TabIndex = 2;
-            this.btn_listadoSaldo.Text = "Consulta de Saldo";
-            this.btn_listadoSaldo.UseVisualStyleBackColor = true;
-            this.btn_listadoSaldo.Click += new System.EventHandler(this.btn_listadoSaldo_Click);
+            this.groupAdm.Controls.Add(this.buttonClientes);
+            this.groupAdm.Controls.Add(this.buttonUsuarios);
+            this.groupAdm.Controls.Add(this.buttonEstadisticas);
+            this.groupAdm.Controls.Add(this.buttonABMRol);
+            this.groupAdm.Location = new System.Drawing.Point(274, 12);
+            this.groupAdm.Name = "groupAdm";
+            this.groupAdm.Size = new System.Drawing.Size(513, 76);
+            this.groupAdm.TabIndex = 6;
+            this.groupAdm.TabStop = false;
+            this.groupAdm.Text = "Opciones Administrativas";
             // 
-            // btn_cerrarCuenta
+            // buttonABMRol
             // 
-            this.btn_cerrarCuenta.Location = new System.Drawing.Point(588, 28);
-            this.btn_cerrarCuenta.Name = "btn_cerrarCuenta";
-            this.btn_cerrarCuenta.Size = new System.Drawing.Size(162, 23);
-            this.btn_cerrarCuenta.TabIndex = 3;
-            this.btn_cerrarCuenta.Text = "Dar de Baja";
-            this.btn_cerrarCuenta.UseVisualStyleBackColor = true;
-            this.btn_cerrarCuenta.Click += new System.EventHandler(this.btn_cerrarCuenta_Click);
+            this.buttonABMRol.Location = new System.Drawing.Point(31, 34);
+            this.buttonABMRol.Name = "buttonABMRol";
+            this.buttonABMRol.Size = new System.Drawing.Size(99, 23);
+            this.buttonABMRol.TabIndex = 7;
+            this.buttonABMRol.Text = "Gestion Roles";
+            this.buttonABMRol.UseVisualStyleBackColor = true;
             // 
-            // btn_nuevaCuenta
+            // buttonEstadisticas
             // 
-            this.btn_nuevaCuenta.Location = new System.Drawing.Point(361, 28);
-            this.btn_nuevaCuenta.Name = "btn_nuevaCuenta";
-            this.btn_nuevaCuenta.Size = new System.Drawing.Size(100, 23);
-            this.btn_nuevaCuenta.TabIndex = 3;
-            this.btn_nuevaCuenta.Text = "Nueva Cuenta";
-            this.btn_nuevaCuenta.UseVisualStyleBackColor = true;
-            this.btn_nuevaCuenta.Click += new System.EventHandler(this.btn_nuevaCuenta_Click);
+            this.buttonEstadisticas.Location = new System.Drawing.Point(136, 34);
+            this.buttonEstadisticas.Name = "buttonEstadisticas";
+            this.buttonEstadisticas.Size = new System.Drawing.Size(119, 23);
+            this.buttonEstadisticas.TabIndex = 8;
+            this.buttonEstadisticas.Text = "Listado Estadistico";
+            this.buttonEstadisticas.UseVisualStyleBackColor = true;
+            // 
+            // buttonFacturacion
+            // 
+            this.buttonFacturacion.Location = new System.Drawing.Point(484, 28);
+            this.buttonFacturacion.Name = "buttonFacturacion";
+            this.buttonFacturacion.Size = new System.Drawing.Size(95, 23);
+            this.buttonFacturacion.TabIndex = 9;
+            this.buttonFacturacion.Text = "Facturacion";
+            this.buttonFacturacion.UseVisualStyleBackColor = true;
+            // 
+            // buttonUsuarios
+            // 
+            this.buttonUsuarios.Location = new System.Drawing.Point(261, 34);
+            this.buttonUsuarios.Name = "buttonUsuarios";
+            this.buttonUsuarios.Size = new System.Drawing.Size(104, 23);
+            this.buttonUsuarios.TabIndex = 10;
+            this.buttonUsuarios.Text = "Gestion Usuarios";
+            this.buttonUsuarios.UseVisualStyleBackColor = true;
+            // 
+            // buttonClientes
+            // 
+            this.buttonClientes.Location = new System.Drawing.Point(371, 34);
+            this.buttonClientes.Name = "buttonClientes";
+            this.buttonClientes.Size = new System.Drawing.Size(101, 23);
+            this.buttonClientes.TabIndex = 11;
+            this.buttonClientes.Text = "Gestion Clientes";
+            this.buttonClientes.UseVisualStyleBackColor = true;
             // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 380);
+            this.Controls.Add(this.groupAdm);
             this.Controls.Add(this.labelErrorSeleccion);
             this.Controls.Add(this.listadoCuentas);
             this.Controls.Add(this.groupBox3);
@@ -220,6 +287,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listadoCuentas)).EndInit();
+            this.groupAdm.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +310,11 @@
         private System.Windows.Forms.Button btn_listadoSaldo;
         private System.Windows.Forms.Button btn_cerrarCuenta;
         private System.Windows.Forms.Button btn_nuevaCuenta;
+        private System.Windows.Forms.Button buttonFacturacion;
+        private System.Windows.Forms.GroupBox groupAdm;
+        private System.Windows.Forms.Button buttonUsuarios;
+        private System.Windows.Forms.Button buttonEstadisticas;
+        private System.Windows.Forms.Button buttonABMRol;
+        private System.Windows.Forms.Button buttonClientes;
     }
 }

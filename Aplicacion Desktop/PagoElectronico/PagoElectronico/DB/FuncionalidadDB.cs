@@ -48,7 +48,7 @@ namespace PagoElectronico.DB
             cnx.cerrarConexion();
         }
 
-        public List<Funcionalidad> obtenerFuncRol(Rol rol) {
+        public static List<Funcionalidad> obtenerFuncRol(Rol rol) {
             List<Funcionalidad> funcionalidadesDelRol = new List<Funcionalidad>();
             Conexion cnx = new Conexion();
             List<SqlParameter> ListParam = new List<SqlParameter>();
