@@ -36,7 +36,7 @@ namespace PagoElectronico.Login
         private void cargarCuentas()
         {
             
-            cuentas = DB.CuentaDB.obtenerCuentasCliente(cliente);
+            cuentas = DB.CuentaDB.obtenerCuentasAbiertasCliente(cliente);
 
             DataTable Tabla = new DataTable();
             Tabla.Columns.Add(new DataColumn("Número"));
@@ -118,6 +118,29 @@ namespace PagoElectronico.Login
                 Form f = new Consulta_Saldos.ConsultaSaldoForm(cuenta);
                 f.ShowDialog();
                 
+            }
+            else
+            {
+                labelErrorSeleccion.Visible = true;
+            }
+        }
+
+        private void btn_cerrarCuenta_Click(object sender, EventArgs e)
+        {
+            if (listadoCuentas.SelectedRows.Count == 1)
+            {
+                Form f;
+
+                //if(costoDeTransaccionesPagados()){
+                DB.CuentaDB.cerrarCuenta(Convert.ToInt64(listadoCuentas.CurrentRow.Cells[0].Value));
+               
+                f = new UI.ExitoForm("Cuenta cerrada con éxito");
+                f.ShowDialog();
+
+                cargarCuentas();
+
+                //} else {
+                // f = new UI.ErrorForm("No se puede cerrar esta cuenta." + 'n' + "Todos los costos de las transacciones pendientes deben estar pagos")} 
             }
             else
             {

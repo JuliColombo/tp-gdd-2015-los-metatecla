@@ -1,4 +1,4 @@
-﻿namespace PagoElectronico.Login
+﻿namespace PagoElectronico.UI
 {
     partial class ErrorForm
     {

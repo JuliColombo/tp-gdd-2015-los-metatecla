@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PagoElectronico.Login
+namespace PagoElectronico.UI
 {
     public partial class ErrorForm : Form
     {

@@ -83,7 +83,7 @@ namespace PagoElectronico.Depositos
 
         private void ventanaDeError(string e)
         {
-            Form f = new PagoElectronico.Login.ErrorForm(e);
+            Form f = new PagoElectronico.UI.ErrorForm(e);
             f.ShowDialog();
         }
 

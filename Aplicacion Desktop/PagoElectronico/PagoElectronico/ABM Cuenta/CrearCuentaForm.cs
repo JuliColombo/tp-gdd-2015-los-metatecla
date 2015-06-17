@@ -69,7 +69,7 @@ namespace PagoElectronico.ABM_Cuenta
         {
             PagoElectronico.DB.CuentaDB.modificarTipoCuenta(Convert.ToInt64(nro_cuenta), tipo);
 
-            Form exito = new CuentaCreadaExitoForm("Cuenta modificada con éxito");
+            Form exito = new PagoElectronico.UI.ExitoForm("Cuenta modificada con éxito");
             exito.ShowDialog();
             this.Close();
         }
@@ -82,7 +82,7 @@ namespace PagoElectronico.ABM_Cuenta
             long numeroCta = Convert.ToInt64(textBox_nro_cuenta.Text);
             DB.FacturaDB.insertarItemPendiente("Costo por Apertura de cuenta", costoApertura, numeroCta,0);
             limpiar();
-            Form exito = new CuentaCreadaExitoForm("Cuenta creada con éxito" + '\n' + "Se envió solicitud de activación al administrador");
+            Form exito = new UI.ExitoForm("Cuenta creada con éxito" + '\n' + "Se envió solicitud de activación al administrador");
             exito.ShowDialog();
             this.Close();
         }
@@ -138,7 +138,7 @@ namespace PagoElectronico.ABM_Cuenta
 
         private void ventanaDeError(String error)
         {
-            Form f = new PagoElectronico.Login.ErrorForm(error);
+            Form f = new PagoElectronico.UI.ErrorForm(error);
             f.ShowDialog();
         }
 

@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PagoElectronico.ABM_Cuenta
+namespace PagoElectronico.UI
 {
-    public partial class CuentaCreadaExitoForm : Form
+    public partial class ExitoForm : Form
     {
-        public CuentaCreadaExitoForm(string mensaje)
+        public ExitoForm(string mensaje)
         {
             InitializeComponent();
             label1.Text = mensaje;

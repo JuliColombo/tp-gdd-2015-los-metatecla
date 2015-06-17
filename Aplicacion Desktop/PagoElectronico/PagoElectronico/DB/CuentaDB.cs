@@ -66,6 +66,34 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             return cuentasCliente;
         }
+
+        public static List<Cuenta> obtenerCuentasAbiertasCliente(Cliente cliente)
+        {
+            List<SqlParameter> ListParam = new List<SqlParameter>();
+            ListParam.Add(new SqlParameter("@id", cliente.id));
+            Conexion conexion = new Conexion();
+            List<Cuenta> cuentasCliente = new List<Cuenta>();
+            SqlDataReader lector = conexion.ejecutarQueryConParam("SELECT * FROM LOS_METATECLA.Cuenta WHERE Cuenta_Cliente_id = @id AND (Cuenta_Estado = 2 OR Cuenta_Estado = 3)", ListParam);
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    Cuenta nuevaCuenta = new Cuenta(/*(int)lector["Cuenta_Numero"], (DateTime)lector["Cuenta_Fecha_Creacion"], (int)lector["Cuenta_Estado"], (int)lector["Cuenta_Pais_Codigo"], (DateTime)lector["Cuenta_Fecha_Cierre"], (int)lector["Cuenta_Tipo"]*/);
+                    nuevaCuenta.numero = (long)(decimal)lector["Cuenta_Numero"];
+                    nuevaCuenta.fecha_creacion = (DateTime)lector["Cuenta_Fecha_Creacion"];
+                    nuevaCuenta.fecha_cierre = (DateTime)lector["Cuenta_Fecha_Cierre"];
+                    nuevaCuenta.pais = (int)(decimal)lector["Cuenta_Pais_Codigo"];
+                    nuevaCuenta.estado = (int)lector["Cuenta_Estado"];
+                    nuevaCuenta.tipo = (int)lector["Cuenta_Tipo"];
+                    nuevaCuenta.saldo = (double)(decimal)lector["Cuenta_Saldo"];
+                    nuevaCuenta.idPropietario = cliente.id;
+                    cuentasCliente.Add(nuevaCuenta);
+                }
+            }
+            conexion.cerrarConexion();
+            return cuentasCliente;
+        }
+
         //Devuelve solo cuentas habilitadas y inhabilitadas
         public static List<Cuenta> obtenerCuentasTransferibles()
         {
@@ -210,6 +238,18 @@ namespace PagoElectronico.DB
 
             conexion.cerrarConexion();
             return transferencias;
+        }
+
+        public static void cerrarCuenta(long numero_cuenta)
+        {
+            String fecha = PagoElectronico.Dominio.Config.fechaSystem();
+
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "UPDATE LOS_METATECLA.Cuenta " +
+                "SET Cuenta_Estado = 4, Cuenta_Fecha_Cierre = '{0}' " +
+                "WHERE Cuenta_Numero = {1}", fecha, numero_cuenta);
+            conexion.ejecutarNoQuery();
         }
     }
 }

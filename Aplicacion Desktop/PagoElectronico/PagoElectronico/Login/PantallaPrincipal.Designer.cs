@@ -41,6 +41,7 @@
             this.btn_modifCuenta = new System.Windows.Forms.Button();
             this.labelErrorSeleccion = new System.Windows.Forms.Label();
             this.btn_listadoSaldo = new System.Windows.Forms.Button();
+            this.btn_cerrarCuenta = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -54,7 +55,7 @@
             this.groupBox1.Controls.Add(this.btnDeposito);
             this.groupBox1.Location = new System.Drawing.Point(13, 300);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(627, 68);
+            this.groupBox1.Size = new System.Drawing.Size(473, 68);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operaciones";
@@ -95,7 +96,7 @@
             this.groupBox2.Controls.Add(this.labelNomYApe);
             this.groupBox2.Location = new System.Drawing.Point(13, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(627, 76);
+            this.groupBox2.Size = new System.Drawing.Size(254, 76);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Usuario";
@@ -120,12 +121,13 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btn_cerrarCuenta);
             this.groupBox3.Controls.Add(this.btn_listadoSaldo);
             this.groupBox3.Controls.Add(this.btn_modifCuenta);
             this.groupBox3.Controls.Add(this.btnABMTarjetas);
             this.groupBox3.Location = new System.Drawing.Point(13, 216);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(627, 68);
+            this.groupBox3.Size = new System.Drawing.Size(775, 68);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opciones de cuenta";
@@ -143,7 +145,7 @@
             // listadoCuentas
             // 
             this.listadoCuentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listadoCuentas.Location = new System.Drawing.Point(16, 98);
+            this.listadoCuentas.Location = new System.Drawing.Point(105, 98);
             this.listadoCuentas.Name = "listadoCuentas";
             this.listadoCuentas.Size = new System.Drawing.Size(624, 99);
             this.listadoCuentas.TabIndex = 4;
@@ -162,7 +164,7 @@
             // 
             this.labelErrorSeleccion.AutoSize = true;
             this.labelErrorSeleccion.ForeColor = System.Drawing.Color.Red;
-            this.labelErrorSeleccion.Location = new System.Drawing.Point(523, 200);
+            this.labelErrorSeleccion.Location = new System.Drawing.Point(612, 200);
             this.labelErrorSeleccion.Name = "labelErrorSeleccion";
             this.labelErrorSeleccion.Size = new System.Drawing.Size(117, 13);
             this.labelErrorSeleccion.TabIndex = 5;
@@ -179,11 +181,21 @@
             this.btn_listadoSaldo.UseVisualStyleBackColor = true;
             this.btn_listadoSaldo.Click += new System.EventHandler(this.btn_listadoSaldo_Click);
             // 
+            // btn_cerrarCuenta
+            // 
+            this.btn_cerrarCuenta.Location = new System.Drawing.Point(588, 28);
+            this.btn_cerrarCuenta.Name = "btn_cerrarCuenta";
+            this.btn_cerrarCuenta.Size = new System.Drawing.Size(162, 23);
+            this.btn_cerrarCuenta.TabIndex = 3;
+            this.btn_cerrarCuenta.Text = "Dar de Baja";
+            this.btn_cerrarCuenta.UseVisualStyleBackColor = true;
+            this.btn_cerrarCuenta.Click += new System.EventHandler(this.btn_cerrarCuenta_Click);
+            // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 380);
+            this.ClientSize = new System.Drawing.Size(799, 380);
             this.Controls.Add(this.labelErrorSeleccion);
             this.Controls.Add(this.listadoCuentas);
             this.Controls.Add(this.groupBox3);
@@ -216,5 +228,6 @@
         private System.Windows.Forms.Button btn_modifCuenta;
         private System.Windows.Forms.Label labelErrorSeleccion;
         private System.Windows.Forms.Button btn_listadoSaldo;
+        private System.Windows.Forms.Button btn_cerrarCuenta;
     }
 }

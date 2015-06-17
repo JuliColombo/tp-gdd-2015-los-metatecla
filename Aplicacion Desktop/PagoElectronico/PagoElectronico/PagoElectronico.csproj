@@ -87,12 +87,6 @@
     <Compile Include="ABM Cuenta\CrearCuentaForm.Designer.cs">
       <DependentUpon>CrearCuentaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Cuenta\CuentaCreadaExitoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ABM Cuenta\CuentaCreadaExitoForm.Designer.cs">
-      <DependentUpon>CuentaCreadaExitoForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ABM de Usuario\Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,7 +173,19 @@
     <Compile Include="Dominio\Domicilio.cs" />
     <Compile Include="Dominio\Tarjeta.cs" />
     <Compile Include="Dominio\Usuario.cs" />
-    <Compile Include="EventosUI.cs" />
+    <Compile Include="UI\ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ErrorForm.Designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExitoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExitoForm.Designer.cs">
+      <DependentUpon>ExitoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EventosUI.cs" />
     <Compile Include="Facturacion\FacturacionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,12 +203,6 @@
     </Compile>
     <Compile Include="Listados\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Login\ErrorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login\ErrorForm.Designer.cs">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginForm.cs">
       <SubType>Form</SubType>
@@ -236,9 +236,6 @@
     <EmbeddedResource Include="ABM Cuenta\CrearCuentaForm.resx">
       <DependentUpon>CrearCuentaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Cuenta\CuentaCreadaExitoForm.resx">
-      <DependentUpon>CuentaCreadaExitoForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\ABMRolForm.resx">
       <DependentUpon>ABMRolForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,9 +266,6 @@
     <EmbeddedResource Include="InicioForm.resx">
       <DependentUpon>InicioForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\ErrorForm.resx">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +291,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transferencias\TransferenciaForm.resx">
       <DependentUpon>TransferenciaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ErrorForm.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExitoForm.resx">
+      <DependentUpon>ExitoForm.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
