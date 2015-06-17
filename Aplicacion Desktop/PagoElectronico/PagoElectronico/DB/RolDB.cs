@@ -112,7 +112,7 @@ namespace PagoElectronico.DB
             ListParam.Add(new SqlParameter("@nombre", nombre));
             SqlDataReader lector = conexion.ejecutarQueryConParam("SELECT Id_Rol FROM LOS_METATECLA.Rol WHERE Nombre = @nombre", ListParam);
             lector.Read();
-            int id = (int)lector["Id_Rol"];
+            int id = (int)(decimal)lector["Id_Rol"];
             conexion.cerrarConexion();
             return id;
         }

@@ -43,6 +43,7 @@ namespace PagoElectronico.Login
                         }
 
                         SeleccionRolForm slecrol = new SeleccionRolForm(roles, idUsuario);
+                        slecrol.ShowDialog();
                     }
                     else
                     {

@@ -111,13 +111,14 @@ namespace PagoElectronico.DB
         public static PagoElectronico.Dominio.Usuario getUsuario(int id)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            List<int> roles = new List<int>();
             List<SqlParameter> ListParam = new List<SqlParameter>();
             ListParam.Add(new SqlParameter("@id", id));
             SqlDataReader lector = conexion.ejecutarQueryConParam("SELECT * FROM LOS_METATECLA.Usuario WHERE Id_User = @id", ListParam);
             lector.Read();
             PagoElectronico.Dominio.Usuario usuario = new PagoElectronico.Dominio.Usuario();
             usuario.username = (string)lector["User_Username"];
-            List<int> roles = RolDB.getRolesUsuario(id);
+            roles = RolDB.getRolesUsuario(id);
             foreach (int rol in roles)
             {
                 usuario.roles.Add(rol);
