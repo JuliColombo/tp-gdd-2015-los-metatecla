@@ -46,9 +46,14 @@ namespace PagoElectronico.Login
                     }
                     else
                     {
-                        Form f = new PantallaPrincipal(idUsuario,idRoles[0]);
-                        f.ShowDialog();
-                        this.Close();
+                        PagoElectronico.Dominio.Rol rol = DB.RolDB.getRol(idRoles[0]);
+                        if (rol.habilitado)
+                        {
+                            Form f = new PantallaPrincipal(idUsuario, idRoles[0]);
+                            f.ShowDialog();
+                            this.Close();
+                        }
+                        else { MessageBox.Show("El rol de la cuenta se encuentra inhabilitado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                     }
                     //TODO Habria que abrir otra pantalla con los roles y funcionalidades
                 }

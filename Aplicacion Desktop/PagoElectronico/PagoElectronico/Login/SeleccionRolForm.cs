@@ -40,10 +40,15 @@ namespace PagoElectronico.Login
         {
             if (!(comboRoles.Text == ""))
             {
-                string nombreRol = comboRoles.Text;
-                PantallaPrincipal pantalla = new PantallaPrincipal(idUser, RolDB.getId(nombreRol));
-                pantalla.ShowDialog();
-                this.Close();
+                int idRol = RolDB.getId(comboRoles.Text);
+                Rol rol = RolDB.getRol(idRol);
+                if (rol.habilitado)
+                {
+                    PantallaPrincipal pantalla = new PantallaPrincipal(idUser, idRol);
+                    pantalla.ShowDialog();
+                    this.Close();
+                }
+                else { MessageBox.Show("El rol elegido se encuentra inhabilitado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
             else { MessageBox.Show("No se selecciono ningun rol", "Error, vuelva a intentar", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
