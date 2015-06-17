@@ -38,10 +38,19 @@ namespace PagoElectronico.Login
 
         private void buttonSeleccionar_Click(object sender, EventArgs e)
         {
-            string nombreRol = comboRoles.Text;
-            PantallaPrincipal pantalla = new PantallaPrincipal(idUser, RolDB.getId(nombreRol));
-            pantalla.ShowDialog();
-            this.Close();
+            if (!(comboRoles.Text == ""))
+            {
+                string nombreRol = comboRoles.Text;
+                PantallaPrincipal pantalla = new PantallaPrincipal(idUser, RolDB.getId(nombreRol));
+                pantalla.ShowDialog();
+                this.Close();
+            }
+            else { MessageBox.Show("No se selecciono ningun rol", "Error, vuelva a intentar", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void comboRoles_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

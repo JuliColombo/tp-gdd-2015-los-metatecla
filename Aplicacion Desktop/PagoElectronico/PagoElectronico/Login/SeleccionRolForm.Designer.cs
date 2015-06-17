@@ -69,6 +69,7 @@
             this.comboRoles.Name = "comboRoles";
             this.comboRoles.Size = new System.Drawing.Size(121, 21);
             this.comboRoles.TabIndex = 3;
+            this.comboRoles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboRoles_KeyPress);
             // 
             // buttonSeleccionar
             // 
