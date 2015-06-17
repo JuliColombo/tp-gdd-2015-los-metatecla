@@ -241,6 +241,19 @@ namespace PagoElectronico.Login
             f.ShowDialog();
         }
 
+        private void buttonFacturacion_Click(object sender, EventArgs e)
+        {
+                List<PagoElectronico.Dominio.Cuenta> cuentas = new List<PagoElectronico.Dominio.Cuenta>();
+                cuentas = DB.CuentaDB.obtenerCuentasCliente(cliente);
+                if (!(cuentas.Count <= 0))
+                {
+                    Form f = new Facturacion.FacturacionForm(cliente);
+                    f.ShowDialog();
+                }
+                else { MessageBox.Show("Actualmente usted no tiene ninguna cuenta en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                cargarCuentas();
+        }
+
 
     }
 }

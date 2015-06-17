@@ -78,6 +78,7 @@
             this.buttonFacturacion.TabIndex = 9;
             this.buttonFacturacion.Text = "Facturacion";
             this.buttonFacturacion.UseVisualStyleBackColor = true;
+            this.buttonFacturacion.Click += new System.EventHandler(this.buttonFacturacion_Click);
             // 
             // btn_nuevaCuenta
             // 

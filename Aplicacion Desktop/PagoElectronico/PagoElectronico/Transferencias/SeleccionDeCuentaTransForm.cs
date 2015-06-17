@@ -51,23 +51,31 @@ namespace PagoElectronico.Transferencias
 
         private void buttonContinuar_Click(object sender, EventArgs e)
         {
-            Cuenta cuentaDestinoSeleccionada = new Cuenta();
-            Cuenta cuentaOrigenSeleccionada = new Cuenta();
-            double numeroDestino = Convert.ToDouble(comboCuentas.Text);
-            double numeroOrigen = Convert.ToDouble(comboMisCuentas.Text);
-            cuentaDestinoSeleccionada = cuentas.Find(cuenta => cuenta.numero == numeroDestino);
-            cuentaOrigenSeleccionada = misCuentas.Find(cuenta => cuenta.numero == numeroOrigen);
-            if (cuentaOrigenSeleccionada.estado == 2)
+            if (!(comboMisCuentas.Text == ""))
             {
-                if (cuentaOrigenSeleccionada.saldo > 0)
+                if (!(comboCuentas.Text == ""))
                 {
-                    TransferenciaForm trans = new TransferenciaForm(cuentaDestinoSeleccionada, cuentaOrigenSeleccionada);
-                    trans.ShowDialog();
-                    this.Close();
+                    Cuenta cuentaDestinoSeleccionada = new Cuenta();
+                    Cuenta cuentaOrigenSeleccionada = new Cuenta();
+                    double numeroDestino = Convert.ToDouble(comboCuentas.Text);
+                    double numeroOrigen = Convert.ToDouble(comboMisCuentas.Text);
+                    cuentaDestinoSeleccionada = cuentas.Find(cuenta => cuenta.numero == numeroDestino);
+                    cuentaOrigenSeleccionada = misCuentas.Find(cuenta => cuenta.numero == numeroOrigen);
+                    if (cuentaOrigenSeleccionada.estado == 2)
+                    {
+                        if (cuentaOrigenSeleccionada.saldo > 0)
+                        {
+                            TransferenciaForm trans = new TransferenciaForm(cuentaDestinoSeleccionada, cuentaOrigenSeleccionada);
+                            trans.ShowDialog();
+                            this.Close();
+                        }
+                        else { MessageBox.Show("La cuenta no tiene saldo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    }
+                    else { MessageBox.Show("La cuenta no esta habilitada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
-                else { MessageBox.Show("La cuenta no tiene saldo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                else { MessageBox.Show("Seleccione una Cuenta Destino", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
-            else { MessageBox.Show("La cuenta no esta habilitada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else { MessageBox.Show("Seleccione una Cuenta Origen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void comboCuentas_KeyPress(object sender, KeyPressEventArgs e)
