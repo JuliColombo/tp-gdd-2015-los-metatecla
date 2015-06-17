@@ -223,6 +223,24 @@ namespace PagoElectronico.Login
             cargarCuentas();
         }
 
+        private void buttonEstadisticas_Click(object sender, EventArgs e)
+        {
+            Form f = new Listados.EstadisticasForm();
+            f.ShowDialog();
+        }
+
+        private void buttonClientes_Click(object sender, EventArgs e)
+        {
+            Form f = new ABM_Cliente.BuscadorCliForm();
+            f.ShowDialog();
+        }
+
+        private void buttonABMRol_Click(object sender, EventArgs e)
+        {
+            Form f = new ABM_Rol.ABMRolForm();
+            f.ShowDialog();
+        }
+
 
     }
 }

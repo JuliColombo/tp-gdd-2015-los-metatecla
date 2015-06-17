@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonFacturacion = new System.Windows.Forms.Button();
             this.btn_nuevaCuenta = new System.Windows.Forms.Button();
             this.btnRetiro = new System.Windows.Forms.Button();
             this.btnTransferencia = new System.Windows.Forms.Button();
@@ -44,11 +45,10 @@
             this.listadoCuentas = new System.Windows.Forms.DataGridView();
             this.labelErrorSeleccion = new System.Windows.Forms.Label();
             this.groupAdm = new System.Windows.Forms.GroupBox();
-            this.buttonABMRol = new System.Windows.Forms.Button();
-            this.buttonEstadisticas = new System.Windows.Forms.Button();
-            this.buttonFacturacion = new System.Windows.Forms.Button();
-            this.buttonUsuarios = new System.Windows.Forms.Button();
             this.buttonClientes = new System.Windows.Forms.Button();
+            this.buttonUsuarios = new System.Windows.Forms.Button();
+            this.buttonEstadisticas = new System.Windows.Forms.Button();
+            this.buttonABMRol = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -69,6 +69,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operaciones";
+            // 
+            // buttonFacturacion
+            // 
+            this.buttonFacturacion.Location = new System.Drawing.Point(484, 28);
+            this.buttonFacturacion.Name = "buttonFacturacion";
+            this.buttonFacturacion.Size = new System.Drawing.Size(95, 23);
+            this.buttonFacturacion.TabIndex = 9;
+            this.buttonFacturacion.Text = "Facturacion";
+            this.buttonFacturacion.UseVisualStyleBackColor = true;
             // 
             // btn_nuevaCuenta
             // 
@@ -224,32 +233,15 @@
             this.groupAdm.TabStop = false;
             this.groupAdm.Text = "Opciones Administrativas";
             // 
-            // buttonABMRol
+            // buttonClientes
             // 
-            this.buttonABMRol.Location = new System.Drawing.Point(31, 34);
-            this.buttonABMRol.Name = "buttonABMRol";
-            this.buttonABMRol.Size = new System.Drawing.Size(99, 23);
-            this.buttonABMRol.TabIndex = 7;
-            this.buttonABMRol.Text = "Gestion Roles";
-            this.buttonABMRol.UseVisualStyleBackColor = true;
-            // 
-            // buttonEstadisticas
-            // 
-            this.buttonEstadisticas.Location = new System.Drawing.Point(136, 34);
-            this.buttonEstadisticas.Name = "buttonEstadisticas";
-            this.buttonEstadisticas.Size = new System.Drawing.Size(119, 23);
-            this.buttonEstadisticas.TabIndex = 8;
-            this.buttonEstadisticas.Text = "Listado Estadistico";
-            this.buttonEstadisticas.UseVisualStyleBackColor = true;
-            // 
-            // buttonFacturacion
-            // 
-            this.buttonFacturacion.Location = new System.Drawing.Point(484, 28);
-            this.buttonFacturacion.Name = "buttonFacturacion";
-            this.buttonFacturacion.Size = new System.Drawing.Size(95, 23);
-            this.buttonFacturacion.TabIndex = 9;
-            this.buttonFacturacion.Text = "Facturacion";
-            this.buttonFacturacion.UseVisualStyleBackColor = true;
+            this.buttonClientes.Location = new System.Drawing.Point(371, 34);
+            this.buttonClientes.Name = "buttonClientes";
+            this.buttonClientes.Size = new System.Drawing.Size(101, 23);
+            this.buttonClientes.TabIndex = 11;
+            this.buttonClientes.Text = "Gestion Clientes";
+            this.buttonClientes.UseVisualStyleBackColor = true;
+            this.buttonClientes.Click += new System.EventHandler(this.buttonClientes_Click);
             // 
             // buttonUsuarios
             // 
@@ -260,14 +252,25 @@
             this.buttonUsuarios.Text = "Gestion Usuarios";
             this.buttonUsuarios.UseVisualStyleBackColor = true;
             // 
-            // buttonClientes
+            // buttonEstadisticas
             // 
-            this.buttonClientes.Location = new System.Drawing.Point(371, 34);
-            this.buttonClientes.Name = "buttonClientes";
-            this.buttonClientes.Size = new System.Drawing.Size(101, 23);
-            this.buttonClientes.TabIndex = 11;
-            this.buttonClientes.Text = "Gestion Clientes";
-            this.buttonClientes.UseVisualStyleBackColor = true;
+            this.buttonEstadisticas.Location = new System.Drawing.Point(136, 34);
+            this.buttonEstadisticas.Name = "buttonEstadisticas";
+            this.buttonEstadisticas.Size = new System.Drawing.Size(119, 23);
+            this.buttonEstadisticas.TabIndex = 8;
+            this.buttonEstadisticas.Text = "Listado Estadistico";
+            this.buttonEstadisticas.UseVisualStyleBackColor = true;
+            this.buttonEstadisticas.Click += new System.EventHandler(this.buttonEstadisticas_Click);
+            // 
+            // buttonABMRol
+            // 
+            this.buttonABMRol.Location = new System.Drawing.Point(31, 34);
+            this.buttonABMRol.Name = "buttonABMRol";
+            this.buttonABMRol.Size = new System.Drawing.Size(99, 23);
+            this.buttonABMRol.TabIndex = 7;
+            this.buttonABMRol.Text = "Gestion Roles";
+            this.buttonABMRol.UseVisualStyleBackColor = true;
+            this.buttonABMRol.Click += new System.EventHandler(this.buttonABMRol_Click);
             // 
             // PantallaPrincipal
             // 

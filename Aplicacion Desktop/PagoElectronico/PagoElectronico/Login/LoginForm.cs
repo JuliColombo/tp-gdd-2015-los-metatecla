@@ -47,7 +47,7 @@ namespace PagoElectronico.Login
                     else
                     {
                         Form f = new PantallaPrincipal(idUsuario,idRoles[0]);
-                        f.Show();
+                        f.ShowDialog();
                         this.Close();
                     }
                     //TODO Habria que abrir otra pantalla con los roles y funcionalidades
