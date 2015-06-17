@@ -37,6 +37,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btnListados = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_abm_cliente
@@ -129,11 +130,22 @@
             this.btnListados.UseVisualStyleBackColor = true;
             this.btnListados.Click += new System.EventHandler(this.btnListados_Click);
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(124, 213);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(106, 44);
+            this.button7.TabIndex = 9;
+            this.button7.Text = "PantallaPpal";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // InicioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(248, 265);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.btnListados);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -160,6 +172,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnListados;
+        private System.Windows.Forms.Button button7;
 
     }
 }

@@ -99,5 +99,11 @@ namespace PagoElectronico
             f.ShowDialog();
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            PagoElectronico.Login.LoginForm login = new PagoElectronico.Login.LoginForm();
+            login.ShowDialog();
+        }
+
     }
 }

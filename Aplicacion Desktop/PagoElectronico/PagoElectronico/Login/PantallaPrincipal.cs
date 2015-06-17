@@ -12,20 +12,78 @@ namespace PagoElectronico.Login
     public partial class PantallaPrincipal : Form
     {
         public Dominio.Cliente cliente { get; set; }
+        public Dominio.Rol rol { get; set; }
         public List<Dominio.Cuenta> cuentas = new List<Dominio.Cuenta>();
 
-        public PantallaPrincipal()
-        {
-            InitializeComponent();
-        }
-
-        public PantallaPrincipal(int idCli)
+        public PantallaPrincipal(int idCli, int idRol)
         {
             InitializeComponent();
             cliente = DB.ClienteDB.getCliente(idCli);
+            rol = DB.RolDB.getRol(idRol);
             cargarComponentes();
+            botonesHabilitados();
         }
 
+        private void botonesHabilitados()
+        {
+            groupAdm.Visible = false;
+            if (!rol.funcionalidades.Exists(func => func.nombre == "ABM Rol"))
+            {
+                buttonABMRol.Visible = false;
+
+            }
+            else { groupAdm.Visible = true; }
+            if (!rol.funcionalidades.Exists(func => func.nombre == "ABM Usuario"))
+            { buttonUsuarios.Visible = false;
+
+            }
+            else { groupAdm.Visible = true; }
+            if (!rol.funcionalidades.Exists(func => func.nombre == "ABM Cliente"))
+            {
+                buttonClientes.Visible = false;
+
+            }
+            else { groupAdm.Visible = true; }
+            if (!rol.funcionalidades.Exists(func => func.nombre == "Listado Estadístico"))
+            {
+                buttonEstadisticas.Visible = false;
+            }
+            else { groupAdm.Visible = true; }
+            if (!rol.funcionalidades.Exists(func => func.nombre == "ABM Cuenta"))
+            {
+                btn_cerrarCuenta.Visible = false;
+                btn_modifCuenta.Visible = false;
+                btn_nuevaCuenta.Visible = false;
+                
+            }
+            if (!rol.funcionalidades.Exists(func => func.nombre == "Depósito"))
+            {
+                btnDeposito.Visible = false;
+            }
+            if (!rol.funcionalidades.Exists(func => func.nombre == "Retiro"))
+            {
+                btnRetiro.Visible = false;
+            }
+            if (!rol.funcionalidades.Exists(func => func.nombre == "Transferencia"))
+            {
+                btnTransferencia.Visible = false;
+            }
+            if (!rol.funcionalidades.Exists(func => func.nombre == "Facturación"))
+            {
+                buttonFacturacion.Visible = false;
+            }
+            if (!rol.funcionalidades.Exists(func => func.nombre == "Consulta de Saldos"))
+            {
+                btn_listadoSaldo.Visible = false;
+            }
+            if (!rol.funcionalidades.Exists(func => func.nombre == "Asociar tarjetas"))
+            {
+                btnABMTarjetas.Visible = false;
+            }
+
+
+            
+        }
         private void cargarComponentes()
         {
             labelNomYApe.Text = cliente.apellido + ", " + cliente.nombre;
@@ -98,6 +156,8 @@ namespace PagoElectronico.Login
 
                 Form f = new ABM_Cuenta.CrearCuentaForm(cuenta);
                 f.ShowDialog();
+                
+                
                 cargarCuentas();
                 
             }

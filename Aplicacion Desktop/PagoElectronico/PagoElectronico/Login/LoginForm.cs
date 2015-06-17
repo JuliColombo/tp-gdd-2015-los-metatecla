@@ -33,9 +33,23 @@ namespace PagoElectronico.Login
                     loggear(usuario, "efectivo",0, "");
 
                     int idUsuario = DB.UsuarioDB.getId(usuario);
-                    Form f = new PantallaPrincipal(idUsuario);
-                    f.Show();
-                    this.Close();
+                    List<int> idRoles = DB.RolDB.getRolesUsuario(idUsuario);
+                    if (idRoles.Count > 1)
+                    {
+                        List<PagoElectronico.Dominio.Rol> roles = new List<PagoElectronico.Dominio.Rol>();
+                        foreach (int idRol in idRoles)
+                        {
+                            roles.Add(DB.RolDB.getRol(idRol));
+                        }
+
+                        SeleccionRolForm slecrol = new SeleccionRolForm(roles, idUsuario);
+                    }
+                    else
+                    {
+                        Form f = new PantallaPrincipal(idUsuario,idRoles[0]);
+                        f.Show();
+                        this.Close();
+                    }
                     //TODO Habria que abrir otra pantalla con los roles y funcionalidades
                 }
                 else
@@ -80,7 +94,7 @@ namespace PagoElectronico.Login
 
         /*********************** AUXILIARES ****************************/
 
-        private void loggear(string usuario, string tipo_intento, int numero_intento, string info_extra) //TODO: falta la fecha!!!! 
+        private void loggear(string usuario, string tipo_intento, int numero_intento, string info_extra)
         {
             string log;
 
