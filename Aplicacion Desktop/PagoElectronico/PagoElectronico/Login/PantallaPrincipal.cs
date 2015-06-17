@@ -156,6 +156,8 @@ namespace PagoElectronico.Login
 
                 Form f = new ABM_Cuenta.CrearCuentaForm(cuenta);
                 f.ShowDialog();
+                
+                
                 cargarCuentas();
                 
             }

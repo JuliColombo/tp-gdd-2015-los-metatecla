@@ -68,7 +68,8 @@ namespace PagoElectronico.ABM_Cuenta
         private void modificarCuenta(string nro_cuenta, string tipo)
         {
             PagoElectronico.DB.CuentaDB.modificarTipoCuenta(Convert.ToInt64(nro_cuenta), tipo);
-
+            PagoElectronico.Dominio.Costos costo = DB.TipoCuentaDB.obtenerCosto(DB.TipoCuentaDB.getId(tipo));
+            DB.FacturaDB.insertarItemPendiente("Costo por Modificacion", costo.costoModificacion, Convert.ToInt64(nro_cuenta), 1);
             Form exito = new PagoElectronico.UI.ExitoForm("Cuenta modificada con éxito");
             exito.ShowDialog();
             this.Close();
