@@ -263,6 +263,22 @@ namespace PagoElectronico.DB
             int cantidad = Convert.ToInt32(conexion.lector[0]);
             return cantidad > 0;
         }
-    }
+
+        internal static void insertarUsuario(PagoElectronico.Dominio.Usuario usuario, int id)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "INSERT INTO LOS_METATECLA.Usuario (Id_User, User_Username, User_Password, User_Habilitado, User_Intentos_Fallidos) VALUES({0}, '{1}', '{2}', 1, 0)", id, usuario.username, DB.UsuarioDB.SHA256(usuario.contraseña));
+            conexion.ejecutarNoQuery();
+
+            conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "INSERT INTO LOS_METATECLA.Usuario_Rol (Id_Usuario, Id_Rol) VALUES({0}, {1})", id, usuario.roles[0]);
+            conexion.ejecutarNoQuery();
+        }
+   
 }
+
+
+    }
 

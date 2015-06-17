@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PagoElectronico.Dominio
 {
-    class Usuario
+    public class Usuario
     {
         public String username { get; set; }
         public String contraseña { get; set; }

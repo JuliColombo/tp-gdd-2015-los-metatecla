@@ -252,6 +252,7 @@
             this.buttonUsuarios.TabIndex = 10;
             this.buttonUsuarios.Text = "Gestion Usuarios";
             this.buttonUsuarios.UseVisualStyleBackColor = true;
+            this.buttonUsuarios.Click += new System.EventHandler(this.buttonUsuarios_Click);
             // 
             // buttonEstadisticas
             // 

@@ -254,6 +254,12 @@ namespace PagoElectronico.Login
                 cargarCuentas();
         }
 
+        private void buttonUsuarios_Click(object sender, EventArgs e)
+        {
+            Form f = new ABM_de_Usuario.AltaUsuarioForm();
+            f.ShowDialog();
+        }
+
 
     }
 }

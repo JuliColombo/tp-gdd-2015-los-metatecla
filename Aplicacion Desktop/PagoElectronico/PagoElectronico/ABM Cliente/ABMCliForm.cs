@@ -12,10 +12,13 @@ namespace PagoElectronico.ABM_Cliente
     public partial class ABMCliForm : Form
     {
         public int idCliente { get; set; }
+        public Dominio.Cliente cliente { get; set; }
 
-        public ABMCliForm()
+        public ABMCliForm(Dominio.Cliente cli)
         {
             InitializeComponent();
+            cliente = cli;
+
             DB.PaisDB.cargarPaises(comboBoxPais.Items);
         }
 
@@ -98,16 +101,19 @@ namespace PagoElectronico.ABM_Cliente
             bool valido = true;
             int doc = 0;
             //valido = this.validarCamposVacios();
-     
-            if (boxDocumento.Text != ""){
+
+            if (boxDocumento.Text != "")
+            {
                 doc = Convert.ToInt32(boxDocumento.Text);
             }
 
-            if (DB.ClienteDB.mailRepetido(boxMail.Text)){
+            if (DB.ClienteDB.mailRepetido(boxMail.Text))
+            {
                 valido = false;
                 labelErrorMail.Visible = true;
             }
-            if (DB.ClienteDB.documentoRepetido(doc) && DB.DocumentoDB.validar(comboBoxTipoDoc.Text)){
+            if (DB.ClienteDB.documentoRepetido(doc) && DB.DocumentoDB.validar(comboBoxTipoDoc.Text))
+            {
                 valido = false;
                 labelErrorTyNDoc.Visible = true;
             }
@@ -127,7 +133,7 @@ namespace PagoElectronico.ABM_Cliente
                 {
                     realizarModificacion(id_domi);
                 }
-            }            
+            }
         }
 
         private void realizarAlta(int id_domi)
@@ -138,28 +144,31 @@ namespace PagoElectronico.ABM_Cliente
                 {
                     double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
                     double id_pais = DB.PaisDB.getID(comboBoxPais.Text);
-                    Dominio.Cliente cliente = this.cargarCliente(id_domi, id_docu, id_pais);
+                    cliente = this.cargarCliente(id_domi, id_docu, id_pais);
                     DB.ClienteDB.insertar(cliente);
+
                     this.limpiar();
 
                     Form exito = new AltaClienteExitoForm();
                     exito.ShowDialog();
+
+                    this.Close();
                 }
             }
         }
 
         private void realizarModificacion(int id_domi)
         {
-                if (DB.PaisDB.validar(comboBoxPais.Text))
-                {
-                    double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
-                    double id_pais = DB.PaisDB.getID(comboBoxPais.Text);
-                    Dominio.Cliente cliente = this.cargarCliente(id_domi, id_docu, id_pais);
-                    cliente.id = this.idCliente;
-                    DB.ClienteDB.modificar(cliente);
+            if (DB.PaisDB.validar(comboBoxPais.Text))
+            {
+                double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
+                double id_pais = DB.PaisDB.getID(comboBoxPais.Text);
+                Dominio.Cliente cliente = this.cargarCliente(id_domi, id_docu, id_pais);
+                cliente.id = this.idCliente;
+                DB.ClienteDB.modificar(cliente);
 
-                    this.Close();
-                }
+                this.Close();
+            }
         }
 
         private PagoElectronico.Dominio.Cliente cargarCliente(int id_domi, double id_docu, double id_pais)
@@ -183,7 +192,8 @@ namespace PagoElectronico.ABM_Cliente
             domicilio.numero = Convert.ToInt32(boxAltura.Text);
             domicilio.piso = Convert.ToInt32(boxPiso.Text);
             domicilio.depto = boxDepto.Text;
-            if (!DB.DomicilioDB.yaExiste(domicilio)) {
+            if (!DB.DomicilioDB.yaExiste(domicilio))
+            {
                 DB.DomicilioDB.insertar(domicilio);
             }
             int id = DB.DomicilioDB.getID(domicilio);
@@ -249,22 +259,22 @@ namespace PagoElectronico.ABM_Cliente
 
         private void cargarCamposAModificar()
         {
-                Dominio.Cliente cliente = DB.ClienteDB.getCliente(this.idCliente);
-                Dominio.Domicilio domicilio = DB.DomicilioDB.getDomicilio(cliente.domicilio);
-                string pais = DB.PaisDB.getPais(cliente.pais);
-                string tipo_doc = DB.DocumentoDB.getTipoDoc(cliente.tipo_doc);
+            Dominio.Cliente cliente = DB.ClienteDB.getCliente(this.idCliente);
+            Dominio.Domicilio domicilio = DB.DomicilioDB.getDomicilio(cliente.domicilio);
+            string pais = DB.PaisDB.getPais(cliente.pais);
+            string tipo_doc = DB.DocumentoDB.getTipoDoc(cliente.tipo_doc);
 
-                boxApellido.Text = cliente.apellido;
-                boxNombre.Text = cliente.nombre;
-                boxMail.Text = cliente.mail;
-                boxFecha.Text = cliente.fecha_nac;
-                boxDocumento.Text = Convert.ToString(cliente.documento);
-                boxCalle.Text = domicilio.calle;
-                boxAltura.Text = Convert.ToString(domicilio.numero);
-                boxPiso.Text = Convert.ToString(domicilio.piso);
-                boxDepto.Text = domicilio.depto;
-                comboBoxPais.Text = pais;
-                comboBoxTipoDoc.Text = tipo_doc;
+            boxApellido.Text = cliente.apellido;
+            boxNombre.Text = cliente.nombre;
+            boxMail.Text = cliente.mail;
+            boxFecha.Text = cliente.fecha_nac;
+            boxDocumento.Text = Convert.ToString(cliente.documento);
+            boxCalle.Text = domicilio.calle;
+            boxAltura.Text = Convert.ToString(domicilio.numero);
+            boxPiso.Text = Convert.ToString(domicilio.piso);
+            boxDepto.Text = domicilio.depto;
+            comboBoxPais.Text = pais;
+            comboBoxTipoDoc.Text = tipo_doc;
         }
 
         private void cambiarComponentes()
@@ -290,3 +300,4 @@ namespace PagoElectronico.ABM_Cliente
 
     }
 }
+

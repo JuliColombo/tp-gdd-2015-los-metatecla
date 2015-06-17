@@ -116,5 +116,16 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             return id;
         }
+
+        public static void cargarRoles(System.Windows.Forms.ComboBox.ObjectCollection roles)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format("SELECT Nombre FROM LOS_METATECLA.Rol");
+            conexion.ejecutarQuery();
+            while (conexion.leerReader())
+            {
+                roles.Add(conexion.lector.GetString(0));
+            }
+        }
     }
 }
