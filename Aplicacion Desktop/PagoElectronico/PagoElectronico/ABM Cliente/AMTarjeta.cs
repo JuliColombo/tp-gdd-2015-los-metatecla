@@ -40,11 +40,18 @@ namespace PagoElectronico.ABM_Cliente
             boxFechaEmision.Text = "";
             boxFechaVencimiento.Text = "";
 
+            limpiarErrores();
+        }
+
+        private void limpiarErrores()
+        {
             labelErrorFVenc.Visible = false;
             labelErrorNro.Visible = false;
             labelErrorFEmision.Visible = false;
             labelErrorEmisor.Visible = false;
             labelErrorCod.Visible = false;
+            labelErrorFechaEmi.Visible = false;
+            labelErrorFechaVenc.Visible = false;
         }
 
         private void cambiarComponentes()
@@ -114,6 +121,7 @@ namespace PagoElectronico.ABM_Cliente
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            this.limpiarErrores();
             if (this.validarCamposVacios())
             {
                 if (DB.EmisorDB.validar(comboBoxEmisores.Text))
@@ -128,6 +136,20 @@ namespace PagoElectronico.ABM_Cliente
                     }
                 }
             }
+        }
+
+        private bool validarFechas()
+        {
+            bool valido = true;
+            if(PagoElectronico.EventosUI.validar_fecha_DDMMYYYY(boxFechaEmision.Text)){
+                valido = false;
+                labelErrorFechaEmi.Visible = true;
+            }
+            if(PagoElectronico.EventosUI.validar_fecha_DDMMYYYY(boxFechaVencimiento.Text)){
+                valido = false;
+                labelErrorFechaVenc.Visible = true;
+            }
+            return valido;
         }
 
         private void confirmarAlta()

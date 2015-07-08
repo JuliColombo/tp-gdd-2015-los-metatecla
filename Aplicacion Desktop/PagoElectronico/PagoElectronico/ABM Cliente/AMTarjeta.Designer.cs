@@ -45,6 +45,8 @@
             this.labelErrorEmisor = new System.Windows.Forms.Label();
             this.labelErrorFEmision = new System.Windows.Forms.Label();
             this.labelErrorFVenc = new System.Windows.Forms.Label();
+            this.labelErrorFechaEmi = new System.Windows.Forms.Label();
+            this.labelErrorFechaVenc = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelNumero
@@ -209,11 +211,35 @@
             this.labelErrorFVenc.Text = "Falta especificar Fecha de vencimiento";
             this.labelErrorFVenc.Visible = false;
             // 
+            // labelErrorFechaEmi
+            // 
+            this.labelErrorFechaEmi.AutoSize = true;
+            this.labelErrorFechaEmi.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorFechaEmi.Location = new System.Drawing.Point(282, 159);
+            this.labelErrorFechaEmi.Name = "labelErrorFechaEmi";
+            this.labelErrorFechaEmi.Size = new System.Drawing.Size(76, 13);
+            this.labelErrorFechaEmi.TabIndex = 17;
+            this.labelErrorFechaEmi.Text = "Fecha inválida";
+            this.labelErrorFechaEmi.Visible = false;
+            // 
+            // labelErrorFechaVenc
+            // 
+            this.labelErrorFechaVenc.AutoSize = true;
+            this.labelErrorFechaVenc.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorFechaVenc.Location = new System.Drawing.Point(282, 203);
+            this.labelErrorFechaVenc.Name = "labelErrorFechaVenc";
+            this.labelErrorFechaVenc.Size = new System.Drawing.Size(76, 13);
+            this.labelErrorFechaVenc.TabIndex = 18;
+            this.labelErrorFechaVenc.Text = "Fecha inválida";
+            this.labelErrorFechaVenc.Visible = false;
+            // 
             // AMTarjeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 287);
+            this.Controls.Add(this.labelErrorFechaVenc);
+            this.Controls.Add(this.labelErrorFechaEmi);
             this.Controls.Add(this.labelErrorFVenc);
             this.Controls.Add(this.labelErrorFEmision);
             this.Controls.Add(this.labelErrorEmisor);
@@ -257,5 +283,7 @@
         private System.Windows.Forms.Label labelErrorEmisor;
         private System.Windows.Forms.Label labelErrorFEmision;
         private System.Windows.Forms.Label labelErrorFVenc;
+        private System.Windows.Forms.Label labelErrorFechaEmi;
+        private System.Windows.Forms.Label labelErrorFechaVenc;
     }
 }
