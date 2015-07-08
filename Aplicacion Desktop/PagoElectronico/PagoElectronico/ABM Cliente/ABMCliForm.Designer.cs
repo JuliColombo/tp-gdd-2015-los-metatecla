@@ -65,6 +65,7 @@
             this.boxFecha = new System.Windows.Forms.MaskedTextBox();
             this.labelErrorTyNDoc = new System.Windows.Forms.Label();
             this.comboBoxPais = new System.Windows.Forms.ComboBox();
+            this.labelFechaInvalida = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // boxNombre
@@ -416,11 +417,23 @@
             this.comboBoxPais.Size = new System.Drawing.Size(121, 21);
             this.comboBoxPais.TabIndex = 9;
             // 
+            // labelFechaInvalida
+            // 
+            this.labelFechaInvalida.AutoSize = true;
+            this.labelFechaInvalida.ForeColor = System.Drawing.Color.Red;
+            this.labelFechaInvalida.Location = new System.Drawing.Point(283, 281);
+            this.labelFechaInvalida.Name = "labelFechaInvalida";
+            this.labelFechaInvalida.Size = new System.Drawing.Size(76, 13);
+            this.labelFechaInvalida.TabIndex = 39;
+            this.labelFechaInvalida.Text = "Fecha inválida";
+            this.labelFechaInvalida.Visible = false;
+            // 
             // ABMCliForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 400);
+            this.Controls.Add(this.labelFechaInvalida);
             this.Controls.Add(this.comboBoxPais);
             this.Controls.Add(this.labelErrorTyNDoc);
             this.Controls.Add(this.boxFecha);
@@ -504,5 +517,6 @@
         private System.Windows.Forms.MaskedTextBox boxFecha;
         private System.Windows.Forms.Label labelErrorTyNDoc;
         private System.Windows.Forms.ComboBox comboBoxPais;
+        private System.Windows.Forms.Label labelFechaInvalida;
     }
 }

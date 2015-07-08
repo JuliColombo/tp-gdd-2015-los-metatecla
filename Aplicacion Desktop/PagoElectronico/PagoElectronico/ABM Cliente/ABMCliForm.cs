@@ -117,11 +117,24 @@ namespace PagoElectronico.ABM_Cliente
                 valido = false;
                 labelErrorTyNDoc.Visible = true;
             }
+            valido = validarFecha();
             return valido;
+        }
+
+        private bool validarFecha()
+        {
+            bool valida = true;
+            if (!PagoElectronico.EventosUI.validar_fecha_DDMMYYYY(boxFecha.Text))
+            {
+                valida = false;
+                labelFechaInvalida.Visible = true;
+            }
+            return valida;
         }
 
         private void btn_confirmar_Click(object sender, EventArgs e)
         {
+            this.limpiarErrores();
             if (this.validarCamposVacios())
             {
                 int id_domi = insertarDomicilio();
@@ -161,13 +174,16 @@ namespace PagoElectronico.ABM_Cliente
         {
             if (DB.PaisDB.validar(comboBoxPais.Text))
             {
-                double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
-                double id_pais = DB.PaisDB.getID(comboBoxPais.Text);
-                Dominio.Cliente cliente = this.cargarCliente(id_domi, id_docu, id_pais);
-                cliente.id = this.idCliente;
-                DB.ClienteDB.modificar(cliente);
+                if (this.validarFecha())
+                {
+                    double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
+                    double id_pais = DB.PaisDB.getID(comboBoxPais.Text);
+                    Dominio.Cliente cliente = this.cargarCliente(id_domi, id_docu, id_pais);
+                    cliente.id = this.idCliente;
+                    DB.ClienteDB.modificar(cliente);
 
-                this.Close();
+                    this.Close();
+                }
             }
         }
 
@@ -223,6 +239,11 @@ namespace PagoElectronico.ABM_Cliente
                 comboBoxTipoDoc.Text = "";
             }
 
+            limpiarErrores();
+        }
+
+        private void limpiarErrores()
+        {
             labelErrorMail.Visible = false;
             labelErrorAlt.Visible = false;
             labelErrorApe.Visible = false;
@@ -235,6 +256,7 @@ namespace PagoElectronico.ABM_Cliente
             labelErrorPiso.Visible = false;
             labelErrorTDoc.Visible = false;
             labelErrorTyNDoc.Visible = false;
+            labelFechaInvalida.Visible = false;
         }
 
         private void boxNombre_TextChanged(object sender, EventArgs e)

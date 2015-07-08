@@ -40,5 +40,45 @@ namespace PagoElectronico
             }
 
         }
+
+        public static bool validar_fecha_DDMMYYYY(string fecha)
+        {
+            bool validacion = true;
+            int dia, mes, anio;
+            
+            dia = Convert.ToInt32(fecha.Substring(0,2));
+            mes = Convert.ToInt32(fecha.Substring(3,2));
+            anio = Convert.ToInt32(fecha.Substring(6,4));
+
+            if (mes > 0 && mes < 13 & dia > 0)
+            {
+                switch(mes){
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                    case 12:
+                        if (dia>31){
+                            validacion = false;};
+                        break;
+                    case 2:
+                        if (dia>28){
+                            validacion = false;};
+                        break;
+                    default:
+                        if (dia>30){
+                            validacion = false;};
+                        break;
+
+                }
+            }else{
+                validacion = false;
+            }
+
+            return validacion;
+            
+        }
     }
 }
