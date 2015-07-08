@@ -151,6 +151,7 @@
             this.maskedTextBox_fecha.Location = new System.Drawing.Point(202, 100);
             this.maskedTextBox_fecha.Mask = "00/00/0000";
             this.maskedTextBox_fecha.Name = "maskedTextBox_fecha";
+            this.maskedTextBox_fecha.ReadOnly = true;
             this.maskedTextBox_fecha.Size = new System.Drawing.Size(70, 20);
             this.maskedTextBox_fecha.TabIndex = 12;
             this.maskedTextBox_fecha.ValidatingType = typeof(System.DateTime);

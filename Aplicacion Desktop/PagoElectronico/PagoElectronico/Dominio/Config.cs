@@ -29,6 +29,11 @@ namespace PagoElectronico.Dominio
 
         }
 
+        static public string fecha_DDMMYYYY(string fecha) //tiene formato YYYY-MM-DD
+        {
+            return fecha.Substring(8, 2) + "-" + fecha.Substring(5, 2) + "-" + fecha.Substring(0, 4);
+        }
+
         static public string cadenaConexion()
         {
             string user = "";

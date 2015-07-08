@@ -17,6 +17,7 @@ namespace PagoElectronico.ABM_Cuenta
             DB.PaisDB.cargarPaises(comboBoxPais.Items);
             DB.TipoCuentaDB.cargarTipos(comboBox_tipo.Items);
             DB.MonedaDB.cargarMonedas(comboBox_moneda.Items);
+            maskedTextBox_fecha.Text = PagoElectronico.Dominio.Config.fecha_DDMMYYYY(Dominio.Config.fechaSystem());            
         }
 
         public CrearCuentaForm(PagoElectronico.Dominio.Cuenta cuenta)
