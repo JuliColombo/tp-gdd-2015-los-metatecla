@@ -13,7 +13,7 @@ namespace PagoElectronico.DB
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
                 "INSERT INTO LOS_METATECLA.Cliente (Cli_Nombre, Cli_Apellido, Cli_Tipo_Doc_Cod, Cli_Nro_Doc, " +
-                "Cli_Pais_Codigo, Id_Domicilio, Cli_Fecha_Nac, Cli_Mail) values ('{0}', '{1}', {2}, '{3}', '{4}', {5}, '{6}', '{7}')",
+                "Cli_Pais_Codigo, Id_Domicilio, Cli_Fecha_Nac, Cli_Mail, Cli_Estado) values ('{0}', '{1}', {2}, '{3}', '{4}', {5}, '{6}', '{7}', 'habilitado')",
                 cliente.nombre, cliente.apellido, cliente.tipo_doc, cliente.documento, cliente.pais, cliente.domicilio,
                 cliente.fecha_nac, cliente.mail);
             conexion.ejecutarNoQuery();
@@ -70,7 +70,7 @@ namespace PagoElectronico.DB
             Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
                 "SELECT Cli_Nombre, Cli_Apellido, Doc_Tipo_Desc, Cli_Nro_Doc, Cli_Mail, Cli_Id " +
-                "FROM LOS_METATECLA.Cliente, LOS_METATECLA.Documento " +
+                "FROM LOS_METATECLA.Cliente, LOS_METATECLA.Tipo_Documento " +
                 "WHERE Cli_Tipo_Doc_Cod = Doc_Tipo_Cod AND Cli_Nombre LIKE '%{0}%' AND Cli_Apellido LIKE '%{1}%' " +
                 "AND Doc_Tipo_Desc LIKE '%{2}%' AND Cli_Nro_Doc LIKE '%{3}%' AND Cli_Mail LIKE '%{4}%' " +
                 "AND Cli_Estado != 'baja'",
@@ -134,7 +134,7 @@ namespace PagoElectronico.DB
 
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
-                "SELECT * FROM LOS_METATECLA.Cliente, LOS_METATECLA.Documento " + 
+                "SELECT * FROM LOS_METATECLA.Cliente, LOS_METATECLA.Tipo_Documento " + 
                 "WHERE Cli_Nombre = '{0}' AND Cli_Apellido = '{1}' AND Cli_Nro_Doc = {2} " +
                 "AND Doc_Tipo_Desc like '%{3}%' AND Cli_Tipo_Doc_Cod = Doc_Tipo_Cod", nombre, apellido, docu, tipo_doc);
             conexion.ejecutarQuery();
@@ -155,7 +155,7 @@ namespace PagoElectronico.DB
             Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
                 "SELECT Cli_Nombre, Cli_Apellido, Cli_Nro_Doc, Cuenta_Numero, Cli_Id, Tarjeta_Id, Tarjeta_Fecha_Vencimiento, Tarjeta_Ultimos_4 " +
-                "FROM LOS_METATECLA.Cliente, LOS_METATECLA.Documento, LOS_METATECLA.Tarjeta, LOS_METATECLA.Cuenta " +
+                "FROM LOS_METATECLA.Cliente, LOS_METATECLA.Tipo_Documento, LOS_METATECLA.Tarjeta, LOS_METATECLA.Cuenta " +
                 "WHERE Cli_Tipo_Doc_Cod = Doc_Tipo_Cod AND Cli_Nombre LIKE '%{0}%' AND Cli_Apellido LIKE '%{1}%' " +
                 "AND Cli_Nro_Doc = {2} AND Cuenta_Cliente_id = Cli_Id AND Id_Cliente_Propietario = Cli_Id",
                 nombre, apellido, docu);
