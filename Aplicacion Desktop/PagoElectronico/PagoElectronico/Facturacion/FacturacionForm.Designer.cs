@@ -209,7 +209,7 @@
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FacturacionForm";
-            this.Text = "Form1";
+            this.Text = "Facturacion";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
