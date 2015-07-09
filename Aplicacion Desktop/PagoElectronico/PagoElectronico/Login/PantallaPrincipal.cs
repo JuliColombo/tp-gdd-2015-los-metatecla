@@ -201,7 +201,7 @@ namespace PagoElectronico.Login
                 cargarCuentas();
 
                 } else {
-                    f = new UI.ErrorForm("No se puede cerrar esta cuenta." + 'n' + "Todos los costos de las transacciones pendientes deben estar pagos");
+                    MessageBox.Show("Todos los costos de las transacciones, creacion o modificacion de cuenta pendientes deben estar pagos", "Error, No se puede cerrar esta cuenta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } 
             }
             else
