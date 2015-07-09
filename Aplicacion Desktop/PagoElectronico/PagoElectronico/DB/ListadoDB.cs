@@ -90,6 +90,25 @@ namespace PagoElectronico.DB
             return listado;
         }
 
+        public static List<Listados.PaisListado> movimientosPaises(string año, List<int> trimestre)
+        {
+            List<Listados.PaisListado> listado = new List<Listados.PaisListado>();
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "SELECT TOP 5 p.Pais_Desc as Pais " +
+                "FROM LOS_METATECLA.PAIS p " +
+                "ORDER BY  dbo.Cant_movimientos(p.Pais_Codigo, {0}, {1}, {2}) DESC", año, trimestre[0], trimestre[2]);
+            conexion.ejecutarQuery();
+            while (conexion.leerReader())
+            {
+                Listados.PaisListado listPais = new PagoElectronico.Listados.PaisListado();
+                listPais.pais = conexion.lector.GetString(0);
+                listado.Add(listPais);
+            }
+            conexion.cerrarConexion();
+            return listado;
+        }
+
         public static List<Listados.TipoCuentaFacturaciones> tipoCuentaFact(string año, List<int> trimestre){
             List<Listados.TipoCuentaFacturaciones> listado = new List<PagoElectronico.Listados.TipoCuentaFacturaciones>();
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();

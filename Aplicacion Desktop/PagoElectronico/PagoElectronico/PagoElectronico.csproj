@@ -175,6 +175,7 @@
     <Compile Include="Dominio\Tarjeta.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="Listados\CliListado.cs" />
+    <Compile Include="Listados\PaisListado.cs" />
     <Compile Include="Listados\TipoCuentaFacturaciones.cs" />
     <Compile Include="Login\PantallaPrincipalAdmin.cs">
       <SubType>Form</SubType>

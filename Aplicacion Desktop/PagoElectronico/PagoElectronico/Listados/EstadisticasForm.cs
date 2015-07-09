@@ -51,6 +51,9 @@ namespace PagoElectronico.Listados
                 case "Clientes con mayores transacciones propias":
                     listado.DataSource = DB.ListadoDB.cliTransacciones(comboBoxAño.Text, trimestre);
                     break;
+                case "Paises con mayores movimientos":
+                    listado.DataSource = DB.ListadoDB.movimientosPaises(comboBoxAño.Text, trimestre);
+                    break;
                 case "Facturación por tipo de cuenta":
                     listado.DataSource = DB.ListadoDB.tipoCuentaFact(comboBoxAño.Text, trimestre);
                     break;
