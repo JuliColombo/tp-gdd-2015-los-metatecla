@@ -12,12 +12,14 @@ namespace PagoElectronico.ABM_Cliente
     public partial class ABMCliForm : Form
     {
         public int idCliente { get; set; }
-        public Dominio.Cliente cliente { get; set; }
+       // public Dominio.Cliente cliente { get; set; }
+        public Dominio.Usuario usuario { get; set; }
 
-        public ABMCliForm(Dominio.Cliente cli)
+        public ABMCliForm(Dominio.Usuario user)
         {
             InitializeComponent();
-            cliente = cli;
+            usuario = user;
+            idCliente = 0;
 
             DB.PaisDB.cargarPaises(comboBoxPais.Items);
         }
@@ -28,11 +30,11 @@ namespace PagoElectronico.ABM_Cliente
             InitializeComponent();
             DB.PaisDB.cargarPaises(comboBoxPais.Items);
 
-            if (idCliente != 0)
-            {
+            //if (idCliente != 0)
+            //{
                 this.cargarCamposAModificar();
                 //this.cambiarComponentes();
-            }
+            //}
         }
 
         protected override void OnClosed(EventArgs e)
@@ -157,8 +159,12 @@ namespace PagoElectronico.ABM_Cliente
                 {
                     double id_docu = DB.DocumentoDB.getID(comboBoxTipoDoc.Text);
                     double id_pais = DB.PaisDB.getID(comboBoxPais.Text);
-                    cliente = this.cargarCliente(id_domi, id_docu, id_pais);
+                    Dominio.Cliente cliente = this.cargarCliente(id_domi, id_docu, id_pais);
                     DB.ClienteDB.insertar(cliente);
+
+                    usuario.id = DB.ClienteDB.getID(cliente);
+                    DB.UsuarioDB.insertar(usuario);
+                    insertar_roles_usuario(usuario);
 
                     this.limpiar();
 
@@ -214,6 +220,14 @@ namespace PagoElectronico.ABM_Cliente
             }
             int id = DB.DomicilioDB.getID(domicilio);
             return id;
+        }
+
+        private void insertar_roles_usuario(Dominio.Usuario usuario)
+        {
+            foreach (int idRol in usuario.roles)
+            {
+                DB.RolDB.insertar_usuario_rol(idRol, usuario.id);
+            }
         }
 
         private void btn_limpiar_Click(object sender, EventArgs e)

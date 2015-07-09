@@ -92,6 +92,16 @@ namespace PagoElectronico.DB
             return rolesUsuario;
         }
 
+        public static void insertar_usuario_rol(int idRol, int idUsuario)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "INSERT INTO LOS_METATECLA.Usuario_Rol (Id_Usuario, Id_Rol) " +
+                "values ('{0}', '{1}')",
+                idUsuario, idRol);
+            conexion.ejecutarNoQuery();
+        }
+
         public static Rol getRol(int id)
         {
             Conexion conexion = new Conexion();

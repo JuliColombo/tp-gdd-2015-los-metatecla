@@ -91,7 +91,7 @@ namespace PagoElectronico.DB
             return clientes;
         }
 
-  /*      public static int getID(Dominio.Cliente cliente){
+        public static int getID(Dominio.Cliente cliente){
             Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
             conexion.query = string.Format(
                 "SELECT Cli_Id " +
@@ -102,7 +102,7 @@ namespace PagoElectronico.DB
             int id = Convert.ToInt32(conexion.lector[0]);
             conexion.cerrarConexion();
             return id;
-        }*/
+        }
 
         public static Dominio.Cliente getCliente(int id)
         {

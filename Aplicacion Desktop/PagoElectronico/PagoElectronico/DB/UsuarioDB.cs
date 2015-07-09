@@ -107,7 +107,7 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             return id;
         }
-        //Lo devuelve solo con el nombre y roles (agregar si se necesitan mas
+        //Lo devuelve solo con el nombre y roles (agregar si se necesitan mas)
         public static PagoElectronico.Dominio.Usuario getUsuario(int id)
         {
             PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
@@ -125,6 +125,16 @@ namespace PagoElectronico.DB
             }
             conexion.cerrarConexion();
             return usuario;
+        }
+
+        public static void insertar(Dominio.Usuario usuario)
+        {
+            PagoElectronico.Dominio.Conexion conexion = new PagoElectronico.Dominio.Conexion();
+            conexion.query = string.Format(
+                "INSERT INTO LOS_METATECLA.Usuario (Id_User, User_Username, User_Password, User_Habilitado, User_Intentos_Fallidos) " +
+                "values ('{0}', '{1}', '{2}', 1, 0)",
+                usuario.id, usuario.username, SHA256(usuario.contraseña));
+            conexion.ejecutarNoQuery();
         }
     }
 }

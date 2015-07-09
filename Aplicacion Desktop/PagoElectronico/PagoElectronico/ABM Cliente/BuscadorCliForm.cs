@@ -56,7 +56,8 @@ namespace PagoElectronico.ABM_Cliente
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            ABMCliForm mb = new ABMCliForm(0);
+            //ABMCliForm mb = new ABMCliForm(0);
+            ABM_de_Usuario.AltaUsuarioForm mb = new PagoElectronico.ABM_de_Usuario.AltaUsuarioForm();
             mb.Owner = this;
             mb.ShowDialog();
         }

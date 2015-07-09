@@ -7,6 +7,7 @@ namespace PagoElectronico.Dominio
 {
     public class Usuario
     {
+        public int id { get; set; }
         public String username { get; set; }
         public String contraseña { get; set; }
         public List<int> roles = new List<int>();
@@ -14,5 +15,7 @@ namespace PagoElectronico.Dominio
         public DateTime ult_modificacion { get; set; }
         public String preg_secreta { get; set; }
         public String resp_secreta { get; set; }
+        public bool habilitado { get; set; }
+        public int intentos_fallidos { get; set; }
     }
 }

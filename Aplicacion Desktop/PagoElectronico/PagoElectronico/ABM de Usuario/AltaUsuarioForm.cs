@@ -39,9 +39,10 @@ namespace PagoElectronico.ABM_de_Usuario
                 if (validarUsername())
                 {
                     Dominio.Usuario usuario = crearUsuario();
-                    Dominio.Cliente cliente = new Dominio.Cliente();
-                    Form fcliente = new ABM_Cliente.ABMCliForm(cliente);
+                    //Dominio.Cliente cliente = new Dominio.Cliente();
+                    Form fcliente = new ABM_Cliente.ABMCliForm(usuario);
                     fcliente.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
