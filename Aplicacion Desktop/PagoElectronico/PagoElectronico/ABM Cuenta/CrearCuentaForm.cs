@@ -59,14 +59,6 @@ namespace PagoElectronico.ABM_Cuenta
                     }else { MessageBox.Show("Hay un error en los datos ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
-            else
-            {
-                if (validaciones())
-                {
-                    ventanaDeError("No se pudo crear cuenta. Hay un error en los datos ingresados.");
-
-                }
-            }
         }
 
         private void modificarCuenta(string nro_cuenta, string tipo)
