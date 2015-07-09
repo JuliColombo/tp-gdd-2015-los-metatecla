@@ -34,7 +34,10 @@ namespace PagoElectronico.Listados
             if (validarVacios())
             {
                 labelError.Visible = false;
+                labelCargando.Visible = true;
+                this.Refresh();
                 ejecutarConsulta();
+                labelCargando.Visible = false;
             }
         }
 

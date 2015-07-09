@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelError = new System.Windows.Forms.Label();
+            this.labelCargando = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,11 +132,23 @@
             this.labelError.Text = "Llenar todos los campos";
             this.labelError.Visible = false;
             // 
+            // labelCargando
+            // 
+            this.labelCargando.AutoSize = true;
+            this.labelCargando.ForeColor = System.Drawing.Color.Red;
+            this.labelCargando.Location = new System.Drawing.Point(316, 134);
+            this.labelCargando.Name = "labelCargando";
+            this.labelCargando.Size = new System.Drawing.Size(62, 13);
+            this.labelCargando.TabIndex = 9;
+            this.labelCargando.Text = "Cargando...";
+            this.labelCargando.Visible = false;
+            // 
             // EstadisticasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 319);
+            this.Controls.Add(this.labelCargando);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -164,5 +177,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.Label labelCargando;
     }
 }
