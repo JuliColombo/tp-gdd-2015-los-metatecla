@@ -27,7 +27,7 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
             if (!(origen.idPropietario == destino.idPropietario))
             {
-                FacturaDB.insertarItemPendiente("Costo por transferencia", costo, origen.numero,0);
+                FacturaDB.insertarItemTransferencia(fecha, importe, origen.numero, destino.numero, 0);
             }
             origen.saldo = origen.saldo - importe;
             destino.saldo = destino.saldo + importe;

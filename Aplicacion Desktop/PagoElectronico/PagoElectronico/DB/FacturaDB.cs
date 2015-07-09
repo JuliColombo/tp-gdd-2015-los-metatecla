@@ -26,6 +26,21 @@ namespace PagoElectronico.DB
             conexion.cerrarConexion();
         }
 
+        public static void insertarItemTransferencia(string fecha,double importe, long numeroorigen,long numerodestino, int cantidad)
+        {
+
+            Conexion conexion = new Conexion();
+            List<SqlParameter> ListParam = new List<SqlParameter>();
+            ListParam.Add(new SqlParameter("@desc", string.Format("Costo por transferencia")));
+            ListParam.Add(new SqlParameter("@fecha", Convert.ToDateTime(fecha)));
+            ListParam.Add(new SqlParameter("@origen", numeroorigen));
+            ListParam.Add(new SqlParameter("@destino", numerodestino));
+            ListParam.Add(new SqlParameter("@importe", importe));
+            ListParam.Add(new SqlParameter("@cantidad", cantidad));
+            conexion.ejecutarQueryConParam("INSERT INTO LOS_METATECLA.Item_Factura(Item_Desc,Item_Importe,Pendiente_Factura, Numero_Cuenta,Cantidad,Numero_Transferencia) VALUES(@desc,@importe,1,@origen,@cantidad,(SELECT Id_Transferencia FROM LOS_METATECLA.Transferencia t WHERE t.Transferencia_Fecha= @fecha AND t.Transferencia_Importe = @importe AND  t.Cuenta_Origen = @origen AND t.Cuenta_Destino = @destino))", ListParam);
+            conexion.cerrarConexion();
+        }
+
         public static void obtenerItemsFactura(Cuenta cuenta,DataTable tabla)
         {
             Conexion conexion = new Conexion();
