@@ -49,11 +49,14 @@ namespace PagoElectronico.ABM_Cuenta
             {
                 if (textBox_nro_cuenta.ReadOnly)
                 {
-                    modificarCuenta(textBox_nro_cuenta.Text, comboBox_tipo.Text);
+                        modificarCuenta(textBox_nro_cuenta.Text, comboBox_tipo.Text); 
                 }
                 else
                 {
-                    crearCuenta();
+                    if (validaciones())
+                    {
+                        crearCuenta();
+                    }else { MessageBox.Show("Hay un error en los datos ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
             else
