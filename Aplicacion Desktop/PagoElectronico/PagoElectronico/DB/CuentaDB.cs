@@ -260,7 +260,9 @@ namespace PagoElectronico.DB
                 "WHERE Numero_Cuenta = {0} AND Pendiente_Factura = 1", numero_cuenta);
             conexion.ejecutarQuery();
 
-            int cantidad = Convert.ToInt32(conexion.lector[0]);
+            int cantidad = 0;
+
+            cantidad = Convert.ToInt32(conexion.lector[0]);
             return cantidad > 0;
         }
 
