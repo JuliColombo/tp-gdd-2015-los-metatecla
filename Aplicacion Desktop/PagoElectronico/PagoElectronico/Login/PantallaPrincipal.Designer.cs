@@ -236,7 +236,7 @@
             // 
             // buttonClientes
             // 
-            this.buttonClientes.Location = new System.Drawing.Point(371, 34);
+            this.buttonClientes.Location = new System.Drawing.Point(397, 34);
             this.buttonClientes.Name = "buttonClientes";
             this.buttonClientes.Size = new System.Drawing.Size(101, 23);
             this.buttonClientes.TabIndex = 11;
@@ -246,17 +246,17 @@
             // 
             // buttonUsuarios
             // 
-            this.buttonUsuarios.Location = new System.Drawing.Point(261, 34);
+            this.buttonUsuarios.Location = new System.Drawing.Point(247, 34);
             this.buttonUsuarios.Name = "buttonUsuarios";
-            this.buttonUsuarios.Size = new System.Drawing.Size(104, 23);
+            this.buttonUsuarios.Size = new System.Drawing.Size(144, 23);
             this.buttonUsuarios.TabIndex = 10;
-            this.buttonUsuarios.Text = "Gestion Usuarios";
+            this.buttonUsuarios.Text = "Gestion Usuarios / Tarjetas";
             this.buttonUsuarios.UseVisualStyleBackColor = true;
             this.buttonUsuarios.Click += new System.EventHandler(this.buttonUsuarios_Click);
             // 
             // buttonEstadisticas
             // 
-            this.buttonEstadisticas.Location = new System.Drawing.Point(136, 34);
+            this.buttonEstadisticas.Location = new System.Drawing.Point(122, 34);
             this.buttonEstadisticas.Name = "buttonEstadisticas";
             this.buttonEstadisticas.Size = new System.Drawing.Size(119, 23);
             this.buttonEstadisticas.TabIndex = 8;
@@ -266,7 +266,7 @@
             // 
             // buttonABMRol
             // 
-            this.buttonABMRol.Location = new System.Drawing.Point(31, 34);
+            this.buttonABMRol.Location = new System.Drawing.Point(17, 34);
             this.buttonABMRol.Name = "buttonABMRol";
             this.buttonABMRol.Size = new System.Drawing.Size(99, 23);
             this.buttonABMRol.TabIndex = 7;
